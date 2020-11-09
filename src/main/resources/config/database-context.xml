@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd 
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd" 
+		xmlns:util="http://www.springframework.org/schema/util" 
+		xmlns:context="http://www.springframework.org/schema/context" 
+		xmlns:tx="http://www.springframework.org/schema/tx" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xmlns="http://www.springframework.org/schema/beans">
+
+	<util:properties location="classpath:properties/database.properties" id="db"/>
+
+	<!-- DB 연결 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="username" value="#{db['user']}" />
+		<property name="password" value="#{db['password']}"/>
+		<property name="url" value="#{db['url']}"/>
+		<property name="driverClassName" value="#{db['driver']}"/>
+	</bean>
+	
+	<!-- DB 연결정보, SQL문의 정보 -->
+	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="mapperLocations" value="classpath:database/mappers/**/*Mapper.xml"></property>
+		<property name="configLocation" value="classpath:database/config/myBatisConfig.xml"></property>
+	</bean>
+
+	<!-- 결과 매핑 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"/>
+	</bean>
+
+	<!-- transaction 관리자 설정 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<tx:annotation-driven proxy-target-class="true"/>
+
+</beans>
