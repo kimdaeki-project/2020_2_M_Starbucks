@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/* CSS 초기화 */
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	overflow: hidden;
+	background: transparent;
+}
+
+ul, li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;	
+}
+
+header, nav, section, footer {
+	display: block;
+}
