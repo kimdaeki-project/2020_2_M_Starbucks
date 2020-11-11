@@ -6,6 +6,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="java.lang.Long" alias="Long"/>
-		<typeAlias type="java.util.List" alias="List"/>		
+		<typeAlias type="java.util.List" alias="List"/>	
+		
+		<!-- admin page -->
+		<typeAlias type="com.starbucks.sw4.admin.tables.notice.NoticeDTO" alias="NoticeDTO"/>
+		
 	</typeAliases>
 </configuration>

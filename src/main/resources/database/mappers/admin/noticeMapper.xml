@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.starbucks.sw4.admin.tables.notice.NoticeDAO">
+	
+	<insert id="setInsert" parameterType="NoticeDTO">
+		insert into staffNotice values(
+			staffNotice_seq.NEXTVAL, #{title}, #{writer}, #{contents}, current_timestamp, 0)
+	</insert>
+	
+	<select id="getList" resultType="NoticeDTO">
+		select * from staffNotice order by noticeNum DESC
+	</select>
+	
+</mapper>
