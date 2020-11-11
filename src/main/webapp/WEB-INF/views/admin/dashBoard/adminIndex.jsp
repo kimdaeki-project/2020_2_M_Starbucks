@@ -19,6 +19,7 @@
 		
 		<div id="layoutSidenav">
 			<c:import url="../template/sidebar.jsp"></c:import>
+			
 		</div>
 		
 		<!-- script template -->
