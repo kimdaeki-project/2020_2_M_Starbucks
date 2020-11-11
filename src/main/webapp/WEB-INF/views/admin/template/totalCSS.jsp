@@ -4,19 +4,24 @@
 <style>
 
 	body{
+		background-color: #c8c6c6;
+	}
+	
+	#stColor{
+		background-color: #036635;
+		border: 1px #036635 solid;
+	}
+	
+	.bg-dark {
+	    background-color: #171717!important;
+	}
+	
+	.sidebar {
+	    background-color: #343434;
+	}
+	
+	#wrapper{
 		background-color: #FFFFFF;
-	}
-				
-	.navbar-nav .nav-item.active .nav-link{
-	    color: #3b3c3c;
-	}
-	
-	.sidebar .nav-item .nav-link{
-		color: #3b3c3c;
-	}
-	
-	.sidebar .nav-item.active .nav-link{
-		color: #3b3c3c;
 	}
 	
 </style>
