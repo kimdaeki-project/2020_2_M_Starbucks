@@ -10,6 +10,7 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<c:import url="../template/bootstrap.jsp"></c:import>
+		<c:import url="../template/commonCSS.jsp"></c:import>
 	</head>
 	
 	<body class="sb-nav-fixed">
