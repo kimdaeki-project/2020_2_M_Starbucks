@@ -27,6 +27,18 @@
 	    border-color: #036635;
 	}
 	
+	.sb-sidenav-dark .sb-sidenav-menu .nav-link.active {
+    	color: rgba(255, 255, 255, 0.5);
+	}
+	
+	.sb-sidenav-dark .sb-sidenav-menu .nav-link {
+    	color: rgba(255, 255, 255, 0.5);
+	}
+	
+	.sb-sidenav-dark .sb-sidenav-menu .nav-link.active .sb-nav-link-icon {
+    	color: rgba(255, 255, 255, 0.5);
+	}
+	
 	.navbar-brand{
 		/*
 		background: url("/sw4/resources/admin/images/logo.png");
