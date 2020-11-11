@@ -11,6 +11,14 @@
 		with: 100%;
 	}
 	
+	body{
+		background-color: #EAEAEA;
+	}
+	
+	#layoutSidenav{
+		background-color: white;
+	}
+	
 	#logo{
 		width: 1.7rem;
 		margin-right: 3.9rem;

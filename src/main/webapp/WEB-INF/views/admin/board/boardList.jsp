@@ -39,13 +39,25 @@
 			}
 			
 			#table-num-size{
-				width: 5rem;
+				width: 4rem;
 			}
 			
 			#table-title-size{
-				width: 45rem;
+				width: 43rem;
 				padding-left: 1.5rem;
 				text-align: left;
+			}
+			
+			#table-writer-size{
+				width: 6rem;
+			}
+			
+			#table-hit-size{
+				width: 4rem;
+			}
+			
+			#table-date-size{
+				width: 10rem;
 			}
 			
 		</style>
@@ -78,9 +90,9 @@
 								<tr>
 									<th id="table-num-size">num</th>
 									<th>title</th>
-									<th>writer</th>
-									<th>date</th>
-									<th>hit</th>
+									<th id="table-writer-size">writer</th>
+									<th id="table-date-size">date</th>
+									<th id="table-hit-size">hit</th>
 								</tr>
 							</thead>
 							

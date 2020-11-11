@@ -29,11 +29,7 @@ public class NoticeController {
 		ModelAndView mv = new ModelAndView();
 		
 		List<NoticeDTO> list = noticeService.getList();
-		
-		for(int i=0; i<list.size(); i++) {
-			
-		}
-		
+
 		mv.addObject("noticeList", list);
 		mv.setViewName("admin/board/boardList");
 		return mv;

@@ -40,7 +40,7 @@ public class NoticeDTO {
 		return regDate;
 	}
 	public void setRegDate(Timestamp regDate) {
-		SimpleDateFormat format = new SimpleDateFormat("YYYY/MM/dd kk:mm:ss");
+		SimpleDateFormat format = new SimpleDateFormat("YYYY/MM/dd kk:mm");
 		String regDateTmp = format.format(regDate);
 		this.regDate = regDateTmp;
 	}
