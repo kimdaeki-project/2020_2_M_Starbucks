@@ -3,6 +3,14 @@
 
 <style>
 	
+	body{
+
+	}	
+	
+	main{
+		with: 100%;
+	}
+	
 	#logo{
 		width: 1.7rem;
 		margin-right: 3.9rem;

@@ -18,8 +18,17 @@
 		<c:import url="../template/navigation.jsp"></c:import>
 		
 		<div id="layoutSidenav">
+		
 			<c:import url="../template/sidebar.jsp"></c:import>
 			
+			<div id="layoutSidenav_content">
+				<main>
+					<div class="container-fluid">
+						<h1 class="mt-4">Main page</h1>
+					</div>
+				</main>
+				<c:import url="../template/footer.jsp"></c:import>
+			</div>
 		</div>
 		
 		<!-- script template -->

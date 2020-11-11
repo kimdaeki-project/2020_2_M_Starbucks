@@ -7,13 +7,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value = "/notice/**")
-public class BoardController {
+public class NoticeController {
 	
 	@GetMapping("noticeList")
 	public ModelAndView getList() {
+		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("admin/board/boardList");
 		return mv;
+		
 	}
-	
+
 }

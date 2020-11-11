@@ -13,10 +13,39 @@
 		<c:import url="../template/commonCSS.jsp"></c:import>
 		
 		<style type="text/css">
-		
-			main{
-				background-color: yellow;
-				with: 100%;
+			
+			#table-area{
+				margin-top: 2em;
+				background-color: white;	
+			}
+			
+			.breadcrumb {
+			    background-color: #f1f2f4;
+			}
+			
+			.mt-4{
+				padding-top: 1.3rem;
+				margin-bottom: 1.1rem;
+			}
+			
+			.mb-4{
+    			color: #5D5D5D;
+    			font-size: 0.83rem;
+			}
+			
+			table{
+				text-align: center;
+				font-size: 0.9rem;
+			}
+			
+			#table-num-size{
+				width: 5rem;
+			}
+			
+			#table-title-size{
+				width: 45rem;
+				padding-left: 1.5rem;
+				text-align: left;
 			}
 			
 		</style>
@@ -36,16 +65,52 @@
 				<main>
 					
 					<div class="container-fluid">
-						<h1 class="mt-4">Staff notice</h1>
+						<h1 class="mt-4">직원 공지사항</h1>
+						<div class="breadcrumb mb-4">
+							스타벅스 전 매장 스태프 및 매니저 공지사항입니다.
+						</div>
 					</div>
-					<hr>
 					
+					<div class="container-fluid" id="table-area">
 					
+						<table class="table table-bordered"  width="100%">
+							<thead>
+								<tr>
+									<th id="table-num-size">num</th>
+									<th>title</th>
+									<th>writer</th>
+									<th>date</th>
+									<th>hit</th>
+								</tr>
+							</thead>
+							
+							<tbody>
+								<tr>
+									<td>test1</td>
+									<td id="table-title-size">test2</td>
+									<td>test3</td>
+									<td>test4</td>
+									<td>test5</td>
+								</tr>
+								<tr>
+									<td>cc1</td>
+									<td id="table-title-size">cc2</td>
+									<td>cc3</td>
+									<td>cc4</td>
+									<td>cc5</td>
+								</tr>
+							</tbody>
+							
+						</table>
+						
+					</div>
 					
 				</main>
 	
-			</div>
-			
+				<c:import url="../template/footer.jsp"></c:import>
+				
+			</div>		
+		
 		</div>
 		
 		<!-- script template -->
