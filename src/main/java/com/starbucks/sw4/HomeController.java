@@ -33,7 +33,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "admin/dashBoard/index_test";
+		return "admin/dashBoard/adminIndex";//"admin/indexExample";
 	}
 	
 }
