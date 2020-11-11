@@ -1,6 +1,7 @@
 package com.starbucks.sw4.admin.tables.notice;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,20 +18,23 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	// get notice list -------------------------------------
-	// 2020.11.11 17:20 access test success
+	/*
+	 * [JeongSky] 2020.11.11 17:20 access test success
+	 */
 	@GetMapping("noticeList")
 	public ModelAndView getList() throws ClassNotFoundException, SQLException {
 		
-		System.out.println("controller access");
+		System.out.println("notice list controller access ******");
 		
 		ModelAndView mv = new ModelAndView();
 		
 		List<NoticeDTO> list = noticeService.getList();
 		
-		for(NoticeDTO dto: list) {
-			System.out.println(dto.getTitle());
+		for(int i=0; i<list.size(); i++) {
+			
 		}
 		
+		mv.addObject("noticeList", list);
 		mv.setViewName("admin/board/boardList");
 		return mv;
 		

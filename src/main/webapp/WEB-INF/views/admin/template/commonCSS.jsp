@@ -3,9 +3,9 @@
 
 <style>
 	
-	body{
-
-	}	
+	a{
+		color: #353535;
+	}
 	
 	main{
 		with: 100%;

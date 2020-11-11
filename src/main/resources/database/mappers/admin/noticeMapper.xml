@@ -7,7 +7,7 @@
 	
 	<insert id="setInsert" parameterType="NoticeDTO">
 		insert into staffNotice values(
-			staffNotice_seq.NEXTVAL, #{title}, #{writer}, #{contents}, current_timestamp, 0)
+			staffNotice_seq.NEXTVAL, #{title}, #{writer}, #{contents}, to_char(current_timestamp,'YYYY-MM-DD HH24:MI:SS'), 0)
 	</insert>
 	
 	<select id="getList" resultType="NoticeDTO">

@@ -15,7 +15,7 @@ public class NoticeDAOTest extends MyTestCase {
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
-	@Test
+	// @Test
 	public void getListTest() throws ClassNotFoundException, SQLException{
 		assertNotNull(noticeDAO.getList());
 	}
@@ -25,9 +25,9 @@ public class NoticeDAOTest extends MyTestCase {
 		
 		NoticeDTO dto = new NoticeDTO();
 		
-		dto.setTitle("insert title test2");
-		dto.setWriter("witer2");
-		dto.setContents("contents test2");
+		dto.setTitle("insert title test10");
+		dto.setWriter("witer10");
+		dto.setContents("contents test10");
 		
 		int result = noticeDAO.setInsert(dto);
 		

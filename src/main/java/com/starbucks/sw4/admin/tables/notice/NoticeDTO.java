@@ -1,6 +1,7 @@
 package com.starbucks.sw4.admin.tables.notice;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 public class NoticeDTO {
 
@@ -8,7 +9,7 @@ public class NoticeDTO {
 	private String title;
 	private String writer;
 	private String contents;
-	private Timestamp regDate;
+	private String regDate;
 	private long hit;
 	
 	public long getNoticeNum() {
@@ -35,11 +36,13 @@ public class NoticeDTO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public Timestamp getRegDate() {
+	public String getRegDate() {
 		return regDate;
 	}
 	public void setRegDate(Timestamp regDate) {
-		this.regDate = regDate;
+		SimpleDateFormat format = new SimpleDateFormat("YYYY/MM/dd kk:mm:ss");
+		String regDateTmp = format.format(regDate);
+		this.regDate = regDateTmp;
 	}
 	public long getHit() {
 		return hit;

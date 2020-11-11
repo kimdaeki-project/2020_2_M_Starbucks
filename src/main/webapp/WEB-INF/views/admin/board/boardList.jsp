@@ -85,20 +85,17 @@
 							</thead>
 							
 							<tbody>
-								<tr>
-									<td>test1</td>
-									<td id="table-title-size">test2</td>
-									<td>test3</td>
-									<td>test4</td>
-									<td>test5</td>
-								</tr>
-								<tr>
-									<td>cc1</td>
-									<td id="table-title-size">cc2</td>
-									<td>cc3</td>
-									<td>cc4</td>
-									<td>cc5</td>
-								</tr>
+								<c:forEach items="${noticeList}" var="list">
+									<tr>
+										<td>${list.noticeNum}</td>
+										<td id="table-title-size">
+											<a href="./noticeSelect?noticeNum=${list.noticeNum}">${list.title}</a>
+										</td>
+										<td>${list.writer}</td>
+										<td>${list.regDate}</td>
+										<td>${list.hit}</td>
+									</tr>
+								</c:forEach>
 							</tbody>
 							
 						</table>
