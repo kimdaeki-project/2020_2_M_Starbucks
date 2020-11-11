@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+/* Web Version (201110 성민) */
+#header { width:100%; height:120px; position:relative; }
+#mstopWrap { height:120px; position:relative; }
+
+
+.sub_gnb_wrap { width:100%; height: 120px; background:#f6f5ef; border-bottom:1px solid #e5e5e5; border-top:2px solid #000; position:fixed; top:0; left:0; z-index:99; }
+.sub_gnb_wrap_inner { width:1100px; height:120px; margin:0 auto; position:relative; }
+.sub_gnb_wrap_inner h1.logo { width:75px; height:75px; position:absolute; top:22px; left:0; z-index:12px; }
+.sub_gnb_wrap_inner h1.logo a { width:100%; height:100%; background:url("../../images/common/logo.png"); display:block; overflow:hidden; text-indent:-20000px; }
+
+.sub_gnb_wrap_inner nav.util_nav { widht: 464px; height: 20px; background:url("../../images/common/sdown_util_sep.png") no-repeat; position:absolute; top:15px; right:93px; }
+.sub_gnb_wrap_inner nav.util_nav ul li { height:20px; text-align:center; float:left; }
+.sub_gnb_wrap_inner nav.util_nav ul li a { color:#555; display:block; font:normal 13px Avenir, Arial, georgia; line-height:20px; }
+.sub_gnb_wrap_inner nav.util_nav ul li.util_nav01 { width:76px; }
+.sub_gnb_wrap_inner nav.util_nav ul li.util_nav02 { margin-left:1px; width:107px; }
+.sub_gnb_wrap_inner nav.util_nav ul li.util_nav03 { margin-left:1px; width:181px; }
+.sub_gnb_wrap_inner nav.util_nav ul li.util_nav04 { margin-left:1px; width:97px; }
+
+.sub_gnb_wrap_inner p.btn_search { width:32px; height:32px; background:#fff; border:1px solid #ccc; border-radius:5px; position:absolute; top:9px; right:54px; }
+.sub_gnb_wrap_inner p.btn_search a { width:34px; height:34px; display:block; position:absolute; right:0; top:0; }
+.sub_gnb_wrap_inner p.btn_search a img { position:absolute; top:6px; right:7px; z-index:1; }
+
+.ally { width:1px; height:1px; margin:-1px; clip:rect(0,0,0,0); overflow: hidden; position:absolute; }
+.sub_gnb_wrap_inner p.btn_search input { width:123px; height:22px; background:none; border:none; padding:0 10px; color:#777; font-size:12px; display:none; position:absolute; top:5px; left:0px; }

@@ -678,10 +678,7 @@
 							</p>
 							<a href="javascript:void(0);" class="rCup3_wrap" role="button" title="마이 리워드 레이어 열기"><!-- 접근성_20171201 class, role, title 추가 --><span class="rCup3"></span></a><!-- 150714 DOM 수정 - 떨어지는 메뉴 부분에 jsMovie 추가 -->
 						</div>
-						<nav class="sub_gnb_nav">
-							<div class="sub_gnb_nav_inner">
-							</div>
-						</nav>
+						
 			 		</div>
 					<!-- 서브 gnb end -->
 				</div>
