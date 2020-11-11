@@ -12,6 +12,8 @@
 <title id="titleJoin">Starbucks Coffee Korea</title>
 	<link href="${pageContext.request.contextPath}/resources/css/common/reset.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/header.css" rel="stylesheet" type="text/css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 	<h1><spring:eval expression="@db['user']"></spring:eval> </h1>
@@ -21,10 +23,9 @@
 			<a href="#">Container</a>
 		</div>
 	</section>
-	<footer>
-		<div>
-			<a href="#">Footer</a>
-		</div>
-	</footer>
+	
+	
+	
+	<script src="${pageContext.request.contextPath}/resources/js/common/header.js"></script>
 </body>
 </html>
