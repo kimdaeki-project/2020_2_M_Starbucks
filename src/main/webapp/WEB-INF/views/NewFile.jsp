@@ -653,7 +653,7 @@
 					</nav>
 				</div>
 			</div>
-		<!-- 640 gnb end -->
+			<!-- 640 gnb end -->
 
 <!-- GNB 영역 end -->
 

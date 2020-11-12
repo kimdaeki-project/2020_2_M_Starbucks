@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <header id="header">
-
+	<!-- WEB GNB 영역 -->
 	<div id="mstopWrap">
 		<div id="gnb">
 			<!-- 서브 gnb -->
@@ -25,20 +25,12 @@
 
 					<p class="btn_search">
 						<a href="#"><img alt="통합검색" src="${pageContext.request.contextPath}/resources/images/common/icon_magnifier_black.png"></a>
-						<!-- 이미지 클릭하면 활성화
 						<label for=totalSearch" class="ally">통합 검색</label>
-						<input type="text" id="totalSearch" placeholder="통합검색"> -->
+						<input type="text" id="totalSearch" placeholder="통합검색">
 					</p>
-					<!-- 
-					<a href="#" class="rCup3_wrap" role="button" title="마이 리워드 레이어 열기">
-						<span class="rCup3"></span>
-					</a>
-					 -->
-					 <!-- 150714 DOM 수정 - 떨어지는 메뉴 부분에 jsMovie 추가 -->
 				</div>
 				<nav class="sub_gnb_nav">
 					<div class="sub_gnb_nav_inner">
-						<%-- 
 						<ul>
 							<!-- COFFEE -->
 							<li class="gnb_nav01">
@@ -387,12 +379,375 @@
 							</li>
 							<!-- WHAT'S NEW end -->
 						</ul>
-						--%>
 					</div>
 				</nav>
 			</div>
 			<!-- 서브 gnb end -->
 		</div>
 	</div>	
+	<!-- WEB GNB 영역 end -->
 	
+	<!-- MOBILE GNB 영역 -->
+	<!-- 960 gnb -->
+	<div class="tablet_gnb_wrap">
+		<h1 class="logo">
+			<a href="/">스타벅스 코리아</a>
+		</h1>
+		<nav class="tablet_gnb_sep">
+			<ul>
+				<li class="tablet_gnb01"></li>
+				<li class="tablet_gnb02">
+					<a href="#"><span class="ally">마이스타벅스</span></a>
+				</li>
+				<li class="tablet_gnb03">
+					<a href="#"><span class="ally">매장찾기</span></a>
+				</li>
+				<li class="tablet_gnb04">
+					<a href="#"><span class="ally" role="button">메뉴열기</span></a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<!-- 960 gnb end -->
+
+	<!-- 640 gnb -->
+	<!-- 메뉴버튼을 눌렀을 때 -->
+	<div class="mob_gnb_dimm"></div>
+	<div class="mob_gnb_wrap">
+		<div class="mob_gnb_wrap_inner">
+			<aside class="btn_gnb_close">
+				<a href="#" title="메뉴닫기" role="button">닫기</a>
+			</aside>
+			<div class="mob_gnb_search">
+				<div class="mob_gnb_search_inner">
+					<label for="search_text" class="ally">검색어</label>
+					<input type="text" id="search_text" name="search_text"> <a href="#" class="mob_gnb_search_btn" titie="검색">Search</a>
+				</div>
+			</div>
+			<nav class="mob_gnb_menus">
+				<!-- My Starbucks -->
+				<ul>
+					<li class="mob_gnb_ttl1">
+						<a role="button" class="en" href="#">My Starbucks<span class="mob_gnb_arrow_down"></span></a>
+					</li>
+					<li><a href="#">한눈에 보기</a></li>
+					<li>
+						<a role="button" href="#">My 리워드<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#" required="login">리워드 및 혜택</a></li>
+							<li><a href="#" required="login">별 히스토리</a></li>
+						</ul>
+					</li>
+					<li>
+						<a role="button" href="#">My 스타벅스 카드<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">보유 카드</a></li>
+							<li><a href="#">카드 등록</a></li>
+							<li><a href="#">카드 충전</a></li>
+							<li><a href="#">분실신고/잔액이전</a></li>
+						</ul></li>
+					<li>
+						<a role="button" href="#">My 스타벅스 e-Gift Card<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">선물하기</a></li>
+							<li><a href="#">선물 내역</a></li>
+							<li><a href="#">장바구니 내역</a></li>
+						</ul>
+					</li>
+					<li>
+						<a role="button" href="#">My 쿠폰<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">등록하기</a></li>
+							<li><a href="#">선물하기</a></li>
+							<li><a href="#">사용하기</a></li>
+						</ul></li>
+					<li><a href="#">My 캘린더</a></li>
+					<li><a href="#">My 메뉴</a></li>
+					<li><a href="#">My 매장</a></li>
+					<li>
+						<a role="button" href="#">My e-프리퀀시<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">이용안내</a></li>
+							<li><a href="#">이용현황</a></li>
+						</ul>
+					</li>
+					<li><a href="#">My 고객의 소리</a></li>
+					<li><a href="#">전자영수증</a></li>
+					<!-- <li class="msRnb_btn"><a href="#" onclick="fn_rewardTumblerMsrCheck();">개인컵 리워드 설정</a></li> -->
+					<li><a href="#">My DT Pass</a></li>
+					<!-- <li><a href="#">인박스</a></li> -->
+					<li>
+						<a role="button" href="#">개인정보관리<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">개인정보확인 및 수정</a></li>
+							<li><a href="#">회원 탈퇴</a></li>
+							<li><a href="#">비밀번호 변경</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- My Starbucks end -->
+				<!-- COFFEE -->
+				<ul>
+					<li class="mob_gnb_ttl2">
+						<a role="button" class="en" href="#">COFFEE<span class="mob_gnb_arrow_down"></span></a>
+					</li>
+					<li><a href="#">한눈에 보기</a></li>
+					<li><a href="#">나와 어울리는 커피</a></li>
+					<li>
+						<a role="button" href="#">스타벅스 리저브™<span class="mob_gnb_arrow_down"></a>
+						<ul>
+							<li><a href="#">ABOUT</a></li>
+							<li><a href="#">RESERVE MAGAZINE</a></li>
+						</ul>
+					</li>
+					<li>
+						<a role="button" href="#">에스프레소 음료<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">도피오</a></li>
+							<li><a href="#">에스프레소 마키아또</a></li>
+							<li><a href="#">아메리카노</a></li>
+							<li><a href="#">마키아또</a></li>
+							<li><a href="#">카푸치노</a></li>
+							<li><a href="#">라떼</a></li>
+							<li><a href="#">모카</a></li>
+							<li><a href="#">리스트레또 비안코</a></li>
+						</ul></li>
+					<li>
+						<a role="button" href="#">최상의 커피를 즐기는 법<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">커피 프레스</a></li>
+							<li><a href="#">푸어 오버</a></li>
+							<li><a href="#">아이스 푸어 오버</a></li>
+							<li><a href="#">커피 메이커</a></li>
+							<li><a href="#">리저브를 매장에서 다양하게 즐기는 법</a></li>
+						</ul>
+					</li>
+					<li>
+						<a role="button" href="#">커피 이야기<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">스타벅스 로스트 스팩트럼</a></li>
+							<li><a href="#">최상의 아라비카 원두</a></li>
+							<li><a href="#">한 잔의 커피가 완성되기까지</a></li>
+							<li><a href="#">클로버® 커피 추출 시스템</a></li>
+							<li><a href="#">스타벅스 디카페인</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- COFFEE end -->
+				<!-- MENU -->
+				<ul>
+					<li class="mob_gnb_ttl2">
+						<a role="button" class="en" href="#">MENU<span class="mob_gnb_arrow_down"></span></a>
+					</li>
+					<li><a href="#">한눈에 보기</a></li>
+					<li>
+						<a role="button" href="#">음료<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">전체보기</a></li>
+							<li><a href="#">콜드 브루</a></li>
+							<li><a href="#">브루드 커피</a></li>
+							<li><a href="#">에스프레소</a></li>
+							<li><a href="#">프라푸치노</a></li>
+							<li><a href="#">블렌디드</a></li>
+							<li><a href="#">스타벅스 피지오</a></li>
+							<li><a href="#">티(티바나)</a></li>
+							<li><a href="#">기타 제조 음료</a></li>
+							<li><a href="#">스타벅스 주스(병음료)</a></li>
+						</ul>
+					</li>
+					<li>
+						<a role="button" href="#">푸드<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">전체보기</a></li>
+							<li><a href="#">브레드</a></li>
+							<li><a href="#">케이크</a></li>
+							<li><a href="#">샌드위치 & 샐러드</a></li>
+							<li><a href="#">따뜻한 푸드</a></li>
+							<li><a href="#">과일 & 요거트</a></li>
+							<li><a href="#">스낵 & 미니 디저트</a></li>
+							<li><a href="#">아이스크림</a></li>
+						</ul>
+					</li>
+					<li>
+						<a role="button" href="#">상품<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">전체보기</a></li>
+							<li><a href="#">머그</a></li>
+							<li><a href="#">글라스</a></li>
+							<li><a href="#">플라스틱 텀블러</a></li>
+							<li><a href="#">스테인리스 텀블러</a></li>
+							<li><a href="#">보온병</a></li>
+							<li><a href="#">액세서리</a></li>
+							<li><a href="#">커피 용품</a></li>
+							<li><a href="#">패키지 티(티바나)</a></li>
+							<li><a href="#">스타벅스 플래너</a></li>
+						</ul>
+					</li>
+					<li><a role="button" href="#">커피<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">스타벅스 원두</a></li>
+							<li><a href="#">스타벅스 비아</a></li>
+							<li><a href="#">스타벅스 오리가미</a></li>
+						</ul>
+					</li>
+					<li>
+						<a role="button" href="#">카드<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#o">전체보기</a></li>
+							<li><a href="#">실물카드</a></li>
+							<li><a href="#">e-Gift 카드</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- MENU end -->
+				<!-- STORE -->
+				<ul>
+					<li class="mob_gnb_ttl2">
+						<a role="button" class="en" href="#">STORE<span class="mob_gnb_arrow_down"></span></a>
+					</li>
+					<li><a href="/store/index.do">한눈에 보기</a></li>
+					<li>
+						<a role="button" href="#">매장 찾기<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">빠른 검색</a></li>
+							<li><a href="#">지역 검색</a></li>
+							<li><a href="#">나만의 매장</a></li>
+						</ul>
+					</li>
+					<li><a href="#">드라이브 스루 매장</a></li>
+					<li><a href="#">스타벅스 리저브™ 매장</a></li>
+					<li><a href="#">커뮤니티 스토어 매장</a></li>
+					<li>
+						<a role="button" href="#">매장 이야기<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">청담스타</a></li>
+							<li><a href="#">티바나 바 매장</a></li>
+							<li><a href="#">파미에파크</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- STORE end -->
+				<!-- RESPONSIBILITY -->
+				<ul>
+					<li class="mob_gnb_ttl2">
+						<a role="button" class="en" href="#">RESPONSIBILITY<span class="mob_gnb_arrow_down"></span></a>
+					</li>
+					<li><a href="#">한눈에 보기</a></li>
+					<li><a href="#">사회 공헌 캠페인 소개</a></li>
+					<li>
+						<a role="button" href="#">지역 사회 참여 활동<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="/responsibility/hope_delivery.do">희망배달 캠페인</a></li>
+							<li><a href="/responsibility/talent_donation.do">재능기부 카페 소식</a></li>
+							<li><a href="/responsibility/community_store.do">커뮤니티 스토어</a></li>
+							<li><a href="/responsibility/youth_resource.do">청년인재 양성</a></li>
+							<li><a href="/responsibility/our_agriculture.do">우리 농산물 사랑 캠페인</a></li>
+							<li><a href="/responsibility/our_culture_defend.do">우리 문화 지키기</a></li>
+						</ul>
+					</li>
+					<li>
+						<a role="button" href="#">환경보호 활동<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">환경 발자국 줄이기</a></li>
+							<li><a href="#">일회용 컵 없는 매장</a></li>
+							<li><a href="#">커피 원두 재활용</a></li>
+						</ul>
+					</li>
+					<li>
+						<a role="button" href="#">윤리 구매<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">윤리적 원두 구매</a></li>
+							<li><a href="#">공정무역 인증</a></li>
+							<li><a href="#">커피 농가 지원 활동</a></li>
+						</ul>
+					</li>
+					<li>
+						<a role="button" href="#">글로벌 사회 공헌<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">윤리경영 보고서</a></li>
+							<li><a href="#">스타벅스 재단</a></li>
+							<li><a href="#">지구촌 봉사의 달</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- RESPONSIBILITY end -->
+				<!-- Starbucks Rewards -->
+				<ul>
+					<li class="mob_gnb_ttl2">
+						<a role="button" class="en" href="#">Starbucks Rewards<span class="mob_gnb_arrow_down"></span></a>
+					</li>
+					<li><a href="#">한눈에 보기</a></li>
+					<li>
+						<a role="button" href="#">스타벅스 리워드<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">스타벅스 리워드 소개</a></li>
+							<li><a href="#">등급 및 혜택</a></li>
+							<li><a href="#">스타벅스 별</a></li>
+							<li><a href="#">자주하는 질문</a></li>
+						</ul>
+					</li>
+					<li>
+						<a role="button" href="#">스타벅스 카드<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">스타벅스 카드 소개</a></li>
+							<li><a href="#">스타벅스 카드 갤러리</a></li>
+							<li><a href="#">등록 및 조회</a></li>
+							<li><a href="#">충전 및 이용안내</a></li>
+							<li><a href="#">분실신고/환불신청</a></li>
+							<li><a href="#">자주하는 질문</a></li>
+						</ul>
+					</li>
+					<li>
+						<a role="button" href="#">스타벅스 e-Gift Card<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">스타벅스 e-Gift Card 소개</a></li>
+							<li><a href="#">이용안내</a></li>
+							<li><a href="#">선물하기</a></li>
+							<li><a href="#">자주하는 질문</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- Starbucks Rewards end -->
+				<!-- WHAT'S NEW -->
+				<ul>
+					<li class="mob_gnb_ttl2">
+						<a role="button" class="en" href="#">WHAT'S NEW<span class="mob_gnb_arrow_down"></span></a>
+					</li>
+					<li><a href="#">한눈에 보기</a></li>
+					<li>
+						<a role="button" href="#">프로모션 & 이벤트<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">전체</a></li>
+							<li><a href="#">스타벅스 카드</a></li>
+							<li><a href="#">스타벅스 리워드</a></li>
+							<li><a href="#">온라인</a></li>
+							<li><a href="#">크리스마스 e-프리퀀시 증정품</a></li>
+						</ul>
+					</li>
+					<li>
+						<a role="button" href="#">새소식<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">전체</a></li>
+							<li><a href="#">상품 출시</a></li>
+							<li><a href="#">스타벅스와 문화</a></li>
+							<li><a href="#">스타벅스 사회공헌</a></li>
+							<li><a href="#">스타벅스 카드출시</a></li>
+						</ul>
+					</li>
+					<li>
+						<a role="button" href="#">매장별 이벤트<span class="mob_gnb_arrow_down"></span></a>
+						<ul>
+							<li><a href="#">일반 매장</a></li>
+							<li><a href="#">신규 매장</a></li>
+						</ul>
+					</li>
+					<li><a href="#">공지사항</a></li>
+					<li><a href="#">월페이퍼</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<!-- 640 gnb end -->
+
+	<!-- MOBILE GNB 영역 end -->
 </header>
