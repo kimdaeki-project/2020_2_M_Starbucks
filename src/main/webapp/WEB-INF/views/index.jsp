@@ -18,13 +18,14 @@
 <body>
 	<h1><spring:eval expression="@db['user']"></spring:eval> </h1>
 	<c:import url="./common/header.jsp"></c:import>
+
 	<section>
 		<div id="container">
 			<a href="#">Container</a>
 		</div>
 	</section>
 	
-	
+	<c:import url="./common/footer.jsp"></c:import>
 	
 	<script src="${pageContext.request.contextPath}/resources/js/common/header.js"></script>
 </body>
