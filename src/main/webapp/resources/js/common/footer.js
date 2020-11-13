@@ -85,6 +85,41 @@ $(document).ready(function() {
 		$('.footer_awards_wrap_inner').prepend(w_footer);
 	}
 	/* Web | Mobile : Awards 이미지 변경 end */
+		
+	/* awards bxslider */
+	if ((myWindow > 640) && (myWindow <= 1134)) {
+		var faSlider = $('.footer_awards_slider').bxSlider({
+			minSlides:3,
+			maxSlides:3,
+			slideWidth:210,
+			slideMargin:0,
+			controls:false,
+			auto:true,
+			autoControls:true,
+			autoControlsCombine:true,
+			pause:2000,
+			pagerSelector:'.footer_slider_pagers',
+			autoControlsSelector:'.footer_slider_controls'
+		});
+	} else if (myWindow <= 640) {
+		var faSlider = $('.footer_awards_slider').bxSlider({
+			minSlides:1,
+			maxSlides:1,
+			slideWidth:300,
+			slideMargin:0,
+			controls:false,
+			auto:true,
+			autoControls:true,
+			autoControlsCombine:true,
+			pause:2000,
+			pagerSelector:'.footer_slider_pagers',
+			autoControlsSelector:'.footer_slider_controls'
+		});
+	}
+	/* awards bxslider end */
+	
+	
+	
 	
 	if (myWindow <= 1280 && myWindow > 960) {
 		$('.footer_menus ul:nth-of-type(5)').css({
@@ -117,5 +152,10 @@ $(document).ready(function() {
 			'margin-top': '30px'
 		});
 	}
+	
+	
+	
+	
+
 	
 });

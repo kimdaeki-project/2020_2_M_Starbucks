@@ -2,7 +2,7 @@
 /* 2020.11.12 성민 */
 /* 초기화 */
 #wrap { width:100%; position:relative; overflow-x:hidden; }
-header { width:100%; height:120px; position:relative; }
+#header { width:100%; height:120px; position:relative; }
 .ally { width:1px; height:1px; margin:-1px; clip:rect(0,0,0,0); overflow: hidden; position:absolute; }
 
 /* Web(1100) Version */
@@ -84,9 +84,6 @@ header { width:100%; height:120px; position:relative; }
     .gnb_sub_tx_left p.gnb_sub_ex_txt { font-size:14px; }
     .gnb_sub_tx_right { width:400px; }
 }
-
-@media screen and (min-width:961px) and (max-width:1100px) {
-	.gnb_sub_inner
 /* Web(1100) Version end */
 
 

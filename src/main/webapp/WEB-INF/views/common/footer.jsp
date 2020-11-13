@@ -90,41 +90,7 @@
 	<!-- 수상내역 -->
 	<div class="footer_awards_wrap">
 		<div class="footer_awards_wrap_inner">
-			<!-- JavaScript : Web | Mobile -->
-			<%--
-			<ul class="footer_awards_slider">
-				<li>
-					<a href="javascript:void(0);" target="_blank">
-						<img alt="고용노동부 2016년 고용창출 100개 우수기업 4년 연속 표창" src="${pageContext.request.contextPath}/resources/images/common/footer_award17_01.jpg">
-					</a>
-				</li>
-				<li>
-					<a href="javascript:void(0);" target="_blank">
-						<img alt="고용노동부 2016년 장애인고용촉진대회 장애인고용촉진 유공 포상" src="${pageContext.request.contextPath}/resources/images/common/footer_award17_02.jpg">
-					</a>
-				</li>
-				<li>
-					<a href="javascript:void(0);" target="_blank">
-						<img alt="환경부 2016년 그린킹 캠페인 온실가스 저감 우수 모범 기업" src="${pageContext.request.contextPath}/resources/images/common/footer_award17_03.jpg">
-					</a>
-				</li>
-				<li>
-					<a href="javascript:void(0);" target="_blank">
-						<img alt="농림축산식품부 2016년 농식품 상생협력 활동 우수사례 기업" src="${pageContext.request.contextPath}/resources/images/common/footer_award17_04.jpg">
-					</a>
-				</li>
-				<li>
-					<a href="javascript:void(0);" target="_blank">
-						<img alt="2016년 대한민국 여성인재경영대상 우수사례 기업" src="${pageContext.request.contextPath}/resources/images/common/footer_award17_05.jpg">
-					</a>
-				</li>
-				<li>
-					<a href="javascript:void(0);" target="_blank">
-						<img alt="2016년 한국 최고의 직장 톱10 본상" src="${pageContext.request.contextPath}/resources/images/common/footer_award17_06.jpg">
-					</a>
-				</li>
-			</ul>
-			 --%>
+			<!-- awards BxSlider end -->
 			<div class="footer_slider_controller">
 				<div class="footer_slider_controls"></div>
 				<div class="footer_slider_pagers"></div>

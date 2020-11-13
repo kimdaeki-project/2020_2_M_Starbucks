@@ -14,11 +14,14 @@
 	<link href="${pageContext.request.contextPath}/resources/css/common/reset.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/header.css?v=201113" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/footer.css?v=201113" rel="stylesheet" type="text/css">
-	<link href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css" rel="stylesheet">
+	<!-- bxSlider CSS file -->
+	<link href="${pageContext.request.contextPath}/resources/css/common/jquery.bxslider.css" rel="stylesheet">
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- bxSlider Javascript file -->
+	<script src="${pageContext.request.contextPath}/resources/js/common/jquery.bxslider.min.js"></script>
+	
 </head>
 <body>
 <div id="wrap">
@@ -38,7 +41,6 @@
 	
 	<c:import url="./common/footer.jsp"></c:import>
 </div>
-	
 	<script src="${pageContext.request.contextPath}/resources/js/common/header.js?v=201113"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=201113"></script>
 </body>
