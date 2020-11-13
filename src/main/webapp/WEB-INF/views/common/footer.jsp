@@ -90,6 +90,8 @@
 	<!-- 수상내역 -->
 	<div class="footer_awards_wrap">
 		<div class="footer_awards_wrap_inner">
+			<!-- JavaScript : Web | Mobile -->
+			<%--
 			<ul class="footer_awards_slider">
 				<li>
 					<a href="javascript:void(0);" target="_blank">
@@ -122,6 +124,7 @@
 					</a>
 				</li>
 			</ul>
+			 --%>
 			<div class="footer_slider_controller">
 				<div class="footer_slider_controls"></div>
 				<div class="footer_slider_pagers"></div>

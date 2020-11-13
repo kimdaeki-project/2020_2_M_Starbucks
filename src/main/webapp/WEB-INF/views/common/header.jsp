@@ -391,7 +391,7 @@
 	<!-- 960 gnb -->
 	<div class="tablet_gnb_wrap">
 		<h1 class="logo">
-			<a href="/">스타벅스 코리아</a>
+			<a href="#">스타벅스 코리아</a>
 		</h1>
 		<nav class="tablet_gnb_sep">
 			<ul>

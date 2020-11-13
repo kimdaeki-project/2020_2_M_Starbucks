@@ -39,29 +39,33 @@ $(document).ready(function() {
 	});
 	/* gnb end*/
 	
-	/* web | mobile */
-	$(window).resize(function() {
-		var myWindow = $(window).width();
-		console.log(myWindow);
-		
-		if (myWindow > 1100) {
-			$('.gnb_sub_inner ul:nth-of-type(6)').css({ 'padding-top': '30px' });
-			$('.gnb_sub_inner ul:nth-of-type(7)').css({ 'padding-top': '30px' });
-			$('.gnb_sub_inner ul:nth-of-type(8)').css({ 'padding-top': '30px' });
-		} else if (myWindow <= 1100 && myWindow > 960) {
-			$('.gnb_sub_inner ul:nth-of-type(5)').css({ 'padding-top': '30px' });
-			$('.gnb_sub_inner ul:nth-of-type(6)').css({ 'padding-top': '30px' });
-			$('.gnb_sub_inner ul:nth-of-type(7)').css({ 'padding-top': '30px' });
-			$('.gnb_sub_inner ul:nth-of-type(8)').css({ 'padding-top': '30px' });
-		}
 	
-		if (myWindow > 1100) {
-			$('.gnb_sub_inner ul:nth-of-type(6)').css({ 'clear': 'both' });
-		} else {
-			$('.gnb_sub_inner ul:nth-of-type(5)').css({ 'clear': 'both' });
-		}
+	/* 서브메뉴 정렬 */
+	var myWindow = $(window).width();
+	$(window).resize(function() {
+		myWindow = $(window).width();
+		console.log(myWindow);
 	});
-	/* web | mobile end */
+	
+	if (myWindow > 1100) {
+		$('.gnb_sub_inner ul:nth-of-type(6)').css({ 'padding-top': '30px' });
+		$('.gnb_sub_inner ul:nth-of-type(7)').css({ 'padding-top': '30px' });
+		$('.gnb_sub_inner ul:nth-of-type(8)').css({ 'padding-top': '30px' });
+	} else if (myWindow <= 1100 && myWindow > 960) {
+		$('.gnb_sub_inner ul:nth-of-type(5)').css({ 'padding-top': '30px' });
+		$('.gnb_sub_inner ul:nth-of-type(6)').css({ 'padding-top': '30px' });
+		$('.gnb_sub_inner ul:nth-of-type(7)').css({ 'padding-top': '30px' });
+		$('.gnb_sub_inner ul:nth-of-type(8)').css({ 'padding-top': '30px' });
+	}
+		
+	if (myWindow > 1100) {
+		$('.gnb_sub_inner ul:nth-of-type(6)').css({ 'clear': 'both' });
+	} else if(myWindow <= 1100 && myWindow > 960) {
+		$('.gnb_sub_inner ul:nth-of-type(5)').css({ 'clear': 'both' });
+		$('.gnb_sub_inner ul:nth-of-type(6)').css({ 'clear': '' });
+	}
+	/* 서브메뉴 정렬 end */
+	
 	
 	/* mob_gnb */
 	//메뉴버튼 누르면
