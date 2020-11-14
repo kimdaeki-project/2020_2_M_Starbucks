@@ -17,6 +17,27 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
+	@GetMapping("noticeSelect")
+	public ModelAndView getOne(NoticeDTO dto) throws ClassNotFoundException, SQLException{
+		
+		System.out.println(dto.getNoticeNum());
+		
+		ModelAndView mv = new ModelAndView();
+
+		dto = noticeService.getOne(dto);
+		if(dto != null) {
+			mv.addObject("notice", dto);
+			mv.setViewName("admin/board/boardSelect");
+		} else {
+			mv.addObject("message", "게시글이 존재하지 않습니다.");
+			mv.addObject("path", "./boardList");
+			mv.setViewName("admin/common/result");
+		}
+		
+		return mv;
+		
+	}
+	
 	// get notice list -------------------------------------------------
 	/*
 	 * [JeongSky] 2020.11.11 17:20 access test success

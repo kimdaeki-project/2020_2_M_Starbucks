@@ -12,6 +12,16 @@ public class NoticeService {
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
+	public NoticeDTO getOne(NoticeDTO dto) throws ClassNotFoundException, SQLException{
+		int hit = noticeDAO.setHitUpdate(dto);
+		if(hit > 0) {
+			System.out.println(dto.getNoticeNum()+" notice hit update success");
+		} else {
+			System.out.println("hit update fail");
+		}
+		return noticeDAO.getOne(dto);
+	}
+	
 	public List<NoticeDTO> getList() throws ClassNotFoundException, SQLException {
 		System.out.println("service access");
 		return noticeDAO.getList();

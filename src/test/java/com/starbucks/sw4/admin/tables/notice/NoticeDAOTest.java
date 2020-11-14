@@ -15,6 +15,20 @@ public class NoticeDAOTest extends MyTestCase {
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
+	//@Test
+	public void getOne() throws ClassNotFoundException, SQLException{
+		
+		NoticeDTO dto = new NoticeDTO();
+		
+		dto.setNoticeNum(3);
+		
+		dto = noticeDAO.getOne(dto);
+		System.out.println(dto.getTitle());
+		
+		assertNotNull(dto);
+		
+	}
+	
 	// @Test
 	public void getListTest() throws ClassNotFoundException, SQLException{
 		assertNotNull(noticeDAO.getList());

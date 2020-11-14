@@ -14,9 +14,17 @@ public class NoticeDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.starbucks.sw4.admin.tables.notice.NoticeDAO.";
 	
+	public NoticeDTO getOne(NoticeDTO dto) throws ClassNotFoundException, SQLException{
+		return sqlSession.selectOne(NAMESPACE+"getOne", dto);
+	}
+	
 	public List<NoticeDTO> getList() throws ClassNotFoundException, SQLException{
 		System.out.println("dao access");
 		return sqlSession.selectList(NAMESPACE+"getList");
+	}
+	
+	public int setHitUpdate(NoticeDTO dto) throws ClassNotFoundException, SQLException{
+		return sqlSession.update(NAMESPACE + "setHitUpdate", dto);
 	}
 	
 	public int setInsert(NoticeDTO dto) throws ClassNotFoundException, SQLException {

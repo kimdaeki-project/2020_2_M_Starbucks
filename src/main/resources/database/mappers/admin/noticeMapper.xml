@@ -14,4 +14,13 @@
 		select * from staffNotice order by noticeNum DESC
 	</select>
 	
+	<select id="getOne" parameterType="NoticeDTO" resultType="NoticeDTO">
+		select * from staffNotice where noticeNum = #{noticeNum}
+	</select>
+	
+	<!-- hit update -->
+	<update id="setHitUpdate" parameterType="NoticeDTO">
+		update staffNotice set hit=hit+1 where noticeNum=#{noticeNum}
+	</update>
+	
 </mapper>
