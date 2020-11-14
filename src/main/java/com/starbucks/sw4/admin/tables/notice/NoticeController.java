@@ -17,7 +17,7 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
-	// get notice list -------------------------------------
+	// get notice list -------------------------------------------------
 	/*
 	 * [JeongSky] 2020.11.11 17:20 access test success
 	 */
