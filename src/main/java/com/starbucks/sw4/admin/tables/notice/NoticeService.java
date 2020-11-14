@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.starbucks.sw4.admin.util.Pager;
+
 @Service
 public class NoticeService {
 
@@ -22,9 +24,14 @@ public class NoticeService {
 		return noticeDAO.getOne(dto);
 	}
 	
-	public List<NoticeDTO> getList() throws ClassNotFoundException, SQLException {
+	public List<NoticeDTO> getList(Pager pager) throws ClassNotFoundException, SQLException {
 		System.out.println("service access");
-		return noticeDAO.getList();
+		
+		pager.makeRow();
+		pager.setTotalCount(noticeDAO.getCount());
+		pager.makePage();
+		
+		return noticeDAO.getList(pager);
 	}
 	
 	public int setInsert(NoticeDTO dto) throws ClassNotFoundException, SQLException{

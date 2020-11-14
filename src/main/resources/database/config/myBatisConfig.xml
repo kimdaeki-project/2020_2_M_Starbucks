@@ -10,6 +10,7 @@
 		
 		<!-- admin page -->
 		<typeAlias type="com.starbucks.sw4.admin.tables.notice.NoticeDTO" alias="NoticeDTO"/>
+		<typeAlias type="com.starbucks.sw4.admin.util.Pager" alias="AdminPager"/>
 		
 	</typeAliases>
 </configuration>

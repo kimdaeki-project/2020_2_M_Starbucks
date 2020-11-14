@@ -10,8 +10,9 @@
 			staffNotice_seq.NEXTVAL, #{title}, #{writer}, #{contents}, to_char(current_timestamp,'YYYY-MM-DD HH24:MI:SS'), 0)
 	</insert>
 	
-	<select id="getList" resultType="NoticeDTO">
-		select * from staffNotice order by noticeNum DESC
+	<select id="getList" resultType="NoticeDTO" parameterType="AdminPager">
+		select * from (select rownum as r, n.* from (select * from staffNotice order by noticeNum DESC) n)
+		where r between #{startRow} and #{lastRow}
 	</select>
 	
 	<select id="getOne" parameterType="NoticeDTO" resultType="NoticeDTO">
@@ -22,5 +23,10 @@
 	<update id="setHitUpdate" parameterType="NoticeDTO">
 		update staffNotice set hit=hit+1 where noticeNum=#{noticeNum}
 	</update>
+	
+	<!-- list count for paging -->
+	<select id="getCount" resultType="Long">
+		select count(*) from staffNotice
+	</select>
 	
 </mapper>

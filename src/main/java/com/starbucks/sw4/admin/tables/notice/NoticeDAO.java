@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.starbucks.sw4.admin.util.Pager;
+
 @Component
 public class NoticeDAO {
 
@@ -18,9 +20,13 @@ public class NoticeDAO {
 		return sqlSession.selectOne(NAMESPACE+"getOne", dto);
 	}
 	
-	public List<NoticeDTO> getList() throws ClassNotFoundException, SQLException{
+	public List<NoticeDTO> getList(Pager pager) throws ClassNotFoundException, SQLException{
 		System.out.println("dao access");
-		return sqlSession.selectList(NAMESPACE+"getList");
+		return sqlSession.selectList(NAMESPACE+"getList", pager);
+	}
+	
+	public long getCount() throws ClassNotFoundException, SQLException{
+		return sqlSession.selectOne(NAMESPACE+"getCount");
 	}
 	
 	public int setHitUpdate(NoticeDTO dto) throws ClassNotFoundException, SQLException{

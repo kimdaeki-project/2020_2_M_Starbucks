@@ -59,6 +59,30 @@
 			#table-date-size{
 				width: 10rem;
 			}
+
+			#page-area{
+				text-align: center;
+				font-size: 0.9rem;
+			}
+			
+			#page-area-center{
+				width: 64rem;
+				text-align: center;
+			}
+			
+			#write-area{
+				float: right;
+				display: inline-block;
+			}
+			
+			#write_btn{
+				font-weight: bold;
+				font-size: 0.8rem;
+				border: 1px solid #E7E7E7;
+				border-radius: 5px;
+				padding: 0.5rem 0.9rem;
+				background-color: white;
+			}
 			
 		</style>
 		
@@ -88,11 +112,11 @@
 						<table class="table table-bordered"  width="100%">
 							<thead>
 								<tr>
-									<th id="table-num-size">num</th>
-									<th>title</th>
-									<th id="table-writer-size">writer</th>
-									<th id="table-date-size">date</th>
-									<th id="table-hit-size">hit</th>
+									<th id="table-num-size">글번호</th>
+									<th>제목</th>
+									<th id="table-writer-size">작성자</th>
+									<th id="table-date-size">작성일</th>
+									<th id="table-hit-size">조회수</th>
 								</tr>
 							</thead>
 							
@@ -108,10 +132,36 @@
 										<td>${list.hit}</td>
 									</tr>
 								</c:forEach>
+								
 							</tbody>
 							
 						</table>
 						
+					</div>
+					
+					<div class="container-fluid">
+						<table width="100%">
+							<tr>
+								<td></td>
+								<td id="page-area-center">
+									<div id="page-area">
+										<c:if test="${page.beforeChk}">
+											<a href="./noticeList?curPage=${page.startNum-1}"> ᗏ </a>
+										</c:if>
+										<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
+											<a href="./noticeList?curPage=${i}">${i}</a>
+											&nbsp;&nbsp;
+										</c:forEach>
+										<c:if test="${page.nextChk}">
+											<a href="./noticeList?curPage=${page.lastNum+1}">ᗌ</a>
+										</c:if>
+									</div>
+								</td>
+								<td>
+									<div id="write-area"><a href="#"><span id="write_btn">글쓰기</span></a></div>
+								</td>
+							</tr>
+						</table>
 					</div>
 					
 				</main>

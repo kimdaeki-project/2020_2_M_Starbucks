@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.starbucks.sw4.MyTestCase;
+import com.starbucks.sw4.admin.util.Pager;
 
 
 public class NoticeDAOTest extends MyTestCase {
@@ -29,9 +30,13 @@ public class NoticeDAOTest extends MyTestCase {
 		
 	}
 	
-	// @Test
+	@Test
 	public void getListTest() throws ClassNotFoundException, SQLException{
-		assertNotNull(noticeDAO.getList());
+		Pager pager = new Pager();
+		pager.makeRow();
+		pager.setTotalCount(10);
+		pager.makePage();
+		assertNotNull(noticeDAO.getList(pager));
 	}
 	
 	// @Test

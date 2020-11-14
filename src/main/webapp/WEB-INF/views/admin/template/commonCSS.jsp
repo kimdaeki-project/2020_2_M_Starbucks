@@ -9,6 +9,7 @@
 	
 	main{
 		with: 100%;
+		margin-bottom: 3rem;
 	}
 	
 	body{
