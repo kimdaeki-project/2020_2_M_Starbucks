@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+html {
+    font-size:  20px;
+}
+
+body {
+    font-size: 1rem;
+}
+
+/*title 부분*/
+.ms_sb_tit_bg {
+    width: 100%;
+    height: 98px;
+    background-color: #ffffff;
+}
+
+.ms_sub_tit_inner {
+    width: 54.5rem;
+    margin: 0 auto;
+    height: 74px;
+    padding-top: 30px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+body > div > div > h4 {
+    width: 100%;
+    height: 41px;
+    display: block;
+    font-weight: bold;
+}
+
+#container > header > div > div > h4 > img{
+background: transparent;
+vertical-align: top;
+max-width: 100%;
+}
+
+/*icons*/
+.xi-home-o {
+    color:grey;
+}
+.xi-angle-right-min{
+    color: grey;
+}
+
+/*title 내부의 home>menu 부분*/
+body > div > div > ul{
+    position: absolute;
+    top: 4rem;
+    right: 2rem;
+    display: inline-flex;
+}
+body >div > div > ul > li a{
+    color: grey;
+    text-decoration: none;  
+    font-size: 16px;
+
+}
+
+
+/*contents part*/
+#container {
+    width: 100%;
+}
+
+.faq_section {
+    width: 1100px;
+    padding-bottom: 80px;
+    margin: 0 auto;
+}
+
+.faq_section p.msr_t1{
+    font-size: 16px;
+    color: #444;
+    padding-top: 20px;
+    margin-bottom: 18px;
+    line-height: 1.4;
+}
+
+.faq_search {
+    background: #f4f4f2;
+    padding: 15px 20px;
+    border-radius: 3px;
+    position: relative;
+    margin-bottom: 35px;
+    height: 30px;
+    line-height:  30px;
+}
+
+.search_input{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    width: 395px;
+}
+.search_input > input {
+    width: 343px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    float: left;
+}
+
+.search_input > a {
+    width: 42px;
+    height: 28px;
+    line-height: 28px;
+    background:#777777;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+    display: block;
+    float: right;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.faq_wrap {
+    width: 1100px;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    margin-bottom: 40px;
+}

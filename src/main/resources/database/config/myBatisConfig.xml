@@ -7,5 +7,9 @@
 	<typeAliases>
 		<typeAlias type="java.lang.Long" alias="Long"/>
 		<typeAlias type="java.util.List" alias="List"/>		
+		
+		
+		<!-- MY PAGE  -->
+		<typeAlias type="com.starbucks.sw4.myPage.FaqDTO" alias="FaqDTO"/>
 	</typeAliases>
 </configuration>
