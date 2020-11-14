@@ -9,20 +9,20 @@
 			<!-- MOBILE GNB 영역 -->
 			<ul class="footer_first_menu">
 				<li class="footer_menu_ttl">
-					<a class="en" href="#">CUSTOMER SERVICE & IDEAS<span class="footer_arrow_down"></span></a>
+					<a class="en" href="javascript:void(0);">CUSTOMER SERVICE & IDEAS<span class="footer_arrow_down"></span></a>
 				</li>
-				<li><a href="#">자주하는 질문</a></li>
-				<li><a href="#">고객의 소리</a></li>
+				<li><a href="https://www.starbucks.co.kr/util/faq.do" target="_blank">자주하는 질문</a></li>
+				<li><a href="https://www.starbucks.co.kr/customer/suggestionWrite.do" target="_blank">고객의 소리</a></li>
 				<li class="footer_2depth_ttl">
-					<a href="#">스타벅스 이용 팁<span class="footer_arrow_down"></span></a>
+					<a href="javascript:void(0);">스타벅스 이용 팁<span class="footer_arrow_down"></span></a>
 					<ul>
-						<li><a href="#">홈페이지 이용 팁</a></li>
-						<li><a href="#">애플리케이션 이용 팁</a></li>
-						<li><a href="#">제휴카드 안내</a></li>
+						<li><a href="https://www.starbucks.co.kr/util/web_tip.do" target="_blank">홈페이지 이용 팁</a></li>
+						<li><a href="https://www.starbucks.co.kr/util/app_tip.do" target="_blank">애플리케이션 이용 팁</a></li>
+						<li><a href="https://www.starbucks.co.kr/util/partnership_card.do" target="_blank">제휴카드 안내</a></li>
 					</ul>
 				</li>
-				<li><a href="#">고객경험 설문조사</a></li>
-				<li><a href="/util/guest_eReceipt.do">비회원 전자영수증 조회</a></li>
+				<li><a href="https://www.starbucks.co.kr/util/online_survey.do" target="_blank">고객경험 설문조사</a></li>
+				<li><a href="https://www.starbucks.co.kr/util/guest_eReceipt.do" target="_blank">비회원 전자영수증 조회</a></li>
 			</ul>
 			<!-- MOBILE GNB 영역 end -->
 			<ul>
@@ -32,7 +32,7 @@
 				<li><a href="https://www.starbucks.co.kr/footer/company/index.do" target="_blank">한눈에 보기</a></li>
 				<li><a href="https://www.starbucks.co.kr/footer/company/mission.do" target="_blank">스타벅스 사명</a></li>
 				<li class="footer_2depth_ttl">
-					<a href="https://www.starbucks.co.kr/footer/company/starbucks_information.do" target="_blank">스타벅스 소개<span class="footer_arrow_down"></span></a>
+					<a href="javascript:void(0);">스타벅스 소개<span class="footer_arrow_down"></span></a>
 					<ul>
 						<li><a href="https://www.starbucks.co.kr/footer/company/starbucks_information.do" target="_blank">스타벅스커피코리아</a></li>
 						<li><a href="https://www.starbucks.co.kr/footer/company/starbucks_history.do" target="_blank">연혁 및 외부 수상 내역</a></li>
@@ -45,13 +45,13 @@
 			</ul>
 			<ul>
 				<li class="footer_menu_ttl">
-					<a class="en" id="goPage" href="https://www.starbucks.co.kr/footer/co_sales/index.do" target="_blank">CORPORATE SALES<span class="footer_arrow_down"></span></a>
+					<a class="en" id="goPage" href="javascript:void(0);">CORPORATE SALES<span class="footer_arrow_down"></span></a>
 				</li>
 				<li><a href="https://www.starbucks.co.kr/footer/co_sales/index.do" target="_blank">단체 및 기업 구매 안내</a></li>
 			</ul>
 			<ul>
 				<li class="footer_menu_ttl">
-					<a class="en" href="https://www.starbucks.co.kr/footer/partnership/new_partner.do" target="_blank">PARTNERSHIP<span class="footer_arrow_down"></span></a>
+					<a class="en" href="javascript:void(0);">PARTNERSHIP<span class="footer_arrow_down"></span></a>
 				</li>
 				<li><a href="https://www.starbucks.co.kr/footer/partnership/new_partner.do" target="_blank">신규 입점 제의</a></li>
 				<li><a href="https://www.starbucks.co.kr/srm/login.do" target="_blank">협력 고객사 등록신청</a></li>
@@ -70,7 +70,7 @@
 				<li class="footer_menu_ttl">
 					<a class="en" href="javascript:void(0);">RECRUIT<span class="footer_arrow_down"></span></a>
 				</li>
-				<li><a href="https://www.starbucks.co.kr/footer/recruit/index.do">채용 소개</a></li>
+				<li><a href="https://www.starbucks.co.kr/footer/recruit/index.do" target="_blank">채용 소개</a></li>
 				<li><a href="http://job.shinsegae.com/recruit_info/notice/notice02_view.jsp?notino=2895" target="_blank">채용 지원하기</a></li>
 			</ul>
 		</div>
@@ -78,10 +78,10 @@
 	<!-- MOBILE GNB 영역 -->
 	<div class="footer_util_btn">
 		<ul>
-			<li><a href="/">HOME</a></li>
+			<li><a href="${pageContext.request.contextPath}/">HOME</a></li>
 			<li>
-				<a href="javascript:$.loginLib.showLayerLogin();" class="sign_in">Sign In</a>
-				<a href="javascript:$.loginLib.logout();" class="sign_out" style="display: none;">Sign Out</a>
+				<a href="#" class="sign_in">Sign In</a>
+				<a href="#" class="sign_out" style="display: none;">Sign Out</a>
 			</li>
 			<li class="last"><a href="#">Join Us</a></li>
 		</ul>

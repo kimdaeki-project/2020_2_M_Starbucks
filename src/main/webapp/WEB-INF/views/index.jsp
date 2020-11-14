@@ -42,7 +42,7 @@
 	<c:import url="./common/footer.jsp"></c:import>
 </div>
 	<script src="${pageContext.request.contextPath}/resources/js/common/header.js?v=201113"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=201113"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=201114"></script>
 </body>
 </html>
 
