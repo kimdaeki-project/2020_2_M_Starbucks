@@ -46,19 +46,41 @@
             </div>
 
             <!--faq 게시글 부분-->
-            <div class="faq_wrap">
-              <c:forEach items="${list}" var="dto">
-  	 			<ul>
-        		  <li>
-          		   <a href="#" class="menu_btn">${dto.question}</a>
-          		   <ul class="menu_show"> 
-               	   <li><a href="#">${dto.answer}</a></li>
-                        <li><a href="#">${dto.writer}</a></li>
-                    </ul>
-                </li>
-             </ul>   
+            <div>
+            	<dl class="faq_wrap">
+            	<c:forEach items="${list}" var="dto">
+            	<dt class="ajaxFaqList on">
+            			<ul>
+            				<li class="li2">
+            					<dl>
+            						<dt class="en">Q</dt>
+            						<dd>${dto.question}</dd>
+            						
+            					</dl>
+            				</li>
+            				
+            			</ul>
+            		
+            	</dt>
+            		<dd style="display: none";>
+            			<ul>
+            				<li class="li2">
+            					<dl>
+            						<dt class="en">A</dt>
+            						<dd><a href="#">${dto.answer}</a></dd>
+            					</dl>
+            				</li>
+            			</ul>
+            		</dd>
+            		
+            	
+            	
+          
              </c:forEach>
-            </div>
+           
+            </dl>
+             </div>
+            
         </section>
     </div>
 	
