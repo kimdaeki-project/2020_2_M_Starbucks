@@ -24,7 +24,7 @@
 					</nav>
 
 					<p class="btn_search">
-						<a href="#"><img alt="통합검색" src="${pageContext.request.contextPath}/resources/images/common/icon_magnifier_black.png"></a>
+						<a href="#"><img alt="통합검색" src="${pageContext.request.contextPath}/resources/images/common/header/icon_magnifier_black.png"></a>
 						<label for=totalSearch" class="ally">통합 검색</label>
 						<input type="text" id="totalSearch" placeholder="통합검색">
 					</p>
@@ -154,7 +154,7 @@
 											<div class="gnb_sub_tx_left">
 												<h3>
 													<a href="#">나이트로 콜드 브루</a>
-													<img src="${pageContext.request.contextPath}/resources/images/common/icon_gnb_new.png">
+													<img src="${pageContext.request.contextPath}/resources/images/common/header/icon_gnb_new.png">
 												</h3>
 												<p class="gnb_sub_ex_txt">나이트로 커피 정통의 물결치듯 흘러내리는 캐스케이딩과 부드러운 크림을 경험하세요.</p>
 											</div>
@@ -205,7 +205,7 @@
 												<p class="gnb_sub_ex_txt">보다 빠르게 매장을 찾아보세요</p>
 												<h3>
 													<a href="#">이대R점</a>
-													<img src="${pageContext.request.contextPath}/resources/images/common/icon_gnb_new.png" alt="">
+													<img src="${pageContext.request.contextPath}/resources/images/common/header/icon_gnb_new.png" alt="">
 												</h3>
 												<p class="gnb_sub_ex_txt">1호점 특화 MD와 티바나 티, 최고의 리저브 커피를 만나보세요.</p>
 											</div>
