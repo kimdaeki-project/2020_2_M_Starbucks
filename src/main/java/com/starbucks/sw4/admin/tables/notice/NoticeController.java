@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.starbucks.sw4.admin.tables.notice.reply.ReplyDTO;
+import com.starbucks.sw4.admin.tables.notice.reply.ReplyService;
 import com.starbucks.sw4.admin.util.Pager;
 
 @Controller
@@ -19,6 +21,33 @@ public class NoticeController {
 	
 	@Autowired
 	private NoticeService noticeService;
+	@Autowired
+	private ReplyService replyService;
+	
+	@PostMapping("replyWrite")
+	public ModelAndView setReplyWrite(ReplyDTO dto) throws ClassNotFoundException, SQLException{
+		
+		ModelAndView mv = new ModelAndView();
+		
+		String msg = "작성 실패";
+		
+		System.out.println(dto.getWriter());
+		System.out.println(dto.getContents());
+		
+		dto.setWriter("writer");
+		int result = replyService.setWrite(dto);
+		
+		if(result > 0) {
+			msg = "작성 성공";
+			System.out.println(msg);
+		}
+		
+		mv.addObject("msg", msg);
+		mv.setViewName("admin/common/ajaxResult");
+		
+		return mv;
+		
+	}
 	
 	@PostMapping("noticeUpdate")
 	public ModelAndView setUpdate(NoticeDTO dto) throws ClassNotFoundException, SQLException{
@@ -117,11 +146,19 @@ public class NoticeController {
 	public ModelAndView getOne(NoticeDTO dto) throws ClassNotFoundException, SQLException{
 		
 		ModelAndView mv = new ModelAndView();
-
+		ReplyDTO replyDTO = new ReplyDTO();
+		
+		replyDTO.setNoticeNum(dto.getNoticeNum());
+	
 		dto = noticeService.getOne(dto);
 		if(dto != null) {
+			
+			List<ReplyDTO> replyList = replyService.getList(replyDTO);
+			
 			mv.addObject("notice", dto);
+			mv.addObject("reply", replyList);
 			mv.setViewName("admin/board/boardSelect");
+			
 		} else {
 			mv.addObject("message", "게시글이 존재하지 않습니다.");
 			mv.addObject("path", "./boardList");
@@ -145,9 +182,9 @@ public class NoticeController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		List<NoticeDTO> list = noticeService.getList(pager);
+		List<NoticeDTO> noticeList = noticeService.getList(pager);
 
-		mv.addObject("noticeList", list);
+		mv.addObject("noticeList", noticeList);
 		mv.addObject("page", pager);
 		mv.setViewName("admin/board/boardList");
 		return mv;

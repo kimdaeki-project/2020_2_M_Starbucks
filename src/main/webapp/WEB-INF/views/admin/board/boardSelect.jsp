@@ -56,7 +56,7 @@
 				float: right;
 			}
 			
-			#contents{
+			#contents-area{
 				padding: 2rem 0px;
 				margin-bottom: 1.3rem;
 			}
@@ -98,11 +98,12 @@
 				color: #D5D5D5;
 			}
 			
-			#reply_submit > a {
+			#reply_submit > #send-reply {
 				float: right;
 				color: #D8D8D8;
 				font-weight: bold;
 				font-size: 0.8rem;
+				cursor: pointer;
 			}
 			
 			.btn-area{
@@ -163,10 +164,21 @@
 						</div>
 						
 						<div class="container-fluid" id="table-area">
-							<div id="contents">
+							<div id="contents-area">
 								${notice.contents}
 							</div>
 							<hr>
+						</div>
+						
+						<div class="container-fluid">
+							<table>
+								<tr>
+
+										<td></td>
+										<td></td>
+									
+								</tr>
+							</table>
 						</div>
 						
 						<div class="container-fluid" id="reply">
@@ -177,10 +189,10 @@
 									<!-- 
 									<input type="text" id="reply_text" placeholder="댓글을 입력하세요." name="reply">
 									 -->
-									<textarea id="reply_text" placeholder="댓글을 입력하세요." name="reply"></textarea>
+									<textarea id="reply_text" placeholder="댓글을 입력하세요." name="contents"></textarea>
 									<span id="reply_submit">
 										<span>&nbsp;&nbsp;</span>
-										<a href="#">등록</a>
+										<span id="send-reply">등록</span>
 									</span>
 								</div>
 							</div>
@@ -212,10 +224,69 @@
 		<c:import url="../template/javascript.jsp"></c:import>
 				
 		<script type="text/javascript">
+		
+			$("#send-reply").click(function(){
+				
+				var noticeNum = ${notice.noticeNum}
+				var contents = $("#reply_text").val()
+				alert(noticeNum)
+				alert(contents)
+				
+				var comment = showRequest();
+				
+				if(comment){
+					$.post("./replyWrite",{noticeNum:noticeNum, contents:contents}, function(){
+						//alert(result);
+						$("#reply_text").val("");
+					})
+				}
+				
+				/* 
+				$.ajax({
+					type: "POST",
+					url: "./replyWrite",
+					data: {
+						noticeNum:noticeNum,
+						contents:contents
+					},
+					success: function(){
+						alert("success")
+						$("#reply_text").val("");
+					},
+					beforeSend:showRequest(),
+					error:function(){
+						alert("error");
+					}
+				}); */
+				
+			});
+			
+			// 작성값 확인
+			function showRequest(){
+				
+				alert("show request start")
+				var replyContents = $.trim($("#reply_text").val());
+				
+				if(!replyContents){
+					alert("내용을 입력해주세요.");
+					$("#reply_text").focus();
+					return false;
+				}
+				
+				if(replyContents.length > 200){
+					alert("200자를 초과할 수 없습니다.");
+					return false;
+				}
+				
+				alert("return: true")
+				return true;
+				
+			}
 
 			// URL 복사
 			$(".url-copy").click(function(){
 				
+				// 클립보드로 복사하기 위해서는 textarea 내에 값이 존재해야함
 				var tmp = document.createElement("textarea");
 				document.body.appendChild(tmp);
 				
