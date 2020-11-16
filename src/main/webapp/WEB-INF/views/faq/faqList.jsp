@@ -22,7 +22,7 @@
 	<!--subtitle-->
      <div class="ms_sb_tit_bg">
         <div class="ms_sub_tit_inner">
-            <h4><img alt="My 음료/매장" src="../../resources/images/myPage/msr_tit2.jpg"></h4>
+            <h4><img alt="My 음료/매장" src="${pageContext.request.contextPath}/resources/images/myPage/msr_tit2.jpg"></h4>
             <ul class="smap">
                 <li><a href="/"><i class="xi-home-o"></i></a></li>
                 <li><a href="/"><i class="xi-angle-right-min"></a></i></li>
