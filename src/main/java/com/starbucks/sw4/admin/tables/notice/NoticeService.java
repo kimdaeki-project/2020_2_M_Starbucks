@@ -14,6 +14,10 @@ public class NoticeService {
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
+	public int setDelete(NoticeDTO dto) throws ClassNotFoundException, SQLException{
+		return noticeDAO.setDelete(dto);
+	}
+	
 	public NoticeDTO getOne(NoticeDTO dto) throws ClassNotFoundException, SQLException{
 		int hit = noticeDAO.setHitUpdate(dto);
 		if(hit > 0) {

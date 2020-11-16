@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,6 +19,64 @@ public class NoticeController {
 	
 	@Autowired
 	private NoticeService noticeService;
+	
+	// set notice delete ----------------------------------------------
+	/*
+	 * [JeongSky] 2020.11.16 15:02 delete, success
+	 */
+	@GetMapping("noticeDelete")
+	public ModelAndView setDelete(NoticeDTO dto) throws ClassNotFoundException, SQLException{
+		
+		ModelAndView mv = new ModelAndView();
+		String message = "게시글 삭제에 실패하였습니다.";
+		int result = noticeService.setDelete(dto);
+		
+		if (result > 0) {
+			message = "게시글이 삭제되었습니다.";
+		}
+		
+		mv.addObject("message", message);
+		mv.addObject("path", "./noticeList");
+		mv.setViewName("admin/common/result");
+		return mv;
+		
+	}
+	
+	// set notice write -----------------------------------------------
+	/*
+	 * [JeongSky] 2020.11.16 14:45 write, insert success
+	 */
+	@PostMapping("noticeWrite")
+	public ModelAndView setWrite(NoticeDTO dto) throws ClassNotFoundException, SQLException{
+		
+		ModelAndView mv = new ModelAndView();
+		System.out.println(dto.getContents());
+		
+		String message = "작성을 실패하였습니다.";
+		dto.setWriter("admin test");
+		
+		int result = noticeService.setInsert(dto);
+
+		if(result > 0) {
+			message = "작성을 성공하였습니다.";
+			mv.addObject("path", "./noticeList");
+			mv.setViewName("admin/common/result");
+		}
+		
+		mv.addObject("message", message);
+		
+		return mv;
+		
+	}
+	
+	// get notice write ------------------------------------------------
+	// move to boardWrite.jsp
+	@GetMapping("noticeWrite")
+	public ModelAndView getWrite() throws ClassNotFoundException, SQLException{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/board/boardWrite");
+		return mv;
+	}
 	
 	// get notice contents ---------------------------------------------
 	/*

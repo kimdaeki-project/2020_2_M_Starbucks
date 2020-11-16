@@ -19,6 +19,11 @@
 				width: 100%; height: 3rem;
 				resize: none;
 			}
+			
+			/* 이미지 크기 벗어남 조절 */
+			img{
+				width: 100%;
+			}
 
 			#notice_contents{
 				margin: 25px 2rem 0px;
@@ -96,23 +101,27 @@
 				font-size: 0.8rem;
 			}
 			
-			#list_btn{
+			.btn-area{
+				font-weight:bold;
 				font-size: 0.8rem;
-				background-color: #E7E7E7;
 				border-radius: 6px;
 				padding: 0.7rem 0.8rem;
+				background-color: #E7E7E7;
 			}
-			
+
 			#btn_area{
-				margin: 0px 2rem;
+				margin: 1rem 2rem 0px;
 			}
 			
-			#btn_area > div{
+			.left-btn{
+				float: left;
+				margin-right: 0.5rem;
+			}
+
+			#list-btn{
 				float: right;
-				font-weight:bold;
-				margin-top: 8px;
 			}
-			
+
 		</style>
 		
 	</head>
@@ -176,7 +185,15 @@
 					</div>
 					
 					<div id="btn_area">
-						<div><a href="./noticeList"><span id="list_btn">목록</span></a></div>
+						<div class="left-btn">
+							<a href="./noticeUpdate?noticeNum=${notice.noticeNum}"><span class="btn-area">글 수정</span></a>
+						</div>
+						<div class="left-btn">
+							<a href="./noticeDelete?noticeNum=${notice.noticeNum}"><span class="btn-area">삭제</span></a>
+						</div>
+						<div id="list-btn">
+							<a href="./noticeList"><span class="btn-area">목록</span></a>
+						</div>
 					</div>
 					
 				</main>

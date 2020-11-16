@@ -29,4 +29,8 @@
 		select count(*) from staffNotice
 	</select>
 	
+	<delete id="setDelete" parameterType="NoticeDTO">
+		delete from staffNotice where noticeNum=#{noticeNum}
+	</delete>
+	
 </mapper>

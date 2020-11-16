@@ -41,8 +41,8 @@ public class NoticeDAO {
 		return 0;
 	}
 
-	public int setDelete() throws ClassNotFoundException, SQLException {
-		return 0;
+	public int setDelete(NoticeDTO dto) throws ClassNotFoundException, SQLException {
+		return sqlSession.delete(NAMESPACE+"setDelete", dto);
 	}
 
 }

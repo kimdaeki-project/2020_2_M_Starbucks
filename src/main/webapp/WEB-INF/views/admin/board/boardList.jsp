@@ -24,7 +24,7 @@
 			}
 			
 			.mt-4{
-				padding-top: 1.3rem;
+				padding-top: 1rem;
 				margin-bottom: 1.1rem;
 			}
 			
@@ -95,7 +95,6 @@
 			
 			<!-- template -->
 			<c:import url="../template/sidebar.jsp"></c:import>
-			
 			<div id="layoutSidenav_content">
 					
 				<main>
@@ -158,7 +157,9 @@
 									</div>
 								</td>
 								<td>
-									<div id="write-area"><a href="#"><span id="write_btn">글쓰기</span></a></div>
+									<div id="write-area">
+										<a href="./noticeWrite"><span id="write_btn">글쓰기</span></a>
+									</div>
 								</td>
 							</tr>
 						</table>
