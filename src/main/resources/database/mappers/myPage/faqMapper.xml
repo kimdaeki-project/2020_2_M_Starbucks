@@ -4,11 +4,18 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
     <mapper namespace="com.starbucks.sw4.myPage.FaqDAO">
-    	<select id="getList" resultType="FaqDTO">
+    	<select id="getRewardList" resultType="FaqDTO">
     		select * from
    			(select rownum as R, N.* from
-  			 (select * from faq ) N)
+  			 (select * from faq where type='rewards') N)
   			 where num between 1 and 10
+    	</select>
+    	
+    	<select id="getCardList" resultType="FaqDTO">
+    		select * from
+			(select rownum as R, M.*from
+			(select * from faq where type = 'card') M)
+			where num between 20 and 30
     	</select>
     
     
