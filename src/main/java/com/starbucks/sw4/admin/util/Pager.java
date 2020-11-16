@@ -2,6 +2,18 @@ package com.starbucks.sw4.admin.util;
 
 public class Pager {
 
+	// 데이터 검색 -----------------------------------------
+	private String search;
+	
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
+
+	// 페이징 처리 -----------------------------------------
 	// 현재 페이지
 	private Long curPage;
 	

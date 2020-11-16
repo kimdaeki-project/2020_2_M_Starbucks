@@ -277,24 +277,6 @@
 					})
 				}
 				
-				/* 
-				$.ajax({
-					type: "POST",
-					url: "./replyWrite",
-					data: {
-						noticeNum:noticeNum,
-						contents:contents
-					},
-					success: function(){
-						alert("success")
-						$("#reply_text").val("");
-					},
-					beforeSend:showRequest(),
-					error:function(){
-						alert("error");
-					}
-				}); */
-				
 			});
 			
 			// 작성값 확인

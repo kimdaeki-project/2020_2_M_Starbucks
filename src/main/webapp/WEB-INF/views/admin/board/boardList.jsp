@@ -171,11 +171,32 @@
 				
 			</div>		
 		
-		</div>
+		</div>		
 		
 		<!-- script template -->
 		<c:import url="../template/javascript.jsp"></c:import>
 		
+		<script type="text/javascript">
+		
+			var path = location.pathname;
+			var startIdx = path.indexOf("/",1);
+			var endIdx = path.indexOf("/",startIdx+1);
+			
+			var tmpPath = path.substring(startIdx, endIdx);
+			path = "." + tmpPath + "Search";
+			
+			$("#search-btn").click(function(){
+				$.ajax({
+					url:path,
+					type:"GET",
+					data:{
+						
+					}
+				})
+			})
+		
+		</script>
+
 	</body>
 	
 </html>
