@@ -15,7 +15,7 @@
     		select * from
 			(select rownum as R, M.*from
 			(select * from faq where type = 'card') M)
-			where num between 20 and 30
+			where num between 1 and 30
     	</select>
     
     
