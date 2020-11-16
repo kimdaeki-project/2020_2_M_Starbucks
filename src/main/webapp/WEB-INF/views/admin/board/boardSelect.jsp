@@ -9,7 +9,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>공지글 :: ${notice.title}</title>
 		<c:import url="../template/bootstrap.jsp"></c:import>
 		<c:import url="../template/commonCSS.jsp"></c:import>
 		
@@ -23,6 +23,10 @@
 			/* 이미지 크기 벗어남 조절 */
 			img{
 				width: 100%;
+			}
+
+			.url-copy{
+				cursor: pointer;
 			}
 
 			#notice_contents{
@@ -152,7 +156,7 @@
 									</div>
 								</div>
 								<div class="info_css" id="add_info">
-									<a>URL 복사</a>
+									<span class="url-copy">URL 복사</span>
 								</div>
 							</div>
 							<hr>
@@ -206,7 +210,27 @@
 		
 		<!-- script template -->
 		<c:import url="../template/javascript.jsp"></c:import>
+				
+		<script type="text/javascript">
+
+			// URL 복사
+			$(".url-copy").click(function(){
+				
+				var tmp = document.createElement("textarea");
+				document.body.appendChild(tmp);
+				
+				tmp.value = location.href;
+				tmp.select();
+				
+				document.execCommand("copy");
+				document.body.removeChild(tmp);
+				
+				alert("copied");
+				
+			})
 		
+		</script>
+
 	</body>
 	
 </html>
