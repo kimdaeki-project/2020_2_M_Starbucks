@@ -20,6 +20,37 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
+	@PostMapping("noticeUpdate")
+	public ModelAndView setUpdate(NoticeDTO dto) throws ClassNotFoundException, SQLException{
+		
+		ModelAndView mv = new ModelAndView();
+		String message = "게시글 수정에 실패하였습니다.";
+		int result = noticeService.setUpdate(dto);
+		
+		if(result > 0) {
+			message = "게시글 수정에 성공하였습니다.";
+		}
+		
+		mv.addObject("path", "./noticeSelect?noticeNum="+dto.getNoticeNum());
+		mv.addObject("message", message);
+		mv.setViewName("admin/common/result");
+		return mv;
+		
+	}
+	
+	@GetMapping("noticeUpdate")
+	public ModelAndView getUpdate(NoticeDTO dto) throws ClassNotFoundException, SQLException{
+		
+		ModelAndView mv = new ModelAndView();
+		
+		dto = noticeService.getOne(dto);
+		mv.addObject("notice", dto);
+		mv.setViewName("admin/board/boardUpdate");
+		
+		return mv;
+		
+	}
+	
 	// set notice delete ----------------------------------------------
 	/*
 	 * [JeongSky] 2020.11.16 15:02 delete, success
@@ -84,8 +115,6 @@ public class NoticeController {
 	 */
 	@GetMapping("noticeSelect")
 	public ModelAndView getOne(NoticeDTO dto) throws ClassNotFoundException, SQLException{
-		
-		System.out.println(dto.getNoticeNum());
 		
 		ModelAndView mv = new ModelAndView();
 

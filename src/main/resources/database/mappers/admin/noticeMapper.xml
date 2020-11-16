@@ -33,4 +33,8 @@
 		delete from staffNotice where noticeNum=#{noticeNum}
 	</delete>
 	
+	<update id="setUpdate" parameterType="NoticeDTO">
+		update staffNotice set title=#{title}, contents=#{contents} where noticeNum=#{noticeNum}
+	</update>
+	
 </mapper>

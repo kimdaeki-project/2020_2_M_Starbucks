@@ -121,12 +121,12 @@
 					</div>
 					
 					<div class="container-fluid">
-						<form id="frm" action="./noticeWrite" method="post">
-							<input type="text" id="title" name="title" placeholder="제목을 입력해주세요.">
-							<textarea id="editor" name="contents"></textarea>
+						<form id="frm" action="./noticeUpdate?noticeNum=${notice.noticeNum}" method="post">
+							<input type="text" id="title" name="title" placeholder="제목을 입력해주세요." value="${notice.title}">
+							<textarea id="editor" name="contents">${notice.contents}</textarea>
 							<div id="btn-area">
-								<a href="./noticeList"><span id="write-cancle-btn">글쓰기 취소</span></a>
-								<div><input type="submit" value="글쓰기" id="write-btn"></div>
+								<a href="./noticeList"><span id="write-cancle-btn">수정 취소</span></a>
+								<div><input type="submit" value="글 수정" id="write-btn"></div>
 							</div>
 						</form>
 						

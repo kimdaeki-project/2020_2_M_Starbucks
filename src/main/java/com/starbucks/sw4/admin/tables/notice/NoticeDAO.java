@@ -37,8 +37,8 @@ public class NoticeDAO {
 		return sqlSession.insert(NAMESPACE+"setInsert", dto);
 	}
 
-	public int setUpdate() throws ClassNotFoundException, SQLException {
-		return 0;
+	public int setUpdate(NoticeDTO dto) throws ClassNotFoundException, SQLException {
+		return sqlSession.update(NAMESPACE+"setUpdate", dto);
 	}
 
 	public int setDelete(NoticeDTO dto) throws ClassNotFoundException, SQLException {
