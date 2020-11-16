@@ -19,7 +19,7 @@ public class ReplyDAO {
 	}
 	
 	public List<ReplyDTO> getList(ReplyDTO dto) throws SQLException, ClassNotFoundException{
-		return sqlSession.selectList(NAMESPACE, dto);
+		return sqlSession.selectList(NAMESPACE+"getList", dto);
 	}
 	
 }

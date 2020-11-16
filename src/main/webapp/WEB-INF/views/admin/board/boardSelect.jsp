@@ -68,7 +68,7 @@
 			
 			#reply_area{
 				margin-top: 0.3rem;
-				border: 2px solid #EAEAEA;
+				border: 2px solid #D5D5D5;
 				border-radius: 5px;
 			}
 			
@@ -84,13 +84,38 @@
 				margin-bottom: 0.3rem;
 			}
 			
+			#reply_write_area{
+				margin: 2rem 0px;
+			}
+			
 			#reply_text{
 				width: 100%; height: 3rem;
 				color: #212121;
-				font-size: 0.8rem;;
+				font-size: 0.8rem;
 				border: none;
 				margin-bottom: 0.5rem;
 				display: block;
+			}
+			
+			#reply-div{
+				width: 100%;
+				margin: 0.5rem 0px;
+				padding-left: 0.3rem;
+				font-size: 0.9rem;
+				border-bottom: 1px solid #F6F6F6;
+			}
+			
+			#replyMember{
+				font-weight: bold;
+			}
+			
+			#replyContents{
+
+			}
+			
+			#replyDate{
+				margin: 0.2rem 0px 0.5rem;
+				font-size: 0.7rem;
 			}
 			
 			textarea::placeholder{
@@ -170,22 +195,17 @@
 							<hr>
 						</div>
 						
-						<div class="container-fluid">
-							<table>
-								<tr>
-
-										<td></td>
-										<td></td>
-									
-								</tr>
-							</table>
-						</div>
-						
 						<div class="container-fluid" id="reply">
 							<span>댓글</span>
+							<div id="reply-result">
+				
+							</div>
+						</div>
+						
+						<div class="container-fluid" id="reply_write_area">
 							<div id="reply_area">
 								<div>
-									<span id="login_member">login member id</span>
+									<span>login member id</span>
 									<!-- 
 									<input type="text" id="reply_text" placeholder="댓글을 입력하세요." name="reply">
 									 -->
@@ -224,20 +244,36 @@
 		<c:import url="../template/javascript.jsp"></c:import>
 				
 		<script type="text/javascript">
-		
+			
+			var noticeNum = ${notice.noticeNum}
+			getList();
+			
+			function getList(){
+
+				$.ajax({
+					url:"./replyList",
+					type:"GET",
+					data:{
+						noticeNum:noticeNum
+					},
+					success: function(data){
+						$("#reply-result").empty();
+						$("#reply-result").append(data);
+					}
+				});
+				
+			}
+			
 			$("#send-reply").click(function(){
 				
-				var noticeNum = ${notice.noticeNum}
-				var contents = $("#reply_text").val()
-				alert(noticeNum)
-				alert(contents)
-				
+				var contents = $("#reply_text").val();
 				var comment = showRequest();
 				
 				if(comment){
 					$.post("./replyWrite",{noticeNum:noticeNum, contents:contents}, function(){
 						//alert(result);
 						$("#reply_text").val("");
+						getList();
 					})
 				}
 				
@@ -264,7 +300,6 @@
 			// 작성값 확인
 			function showRequest(){
 				
-				alert("show request start")
 				var replyContents = $.trim($("#reply_text").val());
 				
 				if(!replyContents){
@@ -278,7 +313,6 @@
 					return false;
 				}
 				
-				alert("return: true")
 				return true;
 				
 			}
@@ -296,7 +330,7 @@
 				document.execCommand("copy");
 				document.body.removeChild(tmp);
 				
-				alert("copied");
+				alert("URL이 복사되었습니다.");
 				
 			})
 		

@@ -24,6 +24,22 @@ public class NoticeController {
 	@Autowired
 	private ReplyService replyService;
 	
+	@GetMapping("replyList")
+	public ModelAndView getList(ReplyDTO dto) throws ClassNotFoundException, SQLException{
+		
+		ModelAndView mv = new ModelAndView();
+		
+		System.out.println(dto.getNoticeNum());
+		List<ReplyDTO> list = replyService.getList(dto);
+		
+		if(list != null) {
+			mv.addObject("reply", list);
+		}
+		mv.setViewName("admin/tables/replyList");
+		return mv;
+		
+	}
+	
 	@PostMapping("replyWrite")
 	public ModelAndView setReplyWrite(ReplyDTO dto) throws ClassNotFoundException, SQLException{
 		
@@ -146,17 +162,9 @@ public class NoticeController {
 	public ModelAndView getOne(NoticeDTO dto) throws ClassNotFoundException, SQLException{
 		
 		ModelAndView mv = new ModelAndView();
-		ReplyDTO replyDTO = new ReplyDTO();
-		
-		replyDTO.setNoticeNum(dto.getNoticeNum());
-	
 		dto = noticeService.getOne(dto);
-		if(dto != null) {
-			
-			List<ReplyDTO> replyList = replyService.getList(replyDTO);
-			
+		if(dto != null) {			
 			mv.addObject("notice", dto);
-			mv.addObject("reply", replyList);
 			mv.setViewName("admin/board/boardSelect");
 			
 		} else {
