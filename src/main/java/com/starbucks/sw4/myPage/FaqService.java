@@ -10,13 +10,8 @@ public class FaqService {
 	@Autowired
 	private FaqDAO faqDAO;
 	
-	public List<FaqDTO> getRewardList() {
+	public List<FaqDTO> getList() {
 		System.out.println("service 까지 옴");
-		return faqDAO.getRewardList();
-	}
-	
-	public List<FaqDTO> getCardList() {
-		System.out.println("service card  까지 옴");
-		return faqDAO.getCardList();
+		return faqDAO.getList();
 	}
 }

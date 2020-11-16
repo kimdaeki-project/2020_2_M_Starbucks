@@ -102,8 +102,6 @@ body >div > div > ul > li a{
     border: 1px solid #ddd;
     border-radius: 3px;
     float: left;
-    background: white;
-    font-size: 14px;
 }
 
 .search_input > a {
@@ -120,13 +118,24 @@ body >div > div > ul > li a{
     border-radius: 3px;
 }
 
+.faq_wrap {
+    width: 1100px;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    margin-bottom: 40px;
+}
 
 
 
-.faq_wrap { width: 1100px; border-top:1px solid #222; border-bottom:1px solid #222; margin-bottom:40px; }
-.faq_wrap > dt.on { background:url("../../images/myPage/common/faq_arrow_up.png") 98% center no-repeat; }
-.faq_wrap > dt { padding:17px 0; border-bottom:1px solid #ddd; background:url("../../images/myPage/common/faq_arrow_down.png") 98% center no-repeat; cursor:pointer; }
+.faq_wrap > dt {
+	padding: 17px 0;
+	border-bottom: 1px solid #ddd;
+	cursor: pointer;
+}
 
+.faq_wrap { border-top:1px solid #222; border-bottom:1px solid #222; margin-bottom:40px; }
+.faq_wrap > dt { padding:17px 0; border-bottom:1px solid #ddd; background:url("../img/msr/msreward/faq_arrow_down.png") 98% center no-repeat; cursor:pointer; }
+.faq_wrap > dt.on { background:url("../img/msr/msreward/faq_arrow_up.png") 98% center no-repeat; }
 .faq_wrap > dt > ul { width:100%; }
 .faq_wrap > dt > ul:after { content:""; display:block; clear:both; }
 .faq_wrap > dt > ul > li { float:left; }

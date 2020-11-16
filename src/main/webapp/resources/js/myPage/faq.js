@@ -8,10 +8,7 @@
         })
  */
  
- $(".ajaxFaqList").click(function() {
- 			
- 		$(this).next("dd").stop(true, true).slideToggle();
- 		$(this).eq(0).toggleClass("on");
- 	
- 	
+ $('.li2').click(function(e){
+ 	$(this).siblings().children().stop(true, true).slideToggle();
+ $('.faq_wrap > dd').eq(0).show();
  })

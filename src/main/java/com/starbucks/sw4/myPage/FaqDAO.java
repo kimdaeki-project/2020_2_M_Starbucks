@@ -12,11 +12,7 @@ public class FaqDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.starbucks.sw4.myPage.FaqDAO.";
 	
-	public List<FaqDTO> getRewardList() {
-		return sqlSession.selectList(NAMESPACE+"getRewardList");
-	}
-	
-	public List<FaqDTO> getCardList() {
-		return sqlSession.selectList(NAMESPACE+"getCardList");
+	public List<FaqDTO> getList() {
+		return sqlSession.selectList(NAMESPACE+"getList");
 	}
 }

@@ -14,21 +14,10 @@ public class FaqController {
 	@Autowired
 	private FaqService faqService;
 	
-	@GetMapping("faqRewardList")
-	public ModelAndView getRewardList() {
-		List<FaqDTO> ar =  faqService.getRewardList();
-		System.out.println("faq request list 까지 옴");
-		ModelAndView mv= new ModelAndView();
-		mv.addObject("list", ar);
-		mv.setViewName("faq/faqList");
-		
-		return mv;
-	}
-	
-	@GetMapping("faqCardList")
-	public ModelAndView getCardList() {
-		List<FaqDTO> ar =  faqService.getCardList();
-		System.out.println("faq card list 까지 옴");
+	@GetMapping("faqList")
+	public ModelAndView getList() {
+		List<FaqDTO> ar =  faqService.getList();
+		System.out.println("faqlist 까지 옴");
 		ModelAndView mv= new ModelAndView();
 		mv.addObject("list", ar);
 		mv.setViewName("faq/faqList");
