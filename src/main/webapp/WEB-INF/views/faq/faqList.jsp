@@ -48,7 +48,7 @@
             <!--faq 게시글 부분-->
             <div>
             	<dl class="faq_wrap">
-            	<c:forEach items="${list}" var="dto">
+            		<c:forEach items="${list}" var="dto">
             	<dt class="ajaxFaqList on">
             			<ul>
             				<li class="li2">
@@ -62,7 +62,7 @@
             			</ul>
             		
             	</dt>
-            		<dd style="display: none";>
+            		<dd style="display: none">
             			<ul>
             				<li class="li2">
             					<dl>
@@ -73,10 +73,9 @@
             			</ul>
             		</dd>
             		
-            	
-            	
-          
-             </c:forEach>
+              </c:forEach>
+           
+            		
            
             </dl>
              </div>
