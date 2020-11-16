@@ -11,8 +11,15 @@
 	</insert>
 	
 	<select id="getList" resultType="NoticeDTO" parameterType="AdminPager">
+		<!-- 
 		select * from (select rownum as r, n.* from (select * from staffNotice order by noticeNum DESC) n)
 		where r between #{startRow} and #{lastRow}
+		 -->
+		select * from
+			(select * from
+				(select rownum as r, n.* from
+					(select * from staffNotice where title like '%'||#{search}||'%' OR contents like '%'||#{search}||'%' order by noticeNum desc ) n )
+			where r between #{startRow} and #{lastRow})
 	</select>
 	
 	<select id="getOne" parameterType="NoticeDTO" resultType="NoticeDTO">
@@ -25,8 +32,9 @@
 	</update>
 	
 	<!-- list count for paging -->
-	<select id="getCount" resultType="Long">
+	<select id="getCount" resultType="Long" parameterType="AdminPager">
 		select count(*) from staffNotice
+		where title like '%'||#{search}||'%' OR contents like '%'||#{search}||'%'
 	</select>
 	
 	<delete id="setDelete" parameterType="NoticeDTO">

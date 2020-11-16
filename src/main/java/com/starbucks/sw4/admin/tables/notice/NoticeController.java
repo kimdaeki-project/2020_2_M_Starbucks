@@ -24,6 +24,7 @@ public class NoticeController {
 	@Autowired
 	private ReplyService replyService;
 	
+	// reply control ---------------------------------------------------------------
 	@GetMapping("replyList")
 	public ModelAndView getList(ReplyDTO dto) throws ClassNotFoundException, SQLException{
 		
@@ -64,6 +65,7 @@ public class NoticeController {
 		return mv;
 		
 	}
+	// finish line: reply control ----------------------------------------------------
 	
 	@PostMapping("noticeUpdate")
 	public ModelAndView setUpdate(NoticeDTO dto) throws ClassNotFoundException, SQLException{
@@ -189,7 +191,7 @@ public class NoticeController {
 		System.out.println("notice list controller access ******");
 		
 		ModelAndView mv = new ModelAndView();
-		
+		System.out.println(pager.getSearch());
 		List<NoticeDTO> noticeList = noticeService.getList(pager);
 
 		mv.addObject("noticeList", noticeList);

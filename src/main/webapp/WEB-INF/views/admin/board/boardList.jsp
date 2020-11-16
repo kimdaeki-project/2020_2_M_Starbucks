@@ -72,7 +72,6 @@
 			
 			#write-area{
 				float: right;
-				display: inline-block;
 			}
 			
 			#write_btn{
@@ -82,6 +81,10 @@
 				border-radius: 5px;
 				padding: 0.5rem 0.9rem;
 				background-color: white;
+			}
+			
+			#write-btn-area{
+				width: 15rem;
 			}
 			
 		</style>
@@ -156,7 +159,7 @@
 										</c:if>
 									</div>
 								</td>
-								<td>
+								<td id="write-btn-area">
 									<div id="write-area">
 										<a href="./noticeWrite"><span id="write_btn">글쓰기</span></a>
 									</div>
@@ -181,16 +184,23 @@
 			var path = location.pathname;
 			var startIdx = path.indexOf("/",1);
 			var endIdx = path.indexOf("/",startIdx+1);
-			
 			var tmpPath = path.substring(startIdx, endIdx);
-			path = "." + tmpPath + "Search";
+			path = "." + tmpPath + "List";
+			$("#search-frm").attr("action",path);
 			
 			$("#search-btn").click(function(){
+				var search = $("#search").val();
+				var curPage = 1;
 				$.ajax({
 					url:path,
 					type:"GET",
 					data:{
-						
+						curPage:curPage,
+						search:search
+					},
+					success:function(){
+						$("#search").val(search);
+						console.log("검색 성공");
 					}
 				})
 			})

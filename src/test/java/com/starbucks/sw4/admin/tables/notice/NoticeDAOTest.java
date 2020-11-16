@@ -29,8 +29,8 @@ public class NoticeDAOTest extends MyTestCase {
 		assertNotNull(dto);
 		
 	}
-	
-	@Test
+
+	//@Test
 	public void getListTest() throws ClassNotFoundException, SQLException{
 		Pager pager = new Pager();
 		pager.makeRow();

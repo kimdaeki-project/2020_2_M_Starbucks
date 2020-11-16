@@ -25,8 +25,8 @@ public class NoticeDAO {
 		return sqlSession.selectList(NAMESPACE+"getList", pager);
 	}
 	
-	public long getCount() throws ClassNotFoundException, SQLException{
-		return sqlSession.selectOne(NAMESPACE+"getCount");
+	public long getCount(Pager pager) throws ClassNotFoundException, SQLException{
+		return sqlSession.selectOne(NAMESPACE+"getCount",pager);
 	}
 	
 	public int setHitUpdate(NoticeDTO dto) throws ClassNotFoundException, SQLException{

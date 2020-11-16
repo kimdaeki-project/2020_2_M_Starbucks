@@ -6,6 +6,9 @@ public class Pager {
 	private String search;
 	
 	public String getSearch() {
+		if(this.search == "" || this.search == null) {
+			this.search = "";
+		}
 		return search;
 	}
 

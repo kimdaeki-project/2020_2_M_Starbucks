@@ -36,7 +36,7 @@ public class NoticeService {
 		System.out.println("service access");
 		
 		pager.makeRow();
-		pager.setTotalCount(noticeDAO.getCount());
+		pager.setTotalCount(noticeDAO.getCount(pager));
 		pager.makePage();
 		
 		return noticeDAO.getList(pager);
