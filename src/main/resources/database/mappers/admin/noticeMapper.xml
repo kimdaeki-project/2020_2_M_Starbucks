@@ -18,7 +18,7 @@
 		select * from
 			(select * from
 				(select rownum as r, n.* from
-					(select * from staffNotice where title like '%'||#{search}||'%' OR contents like '%'||#{search}||'%' order by noticeNum desc ) n )
+					(select * from staffNotice where upper(title) like upper('%'||#{search}||'%') OR upper(contents) like upper('%'||#{search}||'%') order by noticeNum desc ) n )
 			where r between #{startRow} and #{lastRow})
 	</select>
 	

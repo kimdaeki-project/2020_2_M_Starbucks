@@ -7,7 +7,7 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">main</div>
-                    <a class="nav-link" href="${pageContext.request.contextPath}/">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/admin/adminIndex">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Main page
                     </a>
@@ -33,7 +33,7 @@
                     </a>
                     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/notice/noticeList">Notice</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/admin/notice/noticeList">Notice</a>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseMyPage" aria-expanded="false" aria-controls="pagesCollapseError">
                                 MyPage
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>

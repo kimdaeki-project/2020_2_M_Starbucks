@@ -16,7 +16,7 @@ import com.starbucks.sw4.admin.tables.notice.reply.ReplyService;
 import com.starbucks.sw4.admin.util.Pager;
 
 @Controller
-@RequestMapping(value = "/notice/**")
+@RequestMapping(value = "/admin/notice/**")
 public class NoticeController {
 	
 	@Autowired

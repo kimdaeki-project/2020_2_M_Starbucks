@@ -4,7 +4,7 @@
 
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 	
-    <a class="navbar-brand" href="${pageContext.request.contextPath}/">
+    <a class="navbar-brand" href="${pageContext.request.contextPath}/admin/adminIndex">
     	<img id="logo" alt="" src="/sw4/resources/admin/images/logo.png">
     	<span>Staff Page</span>
    	</a>

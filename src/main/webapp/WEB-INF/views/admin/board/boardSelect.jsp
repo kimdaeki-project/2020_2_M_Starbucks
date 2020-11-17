@@ -125,7 +125,7 @@
 			
 			#reply_submit > #send-reply {
 				float: right;
-				color: #D8D8D8;
+				color: #A6A6A6;
 				font-weight: bold;
 				font-size: 0.8rem;
 				cursor: pointer;
