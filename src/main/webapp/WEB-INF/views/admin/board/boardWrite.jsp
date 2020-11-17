@@ -11,7 +11,7 @@
 	<head>
 	
 		<meta charset="UTF-8">
-		<title>공지사항 작성</title>
+		<title>Starbucks Coffee Korea :: 공지사항 작성</title>
 		<c:import url="../template/bootstrap.jsp"></c:import>
 		<c:import url="../template/commonCSS.jsp"></c:import>
 		

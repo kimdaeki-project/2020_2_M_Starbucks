@@ -45,12 +45,13 @@ public class AdminController {
 		System.out.println("로그인 아이디: " + id);
 		
 		dto = adminService.getAdminLogin(dto);
+		System.out.println(dto);
 		if (dto != null) {
-			System.out.println(id + "계정 로그인 성공");
+			System.out.println(id + " 계정 로그인 성공");
 			session.setAttribute("login", dto);
 			mv.setViewName("redirect:admin/admin/adminIndex");
 		} else {
-			System.out.println(id + "계정 로그인 실패");
+			System.out.println(id + " 계정 로그인 실패");
 			mv.addObject("message", "접근 권한이 없는 계정입니다.");
 			mv.addObject("path", "./adminLogin");
 			mv.setViewName("admin/common/result");

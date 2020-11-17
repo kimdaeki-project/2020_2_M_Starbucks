@@ -9,7 +9,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>공지글 :: ${notice.title}</title>
+		<title>Starbucks Coffee Korea | 공지 :: ${notice.title}</title>
 		<c:import url="../template/bootstrap.jsp"></c:import>
 		<c:import url="../template/commonCSS.jsp"></c:import>
 		

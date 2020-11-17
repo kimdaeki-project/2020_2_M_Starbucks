@@ -27,6 +27,23 @@
 	</beans:bean>
 	
 	<beans:import resource="classpath:config/*-context.xml"/>
+	<beans:bean class="com.starbucks.sw4.admin.interceptor.NoticeMemberInterceptor" id="noticeMemberInterceptor"></beans:bean>
+	<beans:bean class="com.starbucks.sw4.admin.interceptor.AdminPageInterceptor" id="adminPageInterceptor"></beans:bean>
+	
+	<interceptors>
+	
+		<interceptor>
+			<mapping path="/admin/*/*"/>
+			<exclude-mapping path="/admin/admin/adminLogin"/>
+			<beans:ref bean="adminPageInterceptor"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/admin/notice/noticeWrite"/>
+			<beans:ref bean="noticeMemberInterceptor"/>
+		</interceptor>
+		
+	</interceptors>
 	
 	<context:component-scan base-package="com.starbucks.sw4" />
 	

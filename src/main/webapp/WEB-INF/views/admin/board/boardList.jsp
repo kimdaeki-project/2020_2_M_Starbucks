@@ -8,7 +8,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>직원 공지사항</title>
+		<title>Starbucks Coffee Korea :: 직원 공지사항</title>
 		<c:import url="../template/bootstrap.jsp"></c:import>
 		<c:import url="../template/commonCSS.jsp"></c:import>
 		
