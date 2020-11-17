@@ -17,6 +17,13 @@
 			(select * from faq where type = #{type}) M)
 			where R between #{startRow} and #{lastRow}
     	</select>
+    	
+    	<select id="getGiftCardList" resultType="FaqDTO" parameterType="Pager">
+    		select * from
+			(select rownum as R, M.*from
+			(select * from faq where type = #{type}) M)
+			where R between #{startRow} and #{lastRow}
+    	</select>
     
     	<select id="faqCount" resultType="java.lang.Long" parameterType="Pager">
     		select count(num) from faq where type=#{type}

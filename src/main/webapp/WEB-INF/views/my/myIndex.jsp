@@ -50,17 +50,45 @@
     	<section class="ms_user_info">
 			<article class="ms_user_info_left">
 				<h5><span class="en">My</span> 리워드</h5>
-				<p class="ms_user_stat mo_block">
-					<span><strong class="userName"><!-- 홍길동 --></strong> 님은</span><br />
-					<span>현재 <strong class="en userGrade"><!-- Green Level --></strong>이십니다.</span>
-				</p>
-			<figure class="en ms_user_starbg"><span class="totalStar"><!-- 3 --></span></figure>
-        	 <p class="ms_user_stat_notice"><!-- <strong>27</strong>개의 별이 더 모이면<br><strong class="en t_715d39">Gold Level</strong>만의 특별한 혜택이! --></p>
+				
+				<figure class="en ms_user_starbg"><span class="totalStar"><!-- 3 --></span></figure>
+        	
+		        <div><p class="ms_user_stat_notice"> <strong>27</strong>개의 별이 더 모이면<br><strong class="en t_715d39">Gold Level</strong>만의 특별한 혜택이! </p></div>	 
         	 </article>
+        	  <article class="ms_user_info_right">
+        	  <p class="ms_user_stat"><span><strong class="userName"><!-- 홍길동 --></strong> 님은</span> <span>현재 <strong class="en userGrade"><!-- Green Level --></strong>이십니다.</span></p>
+       			<div class="ms_user_stat_btns">
+                    <ul>
+						<li><a href="./reward.do">리워드 및 혜택</a></li>
+						<li><a href="./reward_star_history.do">별 히스토리</a></li>
+						<li class="btn_black"><a href="./myinfo_modify_login.do">개인정보 수정</a></li>
+						<li class="btn_gray"><a class="gray" href="./myinfo_modify_pwd.do">비밀번호 변경</a></li>
+                   </ul>
+                  </div>
+              </article>
         </section>
 
         <section class="my_ms_card">
-
+			<div class="my_ms_card_inner">
+			<header>
+				<h5><span class="en">My</span> 스타벅스 카드</h5>
+				<p class="recent_card">총 보유카드 : 0장</p>
+				<aside>
+			 		 <span><strong class="curSlideNo">1</strong>/<span class="totalCnt">5</span></span>
+       				<p>
+             		<a class="back" href="javascript:void(0);">이전카드 보기</a><!-- 접근성_20171201 수정 -->
+             		<a class="forward" href="javascript:void(0);">다음카드 보기</a><!-- 접근성_20171201 수정 -->
+              	  </p>
+           		  </aside>
+           	  <i class="card_list_btn1"><a href="/my/mycard_list.do"><img src="//image.istarbucks.co.kr/common/img/util/card_list_btn1.png" alt="보유카드 상세정보" />
+        	 </header>
+        	<div class="my_ms_card_cont">
+                <ul class="slider">
+               </ul>
+          
+         
+                                    </div>
+                                </div>
         </section>
 
         <section class="my_ms_icon">

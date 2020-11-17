@@ -39,7 +39,7 @@
      <input type="hidden" name="curPage" id="curPage">
         <!--자주하는 질문-->
         <section class="faq_section">
-            <p class="msr_t1"><span class="subHeadMnu2">스타벅스 리워드</span>에 대한 궁금점이 많으신가요?고객님의 문의사항에 대한 답변을 빠르게 찾으실 수 있습니다.</p>
+            <p class="msr_t1"><span class="subHeadMnu2">${board}</span>에 대한 궁금점이 많으신가요?고객님의 문의사항에 대한 답변을 빠르게 찾으실 수 있습니다.</p>
             <div class="faq_search">
                 <div class="search_input">
                     <input type="text">

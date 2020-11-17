@@ -31,4 +31,18 @@ public class FaqService {
 		pager.setTotalCount(totalCount);
 		return faqDAO.getCardList(pager);
 	}
+	
+	public List<FaqDTO> getGiftCardList(Pager pager) throws Exception {
+		System.out.println("giftcard 까지 옴");
+		//rownum 계산
+		pager.makeRow();
+		pager.setType("e-GiftCard");
+		
+		//page 계산
+		long totalCount = faqDAO.faqCount(pager);
+		pager.setTotalCount(totalCount);
+		pager.makePage();
+		
+		return faqDAO.getGiftCardList(pager);
+	}
 }

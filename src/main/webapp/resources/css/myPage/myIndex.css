@@ -22,22 +22,47 @@ body {    font-size: 1rem;}
     background-color: beige; 
 }
 
-.ms_user_info_left { border-right:1px solid #dddddb; float:left; height:230px; position:relative; width:49%; }
-.ms_user_info_left figure { display: block; width: 67.5%; height:122px; left:117px; overflow:hidden; position:absolute; top:22px; backgrount-size:100%; 
-background-position: 50% 50%;  margin: 0 auto; }
 
-.ms_user_info .ms_user_starbg { background:url("../../images/myPage/ms_myreward_star_bg.png"); background-repeat: no-repeat; background-size:137px auto; color:#222; font-size:44px; font-weight:bold; height:122px; left:141px; line-height:136px; position:absolute; text-align:center; top:12px; width:137px; }
+.ms_user_info_left { border-right:1px solid #dddddb; float:left; height:230px; position:relative; width:49%}
+.ms_user_info .ms_user_starbg { background:url("../../images/myPage/ms_myreward_star_bg.png"); background-repeat: no-repeat;  }
+.ms_user_info_left > figure { display: block; width: 67.5%; height:70%; left:60px; overflow:hidden; position:absolute; top:22px; margin: 0 auto; background: fuchsia;}
+.ms_user_stat_notice {position:absolute; bottom:0; left:60px; font-size:14px;}
+.ms_user_info_right {float: left; height: 230px; position:relative; width:49%; box-sizing: border-box; padding: 20px 0 0 50px;}
+.ms_user_stat {position:relative; height: auto; top:inherit; font-size:22px; line-height: 37px; text-align: left; width:100%; left:0;}
+.ms_user_stat > span {display: block;}
+.ms_user_stat_btns {position:relative; width:100%; height: auto; margin:20px 0 0 0; top:inherit; left:inherit; bottom: inherit;}
+.ms_user_stat_btns > ul {width:100%; height: auto; margin:0; overflow: hidden; margin-left:-10px;}
+.ms_user_stat_btns > ul li {background: #e2c383; border:1px solid #bb9f65; border-radius: 3px; float: left; height: 28px; width:126px; margin:10px 0 0 10px;}
+a {margin:0; padding: 0; text-decoration: none; vertical-align: baseline; background: transparent;cursor: pointer;}
+.ms_user_stat_btns > ul li > a {color:#222; display: block; font-size: 12px; font-weight: bold; height: 100%; line-height: 28px; text-align: center; width: 100%}
+.ms_user_stat_btns > ul li.btn_black {background: #222222; border: 1px solid #222222}
+.ms_user_stat_btns > ul li.btn_black > a {color:#ffffff;}
+.ms_user_stat_btns > ul li.btn_gray {background: #777777; border: 1px solid #777777;}
+.ms_user_stat_btns > ul li.btn_gray > a {color:#ffffff;}
+
 
 /*section 2 */	
 .my_ms_card {
+	background: url("../../images/myPage/card_wave_pattern.png") center bottom no-repeat; 
     height: 290px;
     width:830px;
-    border: 1px solid yellow;
+    border: 1px solid #ddd;
+    border-radius: 3px;
     box-sizing: border-box;
     margin-top: 2rem;
-    background-color: skyblue;
 
 }
+.my_ms_card_inner {float: left; height: 230px; margin: 29px 0 0 29px; width: 770px;}
+.my_ms_card > header {border-bottom: 1px solid #eae9e6; height: 38px; width: 770px;}
+.my_ms_card > header > h5 {color: #222; float: left; font-size: 18px;}
+.my_ms_card > header > p.recent_card {color: #555; float: left; font-size: 12px; line-height: 18px; margin-left: 10px;}
+.my_ms_card > header > aside {float: right; height: 19px; width: 71px; display: block;}
+.my_ms_card > header > aside span {color:#777; font-size: 12px; height: 19px; line-height: 19px; text-align: center; width:32px;}
+
+
+
+
+
 /*section 3 */	
 .my_ms_icon {
     height: 100px;
