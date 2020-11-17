@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+html {    font-size:  20px;}
+
+body {    font-size: 1rem;}
+		
+/*section */	
+#container {
+    width: 54.5rem;
+    margin: 0 auto;
+    display:block;
+    position:relative;
+	}
+/*section 1 */	
+.ms_user_info { background:url("../../images/myPage/ms_user_info_bg.jpg"); border-radius:3px; }	
+.ms_user_info {
+    height: 290px;
+    width:830px;
+    padding: 30px;
+    box-sizing: border-box;
+    margin-top: 2rem;
+    background-color: beige; 
+}
+
+.ms_user_info_left { border-right:1px solid #dddddb; float:left; height:230px; position:relative; width:49%; }
+.ms_user_info_left figure { display: block; width: 67.5%; height:122px; left:117px; overflow:hidden; position:absolute; top:22px; backgrount-size:100%; 
+background-position: 50% 50%;  margin: 0 auto; }
+
+.ms_user_info .ms_user_starbg { background:url("../../images/myPage/ms_myreward_star_bg.png"); background-repeat: no-repeat; background-size:137px auto; color:#222; font-size:44px; font-weight:bold; height:122px; left:141px; line-height:136px; position:absolute; text-align:center; top:12px; width:137px; }
+
+/*section 2 */	
+.my_ms_card {
+    height: 290px;
+    width:830px;
+    border: 1px solid yellow;
+    box-sizing: border-box;
+    margin-top: 2rem;
+    background-color: skyblue;
+
+}
+/*section 3 */	
+.my_ms_icon {
+    height: 100px;
+    width:830px;
+    border: 1px solid yellow;
+    box-sizing: border-box;
+    margin: 2rem 0;
+    background-color: thistle;
+    display: block;
+}
+
+	
+
+	
+
+	
+	
+	
