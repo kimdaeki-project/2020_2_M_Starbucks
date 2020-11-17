@@ -16,4 +16,11 @@ public class AdminController {
 		return mv;
 	}
 	
+	@GetMapping("adminLogin")
+	public ModelAndView getAdminLogin() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/admin/adminLogin");
+		return mv;
+	}
+	
 }
