@@ -8,7 +8,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>임직원 관리 페이지</title>
+		<title>스타벅스 :: 임직원 관리 페이지</title>
 		<c:import url="../template/bootstrap.jsp"></c:import>
 		<c:import url="../template/commonCSS.jsp"></c:import>
 	</head>

@@ -154,6 +154,7 @@
 		        .catch( error => {
 		            console.error( error );
 		        } );
+
 		</script>
 		<c:import url="../template/javascript.jsp"></c:import>
 		

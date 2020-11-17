@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<link rel="icon" href="http://localhost/sw4/resources/images/common/favicon.ico" type="image/x-icon">
 <style>
 	
 	a{
