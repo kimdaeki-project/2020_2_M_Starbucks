@@ -30,7 +30,9 @@
 	<c:import url="../common/header.jsp"></c:import>
 	<!-- Header End -->
 
-
+	<div id="Container">
+		<h1>Member Join Page</h1>
+	</div>
 	<!-- Footer -->
 	<c:import url="../common/footer.jsp"></c:import>
 	<!-- Footer End -->

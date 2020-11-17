@@ -1,0 +1,3 @@
+@charset "UTF-8";
+
+.new_login_bg_wrap { background:url("../images/member/login_bg.jpg") center top no-repeat fixed #0a0807; background-size:cover; -webkit-background-size:cover; width:100%; }
