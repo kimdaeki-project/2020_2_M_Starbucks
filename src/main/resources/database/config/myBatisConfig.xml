@@ -10,6 +10,7 @@
 		
 		
 		<!-- MY PAGE  -->
-		<typeAlias type="com.starbucks.sw4.myPage.FaqDTO" alias="FaqDTO"/>
+		<typeAlias type="com.starbucks.sw4.my.faq.FaqDTO" alias="FaqDTO"/>
+		<typeAlias type="com.starbucks.sw4.my.faq.Pager" alias="Pager"/>
 	</typeAliases>
 </configuration>

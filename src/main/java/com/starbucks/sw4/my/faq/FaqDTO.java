@@ -1,4 +1,4 @@
-package com.starbucks.sw4.myPage;
+package com.starbucks.sw4.my.faq;
 
 public class FaqDTO {
 	private long num;

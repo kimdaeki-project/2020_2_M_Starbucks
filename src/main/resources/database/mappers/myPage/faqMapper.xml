@@ -3,12 +3,12 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-    <mapper namespace="com.starbucks.sw4.myPage.FaqDAO">
-    	<select id="getRewardList" resultType="FaqDTO">
+    <mapper namespace="com.starbucks.sw4.my.faq.FaqDAO">
+    	<select id="getRewardList" resultType="FaqDTO" parameterType="Pager">
     		select * from
    			(select rownum as R, N.* from
   			 (select * from faq where type='rewards') N)
-  			 where num between 1 and 10
+  			 where num between #{startRow} and #{lastRow}
     	</select>
     	
     	<select id="getCardList" resultType="FaqDTO">
@@ -18,5 +18,7 @@
 			where num between 1 and 30
     	</select>
     
-    
+    	<select id="faqCount" resultType="java.lang.Long">
+    		select count(num) from faq
+    	</select>
     </mapper>

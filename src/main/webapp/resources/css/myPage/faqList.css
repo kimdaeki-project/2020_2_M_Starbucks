@@ -149,3 +149,5 @@ body >div > div > ul > li a{
 .faq_wrap > dd dt {float:left;width:23px;font-size:14px;font-weight:bold;color:#666;line-height:1.4;}
 .faq_wrap > dd dd {float:left;width:95%;font-size:14px;color:#666;line-height:1.4;}
 .faq_wrap > dd dd p.tt { margin-bottom:20px; }
+
+.faq_wrap > div.faq_pagination { height: 27px; margin-top: 50px; width:100%;}

@@ -1,4 +1,4 @@
-package com.starbucks.sw4.myPage;
+package com.starbucks.sw4.my.faq;
 
 import java.util.List;
 
@@ -10,13 +10,16 @@ public class FaqService {
 	@Autowired
 	private FaqDAO faqDAO;
 	
-	public List<FaqDTO> getRewardList() {
+	public List<FaqDTO> getRewardList(Pager pager) throws Exception {
 		System.out.println("service 까지 옴");
-		return faqDAO.getRewardList();
+		long totalCount = faqDAO.faqCount();
+		pager.setTotalCount(totalCount);
+		return faqDAO.getRewardList(pager);
 	}
 	
 	public List<FaqDTO> getCardList() {
 		System.out.println("service card  까지 옴");
+		
 		return faqDAO.getCardList();
 	}
 }
