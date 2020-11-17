@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class MemberController {
+public class AdminMemberController {
 
 	@GetMapping("memberLogin")
 	public ModelAndView getLogin() throws SQLException, ClassNotFoundException{
