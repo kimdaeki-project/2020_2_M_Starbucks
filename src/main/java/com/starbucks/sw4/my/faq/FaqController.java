@@ -57,13 +57,10 @@ public class FaqController {
 	}
 	
 	@GetMapping("faqGiftCardList")
-	public ModelAndView getRewardList(Pager pager)throws Exception {
-		
-		
+	public ModelAndView getGiftCardList(Pager pager)throws Exception {
+
 		ModelAndView mv= new ModelAndView();
-		
-		
-		
+	
 		List<FaqDTO> ar =  faqService.getGiftCardList(pager);
 		
 		mv.addObject("board", "e-Gift Card");
