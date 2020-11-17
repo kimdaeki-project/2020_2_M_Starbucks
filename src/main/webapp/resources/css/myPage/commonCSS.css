@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/*SUBtitle 부분*/
+.ms_sb_tit_bg {
+    width: 100%;
+    height: 178px;
+    background-color: #000;
+}
+
+.ms_sub_tit_inner {
+    width: 54.5rem;
+    margin: 0 auto;
+    height: 74px;
+    padding-top: 104px;
+    position: relative;
+}
+
+body > div > div > h4 {
+    width: 100%;
+    height: 41px;
+    display: block;
+    font-weight: bold;
+}
+
+#container > header > div > div > h4 > img{
+background: transparent;
+vertical-align: top;
+max-width: 100%;
+}
+
+/*icons*/
+.xi-home-o {
+    color:white;
+}
+.xi-angle-right-min{
+    color: white;
+}
+
+/*title 내부의 home>menu 부분*/
+body > div > div > ul{
+    position: absolute;
+    top: 7rem;
+    right: 2rem;
+    display: inline-flex;
+}

@@ -16,30 +16,42 @@ public class FaqController {
 	private FaqService faqService;
 	
 	@GetMapping("faqRewardList")
-	public ModelAndView getRewardList(@RequestParam(defaultValue ="1") int curPage)throws Exception {
-		System.out.println("curpage:" +curPage);
+	public ModelAndView getRewardList(Pager pager)throws Exception {
+		
+		
 		ModelAndView mv= new ModelAndView();
 		
-		Pager pager = new Pager();
-		pager.setStartRow((curPage-1)*10+1);
-		pager.setLastRow(curPage*10);
+		
 		
 		List<FaqDTO> ar =  faqService.getRewardList(pager);
 		
+		mv.addObject("board", "스타벅스 리워드");
+		mv.addObject("title", "faqReward");
 		mv.addObject("list", ar);
-		mv.addObject("count", pager.getTotalCount()/10);
+		mv.addObject("pager", pager);
+		mv.addObject("count", (pager.getTotalCount()/10)+1);
 		mv.setViewName("faq/faqList");
 		
 		return mv;
 	}
 	
 	@GetMapping("faqCardList")
-	public ModelAndView getCardList() {
-		List<FaqDTO> ar =  faqService.getCardList();
-		System.out.println("faq card list 까지 옴");
+	public ModelAndView getCardList(@RequestParam(defaultValue ="1") int curPage) throws Exception {
 		ModelAndView mv= new ModelAndView();
+		
+		Pager pager = new Pager();
+		pager.setStartRow((curPage-1)*10+1);
+		pager.setLastRow(curPage*10);
+		pager.setType("card");
+		
+		List<FaqDTO> ar =  faqService.getCardList(pager);
+		
+		
+		mv.addObject("board", "스타벅스 카드");
+		mv.addObject("title", "faqCard");
 		mv.addObject("list", ar);
-		mv.setViewName("faq/faqList");
+		mv.addObject("count", pager.getTotalCount()/10);
+		mv.setViewName("faq/faqList");                                      
 		
 		return mv;
 	}

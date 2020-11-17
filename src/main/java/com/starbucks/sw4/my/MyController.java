@@ -12,4 +12,9 @@ public class MyController {
 	public void findMyInfo() {
 		
 	}
+	
+	@GetMapping("myIndex")
+	public void myIndex() {
+		
+	}
 }

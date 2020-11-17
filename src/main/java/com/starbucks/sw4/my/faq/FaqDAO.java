@@ -16,11 +16,11 @@ public class FaqDAO {
 		return sqlSession.selectList(NAMESPACE+"getRewardList", pager);
 	}
 	
-	public List<FaqDTO> getCardList() {
-		return sqlSession.selectList(NAMESPACE+"getCardList");
+	public List<FaqDTO> getCardList(Pager pager) {
+		return sqlSession.selectList(NAMESPACE+"getCardList", pager);
 	}
 	 
-	public long faqCount() throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"faqCount");
+	public long faqCount(Pager pager) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"faqCount", pager);
 	}
 }

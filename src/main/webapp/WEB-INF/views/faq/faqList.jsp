@@ -26,8 +26,9 @@
             <ul class="smap">
                 <li><a href="/"><i class="xi-home-o"></i></a></li>
                 <li><a href="/"><i class="xi-angle-right-min"></a></i></li>
-                <li><a href="/my/index.do">My Starbucks</a></li>
-
+                <li><a href="/my/index.do">STARBUCKS REWARDS</a></li>
+                 <li><a href="/"><i class="xi-angle-right-min"></a></i></li>
+					<li><a href="/my/index.do">${board}</a></li>
 
             </ul>
         </div>
@@ -50,42 +51,38 @@
             <div>
             	<dl class="faq_wrap">
             		<c:forEach items="${list}" var="dto">
-            	<dt class="ajaxFaqList on">
-            			<ul>
-            				<li class="li2">
-            					<dl>
+            			<dt class="ajaxFaqList on">
+            				<ul>
+            					<li class="li2">
+            						<dl>
             						<dt class="en">Q</dt>
-            						<dd>${dto.question}</dd>
-            						
-            					</dl>
-            				</li>
+            						<dd>${dto.question}</dd>	
+	            					</dl>
+    	        				</li>
             				
-            			</ul>
-            		
-            	</dt>
-            		<dd style="display: none">
-            			<ul>
-            				<li class="li2">
-            					<dl>
+        	    			</ul>
+            			</dt>
+            			<dd style="display: none">
+            				<ul>
+            					<li class="li2">
+            						<dl>
             						<dt class="en">A</dt>
             						<dd><a href="#">${dto.answer}</a></dd>
-            					</dl>
-            				</li>
-            			</ul>
-            		</dd>
+            						</dl>
+            					</li>
+            				</ul>
+            			</dd>
             		
-              </c:forEach>
-           
-            </dl>
+             		</c:forEach>
+           		</dl>
              </div>
-             <!-- pagination -->
+           
+           <!-- pagination -->
            <div class="faq_pagination">
            	<c:forEach begin="1" end="${count}" var="i"> 
-           		
-           		
-				<a href="./faqRewardList?curPage=${i}"> ${i }</a> 
-				
-			
+				<ul class="pager">
+				<a href="./${title}List?curPage=${i}"> ${i}</a> 
+				</ul>
 			</c:forEach>
            </div> 
         </section>

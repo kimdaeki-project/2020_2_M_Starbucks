@@ -12,14 +12,23 @@ public class FaqService {
 	
 	public List<FaqDTO> getRewardList(Pager pager) throws Exception {
 		System.out.println("service 까지 옴");
-		long totalCount = faqDAO.faqCount();
+		//rownum 계산
+		pager.makeRow();
+		pager.setType("rewards");
+		
+		//page 계산
+		long totalCount = faqDAO.faqCount(pager);
 		pager.setTotalCount(totalCount);
+		pager.makePage();
+		
 		return faqDAO.getRewardList(pager);
 	}
 	
-	public List<FaqDTO> getCardList() {
+	public List<FaqDTO> getCardList(Pager pager) throws Exception {
 		System.out.println("service card  까지 옴");
-		
-		return faqDAO.getCardList();
+		long totalCount = faqDAO.faqCount(pager);
+		System.out.println("totalcount: "+totalCount);
+		pager.setTotalCount(totalCount);
+		return faqDAO.getCardList(pager);
 	}
 }
