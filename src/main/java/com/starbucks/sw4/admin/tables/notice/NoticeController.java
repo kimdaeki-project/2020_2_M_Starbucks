@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.starbucks.sw4.admin.tables.member.AdminMemberDTO;
 import com.starbucks.sw4.admin.tables.notice.reply.ReplyDTO;
 import com.starbucks.sw4.admin.tables.notice.reply.ReplyService;
 import com.starbucks.sw4.admin.util.Pager;
@@ -42,7 +45,7 @@ public class NoticeController {
 	}
 	
 	@PostMapping("replyWrite")
-	public ModelAndView setReplyWrite(ReplyDTO dto) throws ClassNotFoundException, SQLException{
+	public ModelAndView setReplyWrite(ReplyDTO dto, HttpSession session) throws ClassNotFoundException, SQLException{
 		
 		ModelAndView mv = new ModelAndView();
 		
@@ -51,7 +54,10 @@ public class NoticeController {
 		System.out.println(dto.getWriter());
 		System.out.println(dto.getContents());
 		
-		dto.setWriter("writer");
+		AdminMemberDTO memberDTO = (AdminMemberDTO)session.getAttribute("login");
+		System.out.println(memberDTO.getNickName());
+		
+		dto.setWriter(memberDTO.getNickName());
 		int result = replyService.setWrite(dto);
 		
 		if(result > 0) {
@@ -123,15 +129,18 @@ public class NoticeController {
 	// set notice write -----------------------------------------------
 	/*
 	 * [JeongSky] 2020.11.16 14:45 write, insert success
+	 * [JeongSky] 2020.11.17 17:13 http session
 	 */
 	@PostMapping("noticeWrite")
-	public ModelAndView setWrite(NoticeDTO dto) throws ClassNotFoundException, SQLException{
+	public ModelAndView setWrite(NoticeDTO dto, HttpSession session) throws ClassNotFoundException, SQLException{
 		
 		ModelAndView mv = new ModelAndView();
 		System.out.println(dto.getContents());
 		
 		String message = "작성을 실패하였습니다.";
-		dto.setWriter("admin test");
+		
+		AdminMemberDTO memberDTO = (AdminMemberDTO)session.getAttribute("login");
+		dto.setWriter(memberDTO.getNickName());
 		
 		int result = noticeService.setInsert(dto);
 

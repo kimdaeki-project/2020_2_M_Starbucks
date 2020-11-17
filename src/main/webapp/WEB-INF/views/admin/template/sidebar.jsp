@@ -71,7 +71,13 @@
             </div>
             <div class="sb-sidenav-footer">
                 <div class="small">Logged in as:</div>
-                login member name
+                ${login.name}
+                <c:choose>
+                	<c:when test="${login.type eq 2}">직원님</c:when>
+                	<c:when test="${login.type eq 3}">매니저님</c:when>
+                	<c:when test="${login.type eq 4}">관리자님</c:when>
+                	<c:otherwise>login name</c:otherwise>
+                </c:choose>
             </div>
         </nav>
     </div>

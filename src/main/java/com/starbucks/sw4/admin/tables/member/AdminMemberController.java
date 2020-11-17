@@ -9,11 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AdminMemberController {
 
-	@GetMapping("memberLogin")
-	public ModelAndView getLogin() throws SQLException, ClassNotFoundException{
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("admin/pages/memberLogin");
-		return mv;
-	}
+
 	
 }

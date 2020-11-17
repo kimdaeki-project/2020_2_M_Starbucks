@@ -205,7 +205,7 @@
 						<div class="container-fluid" id="reply_write_area">
 							<div id="reply_area">
 								<div>
-									<span>login member id</span>
+									<span>${login.nickName}</span>
 									<!-- 
 									<input type="text" id="reply_text" placeholder="댓글을 입력하세요." name="reply">
 									 -->
