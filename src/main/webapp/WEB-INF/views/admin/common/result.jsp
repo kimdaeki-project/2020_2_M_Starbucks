@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>test sky 20201109 1907</h1>
+
+	<script type="text/javascript">
+		var result='${message}'
+		var path = '${path}'
+		alert(result);
+		location.href = path;
+	</script>
+
 </body>
 </html>
