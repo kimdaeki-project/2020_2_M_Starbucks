@@ -18,7 +18,7 @@
 
 <script>
 	var path = location.pathname;
-	var startIdx = path.indexOf("/",1);
+	var startIdx = path.indexOf("/",6);
 	var endIdx = path.indexOf("/",startIdx+1);
 	var tmpPath = path.substring(startIdx, endIdx);
 	path = "." + tmpPath + "List";
@@ -27,6 +27,7 @@
 	$("#search-btn").click(function(){
 		var search = $("#search").val();
 		var curPage = 1;
+		alert(path)
 		$.ajax({
 			url:path,
 			type:"GET",

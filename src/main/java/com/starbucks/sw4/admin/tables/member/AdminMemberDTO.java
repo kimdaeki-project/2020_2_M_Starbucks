@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class AdminMemberDTO {
 
+	private long rownum;
 	private long num;
 	private long adminNum;
 	private int type;
@@ -11,15 +12,34 @@ public class AdminMemberDTO {
 	private String pw;
 	private String name;
 	private Date birth;
-	private int gender;
+	private String gender;
 	private String phone;
 	private String email;
 	private String nickName;
 	private int grade;
-	private int authStatus;
 	private String joinPath;
 	private Date regDate;
+	private long storeCode;
+	private String storeName;
 	
+	public long getRownum() {
+		return rownum;
+	}
+	public void setIndex(long rownum) {
+		this.rownum = rownum;
+	}
+	public String getStoreName() {
+		return storeName;
+	}
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
+	}
+	public long getStoreCode() {
+		return storeCode;
+	}
+	public void setStoreCode(long storeCode) {
+		this.storeCode = storeCode;
+	}
 	public long getNum() {
 		return num;
 	}
@@ -62,10 +82,10 @@ public class AdminMemberDTO {
 	public void setBirth(Date birth) {
 		this.birth = birth;
 	}
-	public int getGender() {
+	public String getGender() {
 		return gender;
 	}
-	public void setGender(int gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 	public String getPhone() {
@@ -91,12 +111,6 @@ public class AdminMemberDTO {
 	}
 	public void setGrade(int grade) {
 		this.grade = grade;
-	}
-	public int getAuthStatus() {
-		return authStatus;
-	}
-	public void setAuthStatus(int authStatus) {
-		this.authStatus = authStatus;
 	}
 	public String getJoinPath() {
 		return joinPath;

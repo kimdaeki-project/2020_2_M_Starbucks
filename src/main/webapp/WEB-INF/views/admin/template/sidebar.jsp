@@ -22,7 +22,7 @@
                     <div class="collapse" id="collapseStores" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="#">Orders</a>
-                            <a class="nav-link" href="#">Staff List</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/admin/member/memberList">Staff List</a>
                             <a class="nav-link" href="#">Customer</a>
                         </nav>
                     </div>

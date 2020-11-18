@@ -27,7 +27,7 @@
                 <a class="dropdown-item" href="#">Settings</a>
                 <a class="dropdown-item" href="#">Activity Log</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/adminLogin">Logout</a>
+                <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/adminLogout">Logout</a>
                 <a class="dropdown-item" href="${pageContext.request.contextPath}/">go to STARBUCKS</a>
             </div>
         </li>

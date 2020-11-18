@@ -28,6 +28,17 @@ public class AdminController {
 		return mv;
 	}
 	
+	@GetMapping("adminLogout")
+	public ModelAndView getMemberLogout(HttpSession sessions) throws Exception {
+		// 로그아웃 실행시 유지 시간 0초로 수정
+		ModelAndView mv = new ModelAndView();
+		sessions.invalidate();
+		mv.addObject("message", "로그아웃하였습니다.");
+		mv.addObject("path", "../admin/adminLogin");
+		mv.setViewName("admin/common/result");
+		return mv;
+	}
+	
 	@GetMapping("adminLogin")
 	public ModelAndView getAdminLogin() {
 		ModelAndView mv = new ModelAndView();

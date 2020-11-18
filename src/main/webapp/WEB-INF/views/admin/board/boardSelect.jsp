@@ -109,10 +109,6 @@
 				font-weight: bold;
 			}
 			
-			#replyContents{
-
-			}
-			
 			#replyDate{
 				margin: 0.2rem 0px 0.5rem;
 				font-size: 0.7rem;
@@ -205,7 +201,7 @@
 						<div class="container-fluid" id="reply_write_area">
 							<div id="reply_area">
 								<div>
-									<span>${login.nickName}</span>
+									<span>${login.name}</span>
 									<!-- 
 									<input type="text" id="reply_text" placeholder="댓글을 입력하세요." name="reply">
 									 -->

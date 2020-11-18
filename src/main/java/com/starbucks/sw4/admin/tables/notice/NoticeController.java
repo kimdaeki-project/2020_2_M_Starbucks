@@ -140,7 +140,7 @@ public class NoticeController {
 		String message = "작성을 실패하였습니다.";
 		
 		AdminMemberDTO memberDTO = (AdminMemberDTO)session.getAttribute("login");
-		dto.setWriter(memberDTO.getNickName());
+		dto.setWriter(memberDTO.getName());
 		
 		int result = noticeService.setInsert(dto);
 
@@ -193,6 +193,7 @@ public class NoticeController {
 	/*
 	 * [JeongSky] 2020.11.11 17:20 access test success
 	 * [JeongSky] 2020.11.14 19:16 add paging
+	 * [JeongSky] 2020.11.18 17:17 add object
 	 */
 	@GetMapping("noticeList")
 	public ModelAndView getList(Pager pager) throws ClassNotFoundException, SQLException {
@@ -201,6 +202,7 @@ public class NoticeController {
 		
 		ModelAndView mv = new ModelAndView();
 		System.out.println(pager.getSearch());
+		pager.setPerPage(10);
 		List<NoticeDTO> noticeList = noticeService.getList(pager);
 
 		mv.addObject("noticeList", noticeList);

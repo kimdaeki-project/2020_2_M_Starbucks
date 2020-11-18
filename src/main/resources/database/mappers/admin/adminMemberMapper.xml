@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starbucks.sw4.admin.tables.member.AdminMemberDAO">
+
+	<select id="getList" parameterType="AdminPager" resultType="AdminMemberDTO">
+		select rownum, d.*
+		from (select rownum, M.* from member M join memberAdmin MA on (M.adminNum = MA.adminNum)
+			where MA.storeCode=#{storeCode} and
+					(M.name like '%'||#{search}||'%' or M.nickName like '%'||#{search}||'%')
+			order by M.type DESC) d
+	</select>
+
+	<select id="getCount" parameterType="AdminPager" resultType="Long">
+		select count(*)
+		from (select M.* from member M join memberAdmin MA on (M.adminNum = MA.adminNum)
+			where MA.storeCode=#{storeCode} and (M.name=#{search} or M.nickName=#{search}) ) d
+	</select>
+
+</mapper>
