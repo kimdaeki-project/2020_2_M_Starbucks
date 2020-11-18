@@ -20,7 +20,7 @@ public class FaqController {
 		
 		
 		ModelAndView mv= new ModelAndView();
-		
+		System.out.println("search:"+pager.getSearch());
 		
 		
 		List<FaqDTO> ar =  faqService.getRewardList(pager);
@@ -29,7 +29,7 @@ public class FaqController {
 		mv.addObject("title", "faqReward");
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
-		mv.addObject("count", (pager.getTotalCount()/10)+1);
+		
 		mv.setViewName("faq/faqList");
 		
 		return mv;

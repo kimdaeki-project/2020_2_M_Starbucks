@@ -42,8 +42,12 @@
             <p class="msr_t1"><span class="subHeadMnu2">${board}</span>에 대한 궁금점이 많으신가요?고객님의 문의사항에 대한 답변을 빠르게 찾으실 수 있습니다.</p>
             <div class="faq_search">
                 <div class="search_input">
-                    <input type="text">
-                    <a id="sch_btn" href="/">검색</a>
+                 <form action="./${title}List">
+                    <input type="text" id="search" name="search">
+                    <button class="btn" type="submit">
+                    		검색
+                    </button>
+                 </form>
                 </div>
             </div>
 
@@ -79,11 +83,11 @@
            
            <!-- pagination -->
            <div class="faq_pagination">
-           	<c:forEach begin="1" end="${count}" var="i"> 
+           	<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i"> 
 				<ul class="pager">
-				<a href="./${title}List?curPage=${i}"> ${i}</a> 
+				<a href="./${title}List?curPage=${i}&search=${pager.search}"> ${i}</a> 
 				</ul>
-			</c:forEach>
+			</c:forEach> 
            </div> 
         </section>
     </div>

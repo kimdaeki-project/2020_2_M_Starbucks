@@ -12,13 +12,15 @@ public class FaqService {
 	
 	public List<FaqDTO> getRewardList(Pager pager) throws Exception {
 		System.out.println("service 까지 옴");
+		System.out.println("curpage:" +pager.getCurPage());
 		//rownum 계산
 		pager.makeRow();
 		pager.setType("rewards");
 		
 		//page 계산
-		long totalCount = faqDAO.faqCount(pager);
-		pager.setTotalCount(totalCount);
+		long totalCount = faqDAO.faqCount(pager);//15
+		System.out.println(totalCount);
+		pager.setTotalCount(totalCount); //15
 		pager.makePage();
 		
 		return faqDAO.getRewardList(pager);

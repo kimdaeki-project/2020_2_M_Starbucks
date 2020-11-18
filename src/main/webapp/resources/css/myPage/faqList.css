@@ -95,7 +95,7 @@ body >div > div > ul > li a{
     top: 15px;
     width: 395px;
 }
-.search_input > input {
+.search_input > form > input {
     width: 343px;
     height: 28px;
     line-height: 28px;
@@ -106,18 +106,17 @@ body >div > div > ul > li a{
     font-size: 14px;
 }
 
-.search_input > a {
+.search_input > form > .btn {
     width: 42px;
     height: 28px;
-    line-height: 28px;
     background:#777777;
+    display: block;
+    float: right;
+    border-radius: 3px;
     font-size: 12px;
     font-weight: bold;
     color: #ffffff;
-    display: block;
-    float: right;
-    text-align: center;
-    border-radius: 3px;
+    text-align: center; line-height: 28px;
 }
 
 
