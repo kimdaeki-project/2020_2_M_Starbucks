@@ -26,6 +26,8 @@
 		<beans:property name="order" value="0"></beans:property>
 	</beans:bean>
 	
+	
+	
 	<beans:import resource="classpath:config/*-context.xml"/>
 	<beans:bean class="com.starbucks.sw4.admin.interceptor.NoticeMemberInterceptor" id="noticeMemberInterceptor"></beans:bean>
 	<beans:bean class="com.starbucks.sw4.admin.interceptor.AdminPageInterceptor" id="adminPageInterceptor"></beans:bean>
@@ -49,3 +51,4 @@
 	<context:component-scan base-package="com.starbucks.sw4" />
 	
 </beans:beans>
+
