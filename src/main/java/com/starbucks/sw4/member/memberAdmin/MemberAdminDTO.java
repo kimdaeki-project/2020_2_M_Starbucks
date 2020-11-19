@@ -7,7 +7,6 @@ public class MemberAdminDTO {
 	private long storeCode;
 	private String managerId;
 	
-	
 	public long getAdminNum() {
 		return adminNum;
 	}

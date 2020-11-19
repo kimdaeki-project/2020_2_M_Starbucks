@@ -13,6 +13,9 @@ public class Pager {
 	}
 
 	public void setSearch(String search) {
+		if(search == "" || search == null) {
+			search = "";
+		}
 		this.search = search;
 	}
 
@@ -39,6 +42,28 @@ public class Pager {
 	// DB 전체 게시글 수
 	private long totalCount;
 	
+	// for get member list --------------------------
+	private long storeCode;
+	private int type;
+	
+	// for get member list --------------------------
+	public long getStoreCode() {
+		return storeCode;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+	public void setStoreCode(long storeCode) {
+		this.storeCode = storeCode;
+	}
+	// ----------------------------------------------
+
 	public Pager() {
 		this.perPage = 10;
 	}
@@ -46,7 +71,7 @@ public class Pager {
 	// DB에서 가져올 Row 계산
 	public void makeRow() {
 		Pager pager = new Pager();
-		this.startRow = ((this.getCurPage() * this.getPerPage()) - 9);
+		this.startRow = ((this.getCurPage() * this.getPerPage()) - (this.perPage-1));
 		this.lastRow = (this.getCurPage() * this.getPerPage());
 	}
 	
@@ -54,14 +79,14 @@ public class Pager {
 	public void makePage() {
 		
 		// 1. 전체 페이지 수
-		long totalPage = this.getTotalCount()/10;
-		if(this.getTotalCount()%10 != 0) {
+		long totalPage = this.getTotalCount()/this.perPage;
+		if(this.getTotalCount()%this.perPage != 0) {
 			totalPage++;
 		}
 		
 		// 2. 전체 블럭 수
-		long totalBlock = totalPage/10;
-		if(totalPage%10 != 0) {
+		long totalBlock = totalPage/this.perPage;
+		if(totalPage%this.perPage != 0) {
 			totalBlock++;
 		}
 		
@@ -72,8 +97,8 @@ public class Pager {
 		}
 		
 		// 4. 현재 블럭번호 시작과 끝 번호 계산
-		this.startNum = (curBlock * 10) - 9;
-		this.lastNum = curBlock * 10;
+		this.startNum = (curBlock * this.perPage) - (this.perPage-1);
+		this.lastNum = curBlock * this.perPage;
 		
 		// 5. 현재 블럭번호와 전체 블럭번호가 같은지 확인
 		this.nextChk = true;

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starbucks.sw4.admin.admin.AdminDAO">
+
+	<select id="getAdminLogin" parameterType="AdminMemberDTO" resultType="AdminMemberDTO">		
+		select M.*, MA.storecode, ST.storename
+	    from member M join memberAdmin MA on (M.adminNum = MA.adminNum)
+	                   join store ST on (MA.storeCode = ST.storeCode)
+		where M.id=#{id} and M.pw=#{pw} and M.type between 2 and 4
+	</select>
+
+</mapper>

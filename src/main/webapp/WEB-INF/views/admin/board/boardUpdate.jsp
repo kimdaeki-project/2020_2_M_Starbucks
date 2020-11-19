@@ -11,7 +11,7 @@
 	<head>
 	
 		<meta charset="UTF-8">
-		<title>게시글 수정</title>
+		<title>Starbucks Coffee Korea :: 게시글 수정</title>
 		<c:import url="../template/bootstrap.jsp"></c:import>
 		<c:import url="../template/commonCSS.jsp"></c:import>
 		

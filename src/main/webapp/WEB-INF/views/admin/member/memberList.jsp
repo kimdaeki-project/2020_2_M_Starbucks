@@ -8,7 +8,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>Starbucks Coffee Korea :: 직원 공지사항</title>
+		<title>Starbucks Coffee Korea :: 매장 직원현황</title>
 		<c:import url="../template/bootstrap.jsp"></c:import>
 		<c:import url="../template/commonCSS.jsp"></c:import>
 		
@@ -41,23 +41,24 @@
 			#table-num-size{
 				width: 4rem;
 			}
-			
+			#table-info-size{
+				width: 30rem;
+			}
 			#table-title-size{
-				width: 43rem;
 				padding-left: 1.5rem;
 				text-align: left;
 			}
 			
 			#table-writer-size{
-				width: 6rem;
+				width: 10rem;
 			}
 			
 			#table-hit-size{
-				width: 4rem;
+				width: 8rem;
 			}
 			
 			#table-date-size{
-				width: 10rem;
+				width: 8rem;
 			}
 
 			#page-area{
@@ -87,6 +88,11 @@
 				width: 15rem;
 			}
 			
+			#login-staff-info{
+				color: #006633;
+				font-weight: bold;
+			}
+			
 		</style>
 		
 	</head>
@@ -99,39 +105,48 @@
 			<!-- template -->
 			<c:import url="../template/sidebar.jsp"></c:import>
 			<div id="layoutSidenav_content">
-					
+				
 				<main>
 					
 					<div class="container-fluid">
-						<h1 class="mt-4">직원 공지사항</h1>
+						<h1 class="mt-4">매장 직원 리스트</h1>
 						<div class="breadcrumb mb-4">
-							스타벅스 전 매장 스태프 및 매니저 공지사항입니다.
+							<span id="login-staff-info">${login.name}</span>님이 근무하시는&nbsp;<span id="login-staff-info">${login.storeName}</span>&nbsp;매장 근로자 리스트 입니다. 개인정보 보호를 위해 STAFF의 상세 정보는 제한됩니다.
 						</div>
 					</div>
 					
 					<div class="container-fluid" id="table-area">
 					
-						<table class="table table-bordered"  width="100%">
+						<table class="table"  width="100%">
 							<thead>
 								<tr>
-									<th id="table-num-size">글번호</th>
-									<th>제목</th>
-									<th id="table-writer-size">작성자</th>
-									<th id="table-date-size">작성일</th>
-									<th id="table-hit-size">조회수</th>
+									<th id="table-num-size">번호</th>
+									<th id="table-info-size" colspan="2">직원 요약 정보</th>
+									<th id="table-writer-size" >직급</th>
+									<th id="table-date-size">입사일</th>
+									<th id="table-hit-size">성별</th>
 								</tr>
 							</thead>
 							
 							<tbody>
 								<c:forEach items="${noticeList}" var="list">
 									<tr>
-										<td>${list.noticeNum}</td>
+										<td>${list.r}</td>
 										<td id="table-title-size">
-											<a href="./noticeSelect?noticeNum=${list.noticeNum}">${list.title}</a>
+											<a href="./memberSelect?num=${list.num}">
+												이름: ${list.name} 
+											</a>
 										</td>
-										<td>${list.writer}</td>
+										<td id="table-title-size">닉네임: ${list.nickName}</td>
+										<td>
+											<c:choose>
+												<c:when test="${list.type eq 2}">Staff</c:when>
+												<c:when test="${list.type eq 3}">Manager</c:when>
+												<c:when test="${list.type eq 4}">Admin</c:when>
+											</c:choose>
+										</td>
 										<td>${list.regDate}</td>
-										<td>${list.hit}</td>
+										<td>${list.gender}</td>
 									</tr>
 								</c:forEach>
 								
@@ -148,22 +163,18 @@
 								<td id="page-area-center">
 									<div id="page-area">
 										<c:if test="${page.beforeChk}">
-											<a href="./noticeList?curPage=${page.startNum-1}"> ᗏ </a>
+											<a href="./memberList?curPage=${page.startNum-1}"> ᗏ </a>
 										</c:if>
 										<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
-											<a href="./noticeList?curPage=${i}">${i}</a>
+											<a href="./memberList?curPage=${i}">${i}</a>
 											&nbsp;&nbsp;
 										</c:forEach>
 										<c:if test="${page.nextChk}">
-											<a href="./noticeList?curPage=${page.lastNum+1}">ᗌ</a>
+											<a href="./memberList?curPage=${page.lastNum+1}">ᗌ</a>
 										</c:if>
 									</div>
 								</td>
-								<td id="write-btn-area">
-									<div id="write-area">
-										<a href="./noticeWrite"><span id="write_btn">글쓰기</span></a>
-									</div>
-								</td>
+								<td id="write-btn-area"></td>
 							</tr>
 						</table>
 					</div>

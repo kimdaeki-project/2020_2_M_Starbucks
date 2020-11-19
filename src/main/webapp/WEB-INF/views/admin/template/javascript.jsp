@@ -15,3 +15,30 @@
 
 <script src="/sw4/resources/admin/js/scripts.js"></script>
 <script src="/sw4/resources/admin/assets/demo/datatables-demo.js"></script>
+
+<script>
+	var path = location.pathname;
+	var startIdx = path.indexOf("/",6);
+	var endIdx = path.indexOf("/",startIdx+1);
+	var tmpPath = path.substring(startIdx, endIdx);
+	path = "." + tmpPath + "List";
+	$("#search-frm").attr("action",path);
+	
+	$("#search-btn").click(function(){
+		var search = $("#search").val();
+		var curPage = 1;
+		alert(path)
+		$.ajax({
+			url:path,
+			type:"GET",
+			data:{
+				curPage:curPage,
+				search:search
+			},
+			success:function(){
+				$("#search").val(search);
+				console.log("검색 성공");
+			}
+		})
+	})
+</script>

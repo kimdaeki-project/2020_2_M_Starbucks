@@ -4,7 +4,7 @@
 
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 	
-    <a class="navbar-brand" href="${pageContext.request.contextPath}/">
+    <a class="navbar-brand" href="${pageContext.request.contextPath}/admin/adminIndex">
     	<img id="logo" alt="" src="/sw4/resources/admin/images/logo.png">
     	<span>Staff Page</span>
    	</a>
@@ -27,7 +27,8 @@
                 <a class="dropdown-item" href="#">Settings</a>
                 <a class="dropdown-item" href="#">Activity Log</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Logout</a>
+                <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/adminLogout">Logout</a>
+                <a class="dropdown-item" href="${pageContext.request.contextPath}/">go to STARBUCKS</a>
             </div>
         </li>
     </ul>

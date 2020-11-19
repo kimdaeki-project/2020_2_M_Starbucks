@@ -9,7 +9,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>공지글 :: ${notice.title}</title>
+		<title>Starbucks Coffee Korea | 공지 :: ${notice.title}</title>
 		<c:import url="../template/bootstrap.jsp"></c:import>
 		<c:import url="../template/commonCSS.jsp"></c:import>
 		
@@ -109,10 +109,6 @@
 				font-weight: bold;
 			}
 			
-			#replyContents{
-
-			}
-			
 			#replyDate{
 				margin: 0.2rem 0px 0.5rem;
 				font-size: 0.7rem;
@@ -125,7 +121,7 @@
 			
 			#reply_submit > #send-reply {
 				float: right;
-				color: #D8D8D8;
+				color: #A6A6A6;
 				font-weight: bold;
 				font-size: 0.8rem;
 				cursor: pointer;
@@ -205,7 +201,7 @@
 						<div class="container-fluid" id="reply_write_area">
 							<div id="reply_area">
 								<div>
-									<span>login member id</span>
+									<span>${login.name}</span>
 									<!-- 
 									<input type="text" id="reply_text" placeholder="댓글을 입력하세요." name="reply">
 									 -->

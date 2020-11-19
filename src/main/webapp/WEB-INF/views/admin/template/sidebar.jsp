@@ -7,7 +7,7 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">main</div>
-                    <a class="nav-link" href="${pageContext.request.contextPath}/">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/admin/adminIndex">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Main page
                     </a>
@@ -22,7 +22,7 @@
                     <div class="collapse" id="collapseStores" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="#">Orders</a>
-                            <a class="nav-link" href="#">Staff List</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/admin/member/memberList">Staff List</a>
                             <a class="nav-link" href="#">Customer</a>
                         </nav>
                     </div>
@@ -33,7 +33,7 @@
                     </a>
                     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/notice/noticeList">Notice</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/admin/notice/noticeList">Notice</a>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseMyPage" aria-expanded="false" aria-controls="pagesCollapseError">
                                 MyPage
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -71,7 +71,13 @@
             </div>
             <div class="sb-sidenav-footer">
                 <div class="small">Logged in as:</div>
-                login member name
+                ${login.name}
+                <c:choose>
+                	<c:when test="${login.type eq 2}">직원님</c:when>
+                	<c:when test="${login.type eq 3}">매니저님</c:when>
+                	<c:when test="${login.type eq 4}">관리자님</c:when>
+                	<c:otherwise>login name</c:otherwise>
+                </c:choose>
             </div>
         </nav>
     </div>
