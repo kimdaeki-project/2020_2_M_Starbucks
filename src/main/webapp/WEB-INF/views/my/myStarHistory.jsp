@@ -70,7 +70,7 @@
                     </li>
                     <li class="box3">
                     	<p class="t1">스타벅스 현대카드 별</p>
-                    	<p></p>>
+                    	<p></p>
                     </li>
                     <li class="box4"></li>
                 </ul>
