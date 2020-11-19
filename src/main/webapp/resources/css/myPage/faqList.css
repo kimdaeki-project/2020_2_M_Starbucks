@@ -123,8 +123,8 @@ body >div > div > ul > li a{
 
 
 .faq_wrap { width: 1100px; border-top:1px solid #222; border-bottom:1px solid #222; margin-bottom:40px; }
-.faq_wrap > dt { padding:17px 0; border-bottom:1px solid #ddd; background:url("../../images/myPage/common/faq_arrow_down.png") 98% center no-repeat; cursor:pointer; }
-.faq_wrap > dt.on { background:url("../../images/myPage/common/faq_arrow_up.png") 98% center no-repeat; }
+.faq_wrap > dt { padding:17px 0; border-bottom:1px solid #ddd; background:url("../../images/myPage/common/faq_arrow_up.png") 98% center no-repeat; cursor:pointer; }
+.faq_wrap > dt.on { background:url("../../images/myPage/common/faq_arrow_down.png") 98% center no-repeat; }
 
 
 .faq_wrap > dt > ul { width:100%; }

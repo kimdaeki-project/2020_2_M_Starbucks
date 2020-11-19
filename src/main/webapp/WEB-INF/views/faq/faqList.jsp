@@ -8,12 +8,10 @@
 <title>Insert title here</title>
 	<link href="${pageContext.request.contextPath}/resources/css/common/reset.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/header.css" rel="stylesheet" type="text/css">
-	<link href="${pageContext.request.contextPath}/resources/css/myPage/faqList.css" rel="stylesheet" type="text/css">
+	<link href="${pageContext.request.contextPath}/resources/css/myPage/faqList.css?v=1" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-	<style type="text/css">
 	
-	</style>
 </head>
 <body>
 <c:import url="../common/header.jsp"></c:import>
