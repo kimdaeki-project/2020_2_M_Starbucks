@@ -24,7 +24,7 @@ body {    font-size: 1rem;}
 
 
 .ms_user_info_left { border-right:1px solid #dddddb; float:left; height:230px; position:relative; width:49%}
-.ms_user_info .ms_user_starbg { background:url("../../images/myPage/ms_myreward_star_bg.png"); background-repeat: no-repeat;  }
+.ms_user_info .ms_user_starbg { background:url("../../images/myPage/myIndex/ms_myreward_star_bg.png"); background-repeat: no-repeat;  }
 .ms_user_info_left > figure { display: block; width: 67.5%; height:70%; left:inherit; top:inherit; overflow:hidden; position:relative; margin: 0 auto; background: fuchsia;}
 .ms_user_info_left > figure > .totalStar { display: block; width:100%; height:100%; padding-top:19%; margin-left: -1%; text-align: center; box-sizing: border-box; font-size: 44px;}
 .ms_user_stat_notice {position:absolute; bottom:0; left:60px; font-size:14px;}
@@ -64,18 +64,51 @@ a {margin:0; padding: 0; text-decoration: none; vertical-align: baseline; backgr
 .my_ms_card > .my_ms_card_inner >header > aside p a.back {width: 20px;}
 .my_ms_card > .my_ms_card_inner >header > aside p a.forward {width: 19px;}
 
+.my_ms_card > .my_ms_card_inner >.my_ms_card_cont {width: 770px; height: 191px;}
+.swiper-container {width:100%; height: 191px;}
+.swiper-slide {display: flex; justify-content: center; align-items: center;}
+
+
 /*section 3 */	
 .my_ms_icon {
     height: 100px;
     width:830px;
-    border: 1px solid yellow;
+    border: 1px solid #ddd;
     box-sizing: border-box;
-    margin: 2rem 0;
-    background-color: thistle;
+    margin: 30px 0;
     display: block;
+    border-radius : 3px;
 }
 
-	
+.icon-bar {
+  width: 100%; /* Full-width */
+  height: 100px;
+  overflow: auto; /* Overflow due to float */
+}
+
+.icon-bar a {
+  float: left; /* Float links side by side */
+  text-align: center; /* Center-align text */
+  width: 20%; /* Equal width (5 icons with 20% width each = 100%) */
+  height: 72px;
+  padding: 12px 0; /* Some top and bottom padding */
+  transition: all 0.3s ease; /* Add transition for hover effects */
+  color: #222;
+  font-size: 12px; /* Increased font size */
+  position: relative;
+}
+.icon-bar a:hover {
+  background-color: #000; /* Add a hover color */
+  color: white;
+}
+.my_ms_icon > .icon-bar > a span.inbox {background:url("../../images/myPage/myIndex/icon_bell2.png"); background-size: 100%, auto; height: 48px; position:absolute; left:0; top:0; width:53px; margin: 17px 0 0 63px; }
+.my_ms_icon > .icon-bar > a span strong {color: #fff; font-size: 14px; height: 21px; line-height: 21px; position: absolute; rigth:0; text-align: center; top:0; width: 27px;}
+.my_ms_icon > .icon-bar > a span.txt {position: absolute; left:65px; top: 75px;}
+
+.my_ms_icon > .icon-bar > a span.calendar {background:url("../../images/myPage/myIndex/icon_calendar.png"); background-size: 100%, auto; height: 55px; position:absolute; left:0; top:0; width:53px; margin: 17px 0 0 63px; }
+.my_ms_icon > .icon-bar > a span.coupon {background:url("../../images/myPage/myIndex/icon_coupon.png"); background-size: 100%, auto; height: 48px; position:absolute; left:0; top:0; width:53px; margin: 17px 0 0 63px; background-repeat:no-repeat;}
+.my_ms_icon > .icon-bar > a span.charge {background:url("../../images/myPage/myIndex/icon_charge.png"); background-size: 100%, auto; height: 48px; position:absolute; left:0; top:0; width:53px; margin: 17px 0 0 63px; background-repeat: no-repeat;}
+.my_ms_icon > .icon-bar > a span.regicard {background:url("../../images/myPage/myIndex/icon_regicard.png"); background-size: 100%, auto; height: 48px; position:absolute; left:0; top:0; width:53px; margin: 17px 0 0 63px; background-repeat: no-repeat;}
 
 	
 

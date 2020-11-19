@@ -10,7 +10,7 @@ body {
 .ms_sb_tit_bg {
     width: 100%;
     height: 178px;
-    background-color: #000;
+    background: url("../../images/myPage/common/ms_sub_ttl_bg.jpg");
 }
 
 .ms_sub_tit_inner {
@@ -48,4 +48,9 @@ body > div > div > ul{
     top: 7rem;
     right: 2rem;
     display: inline-flex;
+}
+
+body > div > div > ul a {
+	font: normal 12px Avenir, Arial, georgia;
+	color: #fff;
 }

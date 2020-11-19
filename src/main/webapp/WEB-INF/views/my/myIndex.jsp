@@ -24,6 +24,13 @@
    <script src="${pageContext.request.contextPath}/resources/js/common/jquery.bxslider.min.js"></script>
 	<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 	<link href="${pageContext.request.contextPath}/resources/css/myPage/myIndex.css" rel="stylesheet" type="text/css">
+
+	<!-- swiper -->
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+	<!-- icon bar -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
 </head>
 <body>
  <!-- Header -->
@@ -70,10 +77,10 @@
 
         <section class="my_ms_card">
 			<div class="my_ms_card_inner">
-			<header>
-				<h5><span class="en">My</span> 스타벅스 카드</h5>
-				<p class="recent_card">총 보유카드 : 0장</p>
-				<aside>
+				<header>
+					<h5><span class="en">My</span> 스타벅스 카드</h5>
+					<p class="recent_card">총 보유카드 : 0장</p>
+					<aside>
 			 		 <span><strong class="curSlideNo">1</strong>/<span class="totalCnt">5</span></span>
        				<p>
              		<a class="back" href="javascript:void(0);">이전카드 보기</a><!-- 접근성_20171201 수정 -->
@@ -81,18 +88,43 @@
               	  </p>
            		  </aside>
            	
-        	 </header>
-        	<div class="my_ms_card_cont">
-                <ul class="slider">
-               </ul>
+        	 	</header>
+        		
+        		<div class="my_ms_card_cont">
+                <!-- Slider main container -->
+					<div class="swiper-container">
+					    <!-- Additional required wrapper -->
+					    <div class="swiper-wrapper">
+					        <!-- Slides -->
+					        <div class="swiper-slide">Slide 1</div>
+					        <div class="swiper-slide">Slide 2</div>
+					        <div class="swiper-slide">Slide 3</div>
+					        ...
+					    </div>
+					    <!-- If we need pagination -->
+					    <div class="swiper-pagination"></div>
+					
+					    <!-- If we need navigation buttons -->
+					    <div class="swiper-button-prev"></div>
+					    <div class="swiper-button-next"></div>
+					
+					    <!-- If we need scrollbar -->
+					    <div class="swiper-scrollbar"></div>
+					</div>
           
          
-                                    </div>
-                                </div>
+           		 </div>
+           </div>
         </section>
 
         <section class="my_ms_icon">
-
+			<div class="icon-bar">
+			  <a class="active" href="#"><span class="icon inboxNoCnt inbox"><strong>N</strong></span><span class="txt">인박스</span></a>
+			  <a href="#"><span class="icon calendar"></span><span class="txt">캘린더</span></a>
+			  <a href="#"><span class="icon coupon"><strong>N</strong></span><span class="txt">e-쿠폰</span></a>
+			  <a href="#"><span class="icon charge"></span><span class="txt">카드충전</span></a>
+			  <a href="#"><span class="icon regicard"></span><span class="txt">카드등록</span></a>
+			</div>
         </section>
     		
     	</div>
@@ -100,7 +132,32 @@
    <c:import url="../common/footer.jsp"></c:import>
    <!-- Footer End -->
    
-   <script src="${pageContext.request.contextPath}/resources/js/common/header.js?v=1"></script>
-   <script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=1"></script>
+   <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+   	<script type="text/javascript">
+   	var mySwiper = new Swiper('.swiper-container', {
+			  // Optional parameters
+			  
+			
+			  // If we need pagination
+			  pagination: {
+			    el: '.swiper-pagination',
+			  },
+			
+			  // Navigation arrows
+			  navigation: {
+			    nextEl: '.swiper-button-next',
+			    prevEl: '.swiper-button-prev',
+			  },
+			
+			  // And if we need scrollbar
+			  scrollbar: {
+			    el: '.swiper-scrollbar',
+			  },
+			})
+   
+   	</script>
+   <script src="${pageContext.request.contextPath}/resources/js/common/header.js"></script>
+   <script src="${pageContext.request.contextPath}/resources/js/common/footer.js"></script>
 </body>
 </html>

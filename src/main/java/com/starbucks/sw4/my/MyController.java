@@ -25,11 +25,11 @@ public class MyController {
 		ModelAndView mv = new ModelAndView();
 		MyDTO star = myService.getStarCount();
 		if(star.getGrade()==2) {
-			mv.addObject("grade", "green level");
+			mv.addObject("grade", "Green level");
 		}else if(star.getGrade()==3) {
-			mv.addObject("grade", "gold level");
+			mv.addObject("grade", "Gold level");
 		}else {
-			mv.addObject("grade", "welcome level");
+			mv.addObject("grade", "Welcome level");
 		}
 		mv.addObject("star", star);
 		long num = 30 -star.getStarCount();
@@ -38,4 +38,11 @@ public class MyController {
 		
 		return mv;
 	}
+	
+	@GetMapping("myStarHistory")
+	public void myStarHistory() throws Exception{
+		
+	}
+	
+	
 }

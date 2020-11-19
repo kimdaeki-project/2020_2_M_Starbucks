@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+/*section */
+.star_contents{
+    width: 54.5rem;
+    margin:0 auto;
+    margin-top:50px;
+    margin-bottom: 90px;
+    background-color: bisque;
+    position:relative;
+}
+
+.ms_star_wrap{
+    width:41.5rem;
+    
+}
+/*starbucks 별 상세 정보*/
+.star_info {
+    width:100%;
+    height: 6.5rem;
+    box-sizing: border-box;
+    background:pink;
+}
+/*기간선택*/
+.card_pick_period {
+    width: 100%;
+    height: 3rem;
+    background-color: chocolate;
+    margin-top: 30px;
+}
+.card_refer{
+    font-size:12px;
+    padding-top:10px;
+    text-align:right;
+}
+/*별 히스토리 목록*/
+table{
+    width:100%;
+    border-collapse: collapse;
+    margin-top:30px;
+    display: table;
+    border-top:1px solid rgb(51,51,51);
+    border-bottom: 1px solid rgb(51,51,51);
+    text-align: center;
+    line-height: 14px;
+    font-size: .7rem;
+    
+}
+
+thead {
+    border-top:1px solid rgb(51,51,51);
+    border-bottom: 1px solid rgb(51,51,51);
+    
+    
+}
+thead > tr> th{
+    height: 46px;
+    vertical-align: middle;
+}
+
+tbody> tr> td {
+    border-bottom: 1px solid #dbdbdb;
+    color: #666;
+    height: 46px;
+    padding: 7px 0;
+}
