@@ -25,7 +25,8 @@ body {    font-size: 1rem;}
 
 .ms_user_info_left { border-right:1px solid #dddddb; float:left; height:230px; position:relative; width:49%}
 .ms_user_info .ms_user_starbg { background:url("../../images/myPage/ms_myreward_star_bg.png"); background-repeat: no-repeat;  }
-.ms_user_info_left > figure { display: block; width: 67.5%; height:70%; left:60px; overflow:hidden; position:absolute; top:22px; margin: 0 auto; background: fuchsia;}
+.ms_user_info_left > figure { display: block; width: 67.5%; height:70%; left:inherit; top:inherit; overflow:hidden; position:relative; margin: 0 auto; background: fuchsia;}
+.ms_user_info_left > figure > .totalStar { display: block; width:100%; height:100%; padding-top:19%; margin-left: -1%; text-align: center; box-sizing: border-box; font-size: 44px;}
 .ms_user_stat_notice {position:absolute; bottom:0; left:60px; font-size:14px;}
 .ms_user_info_right {float: left; height: 230px; position:relative; width:49%; box-sizing: border-box; padding: 20px 0 0 50px;}
 .ms_user_stat {position:relative; height: auto; top:inherit; font-size:22px; line-height: 37px; text-align: left; width:100%; left:0;}
@@ -52,16 +53,16 @@ a {margin:0; padding: 0; text-decoration: none; vertical-align: baseline; backgr
     margin-top: 2rem;
 
 }
-.my_ms_card_inner {float: left; height: 230px; margin: 29px 0 0 29px; width: 770px;}
-.my_ms_card > header {border-bottom: 1px solid #eae9e6; height: 38px; width: 770px;}
-.my_ms_card > header > h5 {color: #222; float: left; font-size: 18px;}
-.my_ms_card > header > p.recent_card {color: #555; float: left; font-size: 12px; line-height: 18px; margin-left: 10px;}
-.my_ms_card > header > aside {float: right; height: 19px; width: 71px; display: block;}
-.my_ms_card > header > aside span {color:#777; font-size: 12px; height: 19px; line-height: 19px; text-align: center; width:32px;}
-
-
-
-
+.my_ms_card > .my_ms_card_inner {float: left; height: 230px; margin: 29px 0 0 29px; width: 770px;}
+.my_ms_card > .my_ms_card_inner > header {border-bottom: 1px solid #eae9e6; height: 38px; width: 770px;}
+.my_ms_card > .my_ms_card_inner >header > h5 {color: #222; float: left; font-size: 18px;}
+.my_ms_card > .my_ms_card_inner >header > p.recent_card {color: #555; float: left; font-size: 12px; line-height: 18px; margin-left: 10px;}
+.my_ms_card > .my_ms_card_inner >header > aside {float: right; height: 19px; width: 71px; display: block;}
+.my_ms_card > .my_ms_card_inner >header > aside span {color:#777; font-size: 12px; height: 19px; line-height: 19px; text-align: center; width:32px;}
+.my_ms_card > .my_ms_card_inner >header > aside p {float:right; height: 19px; width: 39px; background: url("../../images/myPage/common/btn_square_arrows.png");}
+.my_ms_card > .my_ms_card_inner >header > aside p a {float: left; height: 19px; overflow: hidden; text-indent: -20000px;}
+.my_ms_card > .my_ms_card_inner >header > aside p a.back {width: 20px;}
+.my_ms_card > .my_ms_card_inner >header > aside p a.forward {width: 19px;}
 
 /*section 3 */	
 .my_ms_icon {

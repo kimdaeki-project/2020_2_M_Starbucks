@@ -13,7 +13,7 @@
 		<!-- MY PAGE  -->
 		<typeAlias type="com.starbucks.sw4.my.faq.FaqDTO" alias="FaqDTO"/>
 		<typeAlias type="com.starbucks.sw4.my.faq.Pager" alias="Pager"/>
-
+		<typeAlias type="com.starbucks.sw4.my.MyDTO" alias="MyDTO"/>
 		
 		
 		<!-- admin page -->

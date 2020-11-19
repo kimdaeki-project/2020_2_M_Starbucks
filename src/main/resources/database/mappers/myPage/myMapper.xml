@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="com.starbucks.sw4.my.MyDAO">
+    	<select id="getStarCount" resultType="MyDTO">
+    		select S.starCount, M.nickName, M.grade
+			from starHistory S inner join member M
+			on S.memberNum = M.num
+			where M.num = 5
+    	</select>
+    
+    </mapper>
