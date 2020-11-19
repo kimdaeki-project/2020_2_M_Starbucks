@@ -22,9 +22,11 @@ public class faqListTest extends MyTestCase {
 		try {
 			pager.setCurPage(1);
 			pager.makeRow();
-			long totalCount = faqDAO.faqCount(pager);
-			pager.setTotalCount(totalCount); //15
+			//long totalCount = faqDAO.faqCount(pager);
+			//System.out.println("total count : " + totalCount);
+			pager.setTotalCount(faqDAO.faqCount(pager)); //15
 			pager.makePage();
+			
 			assertNotNull(faqDAO.getRewardList(pager));
 			
 		} catch (Exception e) {

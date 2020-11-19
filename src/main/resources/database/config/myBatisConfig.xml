@@ -35,4 +35,6 @@
 		<typeAlias type="com.starbucks.sw4.store.storeFile.StoreFileDTO" alias="StoreFileDTO"/>
 
 	</typeAliases>
+	
+	
 </configuration>

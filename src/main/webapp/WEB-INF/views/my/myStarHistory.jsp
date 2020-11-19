@@ -69,8 +69,8 @@
                     	<p class="t2" id="outStar">0개</p>
                     </li>
                     <li class="box3">
-                    	<p class="t1">스타벅스 현대카드 별</p>
-                    	<p>0개</p>
+                    	<p class="t1">총 누적 별</p>
+                    	<p class="t2">0개</p>
                     </li>
                     <li class="box4"></li>
                 </ul>

@@ -31,7 +31,7 @@ public class FaqController {
 		mv.addObject("pager", pager);
 		
 		mv.setViewName("faq/faqList");
-		
+		System.out.println("Size :" + ar.size());
 		return mv;
 	}
 	

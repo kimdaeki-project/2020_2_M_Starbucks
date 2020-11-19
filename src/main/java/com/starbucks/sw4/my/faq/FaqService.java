@@ -16,7 +16,8 @@ public class FaqService {
 		//rownum 계산
 		pager.makeRow();
 		pager.setType("rewards");
-		
+		System.out.println(pager.getStartRow());
+		System.out.println(pager.getLastRow());
 		//page 계산
 		long totalCount = faqDAO.faqCount(pager);//15
 		System.out.println(totalCount);
