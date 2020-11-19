@@ -13,6 +13,9 @@ public class Pager {
 	}
 
 	public void setSearch(String search) {
+		if(search == "" || search == null) {
+			search = "";
+		}
 		this.search = search;
 	}
 
@@ -38,11 +41,22 @@ public class Pager {
 	
 	// DB 전체 게시글 수
 	private long totalCount;
+	
+	// for get member list --------------------------
 	private long storeCode;
+	private int type;
 	
 	// for get member list --------------------------
 	public long getStoreCode() {
 		return storeCode;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 
 	public void setStoreCode(long storeCode) {

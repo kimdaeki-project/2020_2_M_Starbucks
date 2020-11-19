@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class AdminMemberDTO {
 
-	private long rownum;
+	private long r;
 	private long num;
 	private long adminNum;
 	private int type;
@@ -22,11 +22,11 @@ public class AdminMemberDTO {
 	private long storeCode;
 	private String storeName;
 	
-	public long getRownum() {
-		return rownum;
+	public long getR() {
+		return r;
 	}
-	public void setIndex(long rownum) {
-		this.rownum = rownum;
+	public void setIndex(long r) {
+		this.r = r;
 	}
 	public String getStoreName() {
 		return storeName;

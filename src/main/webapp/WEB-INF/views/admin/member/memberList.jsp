@@ -131,7 +131,7 @@
 							<tbody>
 								<c:forEach items="${noticeList}" var="list">
 									<tr>
-										<td>${list.rownum}</td>
+										<td>${list.r}</td>
 										<td id="table-title-size">
 											<a href="./memberSelect?num=${list.num}">
 												이름: ${list.name} 
@@ -163,14 +163,14 @@
 								<td id="page-area-center">
 									<div id="page-area">
 										<c:if test="${page.beforeChk}">
-											<a href="./noticeList?curPage=${page.startNum-1}"> ᗏ </a>
+											<a href="./memberList?curPage=${page.startNum-1}"> ᗏ </a>
 										</c:if>
 										<c:forEach begin="${page.startNum}" end="${page.lastNum}" var="i">
-											<a href="./noticeList?curPage=${i}">${i}</a>
+											<a href="./memberList?curPage=${i}">${i}</a>
 											&nbsp;&nbsp;
 										</c:forEach>
 										<c:if test="${page.nextChk}">
-											<a href="./noticeList?curPage=${page.lastNum+1}">ᗌ</a>
+											<a href="./memberList?curPage=${page.lastNum+1}">ᗌ</a>
 										</c:if>
 									</div>
 								</td>

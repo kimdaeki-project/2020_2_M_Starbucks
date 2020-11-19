@@ -33,7 +33,7 @@
 	<interceptors>
 	
 		<interceptor>
-			<mapping path="/admin/admin/index"/>
+			<mapping path="/admin/admin/adminIndex"/>
 			<mapping path="/admin/*/*"/>
 			<exclude-mapping path="/admin/admin/adminLogin"/>
 			<beans:ref bean="adminPageInterceptor"/>

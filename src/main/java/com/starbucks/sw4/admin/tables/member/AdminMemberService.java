@@ -18,6 +18,8 @@ public class AdminMemberService {
 		
 		System.out.println(pager.getPerPage());
 		pager.makeRow();
+		System.out.println(pager.getStartRow() + " ~ " + pager.getLastRow());
+		System.out.println(pager.getSearch());
 		pager.setTotalCount(adminMemberDAO.getCount(pager));
 		pager.makePage();
 		

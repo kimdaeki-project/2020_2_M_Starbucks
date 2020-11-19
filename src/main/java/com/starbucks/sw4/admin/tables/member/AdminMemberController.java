@@ -29,6 +29,7 @@ public class AdminMemberController {
 		
 		pager.setStoreCode(dto.getStoreCode());
 		pager.setPerPage(5);
+		pager.setType(dto.getType());
 		
 		List<AdminMemberDTO> list = adminMemberService.getList(pager);
 
