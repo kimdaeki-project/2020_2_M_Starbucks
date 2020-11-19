@@ -26,8 +26,11 @@
 		<beans:property name="order" value="0"></beans:property>
 	</beans:bean>
 	
+	
+	
 	<beans:import resource="classpath:config/*-context.xml"/>
 	
 	<context:component-scan base-package="com.starbucks.sw4" />
 	
 </beans:beans>
+

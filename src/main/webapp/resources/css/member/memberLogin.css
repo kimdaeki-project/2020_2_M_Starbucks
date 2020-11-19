@@ -1,3 +1,107 @@
 @charset "UTF-8";
 
-.new_login_bg_wrap { background:url("../images/member/login_bg.jpg") center top no-repeat fixed #0a0807; background-size:cover; -webkit-background-size:cover; width:100%; }
+.login_bg_wrap { background:url("../../images/member/login_bg.jpg") center top no-repeat fixed #0a0807; background-size:cover; -webkit-background-size:cover; width:100%; }
+.find_mem_wrap { max-width:570px; margin:0 auto; padding:70px 0 50px; }
+
+.login_ttl { margin-bottom:30px; color:#fff; display:block; font-size:30px; font-weight:normal; text-align:center; }
+.joinform { max-width:570px; border:1px solid #ddd; border-radius:3px; box-sizing:border-box; margin:0 auto 30px; position:relative; }
+
+.find_form_txt { padding:30px 20px 30px; background:#fff; border-bottom:1px solid #ddd; color:#777; font-size:18px; line-height:24px; text-align:center; }
+.t_006633 { color:#006633 !important; }
+.for_mob { display:none !important; }
+
+input { vertical-align:middle !important; }
+.login_input_box { background:#fff; border-bottom:1px solid #ddd; padding:20px 20px; position:relative; }
+.login_input_box:after { clear:both; content:""; display:block; }
+.login_input_box input{ width:100%; max-width:530px; padding:15px; border:1px solid #ddd; border-radius:3px; box-sizing:border-box; display:inline-block; outline:none; } 
+
+.bd_none { border:0 !important; }
+.mb10 { margin-bottom:10px; }
+.limit_txt { color:#444; display:none; font-size:16px; line-height:1.6; margin-top:15px; }
+.limit_txt:before { clear:both; content:""; display:block; }
+
+.checkWrap { display:block; margin-bottom:20px; }
+input.mem2[type=checkbox]:not(old){ position:absolute; width:26px; height:26px;  padding:0;  border:0 none;  background:#fff; cursor:pointer; }
+input.mem2[type=checkbox]:not(old) + label{ position:relative; display:inline-block; height:26px; line-height:26px;  padding-left:35px; background:#fff url("../../images/member/mem_check_off.png") 0 0 no-repeat; font-size:16px; color:#3f4141; vertical-align:top; background-size:26px; cursor:pointer; z-index:4; }
+input.mem2[type=checkbox]:checked + label , 
+input.mem[type=checkbox]:active + label { background:#fff url("../../images/member/mem_check_on.png") no-repeat 0 0; background-size:26px; }
+
+.btn_mem_login { background:#006633; border-radius:3px; width:100%; max-width:570px; margin-top:25px; text-align:center; }
+.btn_mem_login a { color:#fff; font-size:24px; display:block; line-height:65px; }
+.btn_mem_login.gray a { font-size:20px; line-height:47px; }
+
+/* SNS 로그인 */
+.btn_mem_sns_login { width:100%; max-width:570px; margin-top:25px; line-height:45px; }
+.btn_mem_sns_login a { color:#fff; margin-left: 30%; font-size:18px; font-weight:bold; text-decoration:none; }
+.naver_login { background:url("../../images/member/login_naver.gif") #00d700 no-repeat 7px 0; background-size:30px 43px; width:30%; margin-right:5%; border-radius:3px; float:left; }
+.fb_login { background:url("../../images/member/login_fb.gif") #3b5998 no-repeat 7px 0; background-size:30px 43px; width:30%; margin-right:5%; border-radius:3px; float:left; }
+.kakao_login { background:url("../../images/member/login_kakao.gif") #ffde00 no-repeat 7px 0; background-size:30px 43px; width:30%; border-radius:3px; float:right; }
+.kakao_login a { color:#371b03; }
+
+.input_warn_text { color:#ed1c24; font-size:14px; line-height:1.4; margin-top:15px; }
+
+.login_btn_wrap { background:#fff; box-sizing:border-box; max-width:570px; }
+.login_btn_wrap ul { display:table; text-align:center; width:100%; }
+.login_btn_wrap ul:after { clear:both; content:""; display:block; }
+.login_btn_wrap ul li { box-sizing:border-box; float:left; position:relative; vertical-align:top; width:33.3%; }
+.login_btn_wrap ul li:after { border-right:1px solid #ddd; color:#666; content:""; height:22px; margin-top:-11px; position:absolute; right:-1px; top:50%; }
+.login_btn_wrap ul li.last { float:right; }
+.login_btn_wrap ul li.last:after { border-right:0; }
+.login_btn_wrap ul li a { color:#666; display:block; font-size:16px; height:100%; line-height:54px; width:100%; }
+.login_btn_wrap ul li a:hover { text-decoration:underline; }
+
+/* 비밀번호 5회 오류 */
+.joinform .captcha_infoInput_text { width:100%; background:#fff; border-right:1px solid #dddddd; float:none; }
+.joinform .captcha_infoInput_text .captcha_guidet { color:#444; font-size:14px; line-height:1.6; padding:30px; margin:0 auto; text-align:center; }
+.joinform .captcha_infoInput_text .captcha_guidet span { color:#666; font-size:14px; line-height:1.6; }
+
+.joinform .mem_captcha_frm { width:100%; background:#fff; float:none; }
+.joinform .mem_captcha_input_wrap { width:363px; height:auto; margin:0 auto; padding:20px; position:relative; top:0; left:0; }
+.joinform .mem_captcha_input_wrap dl:after { clear:both; content:""; display:block; }
+.joinform .mem_captcha_input_wrap input { bottom:0; left:0; position:absolute; }
+
+
+@media screen and (max-width:640px) {
+	.find_mem_wrap { padding:15% 5% 10%; }
+	
+	.joinform { width:100%; padding:0; margin-bottom:20px; }
+	.find_form_txt { padding:15px; }
+	.for_mob { display:block !important; }
+	
+	.login_input_box { padding:15px; }
+	.login_input_box input { padding:10px; }
+	.limit_txt { font-size:14px; line-height:1.2; }
+	
+	/* .btn_mem_login { margin:0 15px; } */
+	.btn_mem_login a { line-height:45px; font-size:20px; }
+	
+	.login_btn_wrap ul li:after { height:12px; margin-top:-6px; }
+	.login_btn_wrap ul li a { font-size:14px; line-height:44px; }
+	
+	
+	/* 비밀번호 5회 오류 */
+	.joinform .captcha_infoInput_text { border-right:none; text-align:center; }
+	
+	.joinform .mem_captcha_input_wrap { margin:0 auto; }
+	
+	
+}
+
+@media screen and (max-width:480px) {
+	.find_mem_wrap { padding:50px 15px 40px; }
+	.find_form_txt { font-size:18px; }
+	
+	/* 비밀번호 5회 오류 */
+	.joinform .captcha_infoInput_text .captcha_guidet { padding:15px; }
+	.joinform .captcha_infoInput_text .captcha_guidet span { display:none; }
+	
+	.joinform .mem_captcha_input_wrap { width:auto; padding:15px; }
+}
+
+@media screen and (max-width:375px) {
+	.find_form_txt { font-size:16px; }
+
+}
+
+
+

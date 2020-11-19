@@ -16,7 +16,7 @@
 	<link href="${pageContext.request.contextPath}/resources/css/common/reset.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/header.css?v=1" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/footer.css?v=1" rel="stylesheet" type="text/css">
-	<link href="${pageContext.request.contextPath}/resources/css/main.css?v=1" rel="stylesheet" type="text/css">
+	<link href="${pageContext.request.contextPath}/resources/css/member/memberLogin.css?v=12" rel="stylesheet" type="text/css">
 	<!-- bxSlider CSS file -->
 	<link href="${pageContext.request.contextPath}/resources/css/common/jquery.bxslider.css" rel="stylesheet">
 	
@@ -41,16 +41,13 @@
 							<legend class="hid">회원가입 이용약관 동의, 수집하는 개인정보의 항목, 개인정보의
 								수집 및 이용목적, 개인정보의 보유 및 이용기간 및 파기절차, 파기 방법에 관한 폼</legend>
 							<strong class="login_ttl">로그인</strong>
-							<section class="joinform_v2">
-								<!-- <figure class="find_mem_sally">
-										<img src="//image.istarbucks.co.kr/common/img/util/mem/icon_find_sally.png" alt="" />
-									</figure> -->
+							<section class="joinform">
 								<p class="find_form_txt">
-									<span class="t_006633">Welcome!</span><br class="for_mob" />
-									스타벅스커피 코리아에 오신 것을 환영합니다.
+									<span class="t_006633">Welcome!</span>
+									<br class="for_mob" />스타벅스커피 코리아에 오신 것을 환영합니다.
 								</p>
 
-								<div class="input_box bd_none">
+								<div class="login_input_box bd_none">
 									<label for="txt_user_id" class="hid">아이디</label>
 									<input class="login_id mb10" id="id" name="id" type="text" maxlength="20" placeholder="아이디를 입력해 주세요." required="required" />
 									<p class="limit_txt user_id_txt"></p>
@@ -63,23 +60,34 @@
 										<label for="idRemb">아이디 저장</label>
 									</span>
 									<p class="btn_mem_login">
-										<a class="btn_login" href="javascript:void(0);" role="submit">로그인</a>
+											<a class="btn_login" href="javascript:void(0);" role="submit">로그인</a>
 									</p>
+									
 									<p class="input_warn_text t_006633">
 										* 타 사이트와 비밀번호를 동일하게 사용할 경우 도용의 위험이 있으므로, 정기적인 비밀번호 변경을 해주시길 바랍니다.<br /> 
 										* 스타벅스 커피 코리아의 공식 홈페이지는 Internet Explorer 9.0 이상, Chrome, Firefox, Safari 브라우저에 최적화 되어있습니다.
 									</p>
+									<div class="btn_mem_sns_login">
+										<p class="naver_login">
+											<a class="btn_login" href="javascript:void(0);" role="submit">NAVER</a>
+										</p>
+										<p class="fb_login">
+											<a class="btn_login" href="javascript:void(0);" role="submit">FACEBOOK</a>
+										</p>
+										<p class="kakao_login">
+											<a class="btn_login" href="javascript:void(0);" role="submit">KAKAO</a>
+										</p>
+									</div>
 								</div>
 								<div class="login_btn_wrap">
 									<ul>
-										<li><a href="/member/memberJoin">회원가입</a></li>
+										<li><a href="${pageContext.request.contextPath}/member/memberJoin">회원가입</a></li>
 										<li><a href="#">아이디 찾기</a></li>
 										<li class="last"><a href="#">비밀번호 찾기</a></li>
 									</ul>
 								</div>
 							</section>
-							<section class="joinform_v2 mem_captcha"
-								style="display: none;">
+							<section class="joinform mem_captcha" style="display: none;">
 								<div class="captcha_infoInput_text">
 									<p class="captcha_guidet">
 										비밀번호를 5회 이상 잘못 입력하면, 보안문자를 함께 입력하셔야 합니다. 
