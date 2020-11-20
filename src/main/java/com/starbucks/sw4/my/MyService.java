@@ -10,7 +10,19 @@ public class MyService {
 	@Autowired
 	private MyDAO myDAO;
 	
-	public MyDTO getStarCount() throws Exception{
-		return myDAO.getStarCount();
+	//myIndex 페이지 db 출력
+	public MyDTO getMyIndex() throws Exception{
+		return myDAO.getMyIndex();
 	}
+	
+	//개인정보수정 전 db
+	public MyDTO getOne() throws Exception {
+		return myDAO.getOne();
+	}
+	
+	//개인정보 수정 후 update
+	public int setUpdate(MyDTO myDTO) throws Exception {
+		return myDAO.setUpdate(myDTO);
+	}
+	
 }

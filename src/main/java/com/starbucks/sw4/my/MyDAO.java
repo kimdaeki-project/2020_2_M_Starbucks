@@ -12,7 +12,16 @@ public class MyDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.starbucks.sw4.my.MyDAO.";
 	
-	public MyDTO getStarCount() throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"getStarCount");
+	public MyDTO getMyIndex() throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getMyIndex");
 	}
+	
+	public MyDTO getOne() throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getOne");
+	}
+	
+	public int setUpdate(MyDTO myDTO) throws Exception {
+		return sqlSession.update(NAMESPACE+"setUpdate", myDTO);
+	}
+	
 }

@@ -4,11 +4,23 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
     <mapper namespace="com.starbucks.sw4.my.MyDAO">
-    	<select id="getStarCount" resultType="MyDTO">
-    		select S.starCount, M.nickName, M.grade
+    	<select id="getMyIndex" resultType="MyDTO">
+    		select S.useStar, S.id, M.nickName, M.grade, F.fileName, C.balance, F.cardName 
 			from starHistory S inner join member M
-			on S.memberNum = M.num
-			where M.num = 5
+			on S.id = M.id
+            join membercard C
+            on S.cardNum = C.cardNum
+            join cardfile F
+            on C.cardName = f.cardname
+			where M.id = 'customer02'
     	</select>
+    	
+    	<select id="getOne" parameterType="MyDTO" resultType="MyDTO">
+    		select * from member where id = 'customer02'
+    	</select>
+ 
+ 		<update id="setUpdate" parameterType="MyDTO"> 
+ 			update member set phone=#{phone}, email=#{email}, nickname=#{nickname} where id=#{id}
+	 	</update>
     
     </mapper>

@@ -130,9 +130,14 @@ body {
 .btn_updateinfo {
     background: #006633;
     border-radius: 3px;
-    margin:0 20px;
+    margin-left:0;
     text-align: center;
-    
+    width: 570px;
+    height: 65px;
+    color: #fff;
+    font-size: 24px;
+    display: block;
+    line-height: 65px;
 }
 
 .btn_updateinfo > a {

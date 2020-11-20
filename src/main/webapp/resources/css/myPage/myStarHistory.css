@@ -6,7 +6,6 @@
     margin:0 auto;
     margin-top:50px;
     margin-bottom: 90px;
-    background-color: bisque;
     position:relative;
 }
 
@@ -39,11 +38,28 @@ section.card_pick_period {
     border-radius: 3px;
     
 }
-.card_refer{
-    font-size:12px;
-    padding-top:10px;
-    text-align:right;
-}
+section > div form > fieldset >legend {font-size:0; height: 0; margin:0; overflow: hidden; text-indent: -200000px;}
+.my_card_pick_bg {float:left; height: 28px; margin: 16px 0 0 30px; width:298px;}
+.my_card_pick_bg dt,.my_card_pick_bg dd,.my_card_pick_bg dd input, .my_card_pick_bg dd label {float:left; margin:0; padding:0;}
+.my_card_pick_bg dt {color: #222; font-size: 14px; font-weight:bold; height: 30px; line-height: 30px; width: 48px;}
+.my_card_pick_bg dd {color: #444; font-size: 12px; height: 30px; line-height: 30px; width: 230px;}
+.my_card_pick_bg dd input {height: 13px; margin: 8px 0 0 13px; width:13px;}
+.my_card_pick_bg dd label {margin: 0 0 0 5px;}
+
+.pickdate {width:394px; height: 28px; float: right; margin: 16px 30px 0 0;}
+.pickdate dt, .pickdate dd, .pickdate dd input {float:left; margin: 0; padding:0;}
+.pickdate dt {color: #222; font-size:14px; font-weight: bold; height: 30px; line-height: 30px; width:48px;}
+.pickdate dd {color: #444; font-size:12px; height: 30px; line-height: 30px; width: 338px;}
+
+.pickdate dd > div.pick_date_each {background: #fff; border:1px solid #ddd; border-radius: 3px; float: left; height: 26px; width:133px;}
+.pickdate dd > input {border: none; height: 30px; line-height: 28px; text-indent: 10px; width:132px; outline: none;}
+.pickdate dd > span {float: left; font-weight: bold;}
+.btn_date {float:right; height: 28px; width: 40px;}
+.btn_date a {background: #777; border-radius:3px; color: #fff; display: block; line-height: 28px; text-align: center; width:100%;}
+
+.card_refer{ font-size:12px; padding-top:10px; text-align:right;}
+
+
 /*별 히스토리 목록*/
 table{
     width:100%;

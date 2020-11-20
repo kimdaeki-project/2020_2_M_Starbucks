@@ -58,12 +58,12 @@
 			<article class="ms_user_info_left">
 				<h5><span class="en">My</span> 리워드</h5>
 				
-				<figure class="en ms_user_starbg"><span class="totalStar">${star.starCount}</span></figure>
+				<figure class="en ms_user_starbg"><span class="totalStar">${star.useStar}</span></figure>
         	
 		        <div><p class="ms_user_stat_notice"> <strong>${num}</strong>개의 별이 더 모이면<br><strong class="en t_715d39">Gold Level</strong>만의 특별한 혜택이! </p></div>	 
         	 </article>
         	  <article class="ms_user_info_right">
-        	  <p class="ms_user_stat"><span><strong class="userName">${star.nickName}<!-- 홍길동 --></strong> 님은</span> <span>현재 <strong class="en userGrade">${grade}<!-- Green Level --></strong>이십니다.</span></p>
+        	  <p class="ms_user_stat"><span><strong class="userName">${star.nickname}<!-- 홍길동 --></strong> 님은</span> <span>현재 <strong class="en userGrade">${grade}<!-- Green Level --></strong>이십니다.</span></p>
        			<div class="ms_user_stat_btns">
                     <ul>
 						<li><a href="./reward.do">리워드 및 혜택</a></li>
@@ -96,7 +96,24 @@
 					    <!-- Additional required wrapper -->
 					    <div class="swiper-wrapper">
 					        <!-- Slides -->
-					        <div class="swiper-slide">Slide 1</div>
+					        <div class="swiper-slide">
+					        	<figure>
+					        		<img alt="#" src="${star.fileName}">
+					        	</figure>
+					        	<div class="my_card_info">
+					        		<p class="my_card_id"> 
+					        			<span>${star.cardName}</span></p>
+					        		<p class="my_card_price">
+					        			<span> <strong> ${star.balance} </strong>원</span></p>
+					       		 
+					       		 	<div class="my_card_btns">
+						        	<p class="my_card_btn1"><a>카드 관리</a></p>
+						        	<p class="my_card_btn2"><a>충전 하기</a></p>
+						        </div>
+					       		 </div>
+						        
+					        	
+					        </div>
 					        <div class="swiper-slide">Slide 2</div>
 					        <div class="swiper-slide">Slide 3</div>
 					        ...

@@ -70,7 +70,7 @@
                     </li>
                     <li class="box3">
                     	<p class="t1">총 누적 별</p>
-                    	<p class="t2">0개</p>
+                    	<p class="t2" id="totalStar">0개</p>
                     </li>
                     <li class="box4"></li>
                 </ul>
@@ -80,18 +80,40 @@
             <!--기간 선택-->
             <section class="card_pick_period">
                 <div class="pickperiod">
-                    <label for="pickperiod">기간별:</label>
-                    <input type="radio" id="month" name="month" >
-                    <label>1개월</label>
-                    <input type="radio" id="month" name="month" >
-                    <label>1년</label>
+                	<form method="post">
+                		<fieldset>
+                			<legend>기간선택 폼</legend>
+                			
+                    		<dl class="my_card_pick_bg">
+                    		<dt>기간별:</dt>
+                    		<dd>
+	                    		<input type="radio" id="month" name="month" >
+	                   			 <label>1개월</label>
+	                    		<input type="radio" id="month" name="month" >
+	                    		<label>1년</label>
+                    		</dd>
+                    	</dl>
+                    	
+                    	<dl>
+                    	<div class="pickdate">
+                    		<dt>일자별</dt>
+                    		<dd>
+                    			
+                    			 <input type="date" id="pickdate" name="pickdate">
+					                <span>~</span>
+					                <input type="date" id="pickdate2" name="pickdate2">
+					                 <p class="btn_date">
+					                 <a href="#">검색</a>
+					                 </p>		
+                    		</dd>
+         
+                    	</div>
+                    	</dl>
+                		</fieldset>
+                	</form>
+                    
                 </div>
-                <div class="pickdate">
-                <label for="pickdate">일자별:</label>
-                <input type="date" id="pickdate" name="pickdate">
-                <span>~</span>
-                <input type="date" id="pickdate2" name="pickdate2">
-            	</div>
+
             </section>
             <!--기간 선택 end-->
             <p class="card_refer">최대 조회 기간은 5년 입니다</p>
