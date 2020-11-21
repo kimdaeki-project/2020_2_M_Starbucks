@@ -22,5 +22,9 @@
  		<update id="setUpdate" parameterType="MyDTO"> 
  			update member set phone=#{phone}, email=#{email}, nickname=#{nickname} where id=#{id}
 	 	</update>
+	 	
+	 	<update id="setNewPw" parameterType="MyDTO"> 
+ 			update member set pw=#{pw} where id=#{id}
+	 	</update>
     
     </mapper>

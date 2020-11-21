@@ -24,4 +24,8 @@ public class MyDAO {
 		return sqlSession.update(NAMESPACE+"setUpdate", myDTO);
 	}
 	
+	public int setNewPw(MyDTO myDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"setNewPw", myDTO);
+	}
+	
 }

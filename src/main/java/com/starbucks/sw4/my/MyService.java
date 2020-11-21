@@ -25,4 +25,9 @@ public class MyService {
 		return myDAO.setUpdate(myDTO);
 	}
 	
+	//비밀번호 수정
+	public int setNewPw(MyDTO myDTO) throws Exception {
+		return myDAO.setNewPw(myDTO);
+	}
+	
 }

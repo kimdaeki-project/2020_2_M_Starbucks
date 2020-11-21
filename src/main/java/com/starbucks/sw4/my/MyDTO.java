@@ -15,10 +15,16 @@ public class MyDTO {
 	private Date birth;
 	private String phone;
 	private String email;
-	
+	private String pw;
 	
 	
 
+	public String getPw() {
+		return pw;
+	}
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
 	public String getName() {
 		return name;
 	}

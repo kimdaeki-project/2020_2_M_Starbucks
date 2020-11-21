@@ -17,9 +17,21 @@ public class MyController {
 	@Autowired
 	private MyService myService;
 	
+	@PostMapping
+	public void setNewPw(MyDTO myDTO) throws Exception{
+		int result = myService.setNewPw(myDTO);
+	}
+	
 	@GetMapping("modifyPW")
-	public void modifyPW () {
+	public ModelAndView setNewPw()throws Exception {
+		//id를 jsp로 보내서 꺼내줘야하는데
+		ModelAndView mv = new ModelAndView();
+		MyDTO info = myService.getOne();
 		
+		mv.addObject("myInfo", info);
+		mv.setViewName("my/modifyPW");
+		
+		return mv;
 	}
 	
 	@PostMapping("updateMyInfo")
