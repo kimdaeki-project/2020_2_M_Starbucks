@@ -61,16 +61,16 @@
                 <ul class="star_info_box">
                     <li class="box1">
                         <p class="t1">사용가능한 별</p>
-                        <p class="t2" id="useStar">1개</p>
+                        <p class="t2" id="useStar">${star.useStar}개</p>
                     </li>
                     <li class="box2">
                     	<p class="t1">소멸될 별</p>
                     	<span class="star_limit">(1개월 이내)</span>
-                    	<p class="t2" id="outStar">0개</p>
+                    	<p class="t2" id="outStar">${star.outStar}개</p>
                     </li>
                     <li class="box3">
                     	<p class="t1">총 누적 별</p>
-                    	<p class="t2" id="totalStar">0개</p>
+                    	<p class="t2" id="totalStar">${star.totalStar}개</p>
                     </li>
                     <li class="box4"></li>
                 </ul>
@@ -89,7 +89,7 @@
                     		<dd>
 	                    		<input type="radio" id="month" name="month" >
 	                   			 <label>1개월</label>
-	                    		<input type="radio" id="month" name="month" >
+	                    		<input type="radio" id="year" name="year" >
 	                    		<label>1년</label>
                     		</dd>
                     	</dl>
@@ -134,12 +134,12 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>dsaf</td>
-                        <td>adsf</td>
-                        <td>ad</td>
-                        <td>df</td>
-                        <td>d</td>
-                        <td>daf</td>
+                        <td>${star.cardNum}</td>
+                        <td>${star.useStar}</td>
+                        <td>${star.state}</td>
+                        <td>${star.storeName}</td>
+                        <td>${star.saveDate}</td>
+                        <td>${star.validDate}</td>
                     </tr>
                 </tbody>
             </table>

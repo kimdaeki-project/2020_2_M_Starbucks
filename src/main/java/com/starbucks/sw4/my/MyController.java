@@ -17,6 +17,18 @@ public class MyController {
 	@Autowired
 	private MyService myService;
 	
+	@GetMapping("myStarHistory")
+	public ModelAndView getMyStar() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		MyDTO myDTO = myService.getMyStar();
+		
+		mv.addObject("star", myDTO);
+		mv.setViewName("my/myStarHistory");
+		
+		return mv;
+	}
+	
+	
 	@PostMapping
 	public void setNewPw(MyDTO myDTO) throws Exception{
 		int result = myService.setNewPw(myDTO);
@@ -83,10 +95,6 @@ public class MyController {
 		return mv;
 	}
 	
-	@GetMapping("myStarHistory")
-	public void myStarHistory() throws Exception{
-		
-	}
 	
 	
 }

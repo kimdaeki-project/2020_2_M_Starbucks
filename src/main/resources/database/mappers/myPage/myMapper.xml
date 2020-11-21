@@ -27,4 +27,7 @@
  			update member set pw=#{pw} where id=#{id}
 	 	</update>
     
+    	<select id="getMyStar" parameterType="MyDTO" resultType="MyDTO">
+    		select * from starhistory where id = 'customer02'
+    	</select>
     </mapper>

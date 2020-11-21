@@ -30,4 +30,9 @@ public class MyService {
 		return myDAO.setNewPw(myDTO);
 	}
 	
+	//별 히스토리
+	public MyDTO getMyStar() throws Exception {
+		return myDAO.getMyStar();
+	}
+	
 }

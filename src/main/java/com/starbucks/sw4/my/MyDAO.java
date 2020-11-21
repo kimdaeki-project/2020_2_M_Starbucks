@@ -28,4 +28,8 @@ public class MyDAO {
 		return sqlSession.update(NAMESPACE+"setNewPw", myDTO);
 	}
 	
+	public MyDTO getMyStar() throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getMyStar");				
+	}
+	
 }

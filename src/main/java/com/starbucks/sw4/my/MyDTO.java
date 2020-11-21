@@ -3,21 +3,33 @@ package com.starbucks.sw4.my;
 import java.sql.Date;
 
 public class MyDTO {
-	
-	private long useStar;
-	private String nickname;
-	private int grade;
+	//member
 	private String id;
-	private String fileName;
-	private long balance;
-	private String cardName;
+	private String pw;
 	private String name;
 	private Date birth;
 	private String phone;
 	private String email;
-	private String pw;
+	private String nickname;
+	private int grade;
 	
+	//card, star
+	private long useStar;
+	private long outStar;
+	private long totalStar;
+	private long balance;
+	private String cardName;
+	private long cardNum;
+	private String state;
+	private Date saveDate;
+	private Date validDate;
 	
+	//images
+	private String fileName;
+	
+	//store
+	private String storeName;
+
 
 	public String getPw() {
 		return pw;
@@ -94,6 +106,48 @@ public class MyDTO {
 	}
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
+	}
+	public long getOutStar() {
+		return outStar;
+	}
+	public void setOutStar(long outStar) {
+		this.outStar = outStar;
+	}
+	public long getTotalStar() {
+		return totalStar;
+	}
+	public void setTotalStar(long totalStar) {
+		this.totalStar = totalStar;
+	}
+	public long getCardNum() {
+		return cardNum;
+	}
+	public void setCardNum(long cardNum) {
+		this.cardNum = cardNum;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public Date getSaveDate() {
+		return saveDate;
+	}
+	public void setSaveDate(Date saveDate) {
+		this.saveDate = saveDate;
+	}
+	public Date getValidDate() {
+		return validDate;
+	}
+	public void setValidDate(Date validDate) {
+		this.validDate = validDate;
+	}
+	public String getStoreName() {
+		return storeName;
+	}
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
 	}
 	
 	
