@@ -45,10 +45,26 @@ public class Pager {
 	// for get member list --------------------------
 	private long storeCode;
 	private int type;
+	private Integer searchType;
 	
 	// for get member list --------------------------
+	
 	public long getStoreCode() {
 		return storeCode;
+	}
+
+	public int getSearchType() {
+		if (this.searchType == null) {
+			this.searchType = 0;
+		}
+		return searchType;
+	}
+
+	public void setSearchType(Integer searchType) {
+		if (searchType == null) {
+			searchType = 0;
+		}
+		this.searchType = searchType;
 	}
 
 	public int getType() {

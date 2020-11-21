@@ -60,6 +60,7 @@ public class AdminController {
 		if (dto != null) {
 			System.out.println(id + " 계정 로그인 성공");
 			session.setAttribute("login", dto);
+			session.setAttribute("memberType", 0);
 			mv.setViewName("redirect:admin/admin/adminIndex");
 		} else {
 			System.out.println(id + " 계정 로그인 실패");

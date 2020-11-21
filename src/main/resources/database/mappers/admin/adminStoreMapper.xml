@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starbucks.sw4.store.StoreDTO">
+	
+	<select id="getAdminStore" parameterType="AdminMemberDTO" resultType="StoreDTO">
+		select * from store where storeCode = #{storeCode}
+	</select>
+	
+	<select id="getAdminStoreMemberCount" parameterType="AdminMemberDTO" resultType="Long">
+		select count(*) from store
+		where
+			<choose>
+				<when test="type == 4"> storeCode >= 1</when>
+				<otherwise>storeCode = #{storeCode}</otherwise>
+			</choose>
+	</select>
+	
+</mapper>

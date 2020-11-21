@@ -202,9 +202,6 @@
 							<div id="reply_area">
 								<div>
 									<span>${login.name}</span>
-									<!-- 
-									<input type="text" id="reply_text" placeholder="댓글을 입력하세요." name="reply">
-									 -->
 									<textarea id="reply_text" placeholder="댓글을 입력하세요." name="contents"></textarea>
 									<span id="reply_submit">
 										<span>&nbsp;&nbsp;</span>

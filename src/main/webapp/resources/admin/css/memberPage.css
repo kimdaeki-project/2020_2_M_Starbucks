@@ -1,0 +1,49 @@
+@charset "UTF-8";
+#select-area{
+	float: right;
+	margin-right: 0.3rem;
+	margin-bottom: 0.8rem;
+}
+
+#icon-type{
+	margin-right: 0.5rem;
+}
+#select-type{
+	font-size: 0.9rem;
+	margin-right: 2.5rem;
+}
+#before-page{
+	cursor: pointer;
+}
+.cur-page{
+	cursor: pointer;
+}
+#next-page{
+	cursor: pointer;
+}
+#more{
+	width: 100%;
+	border: 1px solid #EAEAEA;
+	background-color: #EAEAEA;
+}
+#store-info-table{
+	height: 15rem;
+	line-height: 3rem;
+	text-align: left;
+}
+#store-image{
+	width: 27rem;
+}
+#store-title{
+	line-height: 1rem;
+	font-weight: bold;
+	text-align: center;
+}
+#store-column-name{
+	width: 8rem;
+	font-weight: bold;
+	font-size: 0.8rem;
+}
+#store-row-data{
+	width: 10rem;
+}

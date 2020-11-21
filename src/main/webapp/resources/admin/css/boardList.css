@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+#table-area{
+	margin-top: 2em;
+	background-color: white;	
+}
+
+.breadcrumb {
+    background-color: #f1f2f4;
+}
+
+.mt-4{
+	padding-top: 1rem;
+	margin-bottom: 1.1rem;
+}
+
+.mb-4{
+	color: #5D5D5D;
+	font-size: 0.83rem;
+}
+
+table{
+	text-align: center;
+	font-size: 0.9rem;
+}
+
+#table-num-size{
+	width: 4rem;
+}
+#table-info-size{
+	width: 30rem;
+}
+#table-title-size{
+	padding-left: 1.5rem;
+	text-align: left;
+}
+
+#table-writer-size{
+	width: 10rem;
+}
+
+#table-hit-size{
+	width: 8rem;
+}
+
+#table-date-size{
+	width: 20rem;
+}
+
+#page-area{
+	text-align: center;
+	font-size: 0.9rem;
+}
+
+#page-area-center{
+	width: 64rem;
+	text-align: center;
+}
+
+#write-area{
+	float: right;
+}
+
+#write_btn{
+	font-weight: bold;
+	font-size: 0.8rem;
+	border: 1px solid #E7E7E7;
+	border-radius: 5px;
+	padding: 0.5rem 0.9rem;
+	background-color: white;
+}
+
+#write-btn-area{
+	width: 15rem;
+}
+
+#login-staff-info{
+	color: #006633;
+	font-weight: bold;
+}
