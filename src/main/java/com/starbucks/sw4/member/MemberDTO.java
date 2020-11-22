@@ -10,7 +10,7 @@ public class MemberDTO {
 	private String id;
 	private String pw;
 	private String name;
-	private Date birth;
+	private String birth;
 	private String gender;
 	private String phone;
 	private String nickName;
@@ -55,10 +55,10 @@ public class MemberDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getBirth() {
+	public String getBirth() {
 		return birth;
 	}
-	public void setBirth(Date birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
 	public String getGender() {

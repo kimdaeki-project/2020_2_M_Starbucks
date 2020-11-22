@@ -9,12 +9,16 @@
 	</select>
 	
 	<select id="getAdminStoreMemberCount" parameterType="AdminMemberDTO" resultType="Long">
-		select count(*) from store
-		where
+
+		select count(*)
+		from (select M.* from member M join memberAdmin MA on (M.adminNum = MA.adminNum)
+			where 
 			<choose>
-				<when test="type == 4"> storeCode >= 1</when>
-				<otherwise>storeCode = #{storeCode}</otherwise>
+				<when test="type != 4">MA.storeCode=#{storeCode}</when>
+				<otherwise>MA.storeCode >= 1</otherwise>
 			</choose>
+			) d	
+		
 	</select>
 	
 </mapper>

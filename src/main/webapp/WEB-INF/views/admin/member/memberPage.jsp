@@ -41,7 +41,7 @@
 							<table class="table table-bordered" id="store-info-table">
 								<tr>
 									<td id="store-image" rowspan="4"></td>
-									<td colspan="4" id="store-title">근무 매장 정보</td>
+									<td colspan="4" id="store-title">근무지 정보</td>
 								</tr>
 								<tr class="store-row">
 									<td id="store-column-name">이름</td>
@@ -105,7 +105,9 @@
 					</div>
 					
 					<div class="container-fluid" id="">
-						<button class="btn btn-info" id="more">view more</button>
+						
+							<button class="btn btn-info" id="more">view more</button>
+						
 					</div>
 
 				</main>
