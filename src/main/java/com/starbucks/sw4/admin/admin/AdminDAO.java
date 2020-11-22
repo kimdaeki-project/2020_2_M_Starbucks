@@ -16,6 +16,8 @@ public class AdminDAO {
 	private final String NAMESPACE = "com.starbucks.sw4.admin.admin.AdminDAO.";
 	
 	public AdminMemberDTO getAdminLogin(AdminMemberDTO dto) throws SQLException, ClassNotFoundException{
+		System.out.println(dto.getId() + " " + dto.getPw());
+		System.out.println(sqlSession.selectOne(NAMESPACE+"getAdminLogin", dto));
 		return sqlSession.selectOne(NAMESPACE+"getAdminLogin", dto);
 	}
 
