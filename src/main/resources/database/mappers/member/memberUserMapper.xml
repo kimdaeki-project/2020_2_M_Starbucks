@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starbucks.sw4.member.memberUser.MemberUserDAO">
+
+	<insert id="setMemberJoin" parameterType="MemberDTO">
+		insert into member values(member_seq.nextval, '', #{type}, #{id}, #{pw}, #{name}, #{birth}, #{gender}, #{phone}, #{email}, #{nickName}, #{grade}, #{joinPath}, sysdate)
+	</insert>
+	
+	<select id="getMemberLogin" parameterType="MemberDTO" resultType="MemberDTO">
+		select * from member where id=#{id} and pw=#{pw}
+	</select>
+	
+	<select id="getIdCheck" parameterType="MemberDTO" resultType="Long">
+		select count(num) from member where id=#{id}
+	</select>
+</mapper>

@@ -16,7 +16,7 @@
 	<link href="${pageContext.request.contextPath}/resources/css/common/reset.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/header.css?v=1" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/footer.css?v=1" rel="stylesheet" type="text/css">
-	<link href="${pageContext.request.contextPath}/resources/css/member/memberLogin.css?v=12" rel="stylesheet" type="text/css">
+	<link href="${pageContext.request.contextPath}/resources/css/member/memberLogin.css?v=1" rel="stylesheet" type="text/css">
 	<!-- bxSlider CSS file -->
 	<link href="${pageContext.request.contextPath}/resources/css/common/jquery.bxslider.css" rel="stylesheet">
 	
@@ -36,7 +36,7 @@
 			<!-- 내용 -->
 			<div class="find_mem_wrap mem_wrap2">
 				<div class="find_mem_inner">
-					<form id="frmLogin" action="#" method="post">
+					<form id="frmLogin" action="./memberLogin" method="post">
 						<fieldset>
 							<legend class="hid">회원가입 이용약관 동의, 수집하는 개인정보의 항목, 개인정보의
 								수집 및 이용목적, 개인정보의 보유 및 이용기간 및 파기절차, 파기 방법에 관한 폼</legend>
@@ -49,18 +49,18 @@
 
 								<div class="login_input_box bd_none">
 									<label for="txt_user_id" class="hid">아이디</label>
-									<input class="login_id mb10" id="id" name="id" type="text" maxlength="20" placeholder="아이디를 입력해 주세요." required="required" />
+									<input class="login_id mb10" id="id" name="id" type="text" maxlength="20" placeholder="아이디를 입력해 주세요." value="${cookie.idRemb.value}" />
 									<p class="limit_txt user_id_txt"></p>
 									
 									<label for="txt_user_pwd" class="hid">비밀번호</label>
-									<input class="login_pw mb10" id="pw" name="pw" type="password" maxlength="20" placeholder="비밀번호를 입력해 주세요." required="required" autocomplete="off" />
+									<input class="login_pw mb10" id="pw" name="pw" type="password" maxlength="20" placeholder="비밀번호를 입력해 주세요." />
 									<p class="limit_txt user_pwd_txt"></p>
 									<span class="checkWrap">
-										<input type="checkbox" name="idRemb" id="idRemb" class="mem2" />
+										<input type="checkbox" name="idRemb" id="idRemb" class="mem2" value="${cookie.idRemb.value}"/>
 										<label for="idRemb">아이디 저장</label>
 									</span>
 									<p class="btn_mem_login">
-											<a class="btn_login" href="javascript:void(0);" role="submit">로그인</a>
+										<button type="submit" class="btn_login">로그인</button>
 									</p>
 									
 									<p class="input_warn_text t_006633">
@@ -75,13 +75,13 @@
 											<a class="btn_login" href="javascript:void(0);" role="submit">FACEBOOK</a>
 										</p>
 										<p class="kakao_login">
-											<a class="btn_login" href="javascript:void(0);" role="submit">KAKAO</a>
+											<a class="btn_login" href="javascript:;" onclick="snsLogin('kakao');">KAKAO</a>
 										</p>
 									</div>
 								</div>
 								<div class="login_btn_wrap">
 									<ul>
-										<li><a href="${pageContext.request.contextPath}/member/memberJoin">회원가입</a></li>
+										<li><a href="${pageContext.request.contextPath}/member/memberJoin1">회원가입</a></li>
 										<li><a href="#">아이디 찾기</a></li>
 										<li class="last"><a href="#">비밀번호 찾기</a></li>
 									</ul>
@@ -123,13 +123,15 @@
 			<!-- 내용 end -->
 		</div>
 	</div>
-
 	<!-- Container End -->
 	
 	<!-- Footer -->
 	<c:import url="../common/footer.jsp"></c:import>
 	<!-- Footer End -->
+	
 	<script src="${pageContext.request.contextPath}/resources/js/common/header.js?v=1"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=1"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/member/memberLogin.js"></script>
+	
 </body>
 </html>

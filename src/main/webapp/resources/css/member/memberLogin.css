@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+#container { width:100%; }
 .login_bg_wrap { background:url("../../images/member/login_bg.jpg") center top no-repeat fixed #0a0807; background-size:cover; -webkit-background-size:cover; width:100%; }
 .find_mem_wrap { max-width:570px; margin:0 auto; padding:70px 0 50px; }
 
@@ -27,15 +28,14 @@ input.mem2[type=checkbox]:checked + label ,
 input.mem[type=checkbox]:active + label { background:#fff url("../../images/member/mem_check_on.png") no-repeat 0 0; background-size:26px; }
 
 .btn_mem_login { background:#006633; border-radius:3px; width:100%; max-width:570px; margin-top:25px; text-align:center; }
-.btn_mem_login a { color:#fff; font-size:24px; display:block; line-height:65px; }
-.btn_mem_login.gray a { font-size:20px; line-height:47px; }
+.btn_mem_login .btn_login { width:100%; color:#fff; font-size:24px; display:block; line-height:65px; background:none; border:none; box-shadow:none; outline:0; }
 
 /* SNS 로그인 */
 .btn_mem_sns_login { width:100%; max-width:570px; margin-top:25px; line-height:45px; }
 .btn_mem_sns_login a { color:#fff; margin-left: 30%; font-size:18px; font-weight:bold; text-decoration:none; }
-.naver_login { background:url("../../images/member/login_naver.gif") #00d700 no-repeat 7px 0; background-size:30px 43px; width:30%; margin-right:5%; border-radius:3px; float:left; }
-.fb_login { background:url("../../images/member/login_fb.gif") #3b5998 no-repeat 7px 0; background-size:30px 43px; width:30%; margin-right:5%; border-radius:3px; float:left; }
-.kakao_login { background:url("../../images/member/login_kakao.gif") #ffde00 no-repeat 7px 0; background-size:30px 43px; width:30%; border-radius:3px; float:right; }
+.naver_login { background:url("../../images/member/login_naver.gif") #00d700 no-repeat 7px 0; background-size:30px 43px; width:31%; margin-right:3.5%; border-radius:3px; float:left; }
+.fb_login { background:url("../../images/member/login_fb.gif") #3b5998 no-repeat 7px 0; background-size:30px 43px; width:31%; margin-right:3.5%; border-radius:3px; float:left; }
+.kakao_login { background:url("../../images/member/login_kakao.gif") #ffde00 no-repeat 7px 0; background-size:30px 43px; width:31%; border-radius:3px; float:right; }
 .kakao_login a { color:#371b03; }
 
 .input_warn_text { color:#ed1c24; font-size:14px; line-height:1.4; margin-top:15px; }
@@ -73,10 +73,28 @@ input.mem[type=checkbox]:active + label { background:#fff url("../../images/memb
 	.limit_txt { font-size:14px; line-height:1.2; }
 	
 	/* .btn_mem_login { margin:0 15px; } */
-	.btn_mem_login a { line-height:45px; font-size:20px; }
+	.btn_mem_login .btn_login { line-height:45px; font-size:20px; }
 	
 	.login_btn_wrap ul li:after { height:12px; margin-top:-6px; }
 	.login_btn_wrap ul li a { font-size:14px; line-height:44px; }
+	
+	
+	/* SNS 로그인 */
+	.btn_mem_sns_login { line-height:40px; }
+	.btn_mem_sns_login a { font-size:14px; }
+	.naver_login { background-size:25px 36px; line-height:40px; }
+	.fb_login { background-size:25px 36px; line-height:40px; }
+	.kakao_login { background-size:25px 36px; line-height:40px; }
+	
+	
+	/*
+	.btn_mem_sns_login { width:100%; max-width:570px; margin-top:25px; line-height:45px; }
+.btn_mem_sns_login a { color:#fff; margin-left: 30%; font-size:18px; font-weight:bold; text-decoration:none; }
+.naver_login { background:url("../../images/member/login_naver.gif") #00d700 no-repeat 7px 0; background-size:30px 43px; width:30%; margin-right:5%; border-radius:3px; float:left; }
+.fb_login { background:url("../../images/member/login_fb.gif") #3b5998 no-repeat 7px 0; background-size:30px 43px; width:30%; margin-right:5%; border-radius:3px; float:left; }
+.kakao_login { background:url("../../images/member/login_kakao.gif") #ffde00 no-repeat 7px 0; background-size:30px 43px; width:30%; border-radius:3px; float:right; }
+.kakao_login a { color:#371b03; }*/
+	
 	
 	
 	/* 비밀번호 5회 오류 */
@@ -96,10 +114,23 @@ input.mem[type=checkbox]:active + label { background:#fff url("../../images/memb
 	.joinform .captcha_infoInput_text .captcha_guidet span { display:none; }
 	
 	.joinform .mem_captcha_input_wrap { width:auto; padding:15px; }
+	
+	/* SNS 로그인 */
+	.btn_mem_sns_login { line-height:35px; }
+	.btn_mem_sns_login a { font-size:12px; }
+	.naver_login { background-size:20px 29px; line-height:35px; }
+	.fb_login { background-size:20px 29px; line-height:35px; }
+	.kakao_login { background-size:20px 29px; line-height:35px; }
 }
 
 @media screen and (max-width:375px) {
 	.find_form_txt { font-size:16px; }
+	
+	/* SNS 로그인 */
+	.btn_mem_sns_login a { font-size:0; }
+	.naver_login { background-size:25px 36px; background-position-x:center; }
+	.fb_login { background-size:25px 36px; background-position-x:center; }
+	.kakao_login { background-size:25px 36px; background-position-x:center; }
 
 }
 

@@ -16,8 +16,16 @@
 						<ul>
 							<!-- 로그인하면 활성화
 							<li class="util_nav01 sign_out" style="display:none;"><a href="#">Sign out</a></li> -->
-							<li class="util_nav01 sign_in"><a href="${pageContext.request.contextPath}/member/memberLogin">Sign In</a></li>
-							<li class="util_nav02"><a href="#">My Starbucks</a></li>
+							<c:choose>
+								<c:when test="${not empty member}">
+									<li class="util_nav01 sign_out"><a href="${pageContext.request.contextPath}/member/memberLogout">Sign out</a></li>
+									<li class="util_nav02"><a href="${pageContext.request.contextPath}/my/myIndex">My Starbucks</a></li>
+								</c:when>
+								<c:otherwise>
+									<li class="util_nav01 sign_in"><a href="${pageContext.request.contextPath}/member/memberLogin">Sign In</a></li>
+									<li class="util_nav02"><a href="${pageContext.request.contextPath}/member/memberLogin">My Starbucks</a></li>
+								</c:otherwise>
+							</c:choose>
 							<li class="util_nav03"><a href="#">Customer Service & Ideas</a></li>
 							<li class="util_nav04"><a href="#">Find a Store</a></li>
 						</ul>

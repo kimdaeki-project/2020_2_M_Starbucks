@@ -17,8 +17,16 @@ public class MemberUserDAO implements MemberDAO {
 	
 	@Override
 	public MemberDTO getMemberLogin(MemberDTO memberDTO) throws Exception {
-		System.out.println("DAO - MemberUserLogin");
-		return null;
+		return sqlSession.selectOne(NAMESPACE+"getMemberLogin", memberDTO);
 	}
 	
+	@Override
+	public long getIdCheck(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getIdCheck", memberDTO);
+	}
+	
+	@Override
+	public int setMemberJoin(MemberDTO memberDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"setMemberJoin", memberDTO);
+	}
 }

@@ -14,7 +14,16 @@ public class MemberUserService implements MemberService {
 	
 	@Override
 	public MemberDTO getMemberLogin(MemberDTO memberDTO) throws Exception {
-		System.out.println("Service -- MemberUserLogin");
-		return null;
+		return memberUserDAO.getMemberLogin(memberDTO);
+	}
+	
+	@Override
+	public long getIdCheck(MemberDTO memberDTO) throws Exception {
+		return memberUserDAO.getIdCheck(memberDTO);
+	}
+	
+	@Override
+	public int setMemberJoin(MemberDTO memberDTO) throws Exception {
+		return memberUserDAO.setMemberJoin(memberDTO);
 	}
 }
