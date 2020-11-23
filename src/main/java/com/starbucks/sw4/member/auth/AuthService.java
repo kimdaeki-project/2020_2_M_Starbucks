@@ -12,8 +12,5 @@ public class AuthService {
 	public int setAuthEmailSend(AuthDTO authDTO) throws Exception {
 		return authDAO.setAuthEmailSend(authDTO);
 	}
-	
-	public long getMemberEmailCheck(AuthDTO authDTO) throws Exception {
-		return authDAO.getMemberEmailCheck(authDTO);
-	}
+
 }

@@ -6,14 +6,12 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.starbucks.sw4.MyTestCase;
-import com.starbucks.sw4.member.MemberDTO;
 
 public class authDAOTest extends MyTestCase {
 
 	@Autowired
 	private AuthDAO authDAO;
-	
-	//@Test
+	@Test
 	public void setAuthEmailSendTest() throws Exception {
 		AuthDTO authDTO = new AuthDTO();
 		authDTO.setAuthKey(153446);
@@ -22,15 +20,6 @@ public class authDAOTest extends MyTestCase {
 		authDTO.setSendTime("2020-11-23 04:41:46");
 		
 		int result = authDAO.setAuthEmailSend(authDTO);
-		
-		assertEquals(1, result);
-	}
-	
-	@Test
-	public void getMemberEmailCheck() throws Exception {
-		AuthDTO authDTO = new AuthDTO();
-		authDTO.setEmail("test@naver.com");
-		long result = authDAO.getMemberEmailCheck(authDTO);
 		
 		assertEquals(1, result);
 	}

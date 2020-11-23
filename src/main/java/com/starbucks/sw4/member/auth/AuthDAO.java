@@ -4,8 +4,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.starbucks.sw4.member.MemberDTO;
-
 @Repository
 public class AuthDAO {
 	
@@ -18,6 +16,6 @@ public class AuthDAO {
 	}
 	
 	public long getMemberEmailCheck(AuthDTO authDTO) throws Exception {
-		return sqlSession.selectOne(NAMESPACE+"getMemberEmailCheck", authDTO);
+		return sqlSession.selectOne(NAMESPACE+"setAuthEmailCheck", authDTO);
 	}
 }

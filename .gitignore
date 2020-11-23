@@ -162,5 +162,4 @@ $RECYCLE.BIN/
 *.lnk
 
 database.properties
-email.properties
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,eclipse,java,maven
