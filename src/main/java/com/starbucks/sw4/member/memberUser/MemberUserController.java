@@ -192,6 +192,13 @@ public class MemberUserController {
 	public ModelAndView setEmailAuthSend(AuthDTO authDTO, HttpServletRequest request, HttpServletResponse response, HttpSession session)  throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
+		long checkResult = authService.getMemberEmailCheck(authDTO);
+		if(checkResult > 0) {
+			mv.addObject("msg", "회원가입된 이메일입니다.");
+			mv.addObject("path", "./memberLogin");
+			mv.setViewName("common/result");
+			return mv;
+		}
 		
 		/* 인증번호 생성 */
 		Random r = new Random();
