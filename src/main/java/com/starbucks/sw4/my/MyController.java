@@ -17,6 +17,24 @@ public class MyController {
 	@Autowired
 	private MyService myService;
 	
+	@GetMapping("vocList")
+	public ModelAndView setVocList() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		MyDTO info = myService.getOne();
+		String str = info.getEmail();
+		int idx = str.indexOf("@");
+		String mail1 = str.substring(0, idx);  
+		String mail2 = str.substring(idx+1);
+		
+		mv.addObject("mail1", mail1);
+		mv.addObject("mail2", mail2);
+		mv.addObject("myInfo", info);
+		mv.setViewName("my/vocList");
+		
+		return mv;
+		
+	}
+	
 	@GetMapping("myStarHistory")
 	public ModelAndView getMyStar() throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -69,6 +87,18 @@ public class MyController {
 		ModelAndView mv = new ModelAndView();
 		MyDTO info = myService.getOne();
 		
+		String birth = info.getBirth();
+		String [] date = birth.split("-");
+		for(int i=0; i<date.length; i++) {
+			System.out.println(date[i]);;
+		}
+		String years = date[0];
+		String months = date[1];
+		String days = date[2];
+		
+		mv.addObject("years", years);
+		mv.addObject("months", months);
+		mv.addObject("days", days);
 		mv.addObject("myInfo", info);
 		mv.setViewName("my/updateMyInfo");
 		

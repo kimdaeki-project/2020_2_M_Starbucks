@@ -59,9 +59,9 @@
                         <div class="find_input">
                             <strong>생년월일(필수)</strong>
                             <div>
-                                <select id="years"></select>
-                                <select id="months"></select>
-                                <select id="days"></select>
+                                <input type="text" id="years" value="${years}" readonly="readonly">
+                                <input type="text" id="months" value="${months}" readonly="readonly">
+                                <input type="text" id="days" value="${days}" readonly="readonly">
                                 <select id="yinyang">
                                     <option value="yang">양</option>
                                     <option value="yin">음</option>
@@ -80,8 +80,9 @@
                                 <i class="xi-info"></i>
                             </strong>
                             <div>
-                                <input type="text" value="${myInfo.phone}" name="phone" id="userPhone" class="user_phone">
+                                <input type="text" value="${myInfo.phone}" name="phone" id="userPhone" class="user_phone empty">
                             </div>
+                            <div id="phoneCheck"></div>
                         </div>
                     </section>
 
@@ -91,8 +92,9 @@
                                 <i class="xi-info"></i>
                             </strong>
                             <div>
-                                <input type="text" value="${myInfo.email}" name="email" id="usermail" class="user_mail"> 
+                                <input type="text" value="${myInfo.email}" name="email" id="usermail" class="user_mail empty"> 
                             </div>
+                            <div id="mailCheck"></div>
                         </div>
                     </section>
 
@@ -108,32 +110,18 @@
                             <strong>닉네임(선택)                       
                             </strong>
                             <div>
-                                <input type="text" value="${myInfo.nickname}" name="nickname" id="nickname" class="user_mail"> 
+                                <input type="text" value="${myInfo.nickName}" name="nickName" id="nickName" class="user_mail"> 
                             </div>
                         </div>
                     </section>
                     
-                       <button type="submit" class="btn_updateinfo">정보수정</button>
+                       <button type="submit" class="btn_updateinfo" id="update">정보수정</button>
                     
 
  			</fieldset>
            </form>
           </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

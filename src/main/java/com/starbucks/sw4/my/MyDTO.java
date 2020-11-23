@@ -2,23 +2,25 @@ package com.starbucks.sw4.my;
 
 import java.sql.Date;
 
-public class MyDTO {
-	//member
-	private String id;
-	private String pw;
-	private String name;
-	private Date birth;
-	private String phone;
-	private String email;
-	private String nickname;
-	private int grade;
+import com.starbucks.sw4.member.MemberDTO;
+
+public class MyDTO extends MemberDTO{
+//	//member
+//	private String id;
+//	private String pw;
+//	private String name;
+//	private Date birth;
+//	private String phone;
+//	private String email;
+//	private String nickname;
+//	private int grade;
 	
 	//card, star
 	private long useStar;
 	private long outStar;
 	private long totalStar;
 	private long balance;
-	private String cardName;
+	private String korName;
 	private long cardNum;
 	private String state;
 	private Date saveDate;
@@ -31,41 +33,12 @@ public class MyDTO {
 	private String storeName;
 
 
-	public String getPw() {
-		return pw;
+	
+	public String getKorName() {
+		return korName;
 	}
-	public void setPw(String pw) {
-		this.pw = pw;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Date getBirth() {
-		return birth;
-	}
-	public void setBirth(Date birth) {
-		this.birth = birth;
-	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getCardName() {
-		return cardName;
-	}
-	public void setCardName(String cardName) {
-		this.cardName = cardName;
+	public void setKorName(String korName) {
+		this.korName = korName;
 	}
 	public String getFileName() {
 		return fileName;
@@ -79,12 +52,7 @@ public class MyDTO {
 	public void setBalance(long balance) {
 		this.balance = balance;
 	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+	
 	public long getUseStar() {
 		return useStar;
 	}
@@ -92,21 +60,8 @@ public class MyDTO {
 		this.useStar = useStar;
 	}
 	
-	public int getGrade() {
-		return grade;
-	}
-	public void setGrade(int grade) {
-		this.grade = grade;
-	}
-	public String getNickname() {
-		if(nickname == null) {
-			nickname = this.id;
-		}
-		return nickname;
-	}
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
+	
+	
 	public long getOutStar() {
 		return outStar;
 	}

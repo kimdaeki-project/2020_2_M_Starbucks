@@ -5,13 +5,13 @@
     
     <mapper namespace="com.starbucks.sw4.my.MyDAO">
     	<select id="getMyIndex" resultType="MyDTO">
-    		select S.useStar, S.id, M.nickName, M.grade, F.fileName, C.balance, F.cardName 
+    		select S.useStar, S.id, M.nickName, M.grade, F.fileName, C.balance, F.korName 
 			from starHistory S inner join member M
 			on S.id = M.id
             join membercard C
             on S.cardNum = C.cardNum
             join cardfile F
-            on C.cardName = f.cardname
+            on C.korName = f.korname
 			where M.id = 'customer02'
     	</select>
     	
@@ -20,7 +20,7 @@
     	</select>
  
  		<update id="setUpdate" parameterType="MyDTO"> 
- 			update member set phone=#{phone}, email=#{email}, nickname=#{nickname} where id=#{id}
+ 			update member set phone=#{phone}, email=#{email}, nickname=#{nickName} where id=#{id}
 	 	</update>
 	 	
 	 	<update id="setNewPw" parameterType="MyDTO"> 

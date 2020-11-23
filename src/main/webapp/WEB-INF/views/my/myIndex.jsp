@@ -63,13 +63,13 @@
 		        <div><p class="ms_user_stat_notice"> <strong>${num}</strong>개의 별이 더 모이면<br><strong class="en t_715d39">Gold Level</strong>만의 특별한 혜택이! </p></div>	 
         	 </article>
         	  <article class="ms_user_info_right">
-        	  <p class="ms_user_stat"><span><strong class="userName">${star.nickname}<!-- 홍길동 --></strong> 님은</span> <span>현재 <strong class="en userGrade">${grade}<!-- Green Level --></strong>이십니다.</span></p>
+        	  <p class="ms_user_stat"><span><strong class="userName">${star.nickName}<!-- 홍길동 --></strong> 님은</span> <span>현재 <strong class="en userGrade">${grade}<!-- Green Level --></strong>이십니다.</span></p>
        			<div class="ms_user_stat_btns">
                     <ul>
-						<li><a href="./reward.do">리워드 및 혜택</a></li>
-						<li><a href="./reward_star_history.do">별 히스토리</a></li>
-						<li class="btn_black"><a href="./myinfo_modify_login.do">개인정보 수정</a></li>
-						<li class="btn_gray"><a class="gray" href="./myinfo_modify_pwd.do">비밀번호 변경</a></li>
+						<li><a href="./myIndex">리워드 및 혜택</a></li>
+						<li><a href="./myStarHistory">별 히스토리</a></li>
+						<li class="btn_black"><a href="./updateMyInfo">개인정보 수정</a></li>
+						<li class="btn_gray"><a class="gray" href="./modifyPW">비밀번호 변경</a></li>
                    </ul>
                   </div>
               </article>
@@ -102,7 +102,7 @@
 					        	</figure>
 					        	<div class="my_card_info">
 					        		<p class="my_card_id"> 
-					        			<span>${star.cardName}</span></p>
+					        			<span>${star.korName}</span></p>
 					        		<p class="my_card_price">
 					        			<span> <strong> ${star.balance} </strong>원</span></p>
 					       		 

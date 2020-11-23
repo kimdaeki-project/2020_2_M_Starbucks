@@ -36,3 +36,35 @@
             return new Date(year, month, 0).getDate();
         }
   
+  
+ var emptyCheckResult = true;
+  $("#userPhone").blur(function(){
+  	emptyCheck();
+  	
+  	if(!emptyCheckResult){
+  		$("#phoneCheck").html("필수입력 사항 입니다");
+  		$("#phoneCheck").addClass("valCheck");
+  	}
+  	
+  });
+  
+   $("#usermail").blur(function(){
+  	emptyCheck();
+  	
+  	if(!emptyCheckResult){
+  		$("#mailCheck").html("필수입력 사항 입니다");
+  		$("#mailCheck").addClass("valCheck");
+  	}
+  });
+  
+  function emptyCheck() {
+		emptyCheckResult = true; // 반복문을 위한 초기화
+		$(".empty").each(function(){  //empty클래스명 하나꺼내서 function돌리고, 그 다음꺼 또 꺼내서 돌리는식..
+		var data = $(this).val();
+		if(data==''){
+			emptyCheckResult = false;	
+		}
+		
+		});
+}
+  

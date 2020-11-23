@@ -16,8 +16,8 @@ public class MyDAOTest extends MyTestCase {
 		MyDTO myDTO = new MyDTO();
 		myDTO.setId("id1");
 		myDTO.setName("gest1");
-		myDTO.setNickname("nick sibbal");
-		myDTO.setCardName("ggg");
+		myDTO.setNickName("nick sibbal");
+		myDTO.setKorName("ggg");
 		int result = myDAO.setUpdate(myDTO);
 		assertEquals(1, result);
 	}

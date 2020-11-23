@@ -74,6 +74,11 @@
    <c:import url="../common/footer.jsp"></c:import>
    <!-- Footer End -->
    
+   <script type="text/javascript">
+   		//if pw1==pw2 일치하면 pw1을 파라미터로 db로 보내서 insert해주고 myIndex로 redirect해주면됨.
+   		//비번 두개 같은지 체크, 3칸 중 하나라도 비어있으면 문구뜨는거 처리. 
+   </script>
+   
    <script src="${pageContext.request.contextPath}/resources/js/common/header.js?v=1"></script>
    <script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=1"></script>
 </body>
