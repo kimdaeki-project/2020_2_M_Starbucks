@@ -22,6 +22,13 @@ public class AdminMemberController {
 	@Autowired
 	private AdminMemberService adminMemberService;
 	
+	@GetMapping("memberSelect")
+	public ModelAndView getSelect() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/member/memberPopUp");
+		return mv;
+	}
+	
 	@GetMapping("memberList")
 	public ModelAndView getPage(Pager pager,HttpSession session) throws Exception{
 		
@@ -63,11 +70,15 @@ public class AdminMemberController {
 		session.setAttribute("memberType", pager.getSearchType());
 		
 		pager.setSearchType((Integer)session.getAttribute("memberType"));
-		pager.setStoreCode(dto.getStoreCode());
+		pager.setStoreCode(dto.getStoreDTO().getStoreCode());
 		pager.setPerPage(5);
 		pager.setType(dto.getType());
 		
 		List<AdminMemberDTO> list = adminMemberService.getList(pager);
+		
+		for (AdminMemberDTO tmp : list) {
+			System.out.println(tmp.getName() + " " + tmp.getStoreDTO().getStoreCode() + " " + tmp.getStaffCount());
+		}
 		
 		mv.addObject("page", pager);
 		mv.addObject("noticeList", list);

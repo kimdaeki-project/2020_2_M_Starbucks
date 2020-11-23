@@ -27,6 +27,10 @@ public class AdminMemberDAO {
 		return sqlSession.selectList(NAMESPACE+"getList", pager);
 	}
 	
+	public List<AdminMemberDTO> getAdminStoreEachCount() throws SQLException, ClassNotFoundException{
+		return sqlSession.selectList(STORE_NAMESPACE+"getAdminStoreEachCount");
+	}
+	
 	public long getAdminStoreMemberCount(AdminMemberDTO dto) throws SQLException, ClassNotFoundException{
 		System.out.println(dto.getType());
 		return sqlSession.selectOne(STORE_NAMESPACE+"getAdminStoreMemberCount",dto);

@@ -33,8 +33,33 @@ public class AdminMemberService {
 		
 		System.out.println("after pager: " + pager.getTotalCount());
 		System.out.println("after pager start row: " + pager.getStartRow());
+		
+		List<AdminMemberDTO> list = adminMemberDAO.getList(pager);
+		List<AdminMemberDTO> staffCount = adminMemberDAO.getAdminStoreEachCount();
+		
+		System.out.println(staffCount.size());
+		for(AdminMemberDTO dto:staffCount) {
+			System.out.println("staff count result: "+dto.getStoreDTO().getStoreCode() + " " + dto.getStaffCount());
+		}
+		
+		for(int j = 0; j < staffCount.size(); j++) {
 
-		return adminMemberDAO.getList(pager);
+			for (int i = 0; i < list.size(); i++) {
+				System.out.println(list.get(i).getStoreDTO().getStoreCode() + " " + staffCount.get(j).getStoreDTO().getStoreCode());
+				if (list.get(i).getStoreDTO().getStoreCode() == staffCount.get(j).getStoreDTO().getStoreCode()) {
+					System.out.println("true");
+					list.get(i).setStaffCount(staffCount.get(j).getStaffCount());
+				}
+				
+			}
+			
+		}
+		
+		for (AdminMemberDTO dto : list) {
+			System.out.println(dto.getName() + " " + dto.getStoreDTO().getStoreCode() + " " + dto.getStaffCount());
+		}
+
+		return list;
 		
 	}
 	

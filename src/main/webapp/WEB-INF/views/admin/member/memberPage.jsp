@@ -15,6 +15,24 @@
 		<link rel="stylesheet" type="text/css" href="/sw4/resources/admin/css/memberPage.css">
 		<style type="text/css">
 			/*background-color: #006633;*/
+			#member-list > tr{
+				cursor: pointer;
+			}
+			#update-btn{
+				font-size: 0.8rem;
+				color: white;
+				padding: 0.35rem 0.45rem;
+				border-radius: 4px;
+				background-color: #006633;
+			}
+			#update-btn-area{
+				margin: 0.6rem 0px 0px;
+				float: left;
+				background-color: yellow;
+			}
+			#btn-area{
+				margin-top: -0.5rem;
+			}
 		</style>
 	</head>
 	
@@ -32,7 +50,7 @@
 					<div class="container-fluid">
 						<h1 class="mt-4">매장 직원 리스트</h1>
 						<div class="breadcrumb mb-4">
-							<span id="login-staff-info">${login.name}</span>님이 근무하시는&nbsp;<span id="login-staff-info">${login.storeName}</span>&nbsp;매장 근로자 리스트 입니다. 개인정보 보호를 위해 STAFF의 상세 정보는 제한됩니다.
+							<span id="login-staff-info">${login.name}</span>님이 근무하시는&nbsp;<span id="login-staff-info">${login.storeDTO.storeName}</span>&nbsp;매장 근로자 리스트 입니다. 개인정보 보호를 위해 STAFF의 상세 정보는 제한됩니다.
 						</div>
 					</div>
 					
@@ -45,9 +63,9 @@
 								</tr>
 								<tr class="store-row">
 									<td id="store-column-name">이름</td>
-									<td id="store-row-data">${login.name}</td>
+									<td class="store-row-data" id="name">${login.name}</td>
 									<td id="store-column-name">직급</td>
-									<td id="store-row-data">
+									<td class="store-row-data" id="type">
 										<c:choose>
 											<c:when test="${login.type eq 2}">Staff</c:when>
 											<c:when test="${login.type eq 3}">Manager</c:when>
@@ -57,19 +75,23 @@
 								</tr>
 								<tr class="store-row">
 									<td id="store-column-name">근무 매장</td>
-									<td id="store-row-data">${store.storeName}</td>
+									<td class="store-row-data" id="work-store">${store.storeName}</td>
 									<td id="store-column-name">근무인원</td>
-									<td id="store-row-data">${storeMember} 명</td>
+									<td class="store-row-data"><span id="work-store-count">${storeMember}</span> 명</td>
 								</tr>
 								<tr class="store-row">
 									<td id="store-column-name">매장 주소</td>
-									<td colspan="3">${store.doro_addr}</td>
+									<td colspan="3" id="doro-addr">${store.doro_addr}</td>
 								</tr>
 							</table>
 						</div>
+
 					</div>
 					
-					<div class="container-fluid">
+					<div class="container-fluid" id="btn-area">
+						<div id="update-btn-area">
+							<a id="update-btn"><span>정보 수정</span></a>
+						</div>
 						<div id="select-area">
 							<ul class="navbar-nav ml-auto ml-md-0" id="drop" role="type">
 								<a class="nav-link dropdown-toggle" id="typeDropdown"
@@ -105,9 +127,7 @@
 					</div>
 					
 					<div class="container-fluid" id="">
-						
-							<button class="btn btn-info" id="more">view more</button>
-						
+						<button class="btn btn-info" id="more">view more</button>
 					</div>
 
 				</main>
@@ -133,6 +153,23 @@
 			
 			getList()
 			typeSelect(type)
+		
+			function show(name, type, storeName, doro_addr, staffCount){
+				$("#name").text(name)
+				
+				if (type == 2){
+					type = "Staff"
+				} else if (type == 3){
+					type = "Manager"
+				} else {
+					type = "Admin"
+				}
+				$("#type").text(type)
+				$("#work-store").text(storeName)
+				$("#doro-addr").text(doro_addr)
+				alert(staffCount)
+				$("#work-store-count").text(staffCount)
+			}
 			
 			$("#search-btn").click(function(){
 				curPage = 1;
