@@ -20,24 +20,20 @@
 	</select>
 	
 	<select id="getAdminStoreEachCount" resultMap="getStoreCountResult">
-		select storeCode, count(adminNum) as staffCount from memberAdmin
-		group by storeCode
+		select rownum r, A.* from
+      		(select   storeCode, count(adminNum) as staffCount from memberAdmin
+      	group by storeCode) A
 	</select>
 	
-	<resultMap type="map" id="getTmp">
-		<result column="staffCount" property="staffCount"/>
-		<result column="storeCode" property="storeCode"/>
-	</resultMap>
-	
 	<resultMap type="AdminMemberDTO" id="getStoreCountResult">
+		<id column="r" property="r"></id>
 		<result column="staffCount" property="staffCount"/>
 		<association property="storeDTO"
-					 javaType="StoreDTO" resultMap="getStoreResult">
-		</association>
+		    javaType="StoreDTO" resultMap="getStoreResult"></association>
 	</resultMap>
 	
 	<resultMap type="StoreDTO" id="getStoreResult">
 		<result column="storeCode" property="storeCode"/>
 	</resultMap>
-	
+
 </mapper>

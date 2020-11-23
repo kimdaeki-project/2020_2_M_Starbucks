@@ -30,9 +30,9 @@ public class AdminMemberDAOTest extends MyTestCase{
 		try {
 			
 			List<AdminMemberDTO> list = dao.getAdminStoreEachCount();
-			System.out.println(list.size());
+			System.out.println();
 			
-//			HashMap<Long, Integer> list = (HashMap<Long, Integer>)dao.getAdminStoreEachCount();
+//			HashMap<String,String> list = (HashMap<String,String>)dao.getAdminStoreEachCount();
 //			
 //			System.out.println(list.size());
 //			
@@ -44,15 +44,15 @@ public class AdminMemberDAOTest extends MyTestCase{
 //			Long key = (long)316;
 //			System.out.println(list.get(key));
 //			
-//			Iterator<Long> iterator = list.keySet().iterator();
-//			Long tmp;
+//			Iterator<String> iterator = list.keySet().iterator();
+//			String tmp;
 //			while(iterator.hasNext()) {
 //				tmp = iterator.next();
 //				System.out.println(tmp);
 //				System.out.println( list.get(iterator.next()) );
 //			}
 //			
-//			for(Map.Entry<Long, Integer> entry: list.entrySet()) {
+//			for(Map.Entry<String,String> entry: list.entrySet()) {
 //				System.out.println("[key]:" + entry.getKey() + ", [value]:" + entry.getValue());
 //			}
 			

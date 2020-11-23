@@ -22,10 +22,24 @@ public class AdminMemberController {
 	@Autowired
 	private AdminMemberService adminMemberService;
 	
+	@GetMapping("memberUpdate")
+	public ModelAndView getOne(AdminMemberDTO dto) throws SQLException, ClassNotFoundException{
+		
+		ModelAndView mv = new ModelAndView();
+		System.out.println(dto.getNum());
+		
+		dto = adminMemberService.getOne(dto);
+		
+		mv.addObject("staff", dto);
+		mv.setViewName("admin/member/memberDialog");
+		return mv;
+		
+	}
+	
 	@GetMapping("memberSelect")
 	public ModelAndView getSelect() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("admin/member/memberPopUp");
+		mv.setViewName("admin/member/memberSelect");
 		return mv;
 	}
 	
@@ -75,10 +89,6 @@ public class AdminMemberController {
 		pager.setType(dto.getType());
 		
 		List<AdminMemberDTO> list = adminMemberService.getList(pager);
-		
-		for (AdminMemberDTO tmp : list) {
-			System.out.println(tmp.getName() + " " + tmp.getStoreDTO().getStoreCode() + " " + tmp.getStaffCount());
-		}
 		
 		mv.addObject("page", pager);
 		mv.addObject("noticeList", list);

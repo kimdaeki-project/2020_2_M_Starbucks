@@ -4,10 +4,17 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.starbucks.sw4.admin.tables.member.AdminMemberDAO">
 
+	<select id="getOne" parameterType="AdminMemberDTO" resultMap="getAdminLoginResult">
+		select M.*, MA.timeTable, MA.storeCode, ST.storeName
+		from member M join memberAdmin MA on(M.adminNum = MA.adminNum)
+		              join store ST on(MA.storeCode = ST.storeCode)
+		where num=#{num}
+	</select>
+
 	<select id="getList" parameterType="AdminPager" resultMap="getAdminLoginResult">
 		select *
 		from (select rownum as r, d.*
-		        from (select M.*, MA.storecode, ST.storename, ST.addr, ST.doro_addr
+		        from (select M.*, MA.timeTable,MA.storecode, ST.storename, ST.addr, ST.doro_addr
         			  from member M join memberAdmin MA on (M.adminNum = MA.adminNum)
 		        					join store ST on (MA.storeCode = ST.storeCode)
 		        where
@@ -41,6 +48,7 @@
 		<result column="grade" property="grade"/>
 		<result column="joinPath" property="joinPath"/>
 		<result column="regDate" property="regDate"/>
+		<result column="timeTable" property="timeTable"/>
 		<association property="storeDTO"
 					 javaType="StoreDTO" resultMap="getAdminLoginStoreResult">
 		</association>

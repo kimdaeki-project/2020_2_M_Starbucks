@@ -6,7 +6,9 @@
 <!-- 팝업창 띄우기 -->
 <!-- onclick="window.open('./memberSelect?num=${list.num}','pop up','width: 50,height:20,top:200')" -->
 <c:forEach items="${noticeList}" var="list">
-	<tr title="${list.num}" onclick="show('${list.name}','${list.type}','${list.storeDTO.storeName}','${list.storeDTO.doro_addr}','${list.staffCount}')" class="staff-list">
+	<tr title="${list.num}"
+		onclick="showList('${list.id}','${list.timeTable}','${list.num}','${list.name}','${list.type}','${list.storeDTO.storeName}','${list.storeDTO.doro_addr}','${list.staffCount}','${list.storeDTO.storeCode}')"
+		class="staff-list">
 		<td>${list.r}</td>
 		<td id="table-title-size">
 			이름: ${list.name} 

@@ -18,6 +18,10 @@ public class AdminMemberDAO {
 	private final String NAMESPACE = "com.starbucks.sw4.admin.tables.member.AdminMemberDAO.";
 	private final String STORE_NAMESPACE = "com.starbucks.sw4.store.StoreDTO.";
 	
+	public AdminMemberDTO getOne(AdminMemberDTO dto) throws SQLException, ClassNotFoundException{
+		return sqlSession.selectOne(NAMESPACE+"getOne", dto);
+	}
+	
 	public long getCount(Pager pager) throws SQLException, ClassNotFoundException{
 		return sqlSession.selectOne(NAMESPACE+"getCount", pager);
 	}
