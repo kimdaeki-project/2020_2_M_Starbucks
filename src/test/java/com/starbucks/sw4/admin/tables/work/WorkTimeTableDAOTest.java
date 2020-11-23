@@ -7,11 +7,9 @@ import java.util.HashMap;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.starbucks.sw4.MyTestCase;
 import com.starbucks.sw4.admin.tables.member.AdminMemberDTO;
-import com.starbucks.sw4.member.memberAdmin.MemberAdminDTO;
 
 public class WorkTimeTableDAOTest extends MyTestCase {
 	

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.starbucks.sw4.admin.tables.work.WorkTimeTableDTO;
 import com.starbucks.sw4.admin.util.Pager;
 import com.starbucks.sw4.store.StoreDTO;
 
@@ -30,6 +31,9 @@ public class AdminMemberController {
 		
 		dto = adminMemberService.getOne(dto);
 		
+		WorkTimeTableDTO wDTO = adminMemberService.getTimeTableOne(dto);
+		
+		mv.addObject("workTime", wDTO);
 		mv.addObject("staff", dto);
 		mv.setViewName("admin/member/memberDialog");
 		return mv;

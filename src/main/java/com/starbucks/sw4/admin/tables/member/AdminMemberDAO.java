@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.starbucks.sw4.admin.tables.work.WorkTimeTableDTO;
 import com.starbucks.sw4.admin.util.Pager;
 import com.starbucks.sw4.store.StoreDTO;
 
@@ -16,7 +17,12 @@ public class AdminMemberDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.starbucks.sw4.admin.tables.member.AdminMemberDAO.";
-	private final String STORE_NAMESPACE = "com.starbucks.sw4.store.StoreDTO.";
+	private final String STORE_NAMESPACE = "com.starbucks.sw4.store.StoreDAO.";
+	private final String WORK_NAMESPACE = "com.starbucks.sw4.admin.tables.work.WorkTimeTableDAO.";
+	
+	public WorkTimeTableDTO getTimeTableOne(AdminMemberDTO dto) throws SQLException, ClassNotFoundException{
+		return sqlSession.selectOne(WORK_NAMESPACE+"getTimeTableOne", dto);
+	}
 	
 	public AdminMemberDTO getOne(AdminMemberDTO dto) throws SQLException, ClassNotFoundException{
 		return sqlSession.selectOne(NAMESPACE+"getOne", dto);

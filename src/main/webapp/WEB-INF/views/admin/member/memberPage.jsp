@@ -319,14 +319,37 @@
 								$("#pop-update-btn").click(function(){
 									// $.post 실행 후 닫기
 									
+									alert("click test")
 									var url = $("#update-form").attr("action");
+									
+									var sun = $("#sunStart").val()+"-"+$("#sunEnd").val();
+									var mon = $("#monStart").val()+"-"+$("#monEnd").val();
+									var tue = $("#tueStart").val()+"-"+$("#tueEnd").val();
+									var wed = $("#wedStart").val()+"-"+$("#wedEnd").val();
+									var thu = $("#thuStart").val()+"-"+$("#thuEnd").val();
+									var fri = $("#friStart").val()+"-"+$("#friEnd").val();
+									var sat = $("#satStart").val()+"-"+$("#satEnd").val();
 									
 									$.ajax({
 										url: url,
-										type: post,
+										type: "post",
 										data: {
 											id:staffId,
-											num:staffNum
+											num:staffNum,
+											sun:sun,
+											mon:mon,
+											tue:tue,
+											wed:wed,
+											thu:thu,
+											fri:fri,
+											sat:sat
+										},
+										success: function(){
+											alert("작성을 성공하였습니다.")
+											location.href="./memberList"
+										},
+										error: function(){
+											alert("작성에 실패하였습니다.")
 										}
 									})
 
@@ -353,7 +376,7 @@
 			function init(btnText, readOnly, url){
 				$("#pop-update-btn").text(btnText);
 				$(".work-time").attr("readonly",readOnly)
-				$("#update-form").attr("action","./member"+url)
+				$("#update-form").attr("action","./workTable"+url)
 			}
 
 			function showList(id,timeTable,num, name, type, storeName, doro_addr, staffCount, storeCode){

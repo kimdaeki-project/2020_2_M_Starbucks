@@ -50,7 +50,7 @@
 						<tr>
 							<td id="staff-info-column">월</td>
 							<td>
-								<input class="work-time" type="text" id="monStart">&nbsp;~&nbsp;<input class="work-time" type="text" id="monEnd">
+								<input class="work-time" type="text" value="" id="monStart">&nbsp;~&nbsp;<input class="work-time" type="text" id="monEnd">
 							</td>
 							<td></td>
 							<td id="staff-info-column">토</td>
@@ -72,7 +72,7 @@
 						<tr>
 							<td id="staff-info-column">수</td>
 							<td>
-								<input class="work-time" type="text" id="monStart">&nbsp;~&nbsp;<input class="work-time" type="text" id="monEnd">
+								<input class="work-time" type="text" id="wedStart">&nbsp;~&nbsp;<input class="work-time" type="text" id="wedEnd">
 							</td>
 							<td></td>
 							<td id="staff-info-column"></td>
@@ -81,7 +81,7 @@
 						<tr>
 							<td id="staff-info-column">목</td>
 							<td>
-								<input class="work-time" type="text" id="monStart">&nbsp;~&nbsp;<input class="work-time" type="text" id="monEnd">
+								<input class="work-time" type="text" id="thuStart">&nbsp;~&nbsp;<input class="work-time" type="text" id="thuEnd">
 							</td>
 							<td></td>
 							<td id="staff-info-column"></td>
@@ -90,7 +90,7 @@
 						<tr>
 							<td id="staff-info-column">금</td>
 							<td>
-								<input class="work-time" type="text" id="monStart">&nbsp;~&nbsp;<input class="work-time" type="text" id="monEnd">
+								<input class="work-time" type="text" id="friStart">&nbsp;~&nbsp;<input class="work-time" type="text" id="friEnd">
 							</td>
 							<td></td>
 							<td id="staff-info-column"></td>

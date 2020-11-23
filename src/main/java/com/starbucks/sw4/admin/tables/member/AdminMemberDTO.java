@@ -13,6 +13,7 @@ public class AdminMemberDTO extends MemberDTO{
 	
 	private StoreDTO storeDTO;
 	private WorkTimeTableDTO workTimeTableDTO;
+	
 	private MemberAdminDTO memberAdminDTO;
 
 	public MemberAdminDTO getMemberAdminDTO() {

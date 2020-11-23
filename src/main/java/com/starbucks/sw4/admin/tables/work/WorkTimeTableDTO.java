@@ -31,6 +31,108 @@ public class WorkTimeTableDTO {
 	private String fri;
 	private String sat;
 	
+	private String sunStart;
+	private String sunEnd;
+	private String monStart;
+	private String monEnd;
+	private String tueStart;
+	private String tueEnd;
+	private String wedStart;
+	private String wedEnd;
+	private String thuStart;
+	private String thuEnd;
+	private String friStart;
+	private String friEnd;
+	private String satStart;
+	private String satEnd;
+	
+	
+	
+	public String getSunStart() {
+		return sunStart;
+	}
+	public void setSunStart(String sunStart) {
+		this.sunStart = sunStart;
+	}
+	public String getSunEnd() {
+		return sunEnd;
+	}
+	public void setSunEnd(String sunEnd) {
+		this.sunEnd = sunEnd;
+	}
+	public String getMonStart() {
+		return monStart;
+	}
+	public void setMonStart(String monStart) {
+		this.monStart = monStart;
+	}
+	public String getMonEnd() {
+		return monEnd;
+	}
+	public void setMonEnd(String monEnd) {
+		this.monEnd = monEnd;
+	}
+	public String getTueStart() {
+		return tueStart;
+	}
+	public void setTueStart(String tueStart) {
+		this.tueStart = tueStart;
+	}
+	public String getTueEnd() {
+		return tueEnd;
+	}
+	public void setTueEnd(String tueEnd) {
+		this.tueEnd = tueEnd;
+	}
+	public String getWedStart() {
+		return wedStart;
+	}
+	public void setWedStart(String wedStart) {
+		this.wedStart = wedStart;
+	}
+	public String getWedEnd() {
+		return wedEnd;
+	}
+	public void setWedEnd(String wedEnd) {
+		this.wedEnd = wedEnd;
+	}
+	public String getThuStart() {
+		return thuStart;
+	}
+	public void setThuStart(String thuStart) {
+		this.thuStart = thuStart;
+	}
+	public String getThuEnd() {
+		return thuEnd;
+	}
+	public void setThuEnd(String thuEnd) {
+		this.thuEnd = thuEnd;
+	}
+	public String getFriStart() {
+		return friStart;
+	}
+	public void setFriStart(String friStart) {
+		this.friStart = friStart;
+	}
+	public String getFriEnd() {
+		return friEnd;
+	}
+	public void setFriEnd(String friEnd) {
+		this.friEnd = friEnd;
+	}
+	public String getSatStart() {
+		return satStart;
+	}
+	public void setSatStart(String satStart) {
+		this.satStart = satStart;
+	}
+	public String getSatEnd() {
+		return satEnd;
+	}
+	public void setSatEnd(String satEnd) {
+		this.satEnd = satEnd;
+	}
+	
 	public String getTimeTableCode() {
 		return timeTableCode;
 	}

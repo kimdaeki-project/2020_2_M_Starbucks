@@ -5,6 +5,10 @@
     
 <mapper namespace="com.starbucks.sw4.admin.tables.work.WorkTimeTableDAO">
 
+	<select id="getTimeTableOne" parameterType="AdminMemberDTO" resultType="WorkTimeTableDTO">
+		select * from workTimeTable where staffId=#{id}
+	</select>
+
 	<insert id="setInsert" parameterType="java.util.HashMap">
 	
 		<selectKey keyProperty="id" resultType="java.lang.String" order="BEFORE">
@@ -18,7 +22,7 @@
 		
 	</insert>
 	
-	<update id="setTimeTableYN" parameterType="AdminMemberDTO">
+	<update id="setTimeTableUpdate" parameterType="AdminMemberDTO">
 		update memberAdmin set timeTable = 'Y' where managerId = #{id}
 	</update>
 	

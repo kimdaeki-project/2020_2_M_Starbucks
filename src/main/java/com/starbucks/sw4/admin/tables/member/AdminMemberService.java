@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.starbucks.sw4.admin.tables.work.WorkTimeTableDTO;
 import com.starbucks.sw4.admin.util.Pager;
 import com.starbucks.sw4.store.StoreDTO;
 
@@ -14,6 +15,10 @@ public class AdminMemberService {
 
 	@Autowired
 	private AdminMemberDAO adminMemberDAO;
+	
+	public WorkTimeTableDTO getTimeTableOne(AdminMemberDTO dto) throws SQLException, ClassNotFoundException{
+		return adminMemberDAO.getTimeTableOne(dto);
+	}
 	
 	public AdminMemberDTO getOne(AdminMemberDTO dto) throws SQLException, ClassNotFoundException{
 		return adminMemberDAO.getOne(dto);
