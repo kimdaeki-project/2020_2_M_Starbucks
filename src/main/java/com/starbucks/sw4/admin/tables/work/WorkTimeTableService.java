@@ -7,12 +7,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.starbucks.sw4.admin.tables.member.AdminMemberDTO;
+import com.starbucks.sw4.admin.tables.store.AdminStoreDTO;
 
 @Service
 public class WorkTimeTableService {
 
 	@Autowired
 	private WorkTimeTableDAO workTimeTableDAO;
+	
+	public int setUpdate(AdminMemberDTO dto, AdminStoreDTO sDTO, WorkTimeTableDTO wDTO) throws SQLException, ClassNotFoundException{
+		
+		System.out.println("member update service (work time table service)");
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("staff", dto);
+		map.put("store", sDTO);
+		
+		int result = workTimeTableDAO.setWorkTimeTableUpdate(wDTO);
+		if(result > 0) {
+			System.out.println("work time table update success");
+			result = workTimeTableDAO.setAdimStoreUpdate(map) + result;
+		}
+		
+		if(result > 1) {
+			System.out.println("total update success");
+		}
+		
+		return result;
+		
+	}
 	
 	public int setInsert(AdminMemberDTO dto, WorkTimeTableDTO wDTO) throws SQLException, ClassNotFoundException{
 		

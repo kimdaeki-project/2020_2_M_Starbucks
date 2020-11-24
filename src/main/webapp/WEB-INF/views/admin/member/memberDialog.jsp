@@ -7,6 +7,8 @@
 	<h4 class="modal-title" id="myModalLabel">직원 출퇴근 정보</h4>
 	<form id="update-form" action="#">
 		<div id="staff-info-area">
+			<input type="hidden" title="${staff.num}" id="staff-info-num">
+			<input type="hidden" title="${staff.adminNum}" id="staff-info-admin-num">
 			<table id="staff-info-table" class="table table-bordered">
 				<tr>
 					<td id="staff-info-column1">이름</td>
@@ -50,29 +52,29 @@
 						<tr>
 							<td id="staff-info-column">월</td>
 							<td>
-								<input class="work-time" type="text" value="" id="monStart">&nbsp;~&nbsp;<input class="work-time" type="text" id="monEnd">
+								<input class="work-time" type="text" value="${workTime.monStart}" id="monStart">&nbsp;~&nbsp;<input value="${workTime.monEnd}" class="work-time" type="text" id="monEnd">
 							</td>
 							<td></td>
 							<td id="staff-info-column">토</td>
 							<td>
-								<input class="work-time" type="text" id="satStart">&nbsp;~&nbsp;<input class="work-time" type="text" id="satEnd">
+								<input class="work-time" type="text" value="${workTime.satStart}" id="satStart">&nbsp;~&nbsp;<input value="${workTime.satEnd}" class="work-time" type="text" id="satEnd">
 							</td>
 						</tr>
 						<tr>
 							<td id="staff-info-column">화</td>
 							<td>
-								<input class="work-time" type="text" id="tueStart">&nbsp;~&nbsp;<input class="work-time" type="text" id="tueEnd">
+								<input class="work-time" type="text" value="${workTime.tueStart}" id="tueStart">&nbsp;~&nbsp;<input value="${workTime.tueEnd}" class="work-time" type="text" id="tueEnd">
 							</td>
 							<td></td>
 							<td id="staff-info-column">일</td>
 							<td>
-								<input class="work-time" type="text" id="sunStart">&nbsp;~&nbsp;<input class="work-time" type="text" id="sunEnd">
+								<input class="work-time" type="text" value="${workTime.sunStart}" id="sunStart">&nbsp;~&nbsp;<input value="${workTime.sunEnd}" class="work-time" type="text" id="sunEnd">
 							</td>
 						</tr>
 						<tr>
 							<td id="staff-info-column">수</td>
 							<td>
-								<input class="work-time" type="text" id="wedStart">&nbsp;~&nbsp;<input class="work-time" type="text" id="wedEnd">
+								<input class="work-time" type="text" value="${workTime.wedStart}" id="wedStart">&nbsp;~&nbsp;<input value="${workTime.wedEnd}" class="work-time" type="text" id="wedEnd">
 							</td>
 							<td></td>
 							<td id="staff-info-column"></td>
@@ -81,7 +83,7 @@
 						<tr>
 							<td id="staff-info-column">목</td>
 							<td>
-								<input class="work-time" type="text" id="thuStart">&nbsp;~&nbsp;<input class="work-time" type="text" id="thuEnd">
+								<input class="work-time" type="text" value="${workTime.thuStart}" id="thuStart">&nbsp;~&nbsp;<input value="${workTime.thuEnd}" class="work-time" type="text" id="thuEnd">
 							</td>
 							<td></td>
 							<td id="staff-info-column"></td>
@@ -90,7 +92,7 @@
 						<tr>
 							<td id="staff-info-column">금</td>
 							<td>
-								<input class="work-time" type="text" id="friStart">&nbsp;~&nbsp;<input class="work-time" type="text" id="friEnd">
+								<input class="work-time" type="text" value="${workTime.friStart}" id="friStart">&nbsp;~&nbsp;<input value="${workTime.friEnd}" class="work-time" type="text" id="friEnd">
 							</td>
 							<td></td>
 							<td id="staff-info-column"></td>

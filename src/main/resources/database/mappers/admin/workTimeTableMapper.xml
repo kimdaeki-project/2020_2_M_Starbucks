@@ -5,8 +5,18 @@
     
 <mapper namespace="com.starbucks.sw4.admin.tables.work.WorkTimeTableDAO">
 
+	<update id="setWorkTimeTableUpdate" parameterType="WorkTimeTableDTO">
+		update workTimeTable set writeDate=sysdate,sun=#{sun}, mon=#{mon}, tue=#{tue}, wed=#{wed}, thu=#{thu}, fri=#{fri}, sat=#{sat}
+		where staffId = #{staffId}
+	</update>
+	
+	<update id="setAdimStoreUpdate" parameterType="AdminMemberDTO">
+		update memberAdmin set storeCode=#{store.storeCode}
+		where adminNum = #{staff.adminNum}
+	</update>
+
 	<select id="getTimeTableOne" parameterType="AdminMemberDTO" resultType="WorkTimeTableDTO">
-		select * from workTimeTable where staffId=#{id}
+		select * from workTimeTable where staffId=#{num}
 	</select>
 
 	<insert id="setInsert" parameterType="java.util.HashMap">

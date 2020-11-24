@@ -17,7 +17,6 @@ public class AdminMemberDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.starbucks.sw4.admin.tables.member.AdminMemberDAO.";
-	private final String STORE_NAMESPACE = "com.starbucks.sw4.store.StoreDAO.";
 	private final String WORK_NAMESPACE = "com.starbucks.sw4.admin.tables.work.WorkTimeTableDAO.";
 	
 	public WorkTimeTableDTO getTimeTableOne(AdminMemberDTO dto) throws SQLException, ClassNotFoundException{
@@ -36,18 +35,5 @@ public class AdminMemberDAO {
 		System.out.println("DAO: " + pager.getStartRow() + " ~  " + pager.getLastRow());
 		return sqlSession.selectList(NAMESPACE+"getList", pager);
 	}
-	
-	public List<AdminMemberDTO> getAdminStoreEachCount() throws SQLException, ClassNotFoundException{
-		return sqlSession.selectList(STORE_NAMESPACE+"getAdminStoreEachCount");
-	}
-	
-	public long getAdminStoreMemberCount(AdminMemberDTO dto) throws SQLException, ClassNotFoundException{
-		System.out.println(dto.getType());
-		return sqlSession.selectOne(STORE_NAMESPACE+"getAdminStoreMemberCount",dto);
-	}
-	
-	public StoreDTO getAdminStore(AdminMemberDTO dto) throws SQLException, ClassNotFoundException{
-		return sqlSession.selectOne(STORE_NAMESPACE+"getAdminStore", dto);
-	}
-	
+
 }

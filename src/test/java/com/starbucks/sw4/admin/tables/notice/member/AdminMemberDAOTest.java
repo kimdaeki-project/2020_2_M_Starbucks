@@ -17,19 +17,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.starbucks.sw4.MyTestCase;
 import com.starbucks.sw4.admin.tables.member.AdminMemberDAO;
 import com.starbucks.sw4.admin.tables.member.AdminMemberDTO;
+import com.starbucks.sw4.admin.tables.store.AdminStoreDAO;
+import com.starbucks.sw4.admin.tables.store.AdminStoreService;
 import com.starbucks.sw4.admin.util.Pager;
 
 public class AdminMemberDAOTest extends MyTestCase{
 
 	@Autowired
 	private AdminMemberDAO dao;
+	@Autowired
+	private AdminStoreDAO sDAO;
 	
-	@Test
+	//@Test
 	public void getAdminStoreEachCountTest() {
 		
 		try {
 			
-			List<AdminMemberDTO> list = dao.getAdminStoreEachCount();
+			List<AdminMemberDTO> list = sDAO.getAdminStoreEachCount();
 			System.out.println();
 			
 //			HashMap<String,String> list = (HashMap<String,String>)dao.getAdminStoreEachCount();

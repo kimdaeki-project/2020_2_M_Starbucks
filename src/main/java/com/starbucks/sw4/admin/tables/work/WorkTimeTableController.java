@@ -11,25 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.starbucks.sw4.admin.tables.member.AdminMemberDTO;
 
 @Controller
-@RequestMapping(value = "/admin/**")
 public class WorkTimeTableController {
-	
-	@Autowired
-	private WorkTimeTableService workTimeTableService;
-
-	@PostMapping("workTableWrite")
-	public ModelAndView setInsert(AdminMemberDTO dto, WorkTimeTableDTO wDTO) throws SQLException, ClassNotFoundException{
-		
-		ModelAndView mv = new ModelAndView();
-		
-		int result = workTimeTableService.setInsert(dto, wDTO);
-		
-		if(result > 0) {
-			System.out.println("insert success");
-		}
-		
-		return mv;
-		
-	}
 	
 }

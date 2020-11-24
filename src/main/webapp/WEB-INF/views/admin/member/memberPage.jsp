@@ -34,7 +34,7 @@
 			#update-btn-area{
 				margin: 0.6rem 0px 0px;
 				float: left;
-				background-color: yellow;
+				visibility: hidden;
 			}
 			#btn-area{
 				margin-top: -0.5rem;
@@ -71,17 +71,14 @@
 			#staff-work-time-area{
 				width:100%;
 				position: relative;
-				
-				border: 1px solid red;
+				border: 1px solid #EAEAEA;
 			}
 			#staff-info-left{
 				float: left;
 				width: 30%;
-				border: 1px solid blue;
 			}
 			#staff-info-right{
 				width: 68%;
-				border: 1px solid green;
 			}
 			.staff-work-info-area{
 				margin: 0.2rem;
@@ -98,9 +95,10 @@
 			/* div 내에 양쪽 정렬을 하고 싶다면 하나로 감싼 부모 css display를 flex로 하고, justify-content를 space-between으로 둘 것 */
 			#popup-btn-area{
 				width: 100%;
-				border: 1px solid black;
-				margin-top: 1rem;
+				margin: 1rem 0px 0.2rem;
 				display: flex;
+				padding-left: 0.2rem;
+				padding-right: 0.4rem;
 				justify-content: space-between;
 			}
 			#pop-cancle-btn{
@@ -110,6 +108,11 @@
 			}
 			/* #006633 */
 			#pop-update-btn{
+				color: white;
+				border: 1px solid #006633;
+				background-color: #006633;
+			}
+			#store-pop-update-btn{
 				color: white;
 				border: 1px solid #006633;
 				background-color: #006633;
@@ -139,6 +142,69 @@
 			}
 			.info-width{
 				width: 10rem;
+			}
+			#store-search{
+				padding: 0.2rem;
+				color: white;
+				background-color: #D5D5D5;
+				border-radius: 3px;
+			}
+			#store-search-area{
+				margin: 1rem 0px 0.5rem;
+			}
+			#store-select-area{
+				padding: 0.2rem;
+				border: 1px solid #D5D5D5;
+			}
+			#store-select-scroll{
+				width: 100%; height: 240px;
+				overflow:auto; 
+				padding-right: 0.2rem;
+			}
+			.select-store{
+				width: 100%; height: 50px;
+				margin: 0.2rem 0px;
+				border: 1px solid #F6F6F6;
+				line-height: 50px;
+				cursor: pointer;
+				padding-left: 0.5rem;
+			}
+			#store-select-info{
+				background-color:#F6F6F6;
+				color: #5D5D5D;
+				font-size: 0.83rem;
+				padding: 0.2rem;
+			}
+			#search-store-txt{
+				width:50%;
+			}
+			#store-search-btn{
+				border: 1px solid #D5D5D5;
+				background-color: #D5D5D5;
+			}
+			.store-choose{
+				margin-right: -0.3rem;
+			}
+			#store-store-name{
+				width: 70%;
+				margin-left: 0.2rem;
+			}
+			#store-store-sido-name{
+				width: 28%;
+				padding-right: 0.5rem;
+				border-right: 1px solid #D5D5D5;
+			}
+			#sido-select-area{
+				font-size: 0.9rem;
+				padding-left: 0.5rem;
+				border: 0.2px solid #D5D5D5;
+				cursor: pointer;
+			}
+			#sidoDropdown{
+				width: 5rem;
+			}
+			#select-type{
+				margin-right: 0rem;
 			}
 		</style>
 	</head>
@@ -196,11 +262,13 @@
 					</div>
 					
 					<div class="container-fluid" id="btn-area">
-						<div id="update-btn-area">
-							<form action="#" id="update-btn-frm" method="POST">
-								<button id="update-btn" type="button">정보 수정</button>
-							</form>
-						</div>
+						<c:if test="${login.type eq 4}">
+							<div id="update-btn-area">
+								<form action="#" id="update-btn-frm" method="POST">
+									<button id="update-btn" type="button">정보 수정</button>
+								</form>
+							</div>
+						</c:if>
 						<div id="select-area">
 							<ul class="navbar-nav ml-auto ml-md-0" id="drop" role="type">
 								<a class="nav-link dropdown-toggle" id="typeDropdown"
@@ -242,6 +310,11 @@
 					<div id="staff-update-area" style="display:none;" role="dialog">
 	
 					</div>
+					
+					<div id="store-info-area" style="display:none;" class="modal" role="dialog">
+		
+						
+					</div>
 			
 				</main>
 	
@@ -258,11 +331,17 @@
 		
 			var curPage = 1;
 			var searchType = 0;
+			
 			var type = 0;
+			var loginType = ${login.type};
+			
 			var search = "";
 			var staffNum;
 			var staffStoreCode;
+			var staffStoreName;
 			var staffId;
+			var staffInsertId;
+			var staffInsertNum;
 			
 			$("#search-btn").attr("type","button");
 			$("#search-frm").attr("action","#");
@@ -276,8 +355,6 @@
 				var noHeight = window.screen.height;
 				
 				$("#update-btn").click(function(){
-					
-					alert($("#update-btn-frm").attr("action"))
 					
 					// 변경 불필요 ---------------------------------------------------
 					var x = noWidth/4.3;
@@ -294,33 +371,153 @@
 							$("#staff-update-area").empty();
 							$("#staff-update-area").append(data);
 							
+							// store dialog -------------------------------------------
+							$("#store-search").click(function(){
+								if (loginType == 4) {
+									x = noWidth/3.1; 
+									y = noHeight/5;
+									
+									var sidoTxt = "";
+									var storeSearch = "";
+									
+									getStoreList(sidoTxt,storeSearch);
+									
+									function storeSearch(sidoTxt){
+										storeSearch = $("#search-store-txt").val();
+										getSidoList(sidoTxt, storeSearch);
+									}
+									
+									function getSidoList(sidoTxt, search){
+										getStoreList(sidoTxt,search)
+									}
+									
+									var beforeChk=0;
+									var storeChk=0;
+									var countChk=0;
+									
+									function getStoreList(sidoName, search){
+	
+										$.ajax({
+											url:"../store/storeList",
+											type:"GET",
+											data:{
+												sidoName:sidoName,
+												search:search
+											},
+											success: function(data){
+												
+												$("#store-info-area").empty();
+												$("#store-info-area").append(data);
+												$("#search-store-txt").val(storeSearch);
+												
+												$(".sido").click(function(){
+													sidoTxt = $(this).attr("title");
+													getSidoList(sidoTxt,storeSearch);
+												})
+												
+												if(sidoName == ''){
+													sidoName = "전체";
+												}
+												
+												$(".sido-type").text(sidoName);
+												$(".select-store").click(function(){
+													
+													storeChk = $(this).index();
+													
+													if(countChk > 0){
+														$(".select-store:eq("+beforeChk+")").css('background-color','white');
+														$(".select-store:eq("+beforeChk+")").css('border','none');
+														beforeChk = storeChk;
+													} else {
+														beforeChk = $(this).index();
+													}
+													
+													$(this).attr("check", "Y");
+													$(this).css("background-color","#F6F6F6");
+													$(this).css("border","1px solid #006633");
+													
+													staffStoreCode = $(this).attr("title");
+													staffStoreName = $(this).attr("name");
+														
+													countChk++;
+	
+												})
+												
+												$("#store-search-btn").click(function(){
+													storeSearch = $("#search-store-txt").val();
+													getSidoList(sidoTxt, storeSearch)
+												})
+												
+												$("#search-store-txt").keydown(function(key){
+													if(key.keyCode == 13){
+														storeSearch = $("#search-store-txt").val();
+														getSidoList(sidoTxt, storeSearch)
+													}
+												});
+												
+												$(".store-choose").click(function(){
+													$("#work-store-txt").val(staffStoreName);
+													$("#work-store-txt").attr("title",staffStoreCode);
+													$("#pop-update-btn").text("수정하기");
+													$("#pop-update-btn").attr("title","수정");
+													$("#store-info-area").dialog('close');
+												});
+												
+												$(".store-cancle").click(function(){
+													$("#store-info-area").dialog('close');
+												});
+												
+											}
+										});
+									}
+									
+									$("#store-info-area").dialog({
+										modal:true,
+										width:'50%',
+										height:'500',
+										resizable:false,
+										open:function(){
+											$(this).parent().offset ({top: y,left: x } );
+										}
+									});
+								} else {
+									alert("접근 권한이 없습니다.");
+								}
+							})
+							// ------------------------------------------------------------
 							var btnTxt = $("#update-btn").attr("title");
+							initBtn(btnTxt)
+							
+							function initBtn(btnTxt){
+								if(btnTxt == '입력'){
+									$("#pop-update-btn").text("입력");
+									$(".work-time").attr("readonly",false)
+								} else {
+									$(".work-time").attr("readonly",true);
+									$("#pop-update-btn").text("수정하기");
+								}
+							}
 							
 							// adminMember table : time table Y,N -------------------------
 							// update-btn text 값에 따라 수정하기와 입력하기가 나뉨
-							if(btnTxt == "수정"){
+							
+							$("#pop-update-btn").click(function(){	
 								
-								init("수정하기", true, "Update")
-
-								$("#pop-update-btn").click(function(){
-									var update_btn_chk = $("#pop-update-btn").text();
-									if(update_btn_chk == '수정하기'){
-										$("#pop-update-btn").text("수정");
-										$(".work-time").attr("readonly",false)
-									} else {
-										$("#pop-update-btn").text("수정하기");
-									}
-								})
+								var update_btn_chk = $("#pop-update-btn").text();
 								
-							} else if (btnTxt == "입력"){
-
-								init("입력", false, "Write")
-								
-								$("#pop-update-btn").click(function(){
-									// $.post 실행 후 닫기
+								if(update_btn_chk == "수정하기"){
 									
-									alert("click test")
-									var url = $("#update-form").attr("action");
+									init("수정하기", true)
+									var url = "./memberUpdate";
+									
+									$("#pop-update-btn").text("수정");
+									$(".work-time").attr("readonly",false)
+									
+								} else if(update_btn_chk == "수정"){
+										
+									var staffNum = $("#staff-info-num").attr("title");
+									var staffAdminNum = $("#staff-info-admin-num").attr("title");
+									var staffStoreCode = $("#work-store-txt").attr("title");
 									
 									var sun = $("#sunStart").val()+"-"+$("#sunEnd").val();
 									var mon = $("#monStart").val()+"-"+$("#monEnd").val();
@@ -330,12 +527,17 @@
 									var fri = $("#friStart").val()+"-"+$("#friEnd").val();
 									var sat = $("#satStart").val()+"-"+$("#satEnd").val();
 									
+									alert("staff num: "+staffNum)
+									alert(staffAdminNum)
+									
+									// 출퇴근 시간 update
 									$.ajax({
-										url: url,
+										url: "./memberUpdate",
 										type: "post",
-										data: {
-											id:staffId,
+										data:{
 											num:staffNum,
+											adminNum:staffAdminNum,
+											storeCode:staffStoreCode,
 											sun:sun,
 											mon:mon,
 											tue:tue,
@@ -344,17 +546,61 @@
 											fri:fri,
 											sat:sat
 										},
-										success: function(){
-											alert("작성을 성공하였습니다.")
-											location.href="./memberList"
+										success: function(result){
+											alert("수정이 완료되었습니다.")
+											location.href="./memberList";
 										},
 										error: function(){
+											alert("수정을 실패하였습니다.")
+										}
+									});
+	
+								} else if (update_btn_chk == "입력"){
+	
+									init("입력", false)
+									// $.post 실행 후 닫기
+									
+									var url = "./memberWrite"
+									
+									var sun = $("#sunStart").val()+"-"+$("#sunEnd").val();
+									var mon = $("#monStart").val()+"-"+$("#monEnd").val();
+									var tue = $("#tueStart").val()+"-"+$("#tueEnd").val();
+									var wed = $("#wedStart").val()+"-"+$("#wedEnd").val();
+									var thu = $("#thuStart").val()+"-"+$("#thuEnd").val();
+									var fri = $("#friStart").val()+"-"+$("#friEnd").val();
+									var sat = $("#satStart").val()+"-"+$("#satEnd").val();
+
+									$.ajax({
+										url: url,
+										type: "post",
+										data: {
+											id:staffInsertId,
+											num:staffInsertNum,
+											sun:sun,
+											mon:mon,
+											tue:tue,
+											wed:wed,
+											thu:thu,
+											fri:fri,
+											sat:sat
+										},
+										success: function(result){
+											alert("작성을 성공하였습니다.");
+											location.href="./memberList";
+										},
+										error: function(result){
 											alert("작성에 실패하였습니다.")
 										}
 									})
-
-								})
-							}
+	
+								}
+								
+							})
+							// if문 종료
+							
+							$("#pop-cancle-btn").click(function(){
+								$("#staff-update-area").dialog('close');
+							});
 							
 						}
 					})
@@ -369,19 +615,18 @@
 						}
 					});
 
-
 				})				
 			})
 			
-			function init(btnText, readOnly, url){
+			function init(btnText, readOnly){
 				$("#pop-update-btn").text(btnText);
 				$(".work-time").attr("readonly",readOnly)
-				$("#update-form").attr("action","./workTable"+url)
 			}
 
-			function showList(id,timeTable,num, name, type, storeName, doro_addr, staffCount, storeCode){
+			function showList(id,timeTable, num, name, type, storeName, doro_addr, staffCount, storeCode){
 				
 				$("#name").text(name)
+				$("#update-btn").css("visibility","visible")
 				
 				if (type == 2){
 					type = "Staff"
@@ -389,6 +634,7 @@
 					type = "Manager"
 				} else {
 					type = "Admin"
+					$("#update-btn").css("visibility","hidden")
 				}
 				$("#type").text(type)
 				
@@ -398,7 +644,10 @@
 				$("#work-store-count").text(staffCount)
 				
 				staffId = id;
+				staffInsertId = id;
+				
 				staffNum = num;
+				staffInsertNum = num;
 				staffStoreCode = storeCode;
 				
 				if(timeTable == 'Y'){

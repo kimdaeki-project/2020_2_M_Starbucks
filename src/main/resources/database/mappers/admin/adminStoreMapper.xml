@@ -2,10 +2,15 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.starbucks.sw4.store.StoreDAO">
+<mapper namespace="com.starbucks.sw4.admin.tables.store.AdminStoreDAO">
+
+	<select id="getList" parameterType="AdminStoreDTO" resultType="AdminStoreDTO">
+		select * from store
+		where sidoName like '%'||#{sidoName}||'%' and storeName like '%'||#{search}||'%'
+	</select>
 	
 	<select id="getAdminStore" parameterType="AdminMemberDTO" resultType="StoreDTO">
-		select * from store where storeCode = #{storeCode}
+		select * from store where storeCode = #{store.storeCode}
 	</select>
 	
 	<select id="getAdminStoreMemberCount" parameterType="AdminMemberDTO" resultType="Long">
@@ -13,7 +18,7 @@
 		from (select M.* from member M join memberAdmin MA on (M.adminNum = MA.adminNum)
 			where 
 			<choose>
-				<when test="type != 4">MA.storeCode=#{storeCode}</when>
+				<when test="type != 4">MA.storeCode=#{store.storeCode}</when>
 				<otherwise>MA.storeCode >= 1</otherwise>
 			</choose>
 			) d	

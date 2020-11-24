@@ -22,6 +22,7 @@
 		<typeAlias type="com.starbucks.sw4.admin.tables.notice.reply.ReplyDTO" alias="ReplyDTO"/>
 		<typeAlias type="com.starbucks.sw4.admin.tables.member.AdminMemberDTO" alias="AdminMemberDTO"/>
 		<typeAlias type="com.starbucks.sw4.admin.tables.work.WorkTimeTableDTO" alias="WorkTimeTableDTO"/>
+		<typeAlias type="com.starbucks.sw4.admin.tables.store.AdminStoreDTO" alias="AdminStoreDTO"/>
 
 
 		<!-- member -->

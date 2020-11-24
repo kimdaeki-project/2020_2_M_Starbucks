@@ -46,7 +46,65 @@ public class WorkTimeTableDTO {
 	private String satStart;
 	private String satEnd;
 	
-	
+	public void timeParsing() {
+		
+		if(sun != null) {
+			this.sunStart = this.sun.substring(0, 4);
+			this.sunEnd = this.sun.substring(5);		
+		} else {
+			this.sunStart = "";
+			this.sunEnd = "";
+		}
+
+		if(mon != null) {
+			this.monStart = this.mon.substring(0, 4);
+			this.monEnd = this.mon.substring(5);			
+		} else {
+			this.monStart = "";
+			this.monEnd = "";
+		}
+
+		if(tue != null) {
+			this.tueStart = this.tue.substring(0, 4);
+			this.tueEnd = this.tue.substring(5);
+		} else {
+			this.tueStart = "";
+			this.tueEnd = "";
+		}
+		
+		if(wed != null) {
+			this.wedStart = this.wed.substring(0, 4);
+			this.wedEnd = this.wed.substring(5);
+		} else {
+			this.wedStart = "";
+			this.wedEnd = "";
+		}
+		
+		if(thu != null) {
+			this.thuStart = this.thu.substring(0, 4);
+			this.thuEnd = this.thu.substring(5);
+		} else {
+			this.thuStart = "";
+			this.thuEnd = "";
+		}
+		
+		if(fri != null) {
+			this.friStart = this.fri.substring(0, 4);
+			this.friEnd = this.fri.substring(5);
+		} else {
+			this.friStart = "";
+			this.friEnd = "";
+		}
+		
+		if(sat != null) {
+			this.satStart = this.sat.substring(0, 4);
+			this.satEnd = this.sat.substring(5);
+		} else {
+			this.satStart = "";
+			this.satEnd = "";
+		}
+		
+	}
 	
 	public String getSunStart() {
 		return sunStart;
@@ -157,46 +215,68 @@ public class WorkTimeTableDTO {
 	public void setStaffId(long staffId) {
 		this.staffId = staffId;
 	}
+	
 	public String getSun() {
 		return sun;
 	}
 	public void setSun(String sun) {
+		if(sun.equals("-")) {
+			sun = "";
+		}
 		this.sun = sun;
 	}
 	public String getMon() {
 		return mon;
 	}
 	public void setMon(String mon) {
+		if(mon.equals("-")) {
+			mon = "";
+		}
 		this.mon = mon;
 	}
 	public String getTue() {
 		return tue;
 	}
 	public void setTue(String tue) {
+		if(tue.equals("-")) {
+			tue = "";
+		}
 		this.tue = tue;
 	}
 	public String getWed() {
 		return wed;
 	}
 	public void setWed(String wed) {
+		if(wed.equals("-")) {
+			wed = "";
+		}
 		this.wed = wed;
 	}
 	public String getThu() {
 		return thu;
 	}
 	public void setThu(String thu) {
+		if(thu.equals("-")) {
+			thu = "";
+		}
 		this.thu = thu;
 	}
 	public String getFri() {
 		return fri;
 	}
 	public void setFri(String fri) {
+		if(fri.equals("-")) {
+			fri = "";
+		}
 		this.fri = fri;
 	}
 	public String getSat() {
 		return sat;
 	}
 	public void setSat(String sat) {
+		if(sat.equals("-")) {
+			sat = "";
+		}
 		this.sat = sat;
 	}
 	

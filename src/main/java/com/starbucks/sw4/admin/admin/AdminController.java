@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.starbucks.sw4.admin.tables.member.AdminMemberDTO;
+import com.starbucks.sw4.admin.util.Pager;
 import com.starbucks.sw4.store.StoreDTO;
 
 @Controller
@@ -66,6 +67,11 @@ public class AdminController {
 				storeDTO.setDoro_addr("서울특별시 중구 퇴계로 100 9F (04631)");
 				dto.setStoreDTO(storeDTO);
 			}
+			
+			Pager pager = new Pager();
+			pager.setStoreCode(dto.getStoreDTO().getStoreCode());
+			
+			session.setAttribute("loginPager", pager);
 			session.setAttribute("login", dto);
 			session.setAttribute("memberType", 0);
 			mv.setViewName("redirect:admin/admin/adminIndex");
