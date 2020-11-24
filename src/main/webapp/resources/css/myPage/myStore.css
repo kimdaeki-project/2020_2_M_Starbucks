@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.ms_wrap{width: 1100px; margin:0 auto;}
+.ms_cont { float:left; width: 830px; margin-bottom:90px;}
+.my_store_wrap {background:url("../../images/myPage/my_drinkShop_wrap_bg.png"); border-radius: 3px; display: table; height: 100px; width: 770px; padding:0 30px 0 30px;}
+.my_store_wrap p.store {display: table-cell; font-size: 16px; height: 100px; line-height: 1.6; vertical-align: middle;}
+.my_store_info {display: block; position:relative; padding-top: 40px;}
+
+
+
+
+

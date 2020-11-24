@@ -17,6 +17,11 @@ public class MyController {
 	@Autowired
 	private MyService myService;
 	
+	@GetMapping("myStore")
+	public void getMyStore() {
+		
+	}
+	
 	@GetMapping("vocList")
 	public ModelAndView setVocList() throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -48,10 +53,12 @@ public class MyController {
 	
 	
 	@PostMapping("modifyPW")
-	public String setNewPw(MyDTO myDTO) throws Exception{
+	public ModelAndView setNewPw(MyDTO myDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
 		System.out.println(myDTO.getPw());
 		int result = myService.setNewPw(myDTO);
-		return "redirect:./myIndex";
+		mv.setViewName("redirect:./myIndex");
+		return mv;
 	}
 	
 	@GetMapping("modifyPW")
