@@ -1,12 +1,26 @@
 @charset "UTF-8";
 
-.ms_wrap{width: 1100px; margin:0 auto;}
+.ms_wrap{width: 1100px; margin:0 auto; margin-top:50px; position: relative;}
 .ms_cont { float:left; width: 830px; margin-bottom:90px;}
 .my_store_wrap {background:url("../../images/myPage/my_drinkShop_wrap_bg.png"); border-radius: 3px; display: table; height: 100px; width: 770px; padding:0 30px 0 30px;}
 .my_store_wrap p.store {display: table-cell; font-size: 16px; height: 100px; line-height: 1.6; vertical-align: middle;}
 .my_store_info {display: block; position:relative; padding-top: 40px;}
+.storeInfo .tabmenu .stab01 {border-left:1px solid #ddd; margin-left:0px; width:50%; position:absolute; left:0; top:0;}
+.storeInfo .tabmenu .stab01 h5 a {text-align: center; font-size:12px; font-weight: bold; display: block; width:100%; height: 40px; line-height: 40px; background: #006633; color:#fff; border:0; }
+.panel {z-index: 4;}
+.bookmark_wrap {background: #f4f4f2; margin:30px 0 30px 0; height: 50px; vertical-align: middle; width: 830px; position:relative;}
+.bookmark_wrap .ms_bookmark {float: left; background:url("../../images/myPage/icon_a_shop03.png") no-repeat 0 center; padding-left:38px; margin-left:30px; font-size:14px; font-weight: bold; color:#222; line-height: 50px; height: 50px; width:364px;}
+.bookmark_wrap .btn_bookmark {right: 20px; position: absolute; top:-12px; width: 128px; height: 18px;}
+.bookmark_wrap .btn_bookmark a {float:left; font-size: 14px; font-weight: bold; color:#222; padding: 30px 0 2px 0; width:128px; height: 18px; margin-left: 10px;}
 
+form fieldset legend {font-size: 0; height: 0; line-height: 0; margin:0;overflow: hidden; text-indent: -2000000px;}
+table {border-spacing: 0; border-collapse: collapse;}
+.myStore_tbl {border-top:1px solid #333; font-size: 14px; text-align: center;}
 
-
-
+.myStore_tbl thead tr th {border-bottom: 1px solid #333; color:#222; height: 46px; vertical-align: middle; padding-right: 20px;}
+.myStore_tbl tbody tr td {border-bottom: 1px solid #dbdbdb; color:#666; height: 46px; padding: 7px 0; vertical-align: middle;}
+.btnzone{padding:20px 0 30px 0; width:830px;}
+.btnzone ul {margin-left: -5px; float:left;}
+.btnzone ul li {float:left; border:1px solid #cccccc; background: #fcfcfc; border-radius: 3px; width:56px; margin-left: 5px;}
+.btnzone ul li a {color:#444; display: block; font-size:12px; font-weight: bold; height: 21px; line-height: 21px; text-align: center; width:100%;}
 

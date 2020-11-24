@@ -35,4 +35,8 @@ public class MyService {
 		return myDAO.getMyStar();
 	}
 	
+	//나만의 매장
+	public List<MyDTO> getMyStore() throws Exception {
+		return myDAO.getMyStore();
+	}
 }

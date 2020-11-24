@@ -30,4 +30,9 @@
     	<select id="getMyStar" parameterType="MyDTO" resultType="MyDTO">
     		select * from starhistory where id = 'customer02'
     	</select>
+    	
+    	<select id="getMyStore" parameterType="MyDTO" resultType="MyDTO">
+    		select * from memberStore where id='customer02'
+    		
+    	</select>
     </mapper>

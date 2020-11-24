@@ -29,9 +29,15 @@ public class FaqService {
 	
 	public List<FaqDTO> getCardList(Pager pager) throws Exception {
 		System.out.println("service card  까지 옴");
+		//rownum 계산
+				pager.makeRow();
+				pager.setType("card");
+				
 		long totalCount = faqDAO.faqCount(pager);
 		System.out.println("totalcount: "+totalCount);
 		pager.setTotalCount(totalCount);
+		pager.makePage();
+		
 		return faqDAO.getCardList(pager);
 	}
 	

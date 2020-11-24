@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>자주하는 질문 | Starucks Coffee Korea</title>
 	<link href="${pageContext.request.contextPath}/resources/css/common/reset.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/header.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/myPage/faqList.css?v=1" rel="stylesheet" type="text/css">

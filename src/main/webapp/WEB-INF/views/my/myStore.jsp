@@ -23,6 +23,7 @@
    <link href="${pageContext.request.contextPath}/resources/css/myPage/commonCSS.css" rel="stylesheet" type="text/css">
    <link href="${pageContext.request.contextPath}/resources/css/myPage/myStore.css" rel="stylesheet" type="text/css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
    <script src="${pageContext.request.contextPath}/resources/js/common/jquery.bxslider.min.js"></script>
 </head>
 <body>
@@ -53,7 +54,7 @@
     	
     	<section class="my_store_wrap">
     		<p class="store">
-    			<strong>000</strong>"님은 가장 최근 2020-11-22에" <strong>홍대공항철도역점</strong>"에서 "<strong>바닐라 더블샷 마끼아또</strong>"를 마셨습니다"
+    			<strong>000</strong>님은 가장 최근 2020-11-22에 <strong>홍대공항철도역점</strong>에서 <strong>바닐라 더블샷 마끼아또</strong>를 마셨습니다
     		</p>
     	
     	</section>
@@ -63,9 +64,63 @@
     				<dt class="stab01"><h5><a>나만의 매장</a></h5></dt>
     				<dd class="panel" style="display:block;">
     					<div class="bookmark_wrap">
-    						<p>나만의 매장을 설정하여 정보와 <br>이벤트를 쉽고 간편하게 받으세요.</p>
-    						<p><a href="#" target="_blank"><img src="https://image.istarbucks.co.kr/common/img/util/reward/dr_btn_shop01.png" alt="나만의매장"></a></p>
+    						<p class="ms_bookmark">나만의 매장을 설정하여 정보와  이벤트를 쉽고 간편하게 받으세요.</p>
+    						<p class="btn_bookmark"><a href="#" target="_blank"><img src="https://image.istarbucks.co.kr/common/img/util/reward/dr_btn_shop01.png" alt="나만의매장"></a></p>
     					</div>
+    					<form>
+    						<fieldset>
+    							<legend>매장 조회, 삭제 폼</legend>
+    							<table class="myStore_tbl">
+    								<colgroup>
+    									<col width="52">
+    									<col width="56">
+    									<col width="104">
+    									<col width="141">
+    									<col width="200">
+    									<col width="145">
+    									<col width="132">
+    								</colgroup>
+    								<thead>
+    								<tr>
+    									<th scope="col">
+    										<div class="ez-checkbox">
+    										<input type="checkbox" name="myStore_ck" id="ck2All" title="전체 선택" class="ez-hide"></div></th>
+  										<th scope="col">No</th>
+								  		<th scope="col">매장이미지</th>
+								  		<th scope="col">매장명</th>
+								  		<th scope="col">매장 주소</th>
+								  		<th scope="col">매장 연락처</th>
+								  		<th scope="col">상세정보</th>
+								  	</tr>
+								  	</thead>
+								  	<tbody>
+    							 <c:forEach items="${list}" var="ar" varStatus="vs">
+    								<tr>
+    									<td>
+    										<div class="ez-checkbox">
+    										<input type="checkbox" name="myStore_ck" id="ck2All" title="전체 선택" class="ez-hide"></div></td>
+									 	<td>1 : ${vs.first}</td>
+									  	<td>
+									  	 <img src="//image.istarbucks.co.kr/${ar.defaultfile}" alt=".">
+									  	</td>
+									  	<td>${ar.storeName}</td>
+									    <td>${ar.addr }</td>
+									  	<td>1522-3232</td>
+									    <td>매장상세정보</td>
+									  	</tr>
+									  </c:forEach>
+    								</tbody>
+    							</table>
+    							
+    							<div class="btnzone">
+    								<ul>
+    									<li><a href="#" class="allset">전체선택</a></li>
+    									<li><a href="#" class="delset">선택 삭제</a></li>
+    								</ul>
+    							</div>
+    						</fieldset>
+    					
+    					</form>
     				</dd>
     			</dl>
     		</div>

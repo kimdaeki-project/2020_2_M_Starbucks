@@ -18,8 +18,15 @@ public class MyController {
 	private MyService myService;
 	
 	@GetMapping("myStore")
-	public void getMyStore() {
+	public ModelAndView getMyStore() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		List<MyDTO> ar= myService.getMyStore();
 		
+		
+		mv.addObject("list", ar);
+		mv.setViewName("my/myStore");
+		
+		return mv;
 	}
 	
 	@GetMapping("vocList")

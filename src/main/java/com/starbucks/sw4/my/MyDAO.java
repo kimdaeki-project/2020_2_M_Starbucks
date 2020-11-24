@@ -12,24 +12,30 @@ public class MyDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.starbucks.sw4.my.MyDAO.";
 	
+	//my페이지 index
 	public MyDTO getMyIndex() throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getMyIndex");
 	}
-	
+	//로그인한 유저 정보가져오기
 	public MyDTO getOne() throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"getOne");
 	}
-	
+	//개인 정보 수정
 	public int setUpdate(MyDTO myDTO) throws Exception {
 		return sqlSession.update(NAMESPACE+"setUpdate", myDTO);
 	}
-	
+	//비밀 번호 변경
 	public int setNewPw(MyDTO myDTO) throws Exception{
 		return sqlSession.update(NAMESPACE+"setNewPw", myDTO);
 	}
-	
+	//별 히스토리
 	public MyDTO getMyStar() throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"getMyStar");				
+	}
+	
+	//나만의 매장
+	public List<MyDTO> getMyStore() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getMyStore");
 	}
 	
 }

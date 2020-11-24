@@ -31,9 +31,22 @@ public class MyDTO extends MemberDTO{
 	
 	//store
 	private String storeName;
-
+	private String addr;
+	private String defaultfile;
 
 	
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+	public String getDefaultfile() {
+		return defaultfile;
+	}
+	public void setDefaultfile(String defaultfile) {
+		this.defaultfile = defaultfile;
+	}
 	public String getKorName() {
 		return korName;
 	}

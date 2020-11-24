@@ -12,6 +12,12 @@ public class MyDAOTest extends MyTestCase {
 	private MyDAO myDAO;
 	
 	@Test
+	public void getMyStoreTest() throws Exception {
+		MyDTO myDTO = new MyDTO();
+		
+	}
+	
+	@Test
 	public void setUpdateTest() throws Exception {
 		MyDTO myDTO = new MyDTO();
 		myDTO.setId("id1");
