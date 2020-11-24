@@ -47,9 +47,11 @@ public class MyController {
 	}
 	
 	
-	@PostMapping
-	public void setNewPw(MyDTO myDTO) throws Exception{
+	@PostMapping("modifyPW")
+	public String setNewPw(MyDTO myDTO) throws Exception{
+		System.out.println(myDTO.getPw());
 		int result = myService.setNewPw(myDTO);
+		return "redirect:./myIndex";
 	}
 	
 	@GetMapping("modifyPW")

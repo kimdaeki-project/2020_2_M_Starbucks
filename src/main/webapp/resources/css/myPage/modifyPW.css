@@ -17,4 +17,5 @@ img {vertical-align: top; max-width:100%;}
 .bd_none {border:0 !important;}
 .btn_modify {background: #006633; border-radius: 3px; margin-top:25px; text-align: center; margin:0 20px; max-width: 570px; height: 64.8px;}
 .btn_modify > .btn_ok {color:#fff; font-size: 24px; display: block; line-height: 65px; text-decoration: none; vertical-align: baseline; cursor: pointer;}
-
+.valCheck{color: red; font-size:13px; margin-top:5px;}
+.pwCheck{color: blue; font-size:13px; margin-top:5px;}
