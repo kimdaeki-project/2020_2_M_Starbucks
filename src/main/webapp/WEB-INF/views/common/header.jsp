@@ -27,7 +27,7 @@
 								</c:otherwise>
 							</c:choose>
 							<li class="util_nav03"><a href="#">Customer Service & Ideas</a></li>
-							<li class="util_nav04"><a href="#">Find a Store</a></li>
+							<li class="util_nav04"><a href="${pageContext.request.contextPath}/store/storeMap">Find a Store</a></li>
 						</ul>
 					</nav>
 

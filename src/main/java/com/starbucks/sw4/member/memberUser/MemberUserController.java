@@ -172,14 +172,10 @@ public class MemberUserController {
 		mv.setViewName("member/memberJoinResult");
 		return mv;
 	}
-	
-	
 	//************************************************** 
 	
 	
-	//Email
-	//**************************************************
-	
+	//******************** Email ***********************
 	@GetMapping("emailAuthSend")
 	public ModelAndView setEmailAuthSend() throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -199,7 +195,7 @@ public class MemberUserController {
 		int authKey = r.nextInt(1000000) % 1000000;
 		authDTO.setAuthKey(authKey);
         
-		String sendTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(Calendar.getInstance().getTime());
+		String sendTime = new SimpleDateFormat("yyyy-MM-dd hh24:mm:ss").format(Calendar.getInstance().getTime());
 		sendTime = sendTime.substring(0, 19);
 		authDTO.setSendTime(sendTime);
 		
@@ -231,19 +227,18 @@ public class MemberUserController {
         }
         /* 메일 발송 end */
         int result = authService.setAuthEmailSend(authDTO);
-        if(result > 0) {
-        	session.setAttribute("auth", authDTO);
-        } 
-        response.setContentType("text/html; charset=UTF-8");
-        PrintWriter pw = response.getWriter();
-        pw.println("<script>alert('이메일이 발송되었습니다. 인증번호를 입력해주세요.');</script>");
-        pw.flush();
+        
+//        response.setContentType("text/html; charset=UTF-8");
+//        PrintWriter pw = response.getWriter();
+//        pw.println("<script>alert('이메일이 발송되었습니다. 인증번호를 입력해주세요.');</script>");
+//        pw.flush();
         
         if(result > 0) {
+        	session.setAttribute("auth", authDTO);
         	mv.addObject("auth", authDTO);
             mv.setViewName("member/emailAuth");
         } else {
-        	mv.addObject("msg", "Not Insert");
+        	mv.addObject("msg", "인증메일이 발송되지 않았습니다. 다시 확인해주시기 바랍니다.");
         	mv.addObject("path", "./memberJoin1");
         	mv.setViewName("common/result");
         }
@@ -283,6 +278,5 @@ public class MemberUserController {
 		mv.setViewName("common/result");
 		return mv;
 	}
-	
 	//**************************************************
 }

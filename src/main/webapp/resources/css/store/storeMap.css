@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+#container { width:100%; }
+
+
+.store_height_wrap { position:absolute; top:120px; left:0; }
+.store_map_layer { background:#fff; border-radius:3px; box-shadow:2px 0px 3px 0px rgba(0, 0, 0, 0.2); -webkit-box-shadow:2px 0px 3px 0px rgba(0, 0, 0, 0.2); left:20px; position:absolute; top:20px; width:300px; z-index:7; }
+
+/* 지도 영역 */
+.store_map_wrap { width:100%; height:800px; display:block; position:relative; overflow:hidden; background:url('../../images/store/bg_title.png'); }
+
+
+
+/* 지도 영역 end */
+
+@media screen and (max-width:1600px) {
+	/* 지도 영역 */
+	.store_map_wrap { height:630px; }
+	
+}	
+	
+@media screen and (max-width:960px) {
+	.store_height_wrap { top:70px; }
+	
+	/* 지도 영역 */
+	.store_map_wrap { height:600px; }
+	/* 지도 영역 end */
+}
+
+
+@media screen and (max-width:640px) {
+	.store_height_wrap { width:100%; top:60px; box-sizing: border-box; }
+	.store_map_layer { border-radius:0; box-shadow:none; -webkit-box-shadow:none; left:0; top:10px; width:100%; z-index:10; }
+	.store_map_layer2 { top:0; }
+	.store_map_layer_cont { width:100%; }
+
+	.store_map_layer_cont header { height:50px; }
+	.store_map_layer_cont header h3 { height:48px; line-height:48px; }
+	.store_map_layer_cont header h3.on { height:48px; line-height:48px; }
+	.store_map_layer_cont header h3 a { font-size:16px; }
+
+	.store_map_layer_cont article { padding:48px 0 0 0; }
+
+	.quick_search_inner { margin:10px 0 0 2.5%; width:95%; }
+
+	p.btn_opt_chk { top:13px; }
+
+	.result_num_wrap,
+	.result_num_wrap2 { font-size:16px; height:60px; line-height:60px; }
+
+	.result_num_wrap.myStoreInfo { line-height:inherit; height:50px; padding-top:10px; }
+
+	.result_num_wrap strong,
+	.result_num_wrap2 strong,
+	.result_num_wrap3 strong { font-size:16px; }
+
+	.result_list ul,
+	.result_list2 ul,
+	.result_list3 ul { width:100%; }
+
+	.result_list ul li,
+	.result_list2 ul li,
+	.result_list3 ul li { width:100%; }
+
+	.result_list ul li strong,
+	.result_list2 ul li strong,	
+	.result_list3 ul li strong { display:block; float:none; font-size:16px; margin:20px 0 0 20px; }
+
+	.result_list ul li p.result_details,
+	.result_list2 ul li p.result_details,
+	.result_list3 ul li p.result_details { float:none; font-size:14px; margin:5px 0 0 20px; width:70%; }
+	
+	p.btn_select_store { left:20px; }
+
+	.result_list ul li i,
+	.result_list2 ul li i,
+	.result_list3 ul li i { right:20px; }
+
+
+	/* 지도 영역 */
+	.store_map_wrap { height:740px; }
+}
+
+@media screen and (max-width:480px) {
+	.store_map_wrap { height:639px; }
+
+	.store_map_layer { border-radius:0; box-shadow:none; -webkit-box-shadow:none; left:0; top:10px; width:100%; }
+	.store_map_layer_cont { width:100%; }
+
+	.store_map_layer_cont header { height:40px; }
+	.store_map_layer_cont header h3 { height:38px; line-height:38px; }
+	.store_map_layer_cont header h3.on { height:38px; line-height:38px; }
+	.store_map_layer_cont header h3 a { font-size:14px; }
+
+	.store_map_layer_cont article { padding:38px 0 0 0; }
+
+	.quick_search_inner { margin:10px 0 0 2.5%; width:95%; }
+
+	p.btn_opt_chk { top:13px; }
+	p.btn_opt_chk3 { bottom:auto !important; left:auto !important; right:70px !important; top:25px !important; display:block !important;  }
+
+	.result_num_wrap,
+	.result_num_wrap2 { font-size:16px; height:60px; line-height:60px; }
+
+	.result_num_wrap.myStoreInfo { height:50px; line-height:inherit; padding-top:10px; }
+
+	.result_num_wrap strong,
+	.result_num_wrap2 strong,
+	.result_num_wrap3 strong { font-size:16px; }
+
+	.result_list ul,
+	.result_list2 ul,
+	.result_list3 ul { width:100%; }
+
+	.result_list ul li,
+	.result_list2 ul li,
+	.result_list3 ul li { width:100%; }
+
+	.result_list ul li strong,
+	.result_list2 ul li strong,	
+	.result_list3 ul li strong { display:block; float:none; font-size:16px; margin:20px 0 0 20px; }
+
+	.result_list ul li p.result_details,
+	.result_list2 ul li p.result_details,
+	.result_list3 ul li p.result_details { float:none; font-size:14px; margin:5px 0 0 20px; width:70%; }
+
+	.result_list ul li i,
+	.result_list2 ul li i,
+	.result_list3 ul li i { right:20px; }
+	
+	
+	
+	/* 지도 영역 */
+	.store_map_wrap { height:640px; }
+	/* 지도 영역 end */
+}

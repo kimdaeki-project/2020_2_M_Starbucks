@@ -105,4 +105,9 @@ public class MemberDTO {
 		this.regDate = regDate;
 	}
 	
+	@Override
+	public String toString() {
+		return "MemberDTO [id=" + id + ", name=" + name + ", email=" + email + ", phone="
+				+ phone + "]";
+	}
 }
