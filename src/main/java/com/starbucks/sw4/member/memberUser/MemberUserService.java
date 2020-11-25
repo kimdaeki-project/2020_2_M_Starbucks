@@ -9,8 +9,8 @@ import com.starbucks.sw4.member.MemberService;
 @Service
 public class MemberUserService implements MemberService {
 
-//	@Autowired
-//	private MemberUserDAO memberUserDAO;
+	@Autowired
+	private MemberUserDAO memberUserDAO;
 	
 	@Override
 	public MemberDTO getMemberLogin(MemberDTO memberDTO) throws Exception {
