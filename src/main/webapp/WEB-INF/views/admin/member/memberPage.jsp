@@ -91,7 +91,6 @@
 				width: 4.8rem;
 				margin: 0px 0.3rem;
 				text-align:center;
-				background-color: yellow;
 			}
 			/* div 내에 양쪽 정렬을 하고 싶다면 하나로 감싼 부모 css display를 flex로 하고, justify-content를 space-between으로 둘 것 */
 			#popup-btn-area{
@@ -149,20 +148,26 @@
 			.info-width{
 				width: 10rem;
 			}
-			#store-search{
-
-			}
 			#store-search-area{
 				margin: 1rem 0px 0.5rem;
 			}
 			#store-select-area{
 				padding: 0.2rem;
+				z-index: 5px;
 				border: 1px solid #D5D5D5;
 			}
+			#sido-drop{
+				z-index: 5px;
+			}
 			#store-select-scroll{
-				width: 100%; height: 240px;
+				width: 95%; height: 240px;
 				overflow:auto; 
 				padding-right: 0.2rem;
+			}
+			#sido-list-drop{
+				z-index: 3px;
+				height: 13rem;
+				overflow: auto;
 			}
 			.select-store{
 				width: 100%; height: 50px;
@@ -180,6 +185,7 @@
 			}
 			#search-store-txt{
 				width:50%;
+				z-index: -5px;
 			}
 			#store-search-btn{
 				border: 1px solid #D5D5D5;
@@ -361,7 +367,6 @@
 			getList()
 			typeSelect(type)
 			
-
 			$(document).ready(function(){
 				
 				var x = noWidth/4.3;
@@ -395,16 +400,6 @@
 							// ------------------------------------------------------------
 							var btnTxt = $("#update-btn").attr("title");
 							initBtn(btnTxt)
-							
-							function initBtn(btnTxt){
-								if(btnTxt == '입력'){
-									$("#pop-update-btn").text("입력");
-									$(".work-time").attr("readonly",false)
-								} else {
-									$(".work-time").attr("readonly",true);
-									$("#pop-update-btn").text("수정하기");
-								}
-							}
 							
 							// adminMember table : time table Y,N -------------------------
 							// update-btn text 값에 따라 수정하기와 입력하기가 나뉨
@@ -446,6 +441,16 @@
 
 				})				
 			})
+			
+			function initBtn(btnTxt){
+				if(btnTxt == '입력'){
+					$("#pop-update-btn").text("입력");
+					$(".work-time").attr("readonly",false)
+				} else {
+					$(".work-time").attr("readonly",true);
+					$("#pop-update-btn").text("수정하기");
+				}
+			}
 			
 			function memberWrite(){
 				
@@ -636,15 +641,11 @@
 				x = noWidth/3.1; 
 				y = noHeight/5;
 				
-				alert(sidoTxt)
 				getStoreList(sidoTxt,storeSearchTxt);
 								
 				beforeChk=0;
 				storeChk=0;
 				countChk=0;
-				
-				// get store list function 위치
-				getStoreList(sidoTxt, search)
 												
 				$("#store-info-area").dialog({
 					modal:true,
@@ -658,20 +659,20 @@
 			}
 			// 종료: function 분리 --------------------------------------------------
 			
-			function storeSearchTxt(sidoTxt){
+			function getStoreSearch(sidoTxt){
 				storeSearchTxt = $("#search-store-txt").val();
 				getSidoList(sidoTxt, storeSearchTxt);
 			}
 			
 			function getSidoList(sidoTxt, search){
-				getStoreList(sidoTxt,search)
+				alert(sidoTxt);
+				getStoreList(sidoTxt,search);
 			}
 			
 			// function 분리하기 ---------------------------
 			function getStoreList(sidoTxt, search){
-				
-				alert("get store list: " + sidoTxt)
-			
+				alert(search)
+				alert(sidoTxt)
 				$.ajax({
 					url:"../store/storeList",
 					type:"GET",
@@ -683,18 +684,21 @@
 						
 						$("#store-info-area").empty();
 						$("#store-info-area").append(data);
-						$("#search-store-txt").val(storeSearchTxt);
+						$("#search-store-txt").val(search);
 						
 						$(".sido").click(function(){
 							sidoTxt = $(this).attr("title");
-							getSidoList(sidoTxt,storeSearchTxt);
+							getSidoList(sidoTxt,search);
 						})
 						
+						var showSido;
 						if(sidoTxt == ''){
-							sidoTxt = '전체';
+							showSido = '전체';
+						} else {
+							showSido = sidoTxt;
 						}
 						
-						$(".sido-type").text(sidoTxt);
+						$(".sido-type").text(showSido);
 						$(".select-store").click(function(){
 							
 							storeChk = $(this).index();
@@ -719,14 +723,16 @@
 						})
 						
 						$("#store-search-btn").click(function(){
-							storeSearchTxt = $("#search-store-txt").val();
-							getSidoList(sidoTxt, storeSearchTxt)
+							getStoreSearch(sidoTxt);
+							/* storeSearchTxt = $("#search-store-txt").val();
+							getSidoList(sidoTxt, search) */
 						})
 						
 						$("#search-store-txt").keydown(function(key){
 							if(key.keyCode == 13){
-								storeSearchTxt = $("#search-store-txt").val();
-								getSidoList(sidoTxt, storeSearchTxt)
+								getStoreSearch(sidoTxt);
+								/* storeSearchTxt = $("#search-store-txt").val();
+								getSidoList(sidoTxt, search) */
 							}
 						});
 						
