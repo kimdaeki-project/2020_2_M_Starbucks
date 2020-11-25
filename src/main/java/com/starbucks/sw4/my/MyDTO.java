@@ -33,8 +33,17 @@ public class MyDTO extends MemberDTO{
 	private String storeName;
 	private String addr;
 	private String defaultfile;
-
+	private String stosearch;
 	
+	
+	
+	
+	public String getStosearch() {
+		return stosearch;
+	}
+	public void setStosearch(String stosearch) {
+		this.stosearch = stosearch;
+	}
 	public String getAddr() {
 		return addr;
 	}

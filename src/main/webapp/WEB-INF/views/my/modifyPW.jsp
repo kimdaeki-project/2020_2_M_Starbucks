@@ -117,7 +117,8 @@
   			 	type:"POST",
   			 	data:{id:id, pw:pw},
   			 	success:function(){
-  			 		alert("비밀번호 변경 성공")
+  			 		alert("비밀번호 변경 성공");
+  			 		location.href="../";
   			 	}
   			 })
   			}

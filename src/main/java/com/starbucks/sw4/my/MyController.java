@@ -17,10 +17,15 @@ public class MyController {
 	@Autowired
 	private MyService myService;
 	
+	@GetMapping("cardTopup")
+	public void setCardTopup() {
+		
+	}
+	
 	@GetMapping("findStore")
 	public ModelAndView getStore(MyDTO myDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		System.out.println(myDTO.getStoreName());
+		System.out.println(myDTO.getStosearch());
 		List<MyDTO> ar= myService.getStore(myDTO);
 		
 		mv.addObject("list", ar);

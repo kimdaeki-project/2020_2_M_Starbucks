@@ -276,8 +276,8 @@
 				          			<ul>
 				          				<li>
 				          					<label>매장명</label>
-											<input id="bar2" class="storeName" type="text">
-											<p><a href="./findStore">검색</a></p>      					
+											<input id="bar2" name="stosearch" class="storeName" type="text">
+											<p ><a id="stosearch" href="./findStore">검색</a></p>      					
 				          				</li>
 				          			</ul>
 				          		</div>
@@ -335,14 +335,14 @@
    	//*****************************************
    	
    	//****************** modal ********************
-		$(".btn_find_store").click(function() {
-			var storeName = $("#bar2").val();
+		$("#stosearch").click(function() {
+			var stosearch = $("#bar2").val();
 			$.ajax({
 				url:"./findStore",
 				type:"get",
-				data:{storeName:storeName},
+				data:{stosearch:stosearch},
 				success: function(result) {
-					$("#result").append(result);
+					$("#result_list").append(result);
 				}
 			})
 			
