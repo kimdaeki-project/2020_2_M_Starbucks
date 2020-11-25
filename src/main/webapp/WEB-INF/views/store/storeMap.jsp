@@ -403,85 +403,6 @@
 	<script src="${pageContext.request.contextPath}/resources/js/common/header.js?v=1"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=1"></script>
 
-<!-- 
-<script type="text/javascript">
-	var $geo = {};
-	var $map = {};
-	var $geo_backup = {};
-	var $ps;
-	
-	var $pin = {};
-		$pin.store 	 = "${pageContext.request.contextPath}/resources/images/store/pin/pin_reg_on.png";
-		$pin.reserve = "${pageContext.request.contextPath}/resources/images/store/pin/pin_res_on.png";
-		
-	var $marker = new Array();
-	var $bounds;
-	var $infowindow = new Array();
-	var $option = {};
-	var $search = {};
-		$search.in_biz_cds 		= 0;
-		$search.in_scodes 		= 0;
-		
-	var $mode = null;
-	var $drag = true;
-	
-	var $param = {};
-		$param.disp					= "";
-		$param.in_biz_cd 		  	= "";
-		$param.appYN	 		  	= "";
-	var $vo = {};
-		$vo.disp					= "";
-		$vo.in_biz_cd 		  		= "";
-		$vo.appYN	 		  		= "";
-		
-		$vo.ip_lat					=  "";
-		$vo.ip_long					=  "";
-		$vo.espresso				=  "";
-		$vo.new_store				=  "";
-		$vo.premiere_food			=  "";
-		$vo.cold_blew				=  "";
-		
-		
-		
-	var $search_position = "";
-	var $search_target   = "";
-	var $storeDataGrp = null;
-	var $start_road_marker = null;
-	var $end_road_marker = null;
-	var $daumSearch = null;
-
-	var $startPostion = {};
-		$startPostion.displayName = null;
-		$startPostion.gps_lat 	  = null;
-		$startPostion.gps_lng 	  = null;
-		
-
-
-	var $endPostion   = {};
-		$endPostion.displayName = null;
-		$endPostion.gps_lat 	= null;
-		$endPostion.gps_lng 	= null;
-		$endPostion.favorites	= null;
-		$endPostion.store_code	= null;
-		
-		
-	var $daumRoadLine = null;	
-	var $roadGeo = null;
-	var $roadGps = {};
-	var $roadInfoWindow = null;
-	var $roadFindBool = false;
-	var $trafficData=null;
-	var $trafficPoint = new Array();
-	var $trafficPolylineArr = null;
-		
-		
-	var $page	 = "";
-	var $mapSize = 3;
-	
-	var $parentMenuType="A";
-	var afterSearch = true;
-	var afterThis   = "";
-</script> -->
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -524,15 +445,16 @@
 		};
 		var map = new kakao.maps.Map(container, options);	//지도생성 및 객체 리턴
 		
-		$.ajax
+		/* $.ajax
 		var storeList = "${storeList}";
 		var size = ${storeList.size()};
+		
 		var positions = [];
 		for(var i=0; i<size; i++) {
-			var storeName = '${storeList.get('+i+').storeName}';
+			var storeName = "";
 			console.log(storeName);
 			if(i > 10) break;
-		}
+		} */
 		
 		
 		var imageSrc = '/sw4/resources/images/store/pin_general.png', 

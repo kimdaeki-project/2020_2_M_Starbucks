@@ -31,17 +31,13 @@ public class StoreController {
 		return mv;
 	}
 	
-	@PostMapping("storeList")
-//	@ResponseBody
-//	public ModelAndView getStoreList() throws Exception {
+	@GetMapping("storeList")
+	@ResponseBody
 	public List<StoreDTO> getStoreList() throws Exception {
 		System.out.println("getStoreList() ---- Controller ");
 		ModelAndView mv = new ModelAndView();
 		List<StoreDTO> storeList = storeService.getStoreList();
-		JSONArray jsonArray = new JSONArray(); 
-//		System.out.println(storeList);
-//		mv.addObject("storeList", storeList);
-//		return mv;
+		
 		return storeList;
 	}
 }
