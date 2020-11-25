@@ -147,7 +147,7 @@ public class AdminMemberController {
 		pager.setType(dto.getType());
 		
 		List<AdminMemberDTO> list = adminMemberService.getList(pager);
-		
+
 		mv.addObject("page", pager);
 		mv.addObject("noticeList", list);
 		mv.setViewName("admin/tables/memberList");

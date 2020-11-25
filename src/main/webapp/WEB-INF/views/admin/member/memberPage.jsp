@@ -1,3 +1,4 @@
+<%@page import="com.starbucks.sw4.admin.tables.member.AdminMemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -348,7 +349,7 @@
 			
 			getList()
 			typeSelect(type)
-			
+
 			$(document).ready(function(){
 				
 				var noWidth = window.screen.width;
@@ -356,7 +357,7 @@
 				
 				$("#update-btn").click(function(){
 					
-					// 변경 불필요 ---------------------------------------------------
+					// 변경 불필요 -------------------------------------------------------
 					var x = noWidth/4.3;
 					var y = noHeight/7.3;
 					
@@ -458,7 +459,7 @@
 												$(".store-choose").click(function(){
 													$("#work-store-txt").val(staffStoreName);
 													$("#work-store-txt").attr("title",staffStoreCode);
-													$("#pop-update-btn").text("수정하기");
+													$("#pop-update-btn").text("수정");
 													$("#pop-update-btn").attr("title","수정");
 													$("#store-info-area").dialog('close');
 												});
@@ -526,10 +527,7 @@
 									var thu = $("#thuStart").val()+"-"+$("#thuEnd").val();
 									var fri = $("#friStart").val()+"-"+$("#friEnd").val();
 									var sat = $("#satStart").val()+"-"+$("#satEnd").val();
-									
-									alert("staff num: "+staffNum)
-									alert(staffAdminNum)
-									
+	
 									// 출퇴근 시간 update
 									$.ajax({
 										url: "./memberUpdate",
