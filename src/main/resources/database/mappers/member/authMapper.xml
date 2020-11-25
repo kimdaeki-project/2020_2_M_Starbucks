@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starbucks.sw4.member.auth.AuthDAO">
+	<insert id="setAuthEmailSend" parameterType="AuthDTO">
+		insert into auth values(auth_seq.nextval, #{email}, #{authKey}, #{sendTime}, #{authStatus})
+	</insert>
+	
+	<update id="setEmailAuthStatus" parameterType="AuthDTO">
+		update auth set authStatus=#{status} where email=#{email}
+	</update>
+</mapper>

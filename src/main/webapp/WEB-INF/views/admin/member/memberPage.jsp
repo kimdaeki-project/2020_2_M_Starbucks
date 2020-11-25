@@ -352,7 +352,10 @@
 
 			$(document).ready(function(){
 				var storeSearchTxt = "";
+<<<<<<< HEAD
 				
+=======
+>>>>>>> main
 				var noWidth = window.screen.width;
 				var noHeight = window.screen.height;
 				

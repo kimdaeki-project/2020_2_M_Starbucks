@@ -104,7 +104,7 @@
 	.tablet_gnb_sep ul li.tablet_gnb02 a { width:25px; height:30px; background:url("../../images/common/header/icon_user_m.png"); background-size:100% auto; top:14px; left:18px; }
 	.tablet_gnb_sep ul li.tablet_gnb03 a { width:24px; height:32px; background:url("../../images/common/header/icon_spot_m.png"); background-size:100% auto; top:12px; left:16px; }
 	.tablet_gnb_sep ul li.tablet_gnb04 { width:51px; }
-	.tablet_gnb_sep ul li.tablet_gnb04 a { width:28px; height:26px; background:url("../../images/common/header/btn_berger_m.png") no-repeat; background-size:100% auto; top:12px; left:16px; }
+	.tablet_gnb_sep ul li.tablet_gnb04 a { width:28px; height:26px; background:url("../../images/common/header/btn_berger_m.png") no-repeat; background-size:100% auto; top:15px; left:11px; }
 
 	/* 640 GNB */
 	/* 모바일 gnb menu */
