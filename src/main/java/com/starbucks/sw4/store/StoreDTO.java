@@ -1,6 +1,5 @@
 package com.starbucks.sw4.store;
 
-import com.starbucks.sw4.admin.tables.member.AdminMemberDTO;
 import com.starbucks.sw4.store.storeFile.StoreFileDTO;
 import com.starbucks.sw4.store.storeInfo.StoreInfoDTO;
 
