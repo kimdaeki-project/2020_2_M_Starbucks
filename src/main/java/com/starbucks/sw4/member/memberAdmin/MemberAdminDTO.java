@@ -6,7 +6,14 @@ public class MemberAdminDTO {
 	private int type;
 	private long storeCode;
 	private String managerId;
+	private String timeTable;
 	
+	public String getTimeTable() {
+		return timeTable;
+	}
+	public void setTimeTable(String timeTable) {
+		this.timeTable = timeTable;
+	}
 	public long getAdminNum() {
 		return adminNum;
 	}

@@ -19,6 +19,12 @@ public class MemberDTO {
 	private String joinPath;
 	private Date regDate;
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 	public long getNum() {
 		return num;

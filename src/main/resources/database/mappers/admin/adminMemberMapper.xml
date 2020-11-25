@@ -4,21 +4,62 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.starbucks.sw4.admin.tables.member.AdminMemberDAO">
 
-	<select id="getList" parameterType="AdminPager" resultType="AdminMemberDTO">
+	<select id="getOne" parameterType="AdminMemberDTO" resultMap="getAdminLoginResult">
+		select M.*, MA.timeTable, MA.storeCode, ST.storeName
+		from member M join memberAdmin MA on(M.adminNum = MA.adminNum)
+		              join store ST on(MA.storeCode = ST.storeCode)
+		where num=#{num}
+	</select>
 
+	<select id="getList" parameterType="AdminPager" resultMap="getAdminLoginResult">
 		select *
 		from (select rownum as r, d.*
-		        from (select M.* from member M join memberAdmin MA on (M.adminNum = MA.adminNum)
+		        from (select M.*, MA.timeTable,MA.storecode, ST.storename, ST.addr, ST.doro_addr
+        			  from member M join memberAdmin MA on (M.adminNum = MA.adminNum)
+		        					join store ST on (MA.storeCode = ST.storeCode)
 		        where
 		        	<choose>
 		        		<when test="type != 4">MA.storeCode=#{storeCode}</when>
 		        		<otherwise>MA.storeCode>=1</otherwise>
 	        		</choose>
 		        and (M.name like '%'||#{search}||'%' or M.nickName like '%'||#{search}||'%')
+		        
+		        	<if test="searchType != 0">
+		        		and M.type = #{searchType}
+		        	</if>
+		        
 		        order by M.type desc) d)
 		where r between #{startRow} and #{lastRow}
-			
 	</select>
+
+	<resultMap type="AdminMemberDTO" id="getAdminLoginResult">
+		<id column="num" property="num"/>
+		<result column="r" property="r"/>
+		<result column="adminNum" property="adminNum"/>
+		<result column="type" property="type"/>
+		<result column="id" property="id"/>
+		<result column="pw" property="pw"/>
+		<result column="name" property="name"/>
+		<result column="birth" property="birth"/>
+		<result column="gender" property="gender"/>
+		<result column="phone" property="phone"/>
+		<result column="email" property="email"/>
+		<result column="nickName" property="nickName"/>
+		<result column="grade" property="grade"/>
+		<result column="joinPath" property="joinPath"/>
+		<result column="regDate" property="regDate"/>
+		<result column="timeTable" property="timeTable"/>
+		<association property="storeDTO"
+					 javaType="StoreDTO" resultMap="getAdminLoginStoreResult">
+		</association>
+	</resultMap>
+	
+	<resultMap type="StoreDTO" id="getAdminLoginStoreResult">
+		<id column="storeCode" property="storeCode"/>
+		<result column="storeName" property="storeName"/>
+		<result column="addr" property="addr"/>
+		<result column="doro_addr" property="doro_addr"/>
+	</resultMap>
 
 	<select id="getCount" parameterType="AdminPager" resultType="Long">
 		select count(*)
@@ -28,7 +69,11 @@
 				<when test="type != 4">MA.storeCode=#{storeCode}</when>
 				<otherwise>MA.storeCode >= 1</otherwise>
 			</choose>
-			and (M.name like '%'||#{search}||'%' or M.nickName like '%'||#{search}||'%') ) d
+			and (M.name like '%'||#{search}||'%' or M.nickName like '%'||#{search}||'%')
+	        	<if test="searchType != 0">
+	        		and M.type = #{searchType}
+	        	</if>
+			) d
 	</select>
 
 </mapper>
