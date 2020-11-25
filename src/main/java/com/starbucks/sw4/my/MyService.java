@@ -34,13 +34,13 @@ public class MyService {
 	}
 	
 	//별 히스토리
-	public MyDTO getMyStar() throws Exception {
-		return myDAO.getMyStar();
+	public MyDTO getMyStar(MyDTO myDTO) throws Exception {
+		return myDAO.getMyStar(myDTO);
 	}
 	
 	//나만의 매장
-	public List<MyDTO> getMyStore() throws Exception {
-		return myDAO.getMyStore();
+	public List<MyDTO> getMyStore(MyDTO myDTO) throws Exception {
+		return myDAO.getMyStore(myDTO);
 	}
 	
 	//회원 탈퇴

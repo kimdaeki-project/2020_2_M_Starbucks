@@ -2,6 +2,7 @@ package com.starbucks.sw4.my;
 
 import java.util.List;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,17 +40,23 @@ public class MyController {
 	}
 	
 	@PostMapping("myInfoOut")
-	public void setMyInfoOut(MyDTO myDTO) throws Exception {
+	public ModelAndView setMyInfoOut(MyDTO myDTO,HttpSession session) throws Exception {
+		ModelAndView mv = new ModelAndView();
 		int result = myService.setMyInfoOut(myDTO);
+		session.invalidate();
+		
+		mv.setViewName("redirect:./");
 		//자동로그아웃되게 처리하고, 메인페이지로 이동시키기..
+		return mv;
 	}
 	
 	//회원 탈퇴
 	@GetMapping("myInfoOut")
-	public ModelAndView setMyInfoOut() throws Exception {
+	public ModelAndView setMyInfoOut(HttpSession session) throws Exception {
 		//id를 jsp로 보내서 꺼내주기
 		ModelAndView mv = new ModelAndView();
-		MyDTO info = myService.getOne();
+		MyDTO myDTO = (MyDTO) session.getAttribute("my");
+		MyDTO info = myService.getOne(myDTO);
 				
 		mv.addObject("myInfo", info);
 		mv.setViewName("my/myInfoOut");
@@ -58,9 +65,10 @@ public class MyController {
 	}
 	//나만의 매장
 	@GetMapping("myStore")
-	public ModelAndView getMyStore() throws Exception {
+	public ModelAndView getMyStore(HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		List<MyDTO> ar= myService.getMyStore();
+		MyDTO myDTO = (MyDTO) session.getAttribute("my");
+		List<MyDTO> ar= myService.getMyStore(myDTO);
 		
 		mv.addObject("list", ar);
 		mv.setViewName("my/myStore");
@@ -69,9 +77,10 @@ public class MyController {
 	}
 	//고객의 소리
 	@GetMapping("vocList")
-	public ModelAndView setVocList() throws Exception {
+	public ModelAndView setVocList(HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		MyDTO info = myService.getOne();
+		MyDTO myDTO = (MyDTO) session.getAttribute("my");
+		MyDTO info = myService.getOne(myDTO);
 		String str = info.getEmail();
 		int idx = str.indexOf("@");
 		String mail1 = str.substring(0, idx);  
@@ -87,31 +96,33 @@ public class MyController {
 	}
 	//별 히스토리 db 가져오기
 	@GetMapping("myStarHistory")
-	public ModelAndView getMyStar() throws Exception {
+	public void getMyStar(HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		MyDTO myDTO = myService.getMyStar();
-		
-		mv.addObject("star", myDTO);
+		MyDTO myDTO = (MyDTO) session.getAttribute("my");
+		MyDTO star = myService.getMyStar(myDTO);
+		System.out.println(star.getUseStar());
+		System.out.println(star.getCardNum());
+		mv.addObject("star", star);
 		mv.setViewName("my/myStarHistory");
-		
-		return mv;
+	
 	}
 	
 	//비밀 번호 변경 db처리
 	@PostMapping("modifyPW")
 	public ModelAndView setNewPw(MyDTO myDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		System.out.println(myDTO.getPw());
+
 		int result = myService.setNewPw(myDTO);
-		mv.setViewName("redirect:./myIndex");
+		
 		return mv;
 	}
 	//비밀 번호 변경
 	@GetMapping("modifyPW")
-	public ModelAndView setNewPw()throws Exception {
+	public ModelAndView setNewPw(HttpSession session)throws Exception {
 		//id를 jsp로 보내서 꺼내줘야하는데
 		ModelAndView mv = new ModelAndView();
-		MyDTO info = myService.getOne();
+		MyDTO myDTO = (MyDTO) session.getAttribute("my");
+		MyDTO info = myService.getOne(myDTO);
 		
 		mv.addObject("myInfo", info);
 		mv.setViewName("my/modifyPW");

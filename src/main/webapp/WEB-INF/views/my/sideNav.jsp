@@ -94,7 +94,7 @@
                     </a>
                     <ul class="menu_show"> 
                         <li><a href="#">리워드 및 혜택</a></li>
-                        <li><a href="#">별 히스토리</a></li>
+                        <li><a href="${pageContext.request.contextPath}/my/myStarHistory">별 히스토리</a></li>
                     </ul>
                 </li>
                 <li> <a href="#" class="menu_btn">My 스타벅스 카드
@@ -102,7 +102,7 @@
                 </a>
                     <ul class="menu_show">
                         <li><a href="#">보유 카드</a></li>
-                        <li><a href="#">카드 충전</a></li>
+                        <li><a href="${pageContext.request.contextPath}/my/cardTopup">카드 충전</a></li>
                         <li><a href="#">분실 신고</a></li>
                     </ul>
                 </li>
@@ -124,16 +124,16 @@
                     </ul>
                 </li>
                 <li> <a href="#">My 메뉴</a></li>
-                <li> <a href="#">My 매장</a></li>
-                <li> <a href="#">My 고객의 소리</a></li>
+                <li> <a href="${pageContext.request.contextPath}/my/myStore">My 매장</a></li>
+                <li> <a href="${pageContext.request.contextPath}/my/vocList">My 고객의 소리</a></li>
                 <li> <a href="#">My DT Pass</a></li>
                 <li> <a href="#" class="menu_btn">개인정보관리
                 	 <span class="icon"> <i class="xi-angle-down second"></i></span>
                 </a>
                     <ul>
-                        <li><a href="#"> 개인정보확인 및 수정</a></li>
-                        <li><a href="#" > 회원 탈퇴</a></li>
-                        <li><a href="#"> 비밀번호 변경</a></li>
+                        <li><a href="${pageContext.request.contextPath}/my/updateMyInfo"> 개인정보확인 및 수정</a></li>
+                        <li><a href="${pageContext.request.contextPath}/my/myInfoOut" > 회원 탈퇴</a></li>
+                        <li><a href="${pageContext.request.contextPath}/my/modifyPW"> 비밀번호 변경</a></li>
                     </ul>
                     
                 </li>

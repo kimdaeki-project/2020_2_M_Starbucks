@@ -92,7 +92,7 @@
                                 <i class="xi-info"></i>
                             </strong>
                             <div>
-                                <input type="text" value="${myInfo.email}" name="email" id="usermail" class="user_mail empty"> 
+                                <input type="text" value="${myInfo.email}" name="email" id="usermail" class="user_mail empty" readonly="readonly"> 
                             </div>
                             <div id="mailCheck"></div>
                         </div>

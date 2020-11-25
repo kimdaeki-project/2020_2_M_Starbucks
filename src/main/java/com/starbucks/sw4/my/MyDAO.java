@@ -33,13 +33,13 @@ public class MyDAO {
 		return sqlSession.update(NAMESPACE+"setNewPw", myDTO);
 	}
 	//별 히스토리
-	public MyDTO getMyStar() throws Exception {
-		return sqlSession.selectOne(NAMESPACE+"getMyStar");				
+	public MyDTO getMyStar(MyDTO myDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getMyStar", myDTO);				
 	}
 	
 	//나만의 매장
-	public List<MyDTO> getMyStore() throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getMyStore");
+	public List<MyDTO> getMyStore(MyDTO myDTO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getMyStore",myDTO);
 	}
 	//회원 탈퇴
 	public int setMyInfoOut(MyDTO myDTO) throws Exception{
