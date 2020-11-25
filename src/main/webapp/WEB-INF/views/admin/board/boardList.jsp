@@ -11,84 +11,18 @@
 		<title>Starbucks Coffee Korea :: 직원 공지사항</title>
 		<c:import url="../template/bootstrap.jsp"></c:import>
 		<c:import url="../template/commonCSS.jsp"></c:import>
-		
+		<link rel="stylesheet" type="text/css" href="/sw4/resources/admin/css/boardList.css">
 		<style type="text/css">
-			
-			#table-area{
-				margin-top: 2em;
-				background-color: white;	
-			}
-			
-			.breadcrumb {
-			    background-color: #f1f2f4;
-			}
-			
-			.mt-4{
-				padding-top: 1rem;
-				margin-bottom: 1.1rem;
-			}
-			
-			.mb-4{
-    			color: #5D5D5D;
-    			font-size: 0.83rem;
-			}
-			
-			table{
-				text-align: center;
-				font-size: 0.9rem;
-			}
-			
-			#table-num-size{
-				width: 4rem;
-			}
-			
-			#table-title-size{
-				width: 43rem;
-				padding-left: 1.5rem;
-				text-align: left;
-			}
-			
 			#table-writer-size{
-				width: 6rem;
+				width: 10rem
 			}
-			
-			#table-hit-size{
-				width: 4rem;
-			}
-			
 			#table-date-size{
 				width: 10rem;
 			}
-
-			#page-area{
-				text-align: center;
-				font-size: 0.9rem;
+			#table-hit-size{
+				width: 5rem;
 			}
-			
-			#page-area-center{
-				width: 64rem;
-				text-align: center;
-			}
-			
-			#write-area{
-				float: right;
-			}
-			
-			#write_btn{
-				font-weight: bold;
-				font-size: 0.8rem;
-				border: 1px solid #E7E7E7;
-				border-radius: 5px;
-				padding: 0.5rem 0.9rem;
-				background-color: white;
-			}
-			
-			#write-btn-area{
-				width: 15rem;
-			}
-			
 		</style>
-		
 	</head>
 	
 	<body class="sb-nav-fixed">
@@ -178,7 +112,8 @@
 		
 		<!-- script template -->
 		<c:import url="../template/javascript.jsp"></c:import>
-
+		<script src="/sw4/resources/admin/js/search.js"></script>
+		
 	</body>
 	
 </html>

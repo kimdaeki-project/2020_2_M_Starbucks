@@ -19,9 +19,7 @@ public class StoreDTO {
 	
 	private StoreFileDTO storeFileDTO;
 	private StoreInfoDTO storeInfoDTO;
-	
-	
-	
+
 	public long getStoreCode() {
 		return storeCode;
 	}
