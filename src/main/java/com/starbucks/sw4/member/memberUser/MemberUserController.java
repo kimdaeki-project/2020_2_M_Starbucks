@@ -229,11 +229,6 @@ public class MemberUserController {
         /* 메일 발송 end */
         int result = authService.setAuthEmailSend(authDTO);
         
-//        response.setContentType("text/html; charset=UTF-8");
-//        PrintWriter pw = response.getWriter();
-//        pw.println("<script>alert('이메일이 발송되었습니다. 인증번호를 입력해주세요.');</script>");
-//        pw.flush();
-        
         if(result > 0) {
         	session.setAttribute("auth", authDTO);
         	mv.addObject("auth", authDTO);

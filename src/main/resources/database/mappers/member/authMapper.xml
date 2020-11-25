@@ -7,4 +7,7 @@
 		insert into auth values(auth_seq.nextval, #{email}, #{authKey}, #{sendTime}, #{authStatus})
 	</insert>
 	
+	<update id="setEmailAuthStatus" parameterType="AuthDTO">
+		update auth set authStatus=#{status} where email=#{email}
+	</update>
 </mapper>

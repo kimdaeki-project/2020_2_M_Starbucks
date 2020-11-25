@@ -18,4 +18,8 @@ public class AuthDAO {
 	public long getMemberEmailCheck(AuthDTO authDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"setAuthEmailCheck", authDTO);
 	}
+	
+	public long setEmailAuthStatus(AuthDTO authDTO) throws Exception {
+		return sqlSession.update(NAMESPACE+"setEmailAuthStatus", authDTO);
+	}
 }
