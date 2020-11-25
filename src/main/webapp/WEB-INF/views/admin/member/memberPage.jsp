@@ -351,6 +351,7 @@
 			typeSelect(type)
 
 			$(document).ready(function(){
+				var storeSearchTxt = "";
 				
 				var noWidth = window.screen.width;
 				var noHeight = window.screen.height;
@@ -379,7 +380,6 @@
 									y = noHeight/5;
 									
 									var sidoTxt = "";
-									var storeSearchTxt = "";
 									
 									getStoreList(sidoTxt,storeSearchTxt);
 									
