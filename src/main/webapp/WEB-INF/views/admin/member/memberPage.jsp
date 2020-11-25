@@ -144,6 +144,7 @@
 				color: white;
 				background-color: #D5D5D5;
 				border-radius: 3px;
+				visibility: hidden;
 			}
 			.info-width{
 				width: 10rem;
@@ -411,6 +412,7 @@
 								if(update_btn_chk == "수정하기"){
 									init("수정하기", true)
 									$("#pop-update-btn").text("수정");
+									$("#store-search").css("visibility","visible");
 									$(".work-time").attr("readonly",false)
 								} else if(update_btn_chk == "수정"){
 									memberUpdate()
@@ -665,14 +667,11 @@
 			}
 			
 			function getSidoList(sidoTxt, search){
-				alert(sidoTxt);
 				getStoreList(sidoTxt,search);
 			}
 			
 			// function 분리하기 ---------------------------
 			function getStoreList(sidoTxt, search){
-				alert(search)
-				alert(sidoTxt)
 				$.ajax({
 					url:"../store/storeList",
 					type:"GET",
