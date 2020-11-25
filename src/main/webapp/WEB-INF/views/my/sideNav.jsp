@@ -13,7 +13,7 @@
     right: 0;
     top:0;
     width: 220px;
-    height: 100%;
+    height: 750px;
    
     margin-bottom: 90px;
     background: white;
@@ -110,8 +110,8 @@
                 	 <span class="icon"> <i class="xi-angle-down second"></i></span>
                 </a>
                     <ul>
-                        <li><a href="#" >· 선물하기</a></li>
-                        <li><a href="#" >· 선물 내역</a></li>
+                        <li><a href="#" > 선물하기</a></li>
+                        <li><a href="#" > 선물 내역</a></li>
                         
                     </ul>
                 </li>
@@ -119,8 +119,8 @@
                 	 <span class="icon"> <i class="xi-angle-down second"></i></span>
                 </a>
                     <ul>
-                        <li><a href="#">· 등록하기</a></li>
-                        <li><a href="#">· 선물하기</a></li>
+                        <li><a href="#"> 등록하기</a></li>
+                        <li><a href="#"> 선물하기</a></li>
                     </ul>
                 </li>
                 <li> <a href="#">My 메뉴</a></li>
@@ -131,11 +131,13 @@
                 	 <span class="icon"> <i class="xi-angle-down second"></i></span>
                 </a>
                     <ul>
-                        <li><a href="#">· 개인정보확인 및 수정</a></li>
-                        <li><a href="#" >· 회원 탈퇴</a></li>
-                        <li><a href="#">· 비밀번호 변경</a></li>
+                        <li><a href="#"> 개인정보확인 및 수정</a></li>
+                        <li><a href="#" > 회원 탈퇴</a></li>
+                        <li><a href="#"> 비밀번호 변경</a></li>
                     </ul>
+                    
                 </li>
+                
             </ul>
 
 

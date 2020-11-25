@@ -4,6 +4,13 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
     <mapper namespace="com.starbucks.sw4.my.MyDAO">
+    	<select id="getStore" parameterType="MyDTO">
+    		select storeName, addr from store where storeName like '%'||#{storeName}||'%'
+    	</select>
+    	<delete id="setMyInfoOut" parameterType="MyDTO">
+    		delete from member where id ='jy1234'
+    	</delete>
+    
     	<select id="getMyIndex" resultType="MyDTO">
     		select S.useStar, S.id, M.nickName, M.grade, F.fileName, C.balance, F.korName 
 			from starHistory S inner join member M

@@ -39,4 +39,14 @@ public class MyService {
 	public List<MyDTO> getMyStore() throws Exception {
 		return myDAO.getMyStore();
 	}
+	
+	//회원 탈퇴
+	public int setMyInfoOut(MyDTO myDTO) throws Exception{
+		return myDAO.setMyInfoOut(myDTO);
+	}
+	
+	//store
+	public List<MyDTO> getStore(MyDTO myDTO) throws Exception{
+		return myDAO.getStore(myDTO);
+	}
 }

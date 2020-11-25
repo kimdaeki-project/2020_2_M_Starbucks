@@ -26,6 +26,7 @@ section > ul li.box1 {border-right: none; border-radius: 3px 0 0 3px;}
 section > ul li p.t1{font-size:14px; padding-bottom: 9px; color:#222;}
 section > ul li p.t2 {font-size: 18px; font-weight: bold; color:#222;}
 section > ul li.box2 {border-left:none; border-right: none;}
+section > ul li.box3 {border-left: none;} 
 section > ul li span.star_limit {color:#666; font-size: 12px; left: 86px; position:absolute; top:22px;}
 
 

@@ -24,6 +24,8 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <script src="${pageContext.request.contextPath}/resources/js/common/jquery.bxslider.min.js"></script>
 	<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 	 <!-- Header -->
@@ -179,6 +181,7 @@
 												</div>
 												<div class="sel_wrap mt10">
 													<p class="visit_txt">방문매장</p>
+													<button type="button" class="btn_find_store" data-toggle="modal" data-target="#myModal">매장찾기</button>
 													<a class="btn_find_store" href="javascript:void(0);">매장찾기</a>
 													<p class="input_store_txt"></p>
 													
@@ -253,6 +256,48 @@
 					
 					
 				</fieldset>
+				<!--매장 찾기 팝업 -->
+				 <div class="modal fade" id="myModal" role="dialog">
+				    <div class="modal-dialog">
+				    
+				      <!-- Modal content-->
+				      <div class="modal-content">
+				        <div class="modal-header">
+				          <button type="button" class="close" data-dismiss="modal">&times;</button>
+				          <h4 class="modal-title">매장 찾기</h4>
+				        </div>
+				        <div class="modal-body">
+				        
+				          <p>Some text in the modal.</p>
+				          <dl class="store_find">
+				          	<dt class="dt1"></dt>
+				          	<dd style="display: block;">
+				          		<div class="search_wrap">
+				          			<ul>
+				          				<li>
+				          					<label>매장명</label>
+											<input id="bar2" class="storeName" type="text">
+											<p><a href="./findStore">검색</a></p>      					
+				          				</li>
+				          			</ul>
+				          		</div>
+				          		<div id="result_list">
+				          			<table>
+				          			
+				          			
+				          			</table>
+				          		
+				          		</div>
+				          	</dd>
+				          </dl>
+				        </div>
+				        <div class="modal-footer">
+				          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        </div>
+				      </div>
+				      
+				    </div>
+				  </div>
 			</form>	
 		</div>
 	
@@ -287,7 +332,28 @@
 		
 		});
   	}
+   	//*****************************************
    	
+   	//****************** modal ********************
+		$(".btn_find_store").click(function() {
+			var storeName = $("#bar2").val();
+			$.ajax({
+				url:"./findStore",
+				type:"get",
+				data:{storeName:storeName},
+				success: function(result) {
+					$("#result").append(result);
+				}
+			})
+			
+			
+			
+		})
+		
+		//*************************************************
+		
+		//*********************************************
+	
    </script>
    
    <script src="${pageContext.request.contextPath}/resources/js/common/header.js?v=1"></script>
