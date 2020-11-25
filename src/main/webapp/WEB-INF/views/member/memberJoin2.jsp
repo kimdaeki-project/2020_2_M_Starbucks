@@ -42,12 +42,12 @@
 					<input type="hidden" name="joinPath" id="joinPath" value="" />
 					<input type="hidden" name="grade" id="grade" value="1" />
 					<fieldset>
-						<legend class="hid">회원가입 이용약관 동의, 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간 및 파기절차, 파기 방법에 관한 폼</legend>
-						<strong class="find_mem_ttl">회원가입</strong>
+						<legend class="hid">회원가입 이메일 인증 폼</legend>
+						<strong class="find_mem_ttl">이메일 인증</strong>
 
-						<section class="joinform">
+						<section class="authForm">
 							<div class="find_mem_sally"></div>
-							<p class="find_form_txt">회원정보를 입력해 주세요.</p>
+							<p class="find_form_txt">이메일을 입력해 주세요.</p>
 							<div class="form_input_box id_chk">
 								<label for="id" class="hid">아이디</label>
 								<input type="text" name="id" id="id" placeholder="아이디" maxlength="13" required="required" />

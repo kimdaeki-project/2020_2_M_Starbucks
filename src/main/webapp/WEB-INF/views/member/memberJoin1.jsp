@@ -113,8 +113,8 @@
 											<p class="mem_k_titl">이메일 인증</p>
 											<p class="mem_k_txt">가입한 이메일을 통해 인증합니다.</p>
 											<p class="mem_k_btn">
-												<a href="${pageContext.request.contextPath}/member/emailAuthSend">인증하기</a>
-												<a href="${pageContext.request.contextPath}/member/memberJoin2" title="email">Join</a>
+												<a href="${pageContext.request.contextPath}/member/emailAuthSend" title="email">인증하기</a>
+												<%-- <a href="${pageContext.request.contextPath}/member/memberJoin2" title="email">Join</a> --%>
 											</p>
 										</li>
 										<%-- 
@@ -147,9 +147,17 @@
 	<!-- Footer End -->
 </div>
 
-
 	<script src="${pageContext.request.contextPath}/resources/js/common/header.js?v=1"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=1"></script>
+	
+	<script type="text/javascript">
+		$(".mem_k_btn").click(function() {
+			if(!$("#mem_agreeMent_yes").is(":checked") || !$("#mem_purpose_yes").is(":checked")) {
+				alert('필수항목에 모두 동의해주셔야 인증이 가능합니다.');	
+				return false;
+			}
+		});		
+	</script>
 	
 </body>
 </html>

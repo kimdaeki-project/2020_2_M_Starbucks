@@ -7,7 +7,4 @@
 		insert into auth values(auth_seq.nextval, #{email}, #{authKey}, #{sendTime}, #{authStatus})
 	</insert>
 	
-	<select id="setMemberEmailCheck" parameterType="AuthDTO" resultType="Long">
-	
-	</select>
 </mapper>

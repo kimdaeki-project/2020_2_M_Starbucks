@@ -35,7 +35,7 @@ public class MemberUserDAOTest extends MyTestCase {
 		assertEquals(result, 1);
 	}
 	
-	@Test
+	//@Test
 	public void setMemberJoinTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		
@@ -55,5 +55,15 @@ public class MemberUserDAOTest extends MyTestCase {
 		int result = memberUserDAO.setMemberJoin(memberDTO);
 		
 		assertEquals(result, 1);
+	}
+	
+	@Test
+	public void getMemberEmailCheck() throws Exception {
+		MemberDTO memberDTO = new MemberDTO();
+		//memberDTO.setEmail("test@naver.com");
+		memberDTO.setEmail("tbehd8967@naver.com");
+		long result = memberUserDAO.getMemberEmailCheck(memberDTO);
+		
+		assertEquals(result, 0);
 	}
 }

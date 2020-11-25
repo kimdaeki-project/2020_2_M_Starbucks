@@ -162,7 +162,6 @@
 							<header class="find_road_cont_header">
 								<p class="btn_daum_map">
 									<a href="javascript:void(0);" class="daumGoBtn" target="_blank">카카오맵</a>
-									<!-- 20200819 수정 -->
 								</p>
 								<span class="road_layer_toggle"><a
 									href="javascript:void(0);" class="daumFindParentToggle">열기</a></span>
@@ -175,23 +174,21 @@
 									<ul class="btn_after_search">
 										<li class="btn_after_search1 iv_sub_target" pId="car"><a
 											class="on" href="javascript:void(0);"> <span class="a11y">자동차</span></a>
-										<!-- 접근성_20171127 span 추가 --></li>
-										<li class="btn_after_search2 iv_sub_target" pId="trasfer"><a
-											href="javascript:void(0);"><span class="a11y">대중교통</span></a>
-										<!-- 접근성_20171127 span 추가 --></li>
-										<li class="btn_after_search3 iv_sub_target" pId="walk"><a
-											href="javascript:void(0);"> <span class="a11y">도보</span></a>
-										<!-- 접근성_20171127 span 추가 --></li>
+										</li>
+										<li class="btn_after_search2 iv_sub_target" pId="trasfer">
+											<a href="javascript:void(0);"><span class="a11y">대중교통</span></a>
+										</li>
+										<li class="btn_after_search3 iv_sub_target" pId="walk">
+											<a href="javascript:void(0);"> <span class="a11y">도보</span></a>
+										</li>
 									</ul>
 									<div class="after_search_input1">
 										<input id="initStartTxt" type="text" class="initViewerClass"
 											readonly title="길찾기 출발지" />
-										<!-- 접근성_20171127 title 추가 -->
 										<p class="initViewerClass"></p>
 									</div>
 									<div class="after_search_input2">
 										<input id="initEndTxt" type="text" readonly title="길찾기 도착지" />
-										<!-- 접근성_20171127 title 추가 -->
 										<p class="initViewerClass"></p>
 									</div>
 								</div>
@@ -204,12 +201,9 @@
 											<dt>
 												<label for="start">출발</label>
 											</dt>
-											<!-- 160926 DOM 위치 수정 -->
 											<dd>
-												<!-- 160921 앱에만 클래스:only_app 적용 -->
 												<span class="btn_my_loca"><a
 													href="javascript:void(0);" class="road_find_current">현재위치</a></span>
-												<!-- 160921 앱에만 클래스:only_app 적용 end -->
 												<div class="road_map_input_wrap rmiw1">
 													<input id="start" placeholder="출발지 입력" type="text">
 													<p>
@@ -220,18 +214,14 @@
 													<ul>
 														<li><a href="javascript:void(0);"><span>시청</span></a></li>
 														<li><a href="javascript:void(0);"><span>시청</span>역</a></li>
-														<li><a href="javascript:void(0);"><span>시청</span>역
-																1호선</a></li>
-														<li><a href="javascript:void(0);"><span>시청</span>역
-																2호선</a></li>
+														<li><a href="javascript:void(0);"><span>시청</span>역 1호선</a></li>
+														<li><a href="javascript:void(0);"><span>시청</span>역 2호선</a></li>
 														<li><a href="javascript:void(0);"><span>시청</span>자미디어센터</a></li>
-														<li><a href="javascript:void(0);"><span>시청</span>역
-																맛집</a></li>
+														<li><a href="javascript:void(0);"><span>시청</span>역 맛집</a></li>
 													</ul>
 												</div>
 
 											</dd>
-											<!-- 160926 DOM 위치 수정 -->
 										</dl>
 										<dl>
 											<dt>
@@ -249,13 +239,10 @@
 													<ul>
 														<li><a href="javascript:void(0);"><span>시청</span></a></li>
 														<li><a href="javascript:void(0);"><span>시청</span>역</a></li>
-														<li><a href="javascript:void(0);"><span>시청</span>역
-																1호선</a></li>
-														<li><a href="javascript:void(0);"><span>시청</span>역
-																2호선</a></li>
+														<li><a href="javascript:void(0);"><span>시청</span>역 1호선</a></li>
+														<li><a href="javascript:void(0);"><span>시청</span>역 2호선</a></li>
 														<li><a href="javascript:void(0);"><span>시청</span>자미디어센터</a></li>
-														<li><a href="javascript:void(0);"><span>시청</span>역
-																맛집</a></li>
+														<li><a href="javascript:void(0);"><span>시청</span>역 맛집</a></li>
 													</ul>
 												</div>
 											</dd>
@@ -264,24 +251,20 @@
 									<section class="transfer_method_wrap">
 										<header class="transfer_method_tab1">
 											<h3>
-												<a class="road_find_btn roadFindStartBtn" data-target="car"
-													href="javascript:void(0);">자동차</a>
+												<a class="road_find_btn roadFindStartBtn" data-target="car" href="javascript:void(0);">자동차</a>
 											</h3>
 										</header>
 										<article class="transfer_method_cont1">
 
-											<span class="store_pop_info2 carFindRoad"
-												style="display: none"><img alt=""
-												src="/common/img/store/icon_fav_off.png"> 클릭하여 나만의 매장을
-												등록하세요.</span>
+											<span class="store_pop_info2 carFindRoad" style="display: none">
+											<img alt="" src="/common/img/store/icon_fav_off.png"> 클릭하여 나만의 매장을 등록하세요.</span>
 											<div class="desti_top_wrap carFindRoad" style="display: none">
-												<strong class="desti_top_ttl car_find_endName">스타벅스
-													영풍문고점</strong> <img alt="" src="/common/img/store/icon_fav_off.png"
-													class="roadFav setStoreFavBtn" data-store="0" data-yn="N"
-													data-name="">
+												<strong class="desti_top_ttl car_find_endName">스타벅스 영풍문고점</strong>
+												<img alt="" src="/common/img/store/icon_fav_off.png" class="roadFav setStoreFavBtn" data-store="0" data-yn="N" data-name="">
 												<p class="desti_top_dist">
-													<span class="car_find_min"></span>&nbsp;&nbsp;<strong
-														class="car_find_lengtn"></strong>km
+													<span class="car_find_min"></span>&nbsp;&nbsp;
+													<strong class="car_find_lengtn"></strong>
+													km
 												</p>
 											</div>
 
@@ -311,15 +294,14 @@
 										</article>
 										<header class="transfer_method_tab2">
 											<h3>
-												<a class="road_find_btn roadFindStartBtn"
-													data-target="transport" href="javascript:void(0);">대중교통</a>
+												<a class="road_find_btn roadFindStartBtn" data-target="transport" href="javascript:void(0);">대중교통</a>
 											</h3>
 										</header>
 										<article class="transfer_method_cont2" style="display: none">
-											<span class="store_pop_info2 carFindRoad"
-												style="display: none"><img alt=""
-												src="/common/img/store/icon_fav_off.png" class="roadFav">
-												클릭하여 나만의 매장을 등록하세요.</span>
+											<span class="store_pop_info2 carFindRoad" style="display: none">
+												<img alt="" src="/common/img/store/icon_fav_off.png" class="roadFav">
+												클릭하여 나만의 매장을 등록하세요.
+											</span>
 
 											<div class="desti_top_wrap 	carFindRoad"
 												style="display: none">
@@ -355,8 +337,7 @@
 										<article class="transfer_method_cont3" style="display: none">
 											<span class="store_pop_info2 carFindRoad"
 												style="display: none"><img alt=""
-												src="/common/img/store/icon_fav_off.png"> 클릭하여 나만의 매장을
-												등록하세요.</span>
+												src="/common/img/store/icon_fav_off.png"> 클릭하여 나만의 매장을 등록하세요.</span>
 											<div class="desti_top_wrap carFindRoad" style="display: none">
 												<strong class="desti_top_ttl foot_find_endName">스타벅스
 													영풍문고점</strong> <img alt="" src="/common/img/store/icon_fav_off.png"
@@ -422,7 +403,7 @@
 	<script src="${pageContext.request.contextPath}/resources/js/common/header.js?v=1"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=1"></script>
 
-
+<!-- 
 <script type="text/javascript">
 	var $geo = {};
 	var $map = {};
@@ -430,8 +411,8 @@
 	var $ps;
 	
 	var $pin = {};
-		$pin.store 	 = "/common/img/store/pin/pin_reg_on.png";
-		$pin.reserve = "/common/img/store/pin/pin_res_on.png";
+		$pin.store 	 = "${pageContext.request.contextPath}/resources/images/store/pin/pin_reg_on.png";
+		$pin.reserve = "${pageContext.request.contextPath}/resources/images/store/pin/pin_res_on.png";
 		
 	var $marker = new Array();
 	var $bounds;
@@ -500,10 +481,9 @@
 	var $parentMenuType="A";
 	var afterSearch = true;
 	var afterThis   = "";
-		<!---->
-</script>
+</script> -->
 
-	<!-- <script type="text/javascript">
+<script type="text/javascript">
 	$(document).ready(function() {
 		init();
 	});
@@ -544,30 +524,25 @@
 		};
 		var map = new kakao.maps.Map(container, options);	//지도생성 및 객체 리턴
 		
+		$.ajax
+		var storeList = "${storeList}";
 		var size = ${storeList.size()};
 		var positions = [];
 		for(var i=0; i<size; i++) {
-			var storeName = '${storeList.get(i).storeName}';
-			var lat = ${storeList.get(i).lat};
-			var lot = ${storeList.get(i).lot};
-			console.log(storeName + '/' + lat + '/' + lot);
+			var storeName = '${storeList.get('+i+').storeName}';
+			console.log(storeName);
 			if(i > 10) break;
 		}
-				
-		
-		
-		
 		
 		
 		var imageSrc = '/sw4/resources/images/store/pin_general.png', 
 	    	imageSize = new kakao.maps.Size(38, 60); 
 	    	
-		var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize),
-		    markerPosition = new kakao.maps.LatLng(37.5601141, 126.982651); // 마커가 표시될 위치입니다
+		var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+		var markerPosition = new kakao.maps.LatLng(37.5601141, 126.982651); // 마커가 표시될 위치입니다
 		
 		// 마커를 생성합니다
 		var marker = new kakao.maps.Marker({
-		
 		    position: markerPosition, 
 		    image: markerImage // 마커이미지 설정 
 		});
@@ -605,6 +580,6 @@
 	/* End 중심좌표 변경 */
 	
 	
-	</script> -->
+	</script>
 </body>
 </html>

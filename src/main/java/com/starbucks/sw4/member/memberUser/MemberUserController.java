@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.starbucks.sw4.member.MemberDTO;
+import com.starbucks.sw4.member.MemberService;
 import com.starbucks.sw4.member.auth.AuthDTO;
 import com.starbucks.sw4.member.auth.AuthService;
 
@@ -276,6 +277,22 @@ public class MemberUserController {
 		
 		session.setAttribute("auth", authDTO);
 		mv.setViewName("common/result");
+		return mv;
+	}
+	//**************************************************
+	
+	//***************** Email Check ********************
+	@PostMapping("memberEmailCheck")
+	public ModelAndView getMemberEmailCheck(MemberDTO memberDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		long result = memberUserService.getMemberEmailCheck(memberDTO);
+		if(result > 0) {
+			System.out.println("이미 가입된 회원이 가입 시도");
+		}
+		
+		mv.addObject("msg", result);
+		mv.setViewName("common/ajaxResult");
 		return mv;
 	}
 	//**************************************************

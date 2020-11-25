@@ -26,4 +26,9 @@ public class MemberUserService implements MemberService {
 	public int setMemberJoin(MemberDTO memberDTO) throws Exception {
 		return memberUserDAO.setMemberJoin(memberDTO);
 	}
+	
+	@Override
+	public long getMemberEmailCheck(MemberDTO memberDTO) throws Exception {
+		return memberUserDAO.getMemberEmailCheck(memberDTO);
+	}
 }

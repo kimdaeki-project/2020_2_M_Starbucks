@@ -11,4 +11,6 @@ public interface MemberService {
 	//idCheck
 	public long getIdCheck(MemberDTO memberDTO) throws Exception;
 
+	//emailCheck
+	public long getMemberEmailCheck(MemberDTO memberDTO) throws Exception;
 }

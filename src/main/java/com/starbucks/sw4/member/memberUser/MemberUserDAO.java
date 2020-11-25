@@ -29,4 +29,9 @@ public class MemberUserDAO implements MemberDAO {
 	public int setMemberJoin(MemberDTO memberDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"setMemberJoin", memberDTO);
 	}
+	
+	@Override
+	public long getMemberEmailCheck(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getMemberEmailCheck", memberDTO);
+	}
 }
