@@ -9,13 +9,7 @@ import com.starbucks.sw4.member.MemberService;
 @Service
 public class MemberUserService implements MemberService {
 
-<<<<<<< HEAD
-	
-=======
-//	@Autowired
-//	private MemberUserDAO memberUserDAO;
->>>>>>> main
-	
+
 	@Override
 	public MemberDTO getMemberLogin(MemberDTO memberDTO) throws Exception {
 		System.out.println("Service -- MemberUserLogin");
