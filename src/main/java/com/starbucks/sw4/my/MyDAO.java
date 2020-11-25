@@ -44,6 +44,7 @@ public class MyDAO {
 	
 	//매장찾기
 	public List<MyDTO> getStore(MyDTO myDTO) throws Exception {
+		
 		return sqlSession.selectList(NAMESPACE+"getStore", myDTO);
 	}
 }

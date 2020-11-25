@@ -277,7 +277,7 @@
 				          				<li>
 				          					<label>매장명</label>
 											<input id="bar2" name="stosearch" class="storeName" type="text">
-											<p ><a id="stosearch" href="./findStore">검색</a></p>      					
+											<p ><a id="stosearch" href="#">검색</a></p>      					
 				          				</li>
 				          			</ul>
 				          		</div>
@@ -342,6 +342,7 @@
 				type:"get",
 				data:{stosearch:stosearch},
 				success: function(result) {
+					alert(result);
 					$("#result_list").append(result);
 				}
 			})

@@ -27,7 +27,7 @@ public class MyController {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(myDTO.getStosearch());
 		List<MyDTO> ar= myService.getStore(myDTO);
-		
+		System.out.println("Conttttttt");
 		mv.addObject("list", ar);
 		mv.setViewName("my/test");
 		return mv;

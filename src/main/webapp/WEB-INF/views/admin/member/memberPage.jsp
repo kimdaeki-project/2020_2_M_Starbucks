@@ -351,6 +351,7 @@
 			typeSelect(type)
 
 			$(document).ready(function(){
+				var storeSearchTxt = "";
 				
 				var noWidth = window.screen.width;
 				var noHeight = window.screen.height;
@@ -379,7 +380,6 @@
 									y = noHeight/5;
 									
 									var sidoTxt = "";
-									var storeSearchTxt = "";
 									
 									getStoreList(sidoTxt,storeSearchTxt);
 									
@@ -409,7 +409,7 @@
 												
 												$("#store-info-area").empty();
 												$("#store-info-area").append(data);
-												$("#search-store-txt").val(storeSearchTxt);
+												$("#search-store-txt").val(search);
 												
 												$(".sido").click(function(){
 													sidoTxt = $(this).attr("title");
