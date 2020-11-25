@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+#container { width:100%; }
+.find_mem_wrap { max-width:570px; margin:0 auto; padding:70px 0 50px; }
+.find_mem_ttl { margin-bottom:30px; display:block; font-size:30px; font-weight:normal; text-align:center; }
+
+.joinform { max-width:570px; margin:0 auto 30px; border:1px solid #ddd; border-radius:3px; box-sizing:border-box; position:relative; }
+.find_mem_sally { width:205px; height:182px; margin:0 auto; padding:30px 20px 0; text-align:center; background: url("../../images/member/icon_find_sally.png") 50% 100% no-repeat; }
+.find_form_txt { line-height:24px; padding:30px 20px 30px; border-bottom:1px solid #ddd; background:#fff; color:#777; font-size:18px; text-align:center; }
+.find_form_txt strong { margin-bottom:10px; display:block; color:#222; font-size:24px; font-weight:normal; }
+
+.form_input_box { background:#fff; padding:20px 20px; border-bottom:1px solid #ddd; position:relative; }
+.form_input_box:after { clear:both; content:""; display:block; }
+.form_input_box strong { margin-bottom:10px; color:#222; font-size:18px; display:block; }
+.form_input_box input { width:100%; max-width:530px; padding:15px; border:1px solid #ddd; border-radius:3px; box-sizing:border-box; display:inline-block; }
+.form_input_box input.green { border:1px solid #063; background:#f7faf9; }
+.form_input_box.email_chk input { width:100%; }
+
+.btn_email_auth { background:#006633; max-width:570px; margin:0 20px; margin-top:25px; border-radius:3px; text-align:center; }
+.btn_email_auth .auth_send,
+.btn_email_auth .auth_check { background:#006633; width:100%; line-height:50px; border:none; color:#fff; font-size:20px; display:block; box-shadow:none; outline:none; }
+
+#container { width:100%; padding:30px 0; }
+.find_form_txt { padding:20px; }
+.find_form_txt span { color:green; font-weight:bold; }
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+#authkey_txt { padding:10px 5px; width:100px; float:left; }
+#authKey { padding: 10px; }
+		
+		
+@media screen and (max-width:960px) {
+	#container { padding:70px 0; }
+}

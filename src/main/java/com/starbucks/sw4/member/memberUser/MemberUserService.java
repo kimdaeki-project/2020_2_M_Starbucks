@@ -9,12 +9,26 @@ import com.starbucks.sw4.member.MemberService;
 @Service
 public class MemberUserService implements MemberService {
 
-//	@Autowired
-//	private MemberUserDAO memberUserDAO;
+	@Autowired
+	private MemberUserDAO memberUserDAO;
 	
 	@Override
 	public MemberDTO getMemberLogin(MemberDTO memberDTO) throws Exception {
-		System.out.println("Service -- MemberUserLogin");
-		return null;
+		return memberUserDAO.getMemberLogin(memberDTO);
+	}
+	
+	@Override
+	public long getIdCheck(MemberDTO memberDTO) throws Exception {
+		return memberUserDAO.getIdCheck(memberDTO);
+	}
+	
+	@Override
+	public int setMemberJoin(MemberDTO memberDTO) throws Exception {
+		return memberUserDAO.setMemberJoin(memberDTO);
+	}
+	
+	@Override
+	public long getMemberEmailCheck(MemberDTO memberDTO) throws Exception {
+		return memberUserDAO.getMemberEmailCheck(memberDTO);
 	}
 }

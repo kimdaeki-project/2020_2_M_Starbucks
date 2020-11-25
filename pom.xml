@@ -85,8 +85,29 @@
 		</dependency>
 		
 		<!-- 추가 : End (성민 / 20.11.09) -->
-	
-	
+		
+		<!-- 추가 (성민/20.11.20) -->
+		<!-- mail 인증을  위한 설정-->
+        <!-- mail -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
+		<dependency>
+		    <groupId>com.sun.mail</groupId>
+		    <artifactId>javax.mail</artifactId>
+		    <version>1.6.2</version>
+		</dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+		<!-- 추가 : End (성민/20.11.20) -->
 	
 		<!-- Spring -->
 		<dependency>
@@ -206,6 +227,24 @@
 		
 		<!-- 추가 및 변경 : End (성민 / 20.11.09) -->
 		
+		<!-- 추가 (성민 / 20.11.24) -->
+		<!-- JSON -->
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+		
+		<!-- Jackson -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.10.0</version>
+		</dependency>
+		
+		<!-- 추가 : End (성민 / 20.11.24) -->
 		
 		
 	</dependencies>
