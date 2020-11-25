@@ -352,7 +352,7 @@
 
 			$(document).ready(function(){
 				var storeSearchTxt = "";
-				
+	
 				var noWidth = window.screen.width;
 				var noHeight = window.screen.height;
 				
