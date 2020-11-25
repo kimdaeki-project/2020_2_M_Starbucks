@@ -23,7 +23,6 @@
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="#">Orders</a>
                             <a class="nav-link" href="${pageContext.request.contextPath}/admin/member/memberList">Staff List</a>
-                            <a class="nav-link" href="#">Customer</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -63,7 +62,7 @@
                         </nav>
                     </div>
                     
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/admin/staff/staffList">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                         Staff Management
                     </a>

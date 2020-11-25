@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starbucks.sw4.admin.tables.store.AdminStoreDAO">
+
+	<select id="getList" parameterType="AdminStoreDTO" resultType="AdminStoreDTO">
+		select * from store
+		where sidoName like '%'||#{sidoName}||'%' and storeName like '%'||#{search}||'%'
+	</select>
+	
+	<select id="getAdminStore" parameterType="AdminMemberDTO" resultType="StoreDTO">
+		select * from store where storeCode = #{store.storeCode}
+	</select>
+	
+	<select id="getAdminStoreMemberCount" parameterType="AdminMemberDTO" resultType="Long">
+		select count(*)
+		from (select M.* from member M join memberAdmin MA on (M.adminNum = MA.adminNum)
+			where 
+			<choose>
+				<when test="type != 4">MA.storeCode=#{store.storeCode}</when>
+				<otherwise>MA.storeCode >= 1</otherwise>
+			</choose>
+			) d	
+	</select>
+	
+	<select id="getAdminStoreEachCount" resultMap="getStoreCountResult">
+		select rownum r, A.* from
+      		(select   storeCode, count(adminNum) as staffCount from memberAdmin
+      	group by storeCode) A
+	</select>
+	
+	<resultMap type="AdminMemberDTO" id="getStoreCountResult">
+		<id column="r" property="r"></id>
+		<result column="staffCount" property="staffCount"/>
+		<association property="storeDTO"
+		    javaType="StoreDTO" resultMap="getStoreResult"></association>
+	</resultMap>
+	
+	<resultMap type="StoreDTO" id="getStoreResult">
+		<result column="storeCode" property="storeCode"/>
+	</resultMap>
+
+</mapper>

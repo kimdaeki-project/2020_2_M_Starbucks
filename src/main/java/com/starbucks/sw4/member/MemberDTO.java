@@ -10,14 +10,21 @@ public class MemberDTO {
 	private String id;
 	private String pw;
 	private String name;
-	private Date birth;
+	private String birth;
 	private String gender;
 	private String phone;
+	private String email;
 	private String nickName;
 	private int grade;
 	private String joinPath;
 	private Date regDate;
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 	public long getNum() {
 		return num;
@@ -55,10 +62,10 @@ public class MemberDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getBirth() {
+	public String getBirth() {
 		return birth;
 	}
-	public void setBirth(Date birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
 	public String getGender() {
