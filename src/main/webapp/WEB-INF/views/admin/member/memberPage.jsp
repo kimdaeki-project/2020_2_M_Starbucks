@@ -379,13 +379,13 @@
 									y = noHeight/5;
 									
 									var sidoTxt = "";
-									var storeSearch = "";
+									var storeSearchTxt = "";
 									
-									getStoreList(sidoTxt,storeSearch);
+									getStoreList(sidoTxt,storeSearchTxt);
 									
-									function storeSearch(sidoTxt){
-										storeSearch = $("#search-store-txt").val();
-										getSidoList(sidoTxt, storeSearch);
+									function storeSearchTxt(sidoTxt){
+										storeSearchTxt = $("#search-store-txt").val();
+										getSidoList(sidoTxt, storeSearchTxt);
 									}
 									
 									function getSidoList(sidoTxt, search){
@@ -409,11 +409,11 @@
 												
 												$("#store-info-area").empty();
 												$("#store-info-area").append(data);
-												$("#search-store-txt").val(storeSearch);
+												$("#search-store-txt").val(storeSearchTxt);
 												
 												$(".sido").click(function(){
 													sidoTxt = $(this).attr("title");
-													getSidoList(sidoTxt,storeSearch);
+													getSidoList(sidoTxt,storeSearchTxt);
 												})
 												
 												if(sidoName == ''){
@@ -445,14 +445,14 @@
 												})
 												
 												$("#store-search-btn").click(function(){
-													storeSearch = $("#search-store-txt").val();
-													getSidoList(sidoTxt, storeSearch)
+													storeSearchTxt = $("#search-store-txt").val();
+													getSidoList(sidoTxt, storeSearchTxt)
 												})
 												
 												$("#search-store-txt").keydown(function(key){
 													if(key.keyCode == 13){
-														storeSearch = $("#search-store-txt").val();
-														getSidoList(sidoTxt, storeSearch)
+														storeSearchTxt = $("#search-store-txt").val();
+														getSidoList(sidoTxt, storeSearchTxt)
 													}
 												});
 												
