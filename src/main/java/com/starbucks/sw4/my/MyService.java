@@ -2,6 +2,8 @@ package com.starbucks.sw4.my;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,13 +13,14 @@ public class MyService {
 	private MyDAO myDAO;
 	
 	//myIndex 페이지 db 출력
-	public MyDTO getMyIndex() throws Exception{
-		return myDAO.getMyIndex();
+	public MyDTO getMyIndex(MyDTO myDTO) throws Exception{
+		System.out.println(myDTO.getGrade());
+		return myDAO.getMyIndex(myDTO);
 	}
 	
 	//개인정보수정 전 db
-	public MyDTO getOne() throws Exception {
-		return myDAO.getOne();
+	public MyDTO getOne(MyDTO myDTO) throws Exception {
+		return myDAO.getOne(myDTO);
 	}
 	
 	//개인정보 수정 후 update

@@ -2,12 +2,17 @@ package com.starbucks.sw4.my;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.starbucks.sw4.member.MemberDTO;
 
 import oracle.jdbc.proxy.annotation.Post;
 
@@ -134,9 +139,10 @@ public class MyController {
 	
 	//개인 정보 수정
 	@GetMapping("updateMyInfo")
-	public ModelAndView getOne() throws Exception {
+	public ModelAndView getOne(HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		MyDTO info = myService.getOne();
+		MyDTO myDTO = (MyDTO) session.getAttribute("my");
+		MyDTO info = myService.getOne(myDTO);
 		
 		String birth = info.getBirth();
 		String [] date = birth.split("-");
@@ -158,9 +164,11 @@ public class MyController {
 	
 	//마이스타벅스 메인 : myIndex 부분
 	@GetMapping("myIndex")
-	public ModelAndView myIndex(MyDTO myDTO) throws Exception {
+	public ModelAndView myIndex(HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		MyDTO star = myService.getMyIndex();
+		MyDTO myDTO = (MyDTO) session.getAttribute("my");
+		System.out.println(myDTO.getId());
+		MyDTO star = myService.getMyIndex(myDTO);
 		
 		if(star.getGrade()==2) {
 			mv.addObject("grade", "Green level");

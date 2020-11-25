@@ -7,11 +7,12 @@
     	<select id="getStore" parameterType="MyDTO" resultType="MyDTO">
     		select storeName, addr from store where storeName like '%'||#{stosearch}||'%'
     	</select>
+    	
     	<delete id="setMyInfoOut" parameterType="MyDTO">
     		delete from member where id ='jy1234'
     	</delete>
     
-    	<select id="getMyIndex" resultType="MyDTO">
+    	<select id="getMyIndex" resultType="MyDTO" parameterType="MyDTO">
     		select S.useStar, S.id, M.nickName, M.grade, F.fileName, C.balance, F.korName 
 			from starHistory S inner join member M
 			on S.id = M.id
@@ -19,11 +20,11 @@
             on S.cardNum = C.cardNum
             join cardfile F
             on C.korName = f.korname
-			where M.id = 'customer02'
+			where M.id = #{id}
     	</select>
     	
     	<select id="getOne" parameterType="MyDTO" resultType="MyDTO">
-    		select * from member where id = 'customer02'
+    		select * from member where id = #{id}
     	</select>
  
  		<update id="setUpdate" parameterType="MyDTO"> 
