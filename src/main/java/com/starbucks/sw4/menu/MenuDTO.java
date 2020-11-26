@@ -13,7 +13,7 @@ public class MenuDTO {
 	private String via;
 	private String origami;
 	private String optIndex;
-	private String mNew;
+	private String newYN;
 	private String sold;
 	private int price;
 	private String allergy;
@@ -30,7 +30,6 @@ public class MenuDTO {
 	private String enjoyWith;
 	private String origin;
 	private String menuImage;
-	
 	public String getMunuCode() {
 		return munuCode;
 	}
@@ -97,11 +96,11 @@ public class MenuDTO {
 	public void setOptIndex(String optIndex) {
 		this.optIndex = optIndex;
 	}
-	public String getmNew() {
-		return mNew;
+	public String getNewYN() {
+		return newYN;
 	}
-	public void setmNew(String mNew) {
-		this.mNew = mNew;
+	public void setNewYN(String newYN) {
+		this.newYN = newYN;
 	}
 	public String getSold() {
 		return sold;

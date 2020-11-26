@@ -56,6 +56,17 @@
 			<dd>
 				<ul class="product_cold_brew">
 				</ul>
+				<tbody>
+					<c:forEach items="${drinkList}" var="list">
+						<tr>
+							<td>${list.file}</td>
+						</tr>
+						<tr>
+							<td>${list.productFName}</td>
+						</tr>
+					</c:forEach>
+
+				</tbody>
 			</dd>
 
 			<!-- 브루드 커피 -->
@@ -68,6 +79,18 @@
 			<dd>
 				<ul class="product_brood">
 				</ul>
+				<tbody>
+					<c:forEach items="${drinkList}" var="list">
+						<tr>
+							<td>${list.file}</td>
+						</tr>
+						<tr>
+							<td>${list.productFName}</td>
+						</tr>
+					</c:forEach>
+
+				</tbody>
+
 			</dd>
 
 			<!-- 에스프레소 -->
@@ -80,6 +103,17 @@
 			<dd>
 				<ul class="product_espresso">
 				</ul>
+				<tbody>
+					<c:forEach items="${drinkList}" var="list">
+						<tr>
+							<td>${list.file}</td>
+						</tr>
+						<tr>
+							<td>${list.productFName}</td>
+						</tr>
+					</c:forEach>
+
+				</tbody>
 			</dd>
 
 			<!-- 프라푸치노 -->
@@ -92,6 +126,17 @@
 			<dd>
 				<ul class="product_frappuccino">
 				</ul>
+				<tbody>
+					<c:forEach items="${drinkList}" var="list">
+						<tr>
+							<td>${list.file}</td>
+						</tr>
+						<tr>
+							<td>${list.productFName}</td>
+						</tr>
+					</c:forEach>
+
+				</tbody>
 			</dd>
 
 			<!-- 블렌디드 -->
@@ -104,6 +149,17 @@
 			<dd>
 				<ul class="product_blended">
 				</ul>
+				<tbody>
+					<c:forEach items="${drinkList}" var="list">
+						<tr>
+							<td>${list.file}</td>
+						</tr>
+						<tr>
+							<td>${list.productFName}</td>
+						</tr>
+					</c:forEach>
+
+				</tbody>
 			</dd>
 
 			<!-- 스타벅스 피지오 -->
@@ -116,6 +172,17 @@
 			<dd>
 				<ul class="product_fizzo">
 				</ul>
+				<tbody>
+					<c:forEach items="${drinkList}" var="list">
+						<tr>
+							<td>${list.file}</td>
+						</tr>
+						<tr>
+							<td>${list.productFName}</td>
+						</tr>
+					</c:forEach>
+
+				</tbody>
 			</dd>
 
 			<!-- 티 -->
@@ -124,6 +191,17 @@
 					src="//image.istarbucks.co.kr/common/img/menu/logo_decaf.png"
 					alt="" /></i><span class="summary">디카페인 에스프레소 샷 추가 가능 (일부 음료
 					제외)</span>
+				<tbody>
+					<c:forEach items="${drinkList}" var="list">
+						<tr>
+							<td>${list.file}</td>
+						</tr>
+						<tr>
+							<td>${list.productFName}</td>
+						</tr>
+					</c:forEach>
+
+				</tbody>
 			</dt>
 			<dd>
 				<ul class="product_tea">
@@ -137,6 +215,17 @@
 					alt="" /></i><span class="summary">디카페인 에스프레소 샷 추가 가능 (일부 음료
 					제외)</span>
 			</dt>
+			<tbody>
+					<c:forEach items="${drinkList}" var="list">
+						<tr>
+							<td>${list.file}</td>
+						</tr>
+						<tr>
+							<td>${list.productFName}</td>
+						</tr>
+					</c:forEach>
+
+				</tbody>
 			<dd>
 				<ul class="product_etc">
 				</ul>
@@ -146,12 +235,25 @@
 			<dt>
 				<a href="javascript:void(0)">스타벅스 주스(병음료)</a>
 			</dt>
+				<tbody>
+					<c:forEach items="${drinkList}" var="list">
+						<tr>
+							<td>${list.file}</td>
+						</tr>
+						<tr>
+							<td>${list.productFName}</td>
+						</tr>
+					</c:forEach>
+
+				</tbody>			
 			<dd>
 				<ul class="product_juice">
 				</ul>
 			</dd>
 		</dl>
 	</div>
+
+
 
 	<!-- Footer -->
 	<c:import url="../common/footer.jsp"></c:import>
