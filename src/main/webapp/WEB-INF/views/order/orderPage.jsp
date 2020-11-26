@@ -9,14 +9,14 @@
 	<head>
 	
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>Starbucks Korea :: 주문/결제</title>
 				
 		<link href="${pageContext.request.contextPath}/resources/css/common/footer.css" rel="stylesheet" type="text/css">
 		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-		
+				
 		<style type="text/css">
 		
 			#header{
@@ -256,11 +256,11 @@
 								<table>
 									<tr>
 										<td id="buyer-column">이름</td>
-										<td class="buyer-data">임시름</td>
+										<td class="buyer-data" id="buyer-name">임시름</td>
 									</tr>
 									<tr>
 										<td id="buyer-column">전화번호</td>
-										<td class="buyer-data">010-0000-0000</td>
+										<td class="buyer-data" id="buyer-tel">010-0000-0000</td>
 									</tr>
 									<tr>
 										<td id="buyer-column">매장</td>
@@ -269,7 +269,7 @@
 												<input type="text" id="order-store" value="임시 매장">
 												<span id="find-store-btn">매장찾기</span>
 												<p id="pick-up-info-txt">
-												* 음료를 픽업하실 매장을 선택해주세요.
+													* 음료를 픽업하실 매장을 선택해주세요.
 												</p>
 											</div>
 										</td>
@@ -294,6 +294,7 @@
 										* 해당 시간은 예상 소요시간이며, 매장상황에 따라 약간의 오차가 있을 수 있습니다.
 									</p>
 								</div>
+								<input type="hidden" title="테스트 주소" id="buyer-addr">
 							</div>
 						</div>
 					</div>
@@ -308,7 +309,7 @@
 								<div id="order-list-area">
 									<table class="c-margin" id="order-table">
 										<tr>
-											<td id="product-name">토피넛 팝콘 트리 프라푸치노</td>
+											<td id="product-name" title="drink_korName">토피넛 팝콘 트리 프라푸치노</td>
 											<td id="product-quantity"><span id="quantity">1</span>잔 / 매장픽업</td>
 											<td id="product-price"><span id="price">4000</span>원</td>
 										</tr>
@@ -356,7 +357,7 @@
 							</div>
 							<div id="total-price">
 								<div>총 금액</div>
-								<div id="total-price-area"><span id="total-price-info">100000</span>원</div>
+								<div id="total-price-area"><span id="total-price-info">50000</span>원</div>
 							</div>
 						</div>
 					</div>
@@ -369,7 +370,7 @@
 							<form action="" method="POST">
 								<div id="btn-area">
 									<button type="button" class="pay-btn" id="order-cancle-btn">취소하기</button>
-									<button type="submit" class="pay-btn" id="order-pay-btn">결제하기</button>
+									<button type="button" class="pay-btn" id="order-pay-btn">결제하기</button>
 								</div>
 							</form>
 						</div>
@@ -384,6 +385,110 @@
 			<c:import url="../common/footer.jsp"></c:import>
 			<script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=1"></script>
 		</footer>
+
+		<!-- 결제 API -->
+		<!-- jQuery -->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+		<!-- iamport.payment.js -->
+		<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+				
+		<script type="text/javascript">
+		
+		  var merchant_uid;
+		  var name = $("#product-name").attr("title");
+		  var amount = parseInt($("#total-price-info").text());
+		  var buyer_name = $("#buyer-name").text();
+		  var buyer_tel = $("#buyer-name").text();
+		  var buyer_addr = $("#buyer-addr").attr("title");
+		  
+		  var d = new Date();
+		
+		  // 결제 버튼 클릭 ------------------------------------
+		  // https://docs.iamport.kr/tech/imp?lang=ko#param
+		  $("#order-pay-btn").click(function(){
+			// 주문번호 밀리초 기준 생성
+			merchant_uid = "OP" + d.getTime();
+			requestPay(merchant_uid,name,amount,buyer_name,buyer_tel,buyer_addr);
+		  })
+		  //-------------------------------------------------
+		  
+  		  var IMP = window.IMP; // 생략해도 괜찮습니다.
+		  IMP.init("imp35382026"); // "imp00000000" 대신 발급받은 "가맹점 식별코드"를 사용합니다.
+		  
+		  function requestPay(merchant_uid,name,amount,buyer_name,buyer_tel,buyer_addr) {
+				alert(merchant_uid)
+		      // IMP.request_pay(param, callback) 호출
+			      IMP.request_pay({ // param
+			    	  
+			          pg: "kakaopay",
+			          pay_method: "kakaopay",
+			          merchant_uid: merchant_uid,// "가맹점에서 이용하는 고유 주문번호",
+			          name: name, //"주문이름(16자 내 작성)",
+			          amount: amount,//64900, // 결제금액
+			          buyer_name: buyer_name,//"주문자명",
+			          buyer_tel: buyer_tel,//"주문자 연락처",
+			          buyer_addr: buyer_addr//"주문자 주소(우리는 픽업 매장주소)"
+			          
+			      }, function (rsp) {
+			    	  
+			    	  // callback    	  
+			    	  // 결제상태
+			    	  // ready(미결제), paid(결제완료), cancelled(결제취소, 부분취소포함), failed(결제실패)
+			    	  var status = rsp.status;
+			    	  // 결제 완료시간
+			    	  var paid_at = rsp.paid_at;
+			    	  
+			          if (rsp.success) {
+			        	  
+			        	  alert("결제 성공 로직")
+			        	  
+			              // 결제 성공 시 로직,
+					      // jQuery로 HTTP 요청
+					      // Rest API key : 8465520606036682
+					      jQuery.ajax({
+					    	  
+					          url: "https://www.myservice.com/payments/complete", // 가맹점 서버
+					          method: "POST",
+	 				          headers: {
+					        	  "Content-Type": "application/json"
+					          },
+	 				          data: {
+					        	  // imp_uid : 아이임포트 거래 고유번호 실패할 경우 null 값
+					              imp_uid: rsp.imp_uid,
+					              merchant_uid: rsp.merchant_uid,
+					              
+					              // 기존 작성된 것에 추가함
+					              name:rsp.name,
+					              amount:rsp.amount,
+					              buyer_name:rsp.buyer_name,
+					              buyer_tel:rsp.buyer_tel,
+					              buyer_addr:rsp.buyer_addr
+					          }
+					          
+					      }).done(function (data) {
+					    	  
+					    	  	alert(data.status);
+					    	  
+						        // 가맹점 서버 결제 API 성공시 로직
+					            switch(data.status) {
+					            	case "vbankIssued":
+					            	 console.log("가상계좌 발급을 성공하였습니다.");
+				              		 break;
+					            	case "success":
+					                  console.log("결제를 성공하였습니다.");
+						              break;
+	          					}
+					      });
+					      
+			          } else {
+			              // 결제 실패 시 로직
+			        	  alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
+			          }
+
+			      });
+		    	}
+		  
+		</script>
 		
 	</body>
 	
