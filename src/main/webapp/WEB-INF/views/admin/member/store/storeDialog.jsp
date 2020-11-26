@@ -16,7 +16,7 @@
 							href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							<span id="select-type" class="sido-type">시/도</span>
 						</a>
-						<div class="dropdown-menu dropdown-menu-righ">
+						<div class="dropdown-menu dropdown-menu-righ" id="sido-list-drop">
 							<span class="dropdown-item sido" title="" id="">전체</span>
 							<span class="dropdown-item sido" title="서울" id="">서울</span>
 			                <span class="dropdown-item sido" title="경기" id="">경기</span>

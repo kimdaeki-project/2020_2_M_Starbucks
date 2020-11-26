@@ -91,7 +91,6 @@
 				width: 4.8rem;
 				margin: 0px 0.3rem;
 				text-align:center;
-				background-color: yellow;
 			}
 			/* div 내에 양쪽 정렬을 하고 싶다면 하나로 감싼 부모 css display를 flex로 하고, justify-content를 space-between으로 둘 것 */
 			#popup-btn-area{
@@ -131,7 +130,7 @@
 			}
 			#work-store-txt{
 				font-size: 0.8rem;
-				width: 7rem;
+				width: 6.5rem;
 				border: none;
 			}
 			.staff-info-row{
@@ -140,27 +139,36 @@
 			#store-search{
 				font-size: 0.8rem;
 				cursor: pointer;
-			}
-			.info-width{
-				width: 10rem;
-			}
-			#store-search{
+				width: 1.2rem;
 				padding: 0.2rem;
 				color: white;
 				background-color: #D5D5D5;
 				border-radius: 3px;
+				visibility: hidden;
+			}
+			.info-width{
+				width: 10rem;
 			}
 			#store-search-area{
 				margin: 1rem 0px 0.5rem;
 			}
 			#store-select-area{
 				padding: 0.2rem;
+				z-index: 5px;
 				border: 1px solid #D5D5D5;
 			}
+			#sido-drop{
+				z-index: 5px;
+			}
 			#store-select-scroll{
-				width: 100%; height: 240px;
+				width: 95%; height: 240px;
 				overflow:auto; 
 				padding-right: 0.2rem;
+			}
+			#sido-list-drop{
+				z-index: 3px;
+				height: 13rem;
+				overflow: auto;
 			}
 			.select-store{
 				width: 100%; height: 50px;
@@ -178,6 +186,7 @@
 			}
 			#search-store-txt{
 				width:50%;
+				z-index: -5px;
 			}
 			#store-search-btn{
 				border: 1px solid #D5D5D5;
@@ -314,7 +323,6 @@
 					
 					<div id="store-info-area" style="display:none;" class="modal" role="dialog">
 		
-						
 					</div>
 			
 				</main>
@@ -344,23 +352,32 @@
 			var staffInsertId;
 			var staffInsertNum;
 			
+			var sidoTxt = "";
+			var storeSearchTxt = "";
+			
+			var noWidth = window.screen.width;
+			var noHeight = window.screen.height;
+			
+			var beforeChk=0;
+			var storeChk=0;
+			var countChk=0;
+			
 			$("#search-btn").attr("type","button");
 			$("#search-frm").attr("action","#");
 			
 			getList()
 			typeSelect(type)
-
+			
 			$(document).ready(function(){
-				var storeSearchTxt = "";
-				var noWidth = window.screen.width;
-				var noHeight = window.screen.height;
+				
+				var x = noWidth/4.3;
+				var y = noHeight/7.3;
 				
 				$("#update-btn").click(function(){
 					
 					// 변경 불필요 -------------------------------------------------------
-					var x = noWidth/4.3;
-					var y = noHeight/7.3;
 					
+					// ajax member update ---------------------------------------------
 					$.ajax({
 						url:"./memberUpdate",
 						type:"get",
@@ -375,111 +392,8 @@
 							// store dialog -------------------------------------------
 							$("#store-search").click(function(){
 								if (loginType == 4) {
-									x = noWidth/3.1; 
-									y = noHeight/5;
-									
-									var sidoTxt = "";
-									
-									getStoreList(sidoTxt,storeSearchTxt);
-									
-									function storeSearchTxt(sidoTxt){
-										storeSearchTxt = $("#search-store-txt").val();
-										getSidoList(sidoTxt, storeSearchTxt);
-									}
-									
-									function getSidoList(sidoTxt, search){
-										getStoreList(sidoTxt,search)
-									}
-									
-									var beforeChk=0;
-									var storeChk=0;
-									var countChk=0;
-									
-									function getStoreList(sidoName, search){
-	
-										$.ajax({
-											url:"../store/storeList",
-											type:"GET",
-											data:{
-												sidoName:sidoName,
-												search:search
-											},
-											success: function(data){
-												
-												$("#store-info-area").empty();
-												$("#store-info-area").append(data);
-												$("#search-store-txt").val(storeSearchTxt);
-												
-												$(".sido").click(function(){
-													sidoTxt = $(this).attr("title");
-													getSidoList(sidoTxt,storeSearchTxt);
-												})
-												
-												if(sidoName == ''){
-													sidoName = "전체";
-												}
-												
-												$(".sido-type").text(sidoName);
-												$(".select-store").click(function(){
-													
-													storeChk = $(this).index();
-													
-													if(countChk > 0){
-														$(".select-store:eq("+beforeChk+")").css('background-color','white');
-														$(".select-store:eq("+beforeChk+")").css('border','none');
-														beforeChk = storeChk;
-													} else {
-														beforeChk = $(this).index();
-													}
-													
-													$(this).attr("check", "Y");
-													$(this).css("background-color","#F6F6F6");
-													$(this).css("border","1px solid #006633");
-													
-													staffStoreCode = $(this).attr("title");
-													staffStoreName = $(this).attr("name");
-														
-													countChk++;
-	
-												})
-												
-												$("#store-search-btn").click(function(){
-													storeSearchTxt = $("#search-store-txt").val();
-													getSidoList(sidoTxt, storeSearchTxt)
-												})
-												
-												$("#search-store-txt").keydown(function(key){
-													if(key.keyCode == 13){
-														storeSearchTxt = $("#search-store-txt").val();
-														getSidoList(sidoTxt, storeSearchTxt)
-													}
-												});
-												
-												$(".store-choose").click(function(){
-													$("#work-store-txt").val(staffStoreName);
-													$("#work-store-txt").attr("title",staffStoreCode);
-													$("#pop-update-btn").text("수정");
-													$("#pop-update-btn").attr("title","수정");
-													$("#store-info-area").dialog('close');
-												});
-												
-												$(".store-cancle").click(function(){
-													$("#store-info-area").dialog('close');
-												});
-												
-											}
-										});
-									}
-									
-									$("#store-info-area").dialog({
-										modal:true,
-										width:'50%',
-										height:'500',
-										resizable:false,
-										open:function(){
-											$(this).parent().offset ({top: y,left: x } );
-										}
-									});
+									// doal log get Store search Function
+									getDialogStore(sidoTxt, storeSearchTxt);
 								} else {
 									alert("접근 권한이 없습니다.");
 								}
@@ -487,16 +401,6 @@
 							// ------------------------------------------------------------
 							var btnTxt = $("#update-btn").attr("title");
 							initBtn(btnTxt)
-							
-							function initBtn(btnTxt){
-								if(btnTxt == '입력'){
-									$("#pop-update-btn").text("입력");
-									$(".work-time").attr("readonly",false)
-								} else {
-									$(".work-time").attr("readonly",true);
-									$("#pop-update-btn").text("수정하기");
-								}
-							}
 							
 							// adminMember table : time table Y,N -------------------------
 							// update-btn text 값에 따라 수정하기와 입력하기가 나뉨
@@ -506,90 +410,14 @@
 								var update_btn_chk = $("#pop-update-btn").text();
 								
 								if(update_btn_chk == "수정하기"){
-									
 									init("수정하기", true)
-									var url = "./memberUpdate";
-									
 									$("#pop-update-btn").text("수정");
+									$("#store-search").css("visibility","visible");
 									$(".work-time").attr("readonly",false)
-									
 								} else if(update_btn_chk == "수정"){
-										
-									var staffNum = $("#staff-info-num").attr("title");
-									var staffAdminNum = $("#staff-info-admin-num").attr("title");
-									var staffStoreCode = $("#work-store-txt").attr("title");
-									
-									var sun = $("#sunStart").val()+"-"+$("#sunEnd").val();
-									var mon = $("#monStart").val()+"-"+$("#monEnd").val();
-									var tue = $("#tueStart").val()+"-"+$("#tueEnd").val();
-									var wed = $("#wedStart").val()+"-"+$("#wedEnd").val();
-									var thu = $("#thuStart").val()+"-"+$("#thuEnd").val();
-									var fri = $("#friStart").val()+"-"+$("#friEnd").val();
-									var sat = $("#satStart").val()+"-"+$("#satEnd").val();
-	
-									// 출퇴근 시간 update
-									$.ajax({
-										url: "./memberUpdate",
-										type: "post",
-										data:{
-											num:staffNum,
-											adminNum:staffAdminNum,
-											storeCode:staffStoreCode,
-											sun:sun,
-											mon:mon,
-											tue:tue,
-											wed:wed,
-											thu:thu,
-											fri:fri,
-											sat:sat
-										},
-										success: function(result){
-											alert("수정이 완료되었습니다.")
-											location.href="./memberList";
-										},
-										error: function(){
-											alert("수정을 실패하였습니다.")
-										}
-									});
-	
+									memberUpdate()
 								} else if (update_btn_chk == "입력"){
-	
-									init("입력", false)
-									// $.post 실행 후 닫기
-									
-									var url = "./memberWrite"
-									
-									var sun = $("#sunStart").val()+"-"+$("#sunEnd").val();
-									var mon = $("#monStart").val()+"-"+$("#monEnd").val();
-									var tue = $("#tueStart").val()+"-"+$("#tueEnd").val();
-									var wed = $("#wedStart").val()+"-"+$("#wedEnd").val();
-									var thu = $("#thuStart").val()+"-"+$("#thuEnd").val();
-									var fri = $("#friStart").val()+"-"+$("#friEnd").val();
-									var sat = $("#satStart").val()+"-"+$("#satEnd").val();
-
-									$.ajax({
-										url: url,
-										type: "post",
-										data: {
-											id:staffInsertId,
-											num:staffInsertNum,
-											sun:sun,
-											mon:mon,
-											tue:tue,
-											wed:wed,
-											thu:thu,
-											fri:fri,
-											sat:sat
-										},
-										success: function(result){
-											alert("작성을 성공하였습니다.");
-											location.href="./memberList";
-										},
-										error: function(result){
-											alert("작성에 실패하였습니다.")
-										}
-									})
-	
+									memberWrite();
 								}
 								
 							})
@@ -601,6 +429,7 @@
 							
 						}
 					})
+					// 종료: ajax member update ---------------------------------------------
 
 					$("#staff-update-area").dialog({
 						modal:true,
@@ -614,6 +443,96 @@
 
 				})				
 			})
+			
+			function initBtn(btnTxt){
+				if(btnTxt == '입력'){
+					$("#pop-update-btn").text("입력");
+					$(".work-time").attr("readonly",false)
+				} else {
+					$(".work-time").attr("readonly",true);
+					$("#pop-update-btn").text("수정하기");
+				}
+			}
+			
+			function memberWrite(){
+				
+				init("입력", false)
+				// $.post 실행 후 닫기
+				
+				var url = "./memberWrite"
+				
+				var sun = $("#sunStart").val()+"-"+$("#sunEnd").val();
+				var mon = $("#monStart").val()+"-"+$("#monEnd").val();
+				var tue = $("#tueStart").val()+"-"+$("#tueEnd").val();
+				var wed = $("#wedStart").val()+"-"+$("#wedEnd").val();
+				var thu = $("#thuStart").val()+"-"+$("#thuEnd").val();
+				var fri = $("#friStart").val()+"-"+$("#friEnd").val();
+				var sat = $("#satStart").val()+"-"+$("#satEnd").val();
+
+				$.ajax({
+					url: url,
+					type: "post",
+					data: {
+						id:staffInsertId,
+						num:staffInsertNum,
+						sun:sun,
+						mon:mon,
+						tue:tue,
+						wed:wed,
+						thu:thu,
+						fri:fri,
+						sat:sat
+					},
+					success: function(result){
+						alert("작성을 성공하였습니다.");
+						location.href="./memberList";
+					},
+					error: function(result){
+						alert("작성에 실패하였습니다.")
+					}
+				})
+
+			}
+			
+			function memberUpdate(){
+				var staffNum = $("#staff-info-num").attr("title");
+				var staffAdminNum = $("#staff-info-admin-num").attr("title");
+				var staffStoreCode = $("#work-store-txt").attr("title");
+				
+				var sun = $("#sunStart").val()+"-"+$("#sunEnd").val();
+				var mon = $("#monStart").val()+"-"+$("#monEnd").val();
+				var tue = $("#tueStart").val()+"-"+$("#tueEnd").val();
+				var wed = $("#wedStart").val()+"-"+$("#wedEnd").val();
+				var thu = $("#thuStart").val()+"-"+$("#thuEnd").val();
+				var fri = $("#friStart").val()+"-"+$("#friEnd").val();
+				var sat = $("#satStart").val()+"-"+$("#satEnd").val();
+
+				// 출퇴근 시간 update
+				$.ajax({
+					url: "./memberUpdate",
+					type: "post",
+					data:{
+						num:staffNum,
+						adminNum:staffAdminNum,
+						storeCode:staffStoreCode,
+						sun:sun,
+						mon:mon,
+						tue:tue,
+						wed:wed,
+						thu:thu,
+						fri:fri,
+						sat:sat
+					},
+					success: function(result){
+						alert("수정이 완료되었습니다.")
+						location.href="./memberList";
+					},
+					error: function(){
+						alert("수정을 실패하였습니다.")
+					}
+				});
+
+			}
 			
 			function init(btnText, readOnly){
 				$("#pop-update-btn").text(btnText);
@@ -716,7 +635,124 @@
 				type = $(this).attr("title")
 				typeSelect(type)
 			})
+
+			// 종료: get store list function 분리 -----------------------------------
+			// function 으로 분리 -------------------------------
+			function getDialogStore(sidoTxt, storeSearchTxt){
+				
+				x = noWidth/3.1; 
+				y = noHeight/5;
+				
+				getStoreList(sidoTxt,storeSearchTxt);
+								
+				beforeChk=0;
+				storeChk=0;
+				countChk=0;
+												
+				$("#store-info-area").dialog({
+					modal:true,
+					width:'50%',
+					height:'500',
+					resizable:false,
+					open:function(){
+						$(this).parent().offset ({top: y,left: x } );
+					}
+				});
+			}
+			// 종료: function 분리 --------------------------------------------------
 			
+			function getStoreSearch(sidoTxt){
+				storeSearchTxt = $("#search-store-txt").val();
+				getSidoList(sidoTxt, storeSearchTxt);
+			}
+			
+			function getSidoList(sidoTxt, search){
+				getStoreList(sidoTxt,search);
+			}
+			
+			// function 분리하기 ---------------------------
+			function getStoreList(sidoTxt, search){
+				$.ajax({
+					url:"../store/storeList",
+					type:"GET",
+					data:{
+						sidoName:sidoTxt,
+						search:search
+					},
+					success: function(data){
+						
+						$("#store-info-area").empty();
+						$("#store-info-area").append(data);
+						$("#search-store-txt").val(search);
+						
+						$(".sido").click(function(){
+							sidoTxt = $(this).attr("title");
+							getSidoList(sidoTxt,search);
+						})
+						
+						var showSido;
+						if(sidoTxt == ''){
+							showSido = '전체';
+						} else {
+							showSido = sidoTxt;
+						}
+						
+						$(".sido-type").text(showSido);
+						$(".select-store").click(function(){
+							
+							storeChk = $(this).index();
+							
+							if(countChk > 0){
+								$(".select-store:eq("+beforeChk+")").css('background-color','white');
+								$(".select-store:eq("+beforeChk+")").css('border','none');
+								beforeChk = storeChk;
+							} else {
+								beforeChk = $(this).index();
+							}
+							
+							$(this).attr("check", "Y");
+							$(this).css("background-color","#F6F6F6");
+							$(this).css("border","1px solid #006633");
+							
+							staffStoreCode = $(this).attr("title");
+							staffStoreName = $(this).attr("name");
+								
+							countChk++;
+			
+						})
+						
+						$("#store-search-btn").click(function(){
+							getStoreSearch(sidoTxt);
+							/* storeSearchTxt = $("#search-store-txt").val();
+							getSidoList(sidoTxt, search) */
+						})
+						
+						$("#search-store-txt").keydown(function(key){
+							if(key.keyCode == 13){
+								getStoreSearch(sidoTxt);
+								/* storeSearchTxt = $("#search-store-txt").val();
+								getSidoList(sidoTxt, search) */
+							}
+						});
+						
+						$(".store-choose").click(function(){
+							$("#work-store-txt").val(staffStoreName);
+							$("#work-store-txt").attr("title",staffStoreCode);
+							$("#pop-update-btn").text("수정");
+							$(".work-time").attr("readonly",false);
+							$("#pop-update-btn").attr("title","수정");
+							$("#store-info-area").dialog('close');
+						});
+						
+						$(".store-cancle").click(function(){
+							$("#store-info-area").dialog('close');
+						});
+						
+					}
+				});
+				
+			}
+
 		</script>
 		
 	</body>
