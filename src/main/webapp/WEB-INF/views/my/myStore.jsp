@@ -54,7 +54,7 @@
     	
     	<section class="my_store_wrap">
     		<p class="store">
-    			<strong>000</strong>님은 가장 최근 2020-11-22에 <strong>홍대공항철도역점</strong>에서 <strong>바닐라 더블샷 마끼아또</strong>를 마셨습니다
+    			<strong>${ar.id}</strong>님은 가장 최근 2020-11-22에 <strong>홍대공항철도역점</strong>에서 <strong>바닐라 더블샷 마끼아또</strong>를 마셨습니다
     		</p>
     	
     	</section>
@@ -99,7 +99,7 @@
     									<td>
     										<div class="ez-checkbox">
     										<input type="checkbox" name="myStore_ck" id="ck2All" title="전체 선택" class="ez-hide"></div></td>
-									 	<td>1 : ${vs.first}</td>
+									 	<td>${ar.r}</td>
 									  	<td>
 									  	 <img src="//image.istarbucks.co.kr/${ar.defaultfile}" alt=".">
 									  	</td>

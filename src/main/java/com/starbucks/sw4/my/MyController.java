@@ -96,7 +96,7 @@ public class MyController {
 	}
 	//별 히스토리 db 가져오기
 	@GetMapping("myStarHistory")
-	public void getMyStar(HttpSession session) throws Exception {
+	public ModelAndView getMyStar(HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		MyDTO myDTO = (MyDTO) session.getAttribute("my");
 		MyDTO star = myService.getMyStar(myDTO);
@@ -104,7 +104,8 @@ public class MyController {
 		System.out.println(star.getCardNum());
 		mv.addObject("star", star);
 		mv.setViewName("my/myStarHistory");
-	
+		
+		return mv;
 	}
 	
 	//비밀 번호 변경 db처리

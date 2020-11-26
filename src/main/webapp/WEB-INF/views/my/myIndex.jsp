@@ -98,7 +98,7 @@
 					        <!-- Slides -->
 					        <div class="swiper-slide">
 					        	<figure>
-					        		<img alt="#" src="${star.fileName}">
+					        		<img alt="#" src="${star.menuimage}">
 					        	</figure>
 					        	<div class="my_card_info">
 					        		<p class="my_card_id"> 

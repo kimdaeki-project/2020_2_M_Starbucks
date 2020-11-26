@@ -27,7 +27,7 @@ public class MyDTO extends MemberDTO{
 	private Date validDate;
 	
 	//images
-	private String fileName;
+	private String menuimage;
 	
 	//store
 	private String storeName;
@@ -35,9 +35,15 @@ public class MyDTO extends MemberDTO{
 	private String defaultfile;
 	private String stosearch;
 	
+	private int r;
 	
 	
-	
+	public int getR() {
+		return r;
+	}
+	public void setR(int r) {
+		this.r = r;
+	}
 	public String getStosearch() {
 		return stosearch;
 	}
@@ -62,11 +68,12 @@ public class MyDTO extends MemberDTO{
 	public void setKorName(String korName) {
 		this.korName = korName;
 	}
-	public String getFileName() {
-		return fileName;
+	
+	public String getMenuimage() {
+		return menuimage;
 	}
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+	public void setMenuimage(String menuimage) {
+		this.menuimage = menuimage;
 	}
 	public long getBalance() {
 		return balance;
