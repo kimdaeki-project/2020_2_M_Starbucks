@@ -83,8 +83,8 @@
 					<aside>
 			 		 <span><strong class="curSlideNo">1</strong>/<span class="totalCnt">5</span></span>
        				<p>
-             		<a class="back" href="javascript:void(0);">이전카드 보기</a><!-- 접근성_20171201 수정 -->
-             		<a class="forward" href="javascript:void(0);">다음카드 보기</a><!-- 접근성_20171201 수정 -->
+             		<a class="back" href="#">이전카드 보기</a><!-- 접근성_20171201 수정 -->
+             		<a class="forward" href="#">다음카드 보기</a><!-- 접근성_20171201 수정 -->
               	  </p>
            		  </aside>
            	
