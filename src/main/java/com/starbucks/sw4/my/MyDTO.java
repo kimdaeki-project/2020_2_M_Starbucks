@@ -88,9 +88,7 @@ public class MyDTO extends MemberDTO{
 	public void setUseStar(long useStar) {
 		this.useStar = useStar;
 	}
-	
-	
-	
+
 	public long getOutStar() {
 		return outStar;
 	}

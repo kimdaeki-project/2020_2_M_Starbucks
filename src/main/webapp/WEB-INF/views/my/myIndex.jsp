@@ -66,7 +66,7 @@
         	  <p class="ms_user_stat"><span><strong class="userName">${star.nickName}<!-- 홍길동 --></strong> 님은</span> <span>현재 <strong class="en userGrade">${grade}<!-- Green Level --></strong>이십니다.</span></p>
        			<div class="ms_user_stat_btns">
                     <ul>
-						<li><a href="./myIndex">리워드 및 혜택</a></li>
+						<li><a href="https://www.starbucks.co.kr/msr/msreward/about.do">리워드 및 혜택</a></li>
 						<li><a href="./myStarHistory">별 히스토리</a></li>
 						<li class="btn_black"><a href="./updateMyInfo">개인정보 수정</a></li>
 						<li class="btn_gray"><a class="gray" href="./modifyPW">비밀번호 변경</a></li>
