@@ -50,11 +50,10 @@ public class MemberUserController {
 	//************************************************** 
 	
 	
-	//*******************  LOGIN  ********************** 
+	//*******************  LOGIN  **********************
+	private int errorCnt = 0;
 	@PostMapping("memberLogin")
 	public ModelAndView getMemberLogin(MemberDTO memberDTO, String idRemb, HttpSession session, HttpServletResponse reponse) throws Exception {
-		int errorCnt = 0;
-		
 		ModelAndView mv = new ModelAndView();
 		
 		//쿠키 생성
@@ -75,7 +74,7 @@ public class MemberUserController {
 			memberDTO = memberUserService.getMemberLogin(memberDTO);
 			
 			if(memberDTO != null && memberDTO.getType() == 1) {
-				session.setAttribute("member", memberDTO);
+				session.setAttribute("member", memberDTO);				
 				
 				if(memberDTO.getNickName() != null) {
 					mv.addObject("msg", memberDTO.getNickName() + " 님 환영합니다!");
@@ -86,25 +85,24 @@ public class MemberUserController {
 				errorCnt = 0;
 			} else if (memberDTO != null && memberDTO.getType() > 1) {
 				mv.addObject("msg", "접근 권한이 없는 계정입니다.");
-				mv.addObject("path", "../admin/adminLogin");
-			} else {
+				mv.addObject("path", "./memberLogin");
+			} else {	//비밀번호 오류 처리
 				errorCnt++;
 				if(errorCnt >= 5) {
 					mv.addObject("msg", "로그인 5회 이상 오류입니다. 정확한 아이디 혹은 비밀번호를 확인해주세요.");
+					//추가작업 (5회이상 오류시 보안문자입력후 로그인 가능)
 					mv.addObject("path", "./memberLogin");
 				} else {
 					mv.addObject("msg", "정확한 아이디 혹은 비밀번호를 입력해주세요.");
 					mv.addObject("path", "./memberLogin");
 				}
-				
 			}
-			
 		//미가입 회원
 		} else {
 			mv.addObject("msg", "미가입 회원입니다. 회원가입 하시고 다양한 혜택을 즐겨보세요.");
-			mv.addObject("path", "./memberLogin");			
+			mv.addObject("path", "./memberLogin");
 		}
-		
+		System.out.println("errorCount : " + errorCnt);
 		mv.setViewName("common/result");
 		
 		return mv;
@@ -157,7 +155,8 @@ public class MemberUserController {
 			} else {
 				mv.addObject("msg", memberDTO.getName() + "님 환영합니다!");
 			}
-			mv.addObject("path", "../");
+			mv.addObject("member", memberDTO);
+			mv.addObject("path", "../memberJoinResult");
 		} else {
 			mv.addObject("msg", "입력 정보를 다시 확인해주세요.");
 			mv.addObject("path", "./memberJoin2");
@@ -206,9 +205,9 @@ public class MemberUserController {
         String title = "회원가입 인증 이메일 입니다."; 	// 제목
         String content =
         	System.getProperty("line.separator") +                        
-        	"안녕하세요 회원님 저희 홈페이지를 찾아주셔서 감사합니다" +
+        	"안녕하세요. 회원님! 저희 홈페이지를 찾아주셔서 감사합니다." +
         	System.getProperty("line.separator") +
-        	"인증번호는 " + authDTO.getAuthKey() + " 입니다. " + 
+        	"인증번호는 '" + authDTO.getAuthKey() + "' 입니다. " + 
         	System.getProperty("line.separator")+
         	"받으신 인증번호를 홈페이지에 입력해 주시면 다음으로 넘어갑니다.";
         
@@ -260,18 +259,19 @@ public class MemberUserController {
 		
 		if(authKey == authDTO.getAuthKey()) {
 			memberDTO.setEmail(authDTO.getEmail());
-			session.setAttribute("member", memberDTO);
+			//session.setAttribute("member", memberDTO);
 			
-			mv.addObject("msg", "인증이 완료되었습니다.");
-			mv.addObject("path", "./memberJoin2");
+			//mv.addObject("msg", "인증이 완료되었습니다.");
+			//mv.addObject("path", "./memberJoin2");
 			
 		} else {
 			mv.addObject("msg", "인증번호가 일치하지 않습니다. 다시 확인해주세요.");
 			mv.addObject("path", "./emailAuth");
+			mv.setViewName("common/result");
 		}
 		
-		session.setAttribute("auth", authDTO);
-		mv.setViewName("common/result");
+		//session.setAttribute("auth", authDTO);
+		
 		return mv;
 	}
 	//**************************************************
