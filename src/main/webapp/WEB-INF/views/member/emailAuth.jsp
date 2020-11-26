@@ -17,26 +17,14 @@
 	<link href="${pageContext.request.contextPath}/resources/css/common/reset.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/header.css?v=1" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/footer.css?v=1" rel="stylesheet" type="text/css">
-	<link href="${pageContext.request.contextPath}/resources/css/member/emailAuth.css?v=1" rel="stylesheet" type="text/css">
+	<link href="${pageContext.request.contextPath}/resources/css/member/emailAuth.css?v=2" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/jquery.bxslider.css" rel="stylesheet">
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/common/jquery.bxslider.min.js"></script>
-	<!-- <style type="text/css">
-		#container { width:100%; padding:30px 0; }
-		#container span { color:green; font-weight:bold; }
-		#container div { padding:10px; }
-		input[type="number"]::-webkit-outer-spin-button,
-		input[type="number"]::-webkit-inner-spin-button {
-		    -webkit-appearance: none;
-		    margin: 0;
-		}
-		#authkey_txt { padding:10px 5px; width:100px; float:left; }
-		#authKey { padding: 10px; }
-	</style> -->
 </head>
 <body>
-<div id="wrap">
+<div id="wrap" onkeydown="keyDown()">
 	<!-- Header -->
 	<c:import url="../common/header.jsp"></c:import>
 	<!-- //Header -->
@@ -56,9 +44,8 @@
 							<p class="find_form_txt"><span>입력한 이메일로 받은 인증번호를 입력하세요. <br>(인증번호가 맞아야 다음 단계로 넘어가실 수 있습니다.)</span></p>
 							<div class="form_input_box email_chk">
 								<label for="email" class ="hid">인증번호</label>
-								<p id="authkey_txt"> 인증번호 입력 </p><input type="number" id="authKey" name="authKey" placeholder="인증번호를 입력하세요." />
+								<p id="authkey_txt"> 인증번호 입력 </p><input type="number" id="authKey" name="authKey" maxlength="6" oninput="numberMaxLength(this);" placeholder="인증번호를 입력하세요." />
 							</div>
-							<!-- <input type="hidden" name="authState" id="authState" value="1" /> -->
 						</section>
 						<p class="btn_email_auth">
 							<button type="submit" class="auth_check" name="submit">이메일 인증 발송</button>
@@ -74,5 +61,25 @@
 </div>
 	<script src="${pageContext.request.contextPath}/resources/js/common/header.js?v=1"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=1"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#authKey").focusout(function() {
+			var size = $(this).length();
+			console.log(size);
+		});
+	});
+	
+	//엔터키 방지
+	function keyDown() {
+		if(window.event.keyCode==13) {
+			$("#frmJoin").submit();
+		} else {
+			return;
+		}
+	}
+	function numberMaxLength(e) {
+		
+	}
+	</script>
 </body>
 </html>

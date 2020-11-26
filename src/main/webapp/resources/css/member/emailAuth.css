@@ -24,9 +24,11 @@
 .find_form_txt span { color:green; font-weight:bold; }
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-#authkey_txt { padding:10px 5px; width:100px; float:left; }
-#authKey { padding: 10px; }
-		
+.email_chk #authkey_txt { padding:10px 5px; width:30%; float:left; }
+.email_chk #authKey { padding: 15px; }
+
+
+
 @media screen and (max-width:960px) {
 	#container { padding:70px 0; }
 }
