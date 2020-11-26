@@ -1,6 +1,6 @@
-package com.starbucks.sw4.product;
+package com.starbucks.sw4.product.drink;
 
-public class ProductDTO {
+public class DrinkDTO {
 
 	private String productCode;
 	private String category;
