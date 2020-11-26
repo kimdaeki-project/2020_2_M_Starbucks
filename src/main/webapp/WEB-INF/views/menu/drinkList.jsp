@@ -9,6 +9,7 @@
 	<link href="${pageContext.request.contextPath}/resources/css/common/reset.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/header.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/myPage/faqList.css" rel="stylesheet" type="text/css">
+	<link href="${pageContext.request.contextPath}/resources/css/menu/menuList.css" rel="stylesheet" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -17,50 +18,6 @@
 	<style type="text/css">
 	
 	</style>
-<style type="text/css">
-div.product_list > dl > dd {
-    margin-bottom: 40px;
-}
-div.product_list > dl > dd > ul {
-    width: 1120px;
-    position: relative;
-    left: -10px;
-    top: -10px;
-}
-div.product_list > dl > dd > ul > li {
-    width: 260px;
-    float: left;
-    margin: 10px;
-    position: relative;
-}
-nav ul, li {
-    list-style: none;
-}
-div.product_list > dl > dd > ul li dl {
-    width: 260px;
-}
-div.product_list > dl > dd > ul li dt {
-    width: 258px;
-    height: auto;
-    position: relative;
-    overflow: hidden;
-}
-div.product_list > dl > dd > ul li dd {
-    font-size: 14px;
-    color: #444;
-    height: 54px;
-    line-height: 54px;
-    text-align: center;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.content {
-    width: 1100px;
-    margin: 0 auto;
-    padding-bottom: 90px;
-}
-</style>
 </head>
 <body>
 <c:import url="../common/header.jsp"></c:import>
