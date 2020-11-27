@@ -90,6 +90,9 @@ public class MemberDTO {
 		this.nickName = nickName;
 	}
 	public int getGrade() {
+		if(grade==0) {
+			grade = 1;
+		}
 		return grade;
 	}
 	public void setGrade(int grade) {
