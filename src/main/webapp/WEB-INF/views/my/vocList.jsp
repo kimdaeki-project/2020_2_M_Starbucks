@@ -31,10 +31,14 @@
 	<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 	
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+	<style type="text/css">
+		.ms_nav ul li a span i { position: absolute; top: 50%; right: 0;}
+	</style>
 </head>
 <body>
-		<c:import url="../admin/template/bootstrap.jsp"></c:import>
+		
 		
 	 <!-- Header -->
    <c:import url="../common/header.jsp"></c:import>

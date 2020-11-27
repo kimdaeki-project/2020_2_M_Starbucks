@@ -40,15 +40,15 @@ public class MyController {
 //	}
 	
 	@PostMapping("myInfoOut")
-	public ModelAndView setMyInfoOut(MyDTO myDTO,HttpSession session) throws Exception {
+	public void setMyInfoOut(MyDTO myDTO,HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		int result = myService.setMyInfoOut(myDTO);
 		if(result>0) {
 		session.invalidate();
 		}
-		mv.setViewName("redirect:../");
+		
 		//자동로그아웃되게 처리하고, 메인페이지로 이동시키기..
-		return mv;
+		
 	}
 	
 	//회원 탈퇴
@@ -90,10 +90,10 @@ public class MyController {
 		System.out.println("category2: "+myDTO.getCategory());
 		int result = myService.setVocList(myDTO);
 		if(result>0) {
-			mv.addObject("msg", "업데이트 성공");
+			mv.addObject("msg", "문의내역이 저장되었습니다");
 			mv.addObject("path", "./myIndex");
 		}else {
-			mv.addObject("msg", "업데이트 실패");
+			mv.addObject("msg", "고객의 소리 등록 실패");
 			mv.addObject("path", "./vocList");
 		}
 		mv.setViewName("common/result");

@@ -98,7 +98,7 @@
   		
   		
   		$(".btn_ok").click(function(){
-  			alert("정말로 탈퇴하시겠습니까?")
+  			alert("탈퇴 시 카드 잔액은 환불이 불가합니다. 정말로 탈퇴하시겠습니까?")
   			var id = $("#user_id").val();
   			var pw = $("#newpw1").val();
   			if(pwCheck){
@@ -107,7 +107,9 @@
   			 	type:"POST",
   			 	data:{id:id, pw:pw},
   			 	success:function(){
-  			 		alert("탈퇴 완료되었습니다")
+  			 		alert("탈퇴 완료되었습니다");
+  			 		location.href="../";
+  			 		
   			 	}
   			 })
   			}

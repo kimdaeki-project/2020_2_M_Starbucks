@@ -75,7 +75,7 @@
 .ms_nav ul li a span i {
     position: absolute;
     top: 50%;
-    right: 60px;
+    right: 0px;
     transform: translateY(-50%);
     font-size: 22px;
 }
