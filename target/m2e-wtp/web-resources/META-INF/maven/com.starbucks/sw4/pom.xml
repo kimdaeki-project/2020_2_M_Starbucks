@@ -16,7 +16,6 @@
 	</properties>
 	<dependencies>
 	
-	
 		<!-- 추가 : Start (성민 / 20.11.09) -->
 		<!-- mybatis -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
@@ -246,8 +245,27 @@
 		
 		<!-- 추가 : End (성민 / 20.11.24) -->
 		
+		<!-- iamport -->
+		<!-- https://github.com/iamport/iamport-rest-client-java -->
+		<dependency>
+		    <groupId>com.github.iamport</groupId>
+		    <artifactId>iamport-rest-client-java</artifactId>
+		    <version>0.2.12</version>
+		</dependency>
+		<!-- 추가: End (하늘 / 20.11.26) -->
 		
 	</dependencies>
+	
+	<!-- iamport -->
+	<!-- https://github.com/iamport/iamport-rest-client-java -->
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+	<!-- 추가: End (하늘 / 20.11.26) -->
+	
     <build>
         <plugins>
             <plugin>
