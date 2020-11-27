@@ -10,7 +10,7 @@
 			<div class="sub_gnb_wrap">
 				<div class="sub_gnb_wrap_inner">
 					<h1 class="logo">
-						<a href="./" title="스타벅스 메인페이지">스타벅스 코리아</a>
+						<a href="${pageContext.request.contextPath}/" title="스타벅스 메인페이지">스타벅스 코리아</a>
 					</h1>
 					<nav class="util_nav">
 						<ul>
