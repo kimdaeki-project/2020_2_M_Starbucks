@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+#order-store{
+	cursor: pointer;
+}
+#order-and-pay{
+	font-weight: bold;
+	color: #006633;
+}
 #store-select-info {
     background-color: #F6F6F6;
     color: #5D5D5D;
