@@ -50,17 +50,17 @@
 							<p class="find_form_txt">회원정보를 입력해주세요.</p>
 							<div class="form_input_box id_chk">
 								<label for="id" class="hid">아이디</label>
-								<input type="text" name="id" id="id" class="empty_chk" placeholder="아이디" maxlength="13" />
+								<input type="text" name="id" id="id" class="empty_chk" placeholder="아이디" maxlength="13" required="required"/>
 								<p class="limit_txt id_chk_txt" id="id_chk_txt">영문(대소문자 구분 없음), 숫자로 4~13자리만 입력 가능합니다.</p>
 							</div>
 							<div class="form_input_box pw_chk">
 								<label for="pw" class="hid">비밀번호</label> 
-								<input type="password" id="pw" name="pw" placeholder="비밀번호" maxlength="20" autocomplete="off" />
+								<input type="password" id="pw" name="pw" placeholder="비밀번호" maxlength="20" autocomplete="off" required="required"/>
 								<p class="limit_txt pwd_txt" id="pw_txt">영문, 숫자 혼합하여 10~20자리 이내로 입력하세요.</p>
 							</div>
 							<div class="form_input_box pw_chk bd_none">
 								<label for="pw_chk" class="hid">비밀번호확인</label>
-								<input type="password" id="pw_chk" name="pw_chk" placeholder="비밀번호 확인" maxlength="20" autocomplete="off" />
+								<input type="password" id="pw_chk" name="pw_chk" placeholder="비밀번호 확인" maxlength="20" autocomplete="off" required="required"/>
 								<p class="limit_txt pwd_chk_txt" id="pw_chk_txt">입력하신 패스워드를 다시 한 번 입력해주세요.</p>
 							</div>
 						</section>
@@ -124,7 +124,7 @@
 								<!-- 팝업 end -->
 								<p class="nofix_num"></p>
 								<label class="ally" for="phone">휴대폰번호<span class="type_green">(필수)</span></label>
-								<input type="text" name="phone" id="phone" placeholder="휴대폰번호를 입력하세요. (예시: 010-1234-5678)" maxlength="13" />
+								<input type="text" name="phone" id="phone" placeholder="휴대폰번호를 입력하세요. (예시: 010-1234-5678)" maxlength="13" required="required"/>
 								<p class="limit_txt phone_txt" id="phone_txt"></p>
 							</div>
 							
@@ -252,7 +252,7 @@
 								<label for="user_nick_nm" class="hid">닉네임</label>
 								<%-- <input type="text" name="user_nick_nm" id="user_nick_nm" placeholder="닉네임 입력을 위해 약관에 동의해 주세요." maxlength="6" disabled="" /> --%>
 								<input type="text" id="nickName" name="nickName" placeholder="한글 6자리 이내로 입력하세요." value="" />
-								<p class="limit_txt input_warn_text user_nick_nm_txt" id="user_nick_nm_txt"></p>
+								<p class="limit_txt nickName_txt" id="nickName_txt"></p>
 							</div>
 						</section>
 						<p class="modify_txt2">
