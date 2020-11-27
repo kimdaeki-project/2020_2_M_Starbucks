@@ -285,7 +285,10 @@
 		var emptyCheckResult = true;
 		
 		$("#join").click(function() {
-			emptyCheck();
+			var birth = $("#birth_year").val() + "-" + $("#birth_month").val() + "-" + $("#birth_day").val();
+			$("#birth").attr("value", birth);
+			
+			var gender="";
 		});
 		
 		function emptyCheck() {

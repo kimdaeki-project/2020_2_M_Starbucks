@@ -128,7 +128,7 @@ public class MemberUserController {
 	public ModelAndView setMemberJoin1() throws Exception {
 		System.out.println("MemberUSerJoin1 -- Controller");
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:./memberJoin1");
+		mv.setViewName("member/memberJoin1");
 		
 		return mv;
 	}
@@ -151,6 +151,7 @@ public class MemberUserController {
 	public ModelAndView setMemberJoin2(MemberDTO memberDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
+		System.out.println("birth" + memberDTO.getBirth());
 		System.out.println("name" + memberDTO.getName());
 		System.out.println("phone" + memberDTO.getPhone());
 		System.out.println("email" + memberDTO.getEmail());
