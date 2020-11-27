@@ -10,7 +10,8 @@
 				#{m_redirect_url},#{buyer_tel},#{pay_amount},#{pay_status},#{name});
 	</insert>
 
+	<!-- 
 insert into pay
-values (pay_seq.NEXTVAL,#{orderNum}, 'kakao', 'card','OP6', 1000,'KRW', 'https://localhosw/sw4/', '010-0000-0000', 1000, 'paid','name');
+values (pay_seq.NEXTVAL,#{orderNum}, 'kakao', 'card','OP6', 1000,'KRW', 'https://localhosw/sw4/', '010-0000-0000', 1000, 'paid','name'); -->
 
 </mapper>
