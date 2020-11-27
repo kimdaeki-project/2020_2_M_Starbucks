@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+/*main body부분 전체*/
+.card_charge_wrap {
+   width: 1100px;
+    margin:0 auto;
+    margin-top:50px;
+    margin-bottom: 90px;
+    position:relative;
+    
+}
+
+/*main body부분 container */
+.main_container {
+    position: absolute;
+    left: 0;
+    width: 830px;
+    margin-top: 50px;
+    margin-bottom: 90px;
+    background: beige;
+    box-sizing: border-box;
+    
+}
+
+.card_topup {
+    height: 1145px;
+}
+
+
+
+.select_topup {
+    position: relative;
+}
+.select_topup > h5 {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 415px;
+    height: 40px;
+    margin-bottom: 70px;
+}
+
+.select_topup_regular{
+    border-radius: 3px 0;
+    left: 0;
+}
+
+
+/*table 부분*/
+form {
+    display: block;
+    padding-top: 70px;
+}
+
+table {
+    border-top: 1px solid #333;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.regular_charge > tbody> tr,
+.regular_charge > tbody> tr > td{
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+    height: 25px;
+    padding: 9px 0 9px 20px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.regular_charge > tbody> tr{
+   background: #f4f4f2;
+   color:#222;
+   line-height: 18px;
+   width:200px;
+    
+}
+
+.regular_charge > tbody> tr> td {
+    display: table-cell;
+    background: #fff;
+    color: #666;
+    width: 630px;
+}
+
+.sel_wrap {
+    width: 100%;
+    height: 28px;
+    position: relative;
+}
+
+.user_card_wrap {
+    display: table;
+    height: 125px;
+    margin: 20px 0;
+    width: 590px;
+}
+
+.sel_wrap.price {
+    display: block;
+    height: 125px;
+}
+.sel_wrap > ul > li {
+    display: inline-block;
+   
+}
+
+.charge_guide{
+    font-size: 12px;
+}
+
+ul.charge_tbl_btns {
+    float: right;
+    height: 30px;
+    margin-top: 20px;
+    width: 185px;
+}
+ul.charge_tbl_btns li {
+    border-radius: 3px;
+    float: left;
+    height: 28px;
+    width: 83px;
+}
+
+.charge_tbl_btn1{
+    background: #e2c383;
+    border: 1px solid #bb9f65;
+}
+
+.charge_tbl_btn2{
+    background: #222;
+    border: 1px solid #222;
+    margin-left: 5px;
+}
+
+ul.charge_tbl_btns li a{
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 28px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.charge_normal {
+    color: #222;
+}
+
+.charge_cancle{
+    color: #fff;
+}

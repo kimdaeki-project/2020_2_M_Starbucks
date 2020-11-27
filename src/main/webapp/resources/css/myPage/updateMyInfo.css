@@ -55,6 +55,7 @@ body {
     font-size: 14px;
     border: 1px solid #ddd;
     background: #f4f4f2;
+    border-radius: 3px;
 }
 
 .user_name {
@@ -63,7 +64,7 @@ body {
     font-size: 14px;
     border: 1px solid #ddd;
     background: #f4f4f2;
-    
+    border-radius: 3px;
 }
 
 .user_gender {
@@ -78,9 +79,10 @@ body {
 #years, #months, #days, #yinyang {
     display: inline-flex;
     font-size: 14px;
-    border: 1px solid #dddddd;
+    border: 1px solid #ddd;
+    border-radius: 3px;
     padding: 16px 5px;
-    background: transparent;
+    background: #f4f4f2;
     width:24.11%;
 }
 
@@ -89,6 +91,7 @@ body {
 }
 
 .select_birth_txt {
+	margin-top:5px;
     font-size: 12px;
 }
 
@@ -97,7 +100,7 @@ body {
     padding: 15px;
     font-size: 14px;
     border: 1px solid #ddd;
-    background: #f4f4f2;
+    background: #fff;
     
 }
 
@@ -130,9 +133,14 @@ body {
 .btn_updateinfo {
     background: #006633;
     border-radius: 3px;
-    margin:0 20px;
+    margin-left:0;
     text-align: center;
-    
+    width: 570px;
+    height: 65px;
+    color: #fff;
+    font-size: 24px;
+    display: block;
+    line-height: 65px;
 }
 
 .btn_updateinfo > a {
@@ -142,3 +150,5 @@ body {
     display: block;
     line-height: 65px;
 }
+
+.valCheck{color: red; font-size:13px; margin-top:5px;}

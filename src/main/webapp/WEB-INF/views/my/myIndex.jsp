@@ -58,7 +58,7 @@
 			<article class="ms_user_info_left">
 				<h5><span class="en">My</span> 리워드</h5>
 				
-				<figure class="en ms_user_starbg"><span class="totalStar">${star.starCount}</span></figure>
+				<figure class="en ms_user_starbg"><span class="totalStar">${star.useStar}</span></figure>
         	
 		        <div><p class="ms_user_stat_notice"> <strong>${num}</strong>개의 별이 더 모이면<br><strong class="en t_715d39">Gold Level</strong>만의 특별한 혜택이! </p></div>	 
         	 </article>
@@ -66,10 +66,10 @@
         	  <p class="ms_user_stat"><span><strong class="userName">${star.nickName}<!-- 홍길동 --></strong> 님은</span> <span>현재 <strong class="en userGrade">${grade}<!-- Green Level --></strong>이십니다.</span></p>
        			<div class="ms_user_stat_btns">
                     <ul>
-						<li><a href="./reward.do">리워드 및 혜택</a></li>
-						<li><a href="./reward_star_history.do">별 히스토리</a></li>
-						<li class="btn_black"><a href="./myinfo_modify_login.do">개인정보 수정</a></li>
-						<li class="btn_gray"><a class="gray" href="./myinfo_modify_pwd.do">비밀번호 변경</a></li>
+						<li><a href="https://www.starbucks.co.kr/msr/msreward/about.do">리워드 및 혜택</a></li>
+						<li><a href="./myStarHistory">별 히스토리</a></li>
+						<li class="btn_black"><a href="./updateMyInfo">개인정보 수정</a></li>
+						<li class="btn_gray"><a class="gray" href="./modifyPW">비밀번호 변경</a></li>
                    </ul>
                   </div>
               </article>
@@ -83,8 +83,8 @@
 					<aside>
 			 		 <span><strong class="curSlideNo">1</strong>/<span class="totalCnt">5</span></span>
        				<p>
-             		<a class="back" href="javascript:void(0);">이전카드 보기</a><!-- 접근성_20171201 수정 -->
-             		<a class="forward" href="javascript:void(0);">다음카드 보기</a><!-- 접근성_20171201 수정 -->
+             		<a class="back" href="#">이전카드 보기</a><!-- 접근성_20171201 수정 -->
+             		<a class="forward" href="#">다음카드 보기</a><!-- 접근성_20171201 수정 -->
               	  </p>
            		  </aside>
            	
@@ -96,7 +96,24 @@
 					    <!-- Additional required wrapper -->
 					    <div class="swiper-wrapper">
 					        <!-- Slides -->
-					        <div class="swiper-slide">Slide 1</div>
+					        <div class="swiper-slide">
+					        	<figure>
+					        		<img alt="#" src="${star.menuimage}">
+					        	</figure>
+					        	<div class="my_card_info">
+					        		<p class="my_card_id"> 
+					        			<span>${star.korName}</span></p>
+					        		<p class="my_card_price">
+					        			<span> <strong> ${star.balance} </strong>원</span></p>
+					       		 
+					       		 	<div class="my_card_btns">
+						        	<p class="my_card_btn1"><a>카드 관리</a></p>
+						        	<p class="my_card_btn2"><a>충전 하기</a></p>
+						        </div>
+					       		 </div>
+						        
+					        	
+					        </div>
 					        <div class="swiper-slide">Slide 2</div>
 					        <div class="swiper-slide">Slide 3</div>
 					        ...

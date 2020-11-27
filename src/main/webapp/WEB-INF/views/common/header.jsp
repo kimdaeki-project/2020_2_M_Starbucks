@@ -292,7 +292,7 @@
 												<li><a href="#">스타벅스 리워드 소개</a></li>
 												<li><a href="#">등급 및 혜택</a></li>
 												<li><a href="#">스타벅스 별</a></li>
-												<li><a href="./faq/faqRewardList">자주하는 질문</a></li>
+												<li><a href="${pageContext.request.contextPath}/faq/faqRewardList">자주하는 질문</a></li>
 											</ul>
 											<ul>
 												<li class="gnb_sub_ttl"><a href="#">스타벅스 카드</a></li>
@@ -301,14 +301,14 @@
 												<li><a href="#">등급 및 조회</a></li>
 												<li><a href="#">충전 및 이용안내</a></li>
 												<li><a href="#">분실신고/환불신청</a></li>
-												<li><a href="/faq/faqCardList">자주하는 질문</a></li>
+												<li><a href="${pageContext.request.contextPath}/faq/faqCardList">자주하는 질문</a></li>
 											</ul>
 											<ul>
 												<li class="gnb_sub_ttl"><a href="#">스타벅스 e-Gift Card</a></li>
 												<li><a href="#">스타벅스 e-Gift Card 소개</a></li>
 												<li><a href="#">이용안내</a></li>
 												<li><a href="#">선물하기</a></li>
-												<li><a href="#">자주하는 질문</a></li>
+												<li><a href="${pageContext.request.contextPath}/faq/faqGiftCardList">자주하는 질문</a></li>
 											</ul>
 										</div>
 									</div>
@@ -440,10 +440,10 @@
 					</li>
 					<li><a href="#">한눈에 보기</a></li>
 					<li>
-						<a role="button" href="#">My 리워드<span class="mob_gnb_arrow_down"></span></a>
+						<a role="button" href="${pageContext.request.contextPath}/my/myIndex">My 리워드<span class="mob_gnb_arrow_down"></span></a>
 						<ul>
 							<li><a href="#" required="login">리워드 및 혜택</a></li>
-							<li><a href="#" required="login">별 히스토리</a></li>
+							<li><a href="${pageContext.request.contextPath}/my/myStarHistory" required="login">별 히스토리</a></li>
 						</ul>
 					</li>
 					<li>
@@ -451,7 +451,7 @@
 						<ul>
 							<li><a href="#">보유 카드</a></li>
 							<li><a href="#">카드 등록</a></li>
-							<li><a href="#">카드 충전</a></li>
+							<li><a href="${pageContext.request.contextPath}/my/cardTopup">카드 충전</a></li>
 							<li><a href="#">분실신고/잔액이전</a></li>
 						</ul></li>
 					<li>
@@ -471,7 +471,7 @@
 						</ul></li>
 					<li><a href="#">My 캘린더</a></li>
 					<li><a href="#">My 메뉴</a></li>
-					<li><a href="#">My 매장</a></li>
+					<li><a href="${pageContext.request.contextPath}/my/myStore">My 매장</a></li>
 					<li>
 						<a role="button" href="#">My e-프리퀀시<span class="mob_gnb_arrow_down"></span></a>
 						<ul>
@@ -479,7 +479,7 @@
 							<li><a href="#">이용현황</a></li>
 						</ul>
 					</li>
-					<li><a href="#">My 고객의 소리</a></li>
+					<li><a href="${pageContext.request.contextPath}/my/vocList">My 고객의 소리</a></li>
 					<li><a href="#">전자영수증</a></li>
 					<!-- <li class="msRnb_btn"><a href="#" onclick="fn_rewardTumblerMsrCheck();">개인컵 리워드 설정</a></li> -->
 					<li><a href="#">My DT Pass</a></li>
@@ -487,9 +487,9 @@
 					<li>
 						<a role="button" href="#">개인정보관리<span class="mob_gnb_arrow_down"></span></a>
 						<ul>
-							<li><a href="#">개인정보확인 및 수정</a></li>
-							<li><a href="#">회원 탈퇴</a></li>
-							<li><a href="#">비밀번호 변경</a></li>
+							<li><a href="${pageContext.request.contextPath}/my/updateMyInfo">개인정보확인 및 수정</a></li>
+							<li><a href="${pageContext.request.contextPath}/my/myInfoOut">회원 탈퇴</a></li>
+							<li><a href="${pageContext.request.contextPath}/my/modifyPW">비밀번호 변경</a></li>
 						</ul>
 					</li>
 				</ul>

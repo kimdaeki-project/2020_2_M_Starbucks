@@ -59,9 +59,11 @@ public class Pager {
 		
 		//5. 현재 블록번호로 start/last 번호 찾기
 		this.startNum = (curBlock-1)*5+1;
-		this.lastNum = curBlock * 5;
+		this.lastNum = totalPage;
 		
 		//6.현재 블록번호와 전체 블록번호가 같은지 결정
+		
+		
 		
 	}
 	
@@ -88,6 +90,9 @@ public class Pager {
 	}
 
 	public String getType() {
+		if(type==null) {
+			type="";
+		}
 		return type;
 	}
 

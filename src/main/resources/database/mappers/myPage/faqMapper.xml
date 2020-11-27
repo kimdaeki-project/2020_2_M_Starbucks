@@ -7,26 +7,28 @@
     	<select id="getRewardList" resultType="FaqDTO" parameterType="Pager">
     		select * from
    			(select rownum as R, N.* from
-  			 (select * from faq where type= #{type}) N
+  			 (select * from faq where type= 'rewards') N
   			 where question like '%'||#{search}||'%' or answer like '%'||#{search}||'%')
-  			 where num between #{startRow} and #{lastRow}
+  			 where R between #{startRow} and #{lastRow}
     	</select>
     	
     	<select id="getCardList" resultType="FaqDTO" parameterType="Pager">
     		select * from
-			(select rownum as R, M.*from
-			(select * from faq where type = #{type}) M)
-			where R between #{startRow} and #{lastRow}
+   			(select rownum as R, N.* from
+  			 (select * from faq where type= 'card') N
+  			 where question like '%'||#{search}||'%' or answer like '%'||#{search}||'%')
+  			 where R between #{startRow} and #{lastRow}
     	</select>
     	
     	<select id="getGiftCardList" resultType="FaqDTO" parameterType="Pager">
     		select * from
-			(select rownum as R, M.*from
-			(select * from faq where type = #{type}) M)
-			where R between #{startRow} and #{lastRow}
+   			(select rownum as R, N.* from
+  			 (select * from faq where type= 'e-GiftCard') N
+  			 where question like '%'||#{search}||'%' or answer like '%'||#{search}||'%')
+  			 where R between #{startRow} and #{lastRow}
     	</select>
     
-    	<select id="faqCount" resultType="java.lang.Long" parameterType="Pager">
+    	<select id="faqCount" resultType="Long" parameterType="Pager">
     		select count(num) from  
     		(select * from faq where question like '%'||#{search}||'%' or answer like '%'||#{search}||'%')N
     		where type=#{type}

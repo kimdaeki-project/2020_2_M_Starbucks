@@ -31,26 +31,20 @@ public class FaqController {
 		mv.addObject("pager", pager);
 		
 		mv.setViewName("faq/faqList");
-		
+		System.out.println("Size :" + ar.size());
 		return mv;
 	}
 	
 	@GetMapping("faqCardList")
-	public ModelAndView getCardList(@RequestParam(defaultValue ="1") int curPage) throws Exception {
+	public ModelAndView getCardList(Pager pager) throws Exception {
 		ModelAndView mv= new ModelAndView();
 		
-		Pager pager = new Pager();
-		pager.setStartRow((curPage-1)*10+1);
-		pager.setLastRow(curPage*10);
-		pager.setType("card");
-		
 		List<FaqDTO> ar =  faqService.getCardList(pager);
-		
 		
 		mv.addObject("board", "스타벅스 카드");
 		mv.addObject("title", "faqCard");
 		mv.addObject("list", ar);
-		mv.addObject("count", pager.getTotalCount()/10);
+		
 		mv.setViewName("faq/faqList");                                      
 		
 		return mv;
@@ -67,7 +61,7 @@ public class FaqController {
 		mv.addObject("title", "faqGiftCard");
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
-		mv.addObject("count", (pager.getTotalCount()/10)+1);
+		
 		mv.setViewName("faq/faqList");
 		
 		return mv;

@@ -40,4 +40,6 @@
 		<typeAlias type="com.starbucks.sw4.order.pay.PayDTO" alias="PayDTO"/>
 
 	</typeAliases>
+	
+	
 </configuration>
