@@ -29,7 +29,7 @@ public class MenuController {
 		
 		mv.addObject("list", menuList);
 		mv.addObject("opList", opList);
-		mv.setViewName("menu/drinkList");
+		mv.setViewName("menu/productList");
 		
 		return mv;
 	}
