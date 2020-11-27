@@ -444,12 +444,16 @@
 		var positions = [];
 		function allMarker(){
 			console.log(storeList.length);
+			var storeName;
+			var lat;
+			var lot;
 			for(var i=0; i<storeList.length; i++) {
 				console.log(storeList[i]);
-				var storeName = storeList[i].storeName;
-				var lat = storeList[i].lat;
-				var lot = storeList[i].lot;
-				var position = [];
+				storeName = storeList[i].storeName;
+				lat = storeList[i].lat;
+				lot = storeList[i].lot;
+				
+				//var position = [];
 				//position.push(storeName, lat, lot);
 				console.log(position[i]);
 				//positions.push(position);
