@@ -19,14 +19,17 @@ public class MenuController {
 
 	@GetMapping("menuDrink")
 	public ModelAndView getMenuDrinkList() throws ClassNotFoundException, SQLException {
+		System.out.println("menu drink access");
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("menu/drinkList");
+
 
 		List<MenuDTO> menuList = menuService.getMenuList("D");
-		List<OptionDTO> opList = menuService.getOptionList();
+		List<OptionDTO> optList = menuService.getOptionList();
+		
 		mv.addObject("list", menuList);
-		mv.addObject("opList", opList);
-
+		mv.addObject("optList", optList);
+		mv.setViewName("menu/drinkList");
+		
 		System.out.println(menuList);
 
 		return mv;
@@ -34,15 +37,16 @@ public class MenuController {
 
 	@GetMapping("menuProduct")
 	public ModelAndView getMenuProductList() throws ClassNotFoundException, SQLException {
+		System.out.println("menu product access");
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("menu/productList");
 
 		List<MenuDTO> menuList = menuService.getMenuList("P");
-		List<OptionDTO> opList = menuService.getOptionList();
+		List<OptionDTO> optList = menuService.getOptionList();
 
 		mv.addObject("list", menuList);
-		mv.addObject("opList", opList);
-
+		mv.addObject("optList", optList);
+		mv.setViewName("menu/productList");
+		
 		System.out.println(menuList);
 
 		return mv;
@@ -50,15 +54,16 @@ public class MenuController {
 
 	@GetMapping("menuFood")
 	public ModelAndView getMenuFoodList() throws ClassNotFoundException, SQLException {
+		System.out.println("menu food access");
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("menu/foodList");
 
 		List<MenuDTO> menuList = menuService.getMenuList("F");
-		List<OptionDTO> opList = menuService.getOptionList();
+		List<OptionDTO> optList = menuService.getOptionList();
 
 		mv.addObject("list", menuList);
-		mv.addObject("opList", opList);
-
+		mv.addObject("optList", optList);
+		mv.setViewName("menu/foodList");
+		
 		System.out.println(menuList);
 
 		return mv;

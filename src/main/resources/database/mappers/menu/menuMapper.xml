@@ -5,9 +5,9 @@
 <mapper namespace="com.starbucks.sw4.menu.menu.MenuDAO">
 
 	<select id="getMenuList" parameterType="String" resultMap="getMenuListResult">
-		select menucode, korname, menuimage, price
+		select menuCode, korName, menuImage, price
 		 from menu
-		 where menucode like '%'||#{type}||'%'
+		 where menuCode like '%'||#{type}||'%'
 	</select>
 	<resultMap type="MenuDTO" id="getMenuListResult">
 		<id column="menuCode" property="menuCode"/>
@@ -17,16 +17,10 @@
 	</resultMap>
 	
 	
-	<select id="getOptionList" resultMap="getOptionListResult">
-		select optindex, hotyn, cupsizeoption
-		 from menuoption
+	<select id="getOptionList" resultType="OptionDTO">
+		select *
+		 from menuOption
 	</select>
-	<resultMap type="OptionDTO" id="getOptionListResult">
-		<id column="optIndex" property="optIndex"/>
-		<result column="hotYn" property="hotYn"/>
-		<result column="cupSizeOption" property="cupSizeOption"/>
-	</resultMap>
-	
-	
+
 
 </mapper>

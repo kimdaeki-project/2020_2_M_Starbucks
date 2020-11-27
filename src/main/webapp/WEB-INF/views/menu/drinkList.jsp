@@ -37,7 +37,7 @@
      			<dd>
      				<ul>
      					<c:forEach items="${list}" var="list">
-     					<li>
+     					<li title="${list.menuCode}">
      						<dl>
      							<dt><a data-toggle="modal" onclick="goModal(this);"><img src="${list.menuImage }" alt="${list.korName }"></a></dt>
 								<dd style="display: none;" class="price">${list.price}</dd>
@@ -72,12 +72,21 @@
 					<span id="modal_price">가격</span>
 				</div>
 				<br>
-				<span>옵션</span> |
+				<span>기본옵션</span> |
 				<select>
-					<c:forEach items="${opList}" var="list">
-					<option>${list.optIndex } | ${list.hotYn } | ${list.cupSizeOption}</option>
+					<c:forEach items="${optList}" var="list">
+					<option>${list.optIndex } | ${list.hotYn }</option>
+			        <option>${list.optIndex } | ${list.delegate}</option>					
 					</c:forEach>
 				</select>
+				<br>
+				<span>추가옵션</span> |
+				<select>
+					<c:forEach items="${optList}" var="list">
+					<option>${list.optIndex } | ${list.opt1 }</option>
+					<option>${list.optIndex } | ${list.opt2 }</option>
+					</c:forEach>
+				</select>						
 				</div>
 				<!-- Footer -->
 				<div class="modal-footer">
