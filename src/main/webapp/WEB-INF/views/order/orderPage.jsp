@@ -357,7 +357,7 @@
 							</div>
 							<div id="total-price">
 								<div>총 금액</div>
-								<div id="total-price-area"><span id="total-price-info">50000</span>원</div>
+								<div id="total-price-area"><span id="total-price-info">500</span>원</div>
 							</div>
 						</div>
 					</div>
@@ -440,49 +440,55 @@
 			    	  
 			          if (rsp.success) {
 			        	  
-			        	  alert("결제 성공 로직")
+			        	  if(amount < 1000000){
 			        	  
-			              // 결제 성공 시 로직,
-					      // jQuery로 HTTP 요청
-					      // Rest API key : 8465520606036682
-					      jQuery.ajax({
-					    	  
-					          url: "https://www.myservice.com/payments/complete", // 가맹점 서버
-					          method: "POST",
-	 				          headers: {
-					        	  "Content-Type": "application/json"
-					          },
-	 				          data: {
-					        	  // imp_uid : 아이임포트 거래 고유번호 실패할 경우 null 값
-					              imp_uid: rsp.imp_uid,
-					              merchant_uid: rsp.merchant_uid,
-					              
-					              // 기존 작성된 것에 추가함
-					              name:rsp.name,
-					              amount:rsp.amount,
-					              buyer_name:rsp.buyer_name,
-					              buyer_tel:rsp.buyer_tel,
-					              buyer_addr:rsp.buyer_addr
-					          }
-					          
-					      }).done(function (data) {
-					    	  
-					    	  	alert(data.status);
-					    	  
-						        // 가맹점 서버 결제 API 성공시 로직
-					            switch(data.status) {
-					            	case "vbankIssued":
-					            	 console.log("가상계좌 발급을 성공하였습니다.");
-				              		 break;
-					            	case "success":
-					                  console.log("결제를 성공하였습니다.");
-						              break;
-	          					}
-					      });
-					      
+				        	  alert("결제 성공 로직")
+				        	  
+				              // 결제 성공 시 로직,
+						      // jQuery로 HTTP 요청
+						      // Rest API key : 8465520606036682
+						      jQuery.ajax({
+						    	  
+						          url: "../pay/payProcess",//"https://www.myservice.com/payments/complete", // 가맹점 서버
+						          method: "POST",
+		 				          headers: {
+						        	  "Content-Type": "application/json"
+						          },
+		 				          data: {
+						        	  // imp_uid : 아이임포트 거래 고유번호 실패할 경우 null 값
+						              imp_uid: rsp.imp_uid,
+						              merchant_uid: rsp.merchant_uid,
+						              
+						              // 기존 작성된 것에 추가함
+						              name:rsp.name,
+						              amount:rsp.amount,
+						              buyer_name:rsp.buyer_name,
+						              buyer_tel:rsp.buyer_tel,
+						              buyer_addr:rsp.buyer_addr
+						          }
+						          
+						      }).done(function (data) {
+						    	  
+						    	  	alert(data.status);
+						    	  
+							        // 가맹점 서버 결제 API 성공시 로직
+						            switch(data.status) {
+						            	case "vbankIssued":
+						            	 console.log("가상계좌 발급을 성공하였습니다.");
+					              		 break;
+						            	case "success":
+						                  console.log("결제를 성공하였습니다.");
+							              break;
+		          					}
+						      });
+			        
+			        	  } else {
+			        		  alert("당사는 결제 금액이 1백만 원 초과할 경우 결제가 불가합니다.");
+			        	  }
+			          
 			          } else {
 			              // 결제 실패 시 로직
-			        	  alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
+			        	  alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_code);
 			          }
 
 			      });

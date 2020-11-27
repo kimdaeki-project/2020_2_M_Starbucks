@@ -35,6 +35,9 @@
 		<typeAlias type="com.starbucks.sw4.store.StoreDTO" alias="StoreDTO"/>
 		<typeAlias type="com.starbucks.sw4.store.storeInfo.StoreInfoDTO" alias="StoreInfoDTO"/>
 		<typeAlias type="com.starbucks.sw4.store.storeFile.StoreFileDTO" alias="StoreFileDTO"/>
+		
+		<!-- pay -->
+		<typeAlias type="com.starbucks.sw4.pay..StoreInfoDTO" alias="StoreInfoDTO"/>
 
 	</typeAliases>
 </configuration>

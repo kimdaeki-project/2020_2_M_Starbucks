@@ -1,21 +1,25 @@
 package com.starbucks.sw4.pay;
 
-import java.security.PublicKey;
+import java.sql.SQLException;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value = "/order/**")
+@RequestMapping(value = "/pay/**")
 public class PayContoller {
 
-	@GetMapping("payment/pay")
-	public ModelAndView getPay() {
+	@PostMapping("payProcess")
+	public ModelAndView setPay() throws ClassNotFoundException, SQLException{
+		
 		ModelAndView mv = new ModelAndView();
+		
+		
 		mv.setViewName("order/payment/pay");
 		return mv;
+		
 	}
 	
 }
