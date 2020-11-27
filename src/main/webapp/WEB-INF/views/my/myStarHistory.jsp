@@ -61,16 +61,16 @@
                 <ul class="star_info_box">
                     <li class="box1">
                         <p class="t1">사용가능한 별</p>
-                        <p class="t2" id="useStar">1개</p>
+                        <p class="t2" id="useStar">${star.useStar}개</p>
                     </li>
                     <li class="box2">
                     	<p class="t1">소멸될 별</p>
                     	<span class="star_limit">(1개월 이내)</span>
-                    	<p class="t2" id="outStar">0개</p>
+                    	<p class="t2" id="outStar">${star.outStar}개</p>
                     </li>
                     <li class="box3">
-                    	<p class="t1">스타벅스 현대카드 별</p>
-                    	<p>0개</p>
+                    	<p class="t1">총 누적 별</p>
+                    	<p class="t2" id="totalStar">${star.totalStar}개</p>
                     </li>
                     <li class="box4"></li>
                 </ul>
@@ -80,18 +80,40 @@
             <!--기간 선택-->
             <section class="card_pick_period">
                 <div class="pickperiod">
-                    <label for="pickperiod">기간별:</label>
-                    <input type="radio" id="month" name="month" >
-                    <label>1개월</label>
-                    <input type="radio" id="month" name="month" >
-                    <label>1년</label>
+                	<form method="post">
+                		<fieldset>
+                			<legend>기간선택 폼</legend>
+                			
+                    		<dl class="my_card_pick_bg">
+                    		<dt>기간별:</dt>
+                    		<dd>
+	                    		<input type="radio" id="month" name="month" >
+	                   			 <label>1개월</label>
+	                    		<input type="radio" id="year" name="year" >
+	                    		<label>1년</label>
+                    		</dd>
+                    	</dl>
+                    	
+                    	<dl>
+                    	<div class="pickdate">
+                    		<dt>일자별</dt>
+                    		<dd>
+                    			
+                    			 <input type="date" id="pickdate" name="pickdate">
+					                <span>~</span>
+					                <input type="date" id="pickdate2" name="pickdate2">
+					                 <p class="btn_date">
+					                 <a href="#">검색</a>
+					                 </p>		
+                    		</dd>
+         
+                    	</div>
+                    	</dl>
+                		</fieldset>
+                	</form>
+                    
                 </div>
-                <div class="pickdate">
-                <label for="pickdate">일자별:</label>
-                <input type="date" id="pickdate" name="pickdate">
-                <span>~</span>
-                <input type="date" id="pickdate2" name="pickdate2">
-            	</div>
+
             </section>
             <!--기간 선택 end-->
             <p class="card_refer">최대 조회 기간은 5년 입니다</p>
@@ -112,12 +134,12 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>dsaf</td>
-                        <td>adsf</td>
-                        <td>ad</td>
-                        <td>df</td>
-                        <td>d</td>
-                        <td>daf</td>
+                        <td>${star.cardNum}</td>
+                        <td>${star.useStar}</td>
+                        <td>${star.state}</td>
+                        <td>${star.storeName}</td>
+                        <td>${star.saveDate}</td>
+                        <td>${star.validDate}</td>
                     </tr>
                 </tbody>
             </table>

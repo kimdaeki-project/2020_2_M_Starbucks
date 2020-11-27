@@ -81,6 +81,9 @@ public class MemberDTO {
 		this.email = email;
 	}
 	public String getNickName() {
+		if(nickName == null) {
+			nickName = this.id;
+		}
 		return nickName;
 	}
 	public void setNickName(String nickName) {
