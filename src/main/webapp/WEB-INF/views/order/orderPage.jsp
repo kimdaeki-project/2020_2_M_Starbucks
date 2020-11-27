@@ -22,252 +22,7 @@
 		
 		<link rel="stylesheet" type="text/css" href="/sw4/resources/admin/css/jquery-ui.min.css">
 		<link rel="stylesheet" type="text/css" href="/sw4/resources/admin/css/memberPage.css">
-				
-		<style type="text/css">
-			#store-select-info {
-			    background-color: #F6F6F6;
-			    color: #5D5D5D;
-			    font-size: 1.2rem;
-			    padding: 0.5rem;
-			}
-			.h4, h4 {
-			    font-size: 30px;
-			}
-			.input-group-prepend, .input-group-append {
-			   display: flex;
-			}
-			#store-select-scroll {
-			    width: 100%;
-			    height: 240px;
-			    overflow: auto;
-			    padding-right: 0.2rem;
-			}
-			.popup-btn {
-			    font-size: 1.4rem;
-			    cursor: pointer;
-			    padding: 0.5rem 1.2rem;
-			    border: 1px solid red;
-			    border-radius: 3px;
-			    text-align: center;
-			}
-			.select-store{
-				font-size: 1.6rem;
-			}
-			#select-type {
-			    font-size: 1.5rem;
-			    margin-right: 2.5rem;
-			}
-			#search-store-txt {
-			    width: 82%;
-			}
-			#store-search-area{
-				border: none;
-			}
-			.input-group-prepend, .input-group-append {
-			    display: inline;
-			    /* display: flex; */
-			}
-			#select-type {
-			    margin-right: 0.5rem;
-			}
-			#sidoDropdown {
-			    width: 7rem;
-			}
-			#header{
-				width: 100%;
-				height: 9.2rem;
-				background-color: #F6F6F6;
-				overflow: hidden;
-				border-bottom: 2px solid #D2D2D2;
-			}
-
-			#header-area{
-				height: 100%;
-			}
-			
-			.page-info-area{
-				height: 100%;
-			}
-			
-			#page-info{
-				width: 20rem;
-				color: #004D26;
-				font-size: 4.5rem;
-				margin-top: 3.8rem; 
-			}
-			
-			#contents-header{
-				border-bottom: 1px solid #EAEAEA;
-				justify-content: space-between;
-			}
-			
-			#contents-header > div{
-				display: inline-block;
-			}
-			
-			#menu-table{
-				float: right;
-			}
-			
-			#menu-table-tr > td{
-				font-size: 1.3rem;
-				padding: 0.2rem 0.5rem;
-			}
-			
-			.order-contents-area{
-				margin-top: 1.5rem;
-			}
-			
-			#contents{
-				padding: 3rem 0rem 0.8rem;
-				background-color: white;
-			}
-			
-			#buyer-info-area{
-				border: 1px solid white;
-			}
-			.buyer-info{
-				margin-top: 1.5rem;
-				background-color: white;
-			}
-
-			.buyer-info td{
-				border: 1px solid #E4E4E4;
-			}
-			
-			.buyer-info > table{
-				width: 100%; font-size: 1.3rem;
-				border-top: 2px solid #D2D2D2;
-			}
-			
-			#buyer-column{
-				width: 15rem;
-				line-height: 4rem;
-				text-align: right;
-				padding-right: 1.5rem;
-				font-weight: bold;
-				background-color: #F6F6F6;
-			}
-			.buyer-data{
-				padding-left: 1.5rem;
-			}
-			.buyer-data input{
-				width: 18rem;
-				margin-right: 1rem;
-			}
-			#order-store-td{
-				height: 8rem;
-			}
-			#order-store-td > div{
-				margin-top: 1.2rem;
-			}
-			#pick-up-info-txt{
-				font-size: 1.2rem;
-				margin-top: 1rem;
-				color: #666666;
-			}
-			#find-store-btn{
-				cursor: pointer;
-				border-radius: 3px;
-				padding: 0.5rem 0.8rem;
-				border: 1px solid #E4E4E4;
-				background-color: white;
-			}
-			.order-list{
-				border: 2px solid #D2D2D2;
-				border-radius: 3px;
-				background-color: #F2F2F2;
-				margin-bottom: 0.8rem;
-			}
-			#pick-up-info{
-				padding: 2rem 2rem 1.5rem;
-				font-size: 1.5rem;
-				background-color: white;
-			}
-			.pick-up{
-				color: #006633;
-				font-weight: bold;
-			}
-			.container{
-				width: 65%;
-			}
-			.category{
-				margin-left: 2rem;
-				font-size: 1.8rem;
-				font-weight: bold;
-			}
-			#order-list-area{
-				background-color: white;
-				padding: 0px 2rem;
-			}
-			#order-table{
-				width: 100%;
-			}
-			#order-table tr{
-				font-size: 1.5rem;
-			}
-			#order-table td{
-				padding: 1.5rem 0px;
-				padding-right: 1rem;
-			}
-			#product-quantity{
-				color: #5D5D5D;
-				font-size: 1.3rem;
-				text-align: center;
-			}
-			#product-name{
-				width: 50rem;
-			}
-			#product-price{
-				text-align: right;
-			}
-			.c-margin{
-				padding: 0.8rem 0px;
-			}
-			#total-price{
-				font-size: 2.5rem;
-				padding: 1rem 2.2rem;
-			}
-			#total-price div{
-				display: inline-block;
-			}
-			#total-price-area{
-				float: right;
-			}
-			#total-price-info{
-				color:  #006633;
-				font-weight: bold;
-			}
-			#pay-area{
-				height: 20rem;
-			}
-			#btn-area div{
-				display: inline-block;
-			}
-			#btn-area{
-				padding: 0rem 28rem;
-			}
-			#order-pay-btn{
-				float: right;
-				color: white;
-				background-color: #006633;
-			}
-			#order-cancle-btn{
-				background-color: white;
-			}
-			.pay-btn{
-				width: 15rem; height: 6rem;
-				font-size: 2.2rem;
-				border: 1px solid #006633;
-				border-radius: 3px;
-			}
-			#pay-info{
-				margin: 3.5rem 0px 2.5rem;
-				color:#5D5D5D;
-				font-size: 1.3rem;
-				text-align: center;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="/sw4/resources/css/order/orderPage.css">
 		
 	</head>
 	
@@ -301,7 +56,7 @@
 								</table>
 							</div>
 					</div>
-							
+					<input type="hidden" id="order-num" title="1">
 					<!-- buyer info area -->
 					<div class="order-contents-area">
 						<div id="buyer-info-area">
@@ -320,7 +75,8 @@
 										<td id="buyer-column">매장</td>
 										<td class="buyer-data" id="order-store-td">
 											<div>
-												<input type="text" id="order-store" title="storeCode" value="임시 매장">
+												<input type="text" id="order-store" title="storeCode"
+														value="" placeholder="매장을 선택해주세요." readonly="readonly">
 												<span id="find-store-btn">매장찾기</span>
 												<p id="pick-up-info-txt">
 													* 음료를 픽업하실 매장을 선택해주세요.
@@ -501,7 +257,7 @@
 			// function 분리하기 ---------------------------
 			function getStoreList(sidoTxt, search){
 				$.ajax({
-					url:"../sw4/admin/store/storeList",
+					url:"../admin/store/storeList",
 					type:"GET",
 					data:{
 						sidoName:sidoTxt,
@@ -560,11 +316,9 @@
 						});
 						
 						$(".store-choose").click(function(){
-							$("#work-store-txt").val(staffStoreName);
-							$("#work-store-txt").attr("title",staffStoreCode);
+							$("#order-store").val(staffStoreName);
+							$("#order-store").attr("title",staffStoreCode);
 							$("#pop-update-btn").text("수정");
-							$(".work-time").attr("readonly",false);
-							$("#pop-update-btn").attr("title","수정");
 							$("#store-info-area").dialog('close');
 						});
 						
@@ -579,10 +333,13 @@
 		
 		  // 아임포트 -----------------------------------------------------------------------
 		  var merchant_uid;
-		  var name = $("#product-name").attr("title");
+		  var order_num = $("#order-num").attr("title");
+		  var product_code = $("#drink-menu-code").attr("title");
 		  var amount = parseInt($("#total-price-info").text());
-		  var buyer_name = $("#buyer-name").text();
-		  var buyer_tel = $("#buyer-name").text();
+		  var name = $("#drink-menu-code").text();
+		  var name_code = $("#drink-menu-code").attr("title");
+		  var buyer_name = $("#buyer-name").attr("title");
+		  var buyer_tel = $("#buyer-tel").text();
 		  var buyer_addr = $("#buyer-addr").attr("title");
 		  
 		  var d = new Date();
@@ -608,8 +365,8 @@
 				    	pay_method: "kakaopay",
 			          	merchant_uid: merchant_uid,// "가맹점에서 이용하는 고유 주문번호",
 					    amount: amount,//64900, // 결제금액
-					    name: name //"주문이름(16자 내 작성)",
-					    //buyer_tel: buyer_tel, //"주문자 연락처",
+					    name: name, //"주문이름(16자 내 작성)"
+					    buyer_tel: buyer_tel, //"주문자 연락처",
 					    //buyer_name: buyer_name,//"주문자명",
 				    	//buyer_addr: buyer_addr//"주문자 주소(우리는 픽업 매장주소)"
 			      }, function (rsp) {
@@ -632,7 +389,7 @@
 						      // Rest API key : 8465520606036682
 						      jQuery.ajax({
 						    	  
-						          url: "./pay/payProcess",//"https://www.myservice.com/payments/complete", // 가맹점 서버
+						          url: "../pay/payProcess",//"https://www.myservice.com/payments/complete", // 가맹점 서버
 						          method: "POST",
 		 				          data: {
 						        	  // imp_uid : 아이임포트 거래 고유번호 실패할 경우 null 값
@@ -647,8 +404,13 @@
 						              amount:amount,
 						              currency:'KRW',
 						              m_redirect_url:"../pay/payResult",
+						              buyer_tel:rsp.buyer_tel,
 						              pay_amount:rsp.pay_amount,
-						              pay_status:rsp.status
+						              pay_status:rsp.status,
+						              name:name_code
+						          },
+						          success: function(){
+						        	  alert("success")
 						          }
 						          
 						      }).done(function (data) {

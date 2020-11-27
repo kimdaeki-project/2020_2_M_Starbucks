@@ -29,6 +29,7 @@ public class PayDTO {
 	private String buyer_tel;
 	private long pay_amount;
 	private String pay_status;
+	private String name;
 	
 	private OrderDTO orderDTO;
 	
@@ -37,6 +38,13 @@ public class PayDTO {
 	}
 	public void setOrderDTO(OrderDTO orderDTO) {
 		this.orderDTO = orderDTO;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public long getPayNum() {
 		return payNum;
