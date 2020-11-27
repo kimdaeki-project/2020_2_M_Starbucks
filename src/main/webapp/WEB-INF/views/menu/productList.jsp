@@ -26,7 +26,7 @@
 	<!--subtitle-->
      <div class="ms_sb_tit_bg">
         <div class="ms_sub_tit_inner">
-            <h3>상품</h3>
+            <h3>${menu}</h3>
         </div>
     </div>
     <!-- subtitle end -->
@@ -36,6 +36,8 @@
      		<dl>
      			<dd>
      				<ul>
+     				<!-- 포스트로 넘겨주는데에다가 같이 넘겨줘야함 -->
+     				<input type="hidden" title="${type}" id="menuType">
      					<c:forEach items="${list}" var="list">
      					<li title="${list.menuCode}">
      						<dl>

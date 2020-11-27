@@ -26,6 +26,8 @@ public class MenuController {
 		List<OptionDTO> opList = menuService.getOptionList();
 
 		System.out.println(menuList);
+		mv.addObject("menu", "음료");
+		mv.addObject("type", "D");
 		
 		mv.addObject("list", menuList);
 		mv.addObject("opList", opList);
@@ -41,6 +43,9 @@ public class MenuController {
 
 		List<MenuDTO> menuList = menuService.getMenuList("P");
 		List<OptionDTO> opList = menuService.getOptionList();
+		
+		mv.addObject("menu", "상품");
+		mv.addObject("type", "P");
 
 		mv.addObject("list", menuList);
 		mv.addObject("opList", opList);
@@ -58,10 +63,13 @@ public class MenuController {
 
 		List<MenuDTO> menuList = menuService.getMenuList("F");
 		List<OptionDTO> opList = menuService.getOptionList();
+		
+		mv.addObject("menu", "푸드");
+		mv.addObject("type", "F");
 
 		mv.addObject("list", menuList);
 		mv.addObject("opList", opList);
-		mv.setViewName("menu/foodList");
+		mv.setViewName("menu/productList");
 		
 		System.out.println(menuList);
 
