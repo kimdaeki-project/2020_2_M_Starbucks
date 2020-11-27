@@ -164,7 +164,7 @@
 								<!-- 팝업 end -->
 								<div class="choice_cont_mail">
 									<label for="email" class="hid">e-mail</label>
-									<input type="email" name="email" id="email" class="empty" placeholder="E-mail을 입력하세요." value="${member.email}" />
+									<input type="email" name="email" id="email" class="empty readonly" placeholder="E-mail을 입력하세요." readonly="readonly" value="${auth.email}" />
 									<p class="limit_txt mail_txt" id="mail_txt"></p>
 								</div>
 							</div>

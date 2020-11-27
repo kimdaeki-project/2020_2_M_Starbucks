@@ -20,9 +20,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.starbucks.sw4.member.MemberDTO;
-import com.starbucks.sw4.member.MemberService;
 import com.starbucks.sw4.member.auth.AuthDTO;
 import com.starbucks.sw4.member.auth.AuthService;
+import com.starbucks.sw4.my.MyDTO;
+import com.starbucks.sw4.my.MyService;
 
 @Controller
 @RequestMapping(value="/member/**")
@@ -35,7 +36,8 @@ public class MemberUserController {
 	private JavaMailSender mailSender;
 	@Autowired
 	private AuthService authService;
-	
+	@Autowired
+	private MyService myService;
 	
 	
 	//*******************  LOGOUT  ********************** 
@@ -55,6 +57,7 @@ public class MemberUserController {
 	public ModelAndView getMemberLogin(MemberDTO memberDTO, String idRemb, HttpSession session, HttpServletResponse reponse) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
+		
 		//쿠키 생성
 		//쿠키이름 idRemb, 벨류 로그인ID
 		if(idRemb != null) {
@@ -73,6 +76,9 @@ public class MemberUserController {
 			memberDTO = memberUserService.getMemberLogin(memberDTO);
 			if(memberDTO != null && memberDTO.getType() == 1) {
 				session.setAttribute("member", memberDTO);
+				MyDTO myDTO = new MyDTO();
+				myDTO.setId(memberDTO.getId());
+				session.setAttribute("my", myDTO);
 				
 				if(memberDTO.getNickName() != null) {
 					mv.addObject("msg", memberDTO.getNickName() + " 님 환영합니다!");
@@ -122,7 +128,7 @@ public class MemberUserController {
 	public ModelAndView setMemberJoin1() throws Exception {
 		System.out.println("MemberUSerJoin1 -- Controller");
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("member/memberJoin1");
+		mv.setViewName("redirect:./memberJoin1");
 		
 		return mv;
 	}
@@ -152,10 +158,13 @@ public class MemberUserController {
 		int result = memberUserService.setMemberJoin(memberDTO);
 		
 		if(result > 0) {
+			myService.setMemberJoinCard(memberDTO);
+			myService.setMemberJoinStar(memberDTO);
+			
 			if(memberDTO.getNickName() != "") {
 				mv.addObject("msg", memberDTO.getNickName() + " 님 환영합니다!");
 			} else {
-				mv.addObject("msg", memberDTO.getName() + "님 환영합니다!");
+				mv.addObject("msg", memberDTO.getName() + " 님 환영합니다!");
 			}
 			mv.addObject("member", memberDTO);
 			mv.addObject("path", "../memberJoinResult");
@@ -274,22 +283,21 @@ public class MemberUserController {
 						
 			if(authKey == authDTO.getAuthKey()) {
 				memberDTO.setEmail(authDTO.getEmail());
-				//session.setAttribute("member", memberDTO);
 				
 				authDTO.setAuthStatus(1);
 				authService.setEmailAuthStatus(authDTO);				
 				
-				//mv.addObject("msg", "인증이 완료되었습니다.");
-				//mv.addObject("path", "./memberJoin2");
-				mv.addObject("auth", authDTO);
-				mv.addObject("member", memberDTO);
-				mv.setViewName("member/memberJoin2");
+				mv.addObject("msg", "인증이 완료되었습니다.");
+				mv.addObject("path", "./memberJoin2");
+				mv.setViewName("common/result");
+				//mv.addObject("email", memberDTO);
+				//mv.setViewName("member/memberJoin2");
 			} else {
 				mv.addObject("msg", "인증번호가 일치하지 않습니다. 다시 확인해주세요.");
 				mv.addObject("path", "./emailAuth");
 				mv.setViewName("common/result");
 			}
-			//session.setAttribute("auth", authDTO);
+			session.setAttribute("auth", authDTO);
 		}
 	//	mv.setViewName("common/result");
 		return mv;

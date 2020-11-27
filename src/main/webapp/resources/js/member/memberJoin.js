@@ -13,7 +13,7 @@ $(document).ready(function() {
 	
 	initBirth();
 	getInfoPop();
-	setEvents();
+	//setEvents();
 	
 	
 	
@@ -114,14 +114,14 @@ $(document).ready(function() {
 
 
 	/* 빈칸 이벤트 처리 */
-	function setEvents() {
-		/*if (location.href.indexOf("/find_") > -1) {
+	/*function setEvents() {
+		if (location.href.indexOf("/find_") > -1) {
 			$(document).on("blur, keydown", ".input_warn", function () {
 				$(this).removeClass("input_warn");
 				$("#" + $(this).data("warn_id")).text("");
 			});
-		}*/
-		/*$("input:text, input:password, input#phone, input#email").on("focus", function () {
+		}
+		$("input:text, input:password, input#phone, input#email").on("focus", function () {
 			
 			if($(this).hasClass("input_warn") === false) {
 				$(this).addClass("green");
@@ -132,28 +132,13 @@ $(document).ready(function() {
 			$(this).attr({ "aria-describedby": "", "aria-invalid": "false" });
 		}).on("blur", function () {
 			$(this).removeClass("green");
-		});*/
+		});
 				
-	}
+	}*/
 	/* 빈칸 이벤트 처리 */
 	
 	/* 빈칸확인 */
-	function emptyCheck() {
-		emptyCheckResult=true;
-		$(".empty_chk").each(function() {
-			var data = $(this).val();
-			console.log(data);
-			if(data == '') {
-				console.log($(this).html());
-				emptyCheckResult = false;
-				$(this).next().html("필수입력사항입니다.");
-				$(this).parent().addClass(".input_warn");
-				$("").css("display","block");
-				$(".limit_txt").addClass(".input_warn_text");
-				
-			}
-		});
-	}
+
 	/* 빈칸확인 end */
 	
 	
