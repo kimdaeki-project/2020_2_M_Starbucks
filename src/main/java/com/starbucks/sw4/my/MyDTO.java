@@ -123,6 +123,7 @@ public class MyDTO extends MemberDTO{
 	}
 	
 	public long getUseStar() {
+		
 		return useStar;
 	}
 	public void setUseStar(long useStar) {

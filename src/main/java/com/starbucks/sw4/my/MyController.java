@@ -204,9 +204,10 @@ public class MyController {
 	@GetMapping("myIndex")
 	public ModelAndView myIndex(HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		MyDTO myDTO = (MyDTO) session.getAttribute("my");
+		MemberDTO myDTO = (MemberDTO) session.getAttribute("member");
 		System.out.println(myDTO.getId());
 		MyDTO star = myService.getMyIndex(myDTO);
+		System.out.println(star.getGrade());
 		
 		if(star.getGrade()==2) {
 			mv.addObject("grade", "Green level");
