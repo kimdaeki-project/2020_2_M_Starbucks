@@ -25,7 +25,7 @@
 			where M.id = #{id}
     	</select>
     	
-    	<select id="getOne" parameterType="MyDTO" resultType="MyDTO">
+    	<select id="getOne" parameterType="MemberDTO" resultType="MyDTO">
     		select * from member where id = #{id}
     	</select>
  

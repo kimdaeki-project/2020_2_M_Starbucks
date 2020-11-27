@@ -22,9 +22,9 @@ public class MyDAO {
 		return sqlSession.selectOne(NAMESPACE+"getMyIndex", memberDTO);
 	}
 	//로그인한 유저 정보가져오기
-	public MyDTO getOne(MyDTO myDTO) throws Exception {
-		
-		return sqlSession.selectOne(NAMESPACE+"getOne", myDTO);
+	public MyDTO getOne(MemberDTO memberDTO) throws Exception {
+		System.out.println(memberDTO.getId());
+		return sqlSession.selectOne(NAMESPACE+"getOne", memberDTO);
 	}
 	//개인 정보 수정
 	public int setUpdate(MyDTO myDTO) throws Exception {

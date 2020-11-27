@@ -179,7 +179,7 @@ public class MyController {
 	@GetMapping("updateMyInfo")
 	public ModelAndView getOne(HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		MyDTO myDTO = (MyDTO) session.getAttribute("my");
+		MemberDTO myDTO = (MemberDTO) session.getAttribute("member");
 		MyDTO info = myService.getOne(myDTO);
 		
 		String birth = info.getBirth();

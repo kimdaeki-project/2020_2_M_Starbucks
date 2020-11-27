@@ -21,8 +21,9 @@ public class MyService {
 	}
 	
 	//개인정보수정 전 db
-	public MyDTO getOne(MyDTO myDTO) throws Exception {
-		return myDAO.getOne(myDTO);
+	public MyDTO getOne(MemberDTO memberDTO) throws Exception {
+		
+		return myDAO.getOne(memberDTO);
 	}
 	
 	//개인정보 수정 후 update
