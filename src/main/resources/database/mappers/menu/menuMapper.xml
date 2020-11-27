@@ -14,6 +14,9 @@
 		<result column="korName" property="korName"/>
 		<result column="menuImage" property="menuImage"/>
 		<result column="price" property="price"/>
+		<result column="limited" property="limited"/>
+		<result column="limitedStore" property="limitedStore"/>
+		<result column="descr" property="descr"/>
 	</resultMap>
 	
 	

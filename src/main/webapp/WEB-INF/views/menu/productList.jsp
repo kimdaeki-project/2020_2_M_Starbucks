@@ -41,8 +41,8 @@
      						<dl>
      							<dt><a data-toggle="modal" onclick="goModal(this);"><img src="${list.menuImage }" alt="${list.korName }"></a></dt>
 								<dd style="display: none;" class="price">${list.price}</dd>
-								<dd style="display: none;" class="limied">${list.limited}</dd>
-								<dd style="display: none;" class="limiedStore">${list.limitedStore}</dd>
+								<dd style="display: none;" class="limited">${list.limited}</dd>
+								<dd style="display: none;" class="limitedStore">${list.limitedStore}</dd>
 								<dd style="display: none;" class="descr">${list.descr}</dd>								
      							<dd class="korname">${list.korName }</dd>
      						</dl>
@@ -86,7 +86,7 @@
 				</div>
 				<br>
 				<div>
-					<span>설명</span> | 
+					<span></span> 
 					<span id="modal_descr">설명</span>
 				</div>												
 				</div>
@@ -114,9 +114,9 @@ function goModal(e){
 	console.log(korname);
 	$('#pop_header').html(korname);
 	$('#modal_price').html(price);
-	$('#modal_limited')html(limited);
-	$('#modal_limitedStore')html(limitedStore);
-	$('#modal_descr')html(descr);
+	$('#modal_limited').html(limited);
+	$('#modal_limitedStore').html(limitedStore);
+	$('#modal_descr').html(descr);
 	$('#modal_img').html(img);
 	$('div.modal').modal();
 }

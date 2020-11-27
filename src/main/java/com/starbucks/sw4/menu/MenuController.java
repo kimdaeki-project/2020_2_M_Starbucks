@@ -22,16 +22,15 @@ public class MenuController {
 		System.out.println("menu drink access");
 		ModelAndView mv = new ModelAndView();
 
-
 		List<MenuDTO> menuList = menuService.getMenuList("D");
 		List<OptionDTO> opList = menuService.getOptionList();
+
+		System.out.println(menuList);
 		
 		mv.addObject("list", menuList);
 		mv.addObject("opList", opList);
 		mv.setViewName("menu/drinkList");
 		
-		System.out.println(menuList);
-
 		return mv;
 	}
 
