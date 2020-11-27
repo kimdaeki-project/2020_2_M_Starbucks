@@ -96,7 +96,7 @@
 							<h2>픽업 정보</h2>
 							<div id="pick-up-info" class="order-list">
 								<span>
-									<span class="pick-up" id="pick-store">선택한</span>&nbsp;매장 음료 픽업은 <span class="pick-up" id="time">약 N분</span> 소요 예정입니다. 
+									<span class="pick-up" id="pick-store">선택한</span>&nbsp;매장 음료 픽업은 <span class="pick-up">약 <span id="time">N</span>분</span> 소요 예정입니다. 
 								</span>
 								<hr>
 								<div>
@@ -218,7 +218,7 @@
 			var storeChk=0;
 			var countChk=0;
 			
-			var time = parseInt(Math.random() * (35 - 5) + 5);
+			var time = parseInt(Math.random() * (40 - 5) + 5);
 			
 			$("#order-store").click(function(){
 				getDialogStore(sidoTxt, storeSearchTxt);				
