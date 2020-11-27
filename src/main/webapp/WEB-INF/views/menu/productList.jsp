@@ -77,12 +77,12 @@
 				<br>
 				<div>
 					<span>한정</span> | 
-					<span id="modal_limited">한정</span>
+					<span id="modal_limited"></span>
 				</div>
 				<br>
 				<div>
 					<span>한정매장</span> | 
-					<span id="modal_limitedStore">한정매장</span>
+					<span id="modal_limitedStore"></span>
 				</div>
 				<br>
 				<div>
@@ -105,19 +105,19 @@ function goModal(e){
 	console.log('clicked');
 
 
-var price = $(e).parent().parent().children('.price').text();
-var limited = $(e).parent().parent().children('.limited').text();
-var limitedStore = $(".limitedStore").text();//$(e).parent().parent().children('.limitedStore').text();
-var descr = $(e).parent().parent().children('.descr').text();	
-var korname = $(e).parent().parent().children('.korname').text();
-var img_src = $(e).children().attr('src');
-var img = '<img src = "'+img_src+'"/>';	
+	var price = $(e).parent().parent().children('.price').text();
+	var limited = $(e).parent().parent().children('.limited').text();
+	var limitedStore = $(e).parent().parent().children('.limitedStore').text();
+	var descr = $(e).parent().parent().children('.descr').text();	
+	var korname = $(e).parent().parent().children('.korname').text();
+	var img_src = $(e).children().attr('src');
+	var img = '<img src = "'+img_src+'"/>';	
 	alert(limitedStore);
 	
 	$('#pop_header').html(korname);
 	$('#modal_price').html(price);
-	//$('#modal_limited').text(limited);
-	//$('#modal_limitedStore').text(limitedstore);
+	$('#modal_limited').text(limited);
+	$('#modal_limitedStore').text(limitedstore);
 	$('#modal_descr').html(descr);
 	$('#modal_img').html(img);
 	$('div.modal').modal();	
