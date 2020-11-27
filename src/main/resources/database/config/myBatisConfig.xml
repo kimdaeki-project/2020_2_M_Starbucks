@@ -41,4 +41,6 @@
 		<typeAlias type="com.starbucks.sw4.menu.OptionDTO" alias="OptionDTO"/>
 		
 	</typeAliases>
+	
+	
 </configuration>

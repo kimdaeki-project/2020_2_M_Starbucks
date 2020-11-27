@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+#container {width:100%;}
+.modify_pw_wrap {max-width: 570px; margin: 0 auto; padding: 70px 0 50px;}
+.modify_pw_ttl { display: block; font-size: 30px; font-weight: normal; margin-bottom: 30px; text-align: center;}
+.modify_form {border:1px solid #ddd; border-radius: 3px; margin-bottom: 30px;}
+.modify_form_sally {margin:0 auto; text-align: center; padding:30px 20px 0; width:205px; height:182px;}
+img {vertical-align: top; max-width:100%;}
+.modify_form_txt {padding: 0 20px 30px; border-bottom: 1px solid #ddd;}
+.result_txt {margin-top:30px; font-size: 18px; color:#222; text-align: center;}
+.result_txt_sub {color:#666; display: block; line-height: 1.2;}
+.input_box {background: #fff; border-bottom: 1px solid #ddd; padding:20px 20px; position:relative;}
+.input_box strong {color:#222; display: block; font-size: 18px; margin-bottom: 10px;}
+.nofix_name {background: #f4f4f2; border:1px solid #ddd; box-sizing: border-box; border-radius: 3px; font-size: 14px; padding:15px; width:100%;}
+.input_box input {border:1px solid #ddd; border-radius: 3px; box-sizing: border-box; display:inline-block; max-width: 530px; padding:15px; width:100%}
+.input_box >.mt10 {margin-top:10px;}
+.bd_none {border:0 !important;}
+.btn_modify {background: #006633; border-radius: 3px; margin-top:25px; text-align: center; margin:0 20px; max-width: 570px; height: 64.8px;}
+.btn_modify > .btn_ok {color:#fff; font-size: 24px; display: block; line-height: 65px; text-decoration: none; vertical-align: baseline; cursor: pointer;}
+.valCheck{color: red; font-size:13px; margin-top:5px;}
+.pwCheck{color: blue; font-size:13px; margin-top:5px;}

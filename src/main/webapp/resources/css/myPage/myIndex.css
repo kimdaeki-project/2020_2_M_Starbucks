@@ -31,6 +31,7 @@ body {    font-size: 1rem;}
 .ms_user_info_right {float: left; height: 230px; position:relative; width:49%; box-sizing: border-box; padding: 20px 0 0 50px;}
 .ms_user_stat {position:relative; height: auto; top:inherit; font-size:22px; line-height: 37px; text-align: left; width:100%; left:0;}
 .ms_user_stat > span {display: block;}
+.ms_user_stat > span strong.userGrade{color:#0d5f34}
 .ms_user_stat_btns {position:relative; width:100%; height: auto; margin:20px 0 0 0; top:inherit; left:inherit; bottom: inherit;}
 .ms_user_stat_btns > ul {width:100%; height: auto; margin:0; overflow: hidden; margin-left:-10px;}
 .ms_user_stat_btns > ul li {background: #e2c383; border:1px solid #bb9f65; border-radius: 3px; float: left; height: 28px; width:126px; margin:10px 0 0 10px;}
@@ -67,8 +68,18 @@ a {margin:0; padding: 0; text-decoration: none; vertical-align: baseline; backgr
 .my_ms_card > .my_ms_card_inner >.my_ms_card_cont {width: 770px; height: 191px;}
 .swiper-container {width:100%; height: 191px;}
 .swiper-slide {display: flex; justify-content: center; align-items: center;}
-
-
+.swiper-wrapper {float:left; position:relative; width: 770px; height: 191px;}
+.swiper-wrapper > .swiper-slide > figure {height: 163px; left: 122px; position: absolute; top: 15px; width:264px;}
+.swiper-wrapper > .swiper-slide > figure img {width:100%;}
+.swiper-wrapper > .swiper-slide > .my_card_info {height:133px; position: absolute; right: 103px; text-align: center; top:30px; width: 237px;}
+.swiper-wrapper > .swiper-slide > .my_card_info > .my_card_id {display: inline-block; font-size: 16px; font-weight: bold; padding: 3px 0;}
+.swiper-wrapper > .swiper-slide > .my_card_info > .my_card_price {height: 33px; line-height: 33px; margin-top: 10px;}
+.swiper-wrapper > .swiper-slide > .my_card_info > .my_card_price span >strong {font-size: 30px; color:#0d5f34;}
+.swiper-wrapper > .swiper-slide > .my_card_info >.my_card_btns {height: 30px; margin-top: 19px; text-align: center; }
+.swiper-wrapper > .swiper-slide > .my_card_info >.my_card_btns p {width:82px; height: 28px; display: inline-block; border-radius: 3px;}
+.swiper-wrapper > .swiper-slide > .my_card_info >.my_card_btns p.my_card_btn1 {background: #222; border:1px solid #222; margin: 0 5px;}
+.swiper-wrapper > .swiper-slide > .my_card_info >.my_card_btns p a {display: block; font-size: 12px; font-weight: bold; height:28px; line-height: 28px; text-align: center; width: 82px; color:#fff;}
+.swiper-wrapper > .swiper-slide > .my_card_info >.my_card_btns p.my_card_btn2 {background: #e2c383; border:1px solid #bb9f65; margin: 0 5px;}
 /*section 3 */	
 .my_ms_icon {
     height: 100px;
@@ -112,6 +123,60 @@ a {margin:0; padding: 0; text-decoration: none; vertical-align: baseline; backgr
 
 	
 
+@media screen and (min-width:961px) and (max-width:1099px) {	
+.ms_user_info { padding:30px 0; width:100%; }
+.ms_user_info_left,
+.ms_user_info_right { width:49% }
+.ms_user_info_right h5 { left:30px; }
+.ms_user_starbg { left:50%; margin-left:-68px; }
+.ms_user_stat_btns { left:50%; margin-left:-133px; }
+
+.my_ms_card { width:99.5%; }
+.my_ms_card_inner { margin:4% 0 0 4%; width:92%; }
+
+.my_ms_card header { width:100%; }
+.my_ms_card_cont { width:100%; }
+
+.my_ms_card_cont >.swiper-container>.swiper-wrapper>.swiper-slide> figure { left:10%; }
+.my_ms_card_cont >.swiper-container>.swiper-wrapper>.swiper-slide>.my_ms_card_info { right:10%; }	
+.my_ms_icon { width:99.5% }
+.my_ms_icon >.icon-bar > a{width:19%; }
+	.my_ms_icon >.icon-bar > a .inbox{ margin:13px 0 0 33%; }
+	.my_ms_icon >.icon-bar > a .calender{ margin:17px 0 0 35%; }
+	.my_ms_icon >.icon-bar > a .coupon{ margin:13px 0 0 31%; }
+	.my_ms_icon >.icon-bar > a .charge{ margin:24px 0 0 33%; }
+	.my_ms_icon >.icon-bar > a .regicard{ margin:23px 0 0 44%; }
+
+	
+}
+
+@media screen and (min-width:641px) and (max-width:960px) {
+.ms_user_info { padding:30px 0; width:100%; }
+	.ms_user_info_left,
+	.ms_user_info_right { width:49% }
+
+	.ms_user_starbg { left:30%; }
+	.ms_user_stat_btns { left:10%; }
+
+	.my_ms_card { width:99.5%; }
+	.my_ms_card_inner { margin:4% 0 0 4%; width:92%; }
+
+	.my_ms_card header { width:100%; }
+	.my_ms_card_cont { width:100%; }
+
+	.my_ms_card_cont figure { left:10%; top:30px; width:230px; }
+	.my_card_info { right:10%; width:200px; }
+	.my_card_id { font-size:14px; }
 	
 	
-	
+	.my_card_btns p.my_card_btn1 { margin:0 5px; }
+	.my_ms_icon { width:99.5% }
+
+	.my_ms_icon > div > a { width:19%; }
+
+	.my_ms_icon >.icon-bar >a .inbox { margin:13px 0 0 33%; }
+	.my_ms_icon >.icon-bar >a .calendar { margin:17px 0 0 35%; }
+	.my_ms_icon >.icon-bar >a .coupon { margin:13px 0 0 31%; }
+	.my_ms_icon >.icon-bar >a .charge { margin:24px 0 0 33%; }
+	.my_ms_icon >.icon-bar >a .regicard { margin:23px 0 0 44%; }
+}

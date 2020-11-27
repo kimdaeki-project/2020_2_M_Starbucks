@@ -4,11 +4,45 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
     <mapper namespace="com.starbucks.sw4.my.MyDAO">
-    	<select id="getStarCount" resultType="MyDTO">
-    		select S.starCount, M.nickName, M.grade
-			from starHistory S inner join member M
-			on S.memberNum = M.num
-			where M.num = 5
-    	</select>
+    	<insert id="setVocList" parameterType="MyDTO">
+    		insert into customerqna values (qna_seq.nextval, #{category}, #{id}, #{storeName}, #{visitDate}, #{title}, #{contents})
+    	</insert>
     
+    	<select id="getStore" parameterType="MyDTO" resultType="MyDTO">
+    		select storeName, addr from store where storeName like '%'||#{stosearch}||'%'
+    	</select>
+    	
+    	<delete id="setMyInfoOut" parameterType="MyDTO">
+    		delete from member where id=#{id}
+    	</delete>
+    
+    	<select id="getMyIndex" resultType="MyDTO" parameterType="MyDTO">
+			select S.useStar, S.id, M.nickName, M.grade, C.menuimage, C.balance, C.korname
+			from starHistory S inner join member M
+			on S.id = M.id
+            join membercard C
+            on S.id = C.id
+			where M.id = #{id}
+    	</select>
+    	
+    	<select id="getOne" parameterType="MyDTO" resultType="MyDTO">
+    		select * from member where id = #{id}
+    	</select>
+ 
+ 		<update id="setUpdate" parameterType="MyDTO"> 
+ 			update member set phone=#{phone}, email=#{email}, nickname=#{nickName} where id=#{id}
+	 	</update>
+	 	
+	 	<update id="setNewPw" parameterType="MyDTO"> 
+ 			update member set pw=#{pw} where id=#{id}
+	 	</update>
+    
+    	<select id="getMyStar" parameterType="MyDTO" resultType="MyDTO">
+    		select * from starhistory where id = #{id}
+    	</select>
+    	
+    	<select id="getMyStore" parameterType="MyDTO" resultType="MyDTO">
+    		select rownum R, N.* from (select * from memberStore where id= #{id})N
+    		
+    	</select>
     </mapper>

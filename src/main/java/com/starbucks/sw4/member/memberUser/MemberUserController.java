@@ -24,6 +24,7 @@ import com.starbucks.sw4.member.MemberDTO;
 import com.starbucks.sw4.member.MemberService;
 import com.starbucks.sw4.member.auth.AuthDTO;
 import com.starbucks.sw4.member.auth.AuthService;
+import com.starbucks.sw4.my.MyDTO;
 
 @Controller
 @RequestMapping(value="/member/**")
@@ -75,7 +76,11 @@ public class MemberUserController {
 			memberDTO = memberUserService.getMemberLogin(memberDTO);
 			
 			if(memberDTO != null && memberDTO.getType() == 1) {
+				MyDTO myDTO = new MyDTO();
 				session.setAttribute("member", memberDTO);
+				myDTO.setId(memberDTO.getId());
+				
+				session.setAttribute("my", myDTO);
 				
 				if(memberDTO.getNickName() != null) {
 					mv.addObject("msg", memberDTO.getNickName() + " 님 환영합니다!");

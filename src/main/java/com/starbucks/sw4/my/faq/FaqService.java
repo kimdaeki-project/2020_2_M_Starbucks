@@ -16,7 +16,8 @@ public class FaqService {
 		//rownum 계산
 		pager.makeRow();
 		pager.setType("rewards");
-		
+		System.out.println(pager.getStartRow());
+		System.out.println(pager.getLastRow());
 		//page 계산
 		long totalCount = faqDAO.faqCount(pager);//15
 		System.out.println(totalCount);
@@ -28,9 +29,15 @@ public class FaqService {
 	
 	public List<FaqDTO> getCardList(Pager pager) throws Exception {
 		System.out.println("service card  까지 옴");
+		//rownum 계산
+				pager.makeRow();
+				pager.setType("card");
+				
 		long totalCount = faqDAO.faqCount(pager);
 		System.out.println("totalcount: "+totalCount);
 		pager.setTotalCount(totalCount);
+		pager.makePage();
+		
 		return faqDAO.getCardList(pager);
 	}
 	

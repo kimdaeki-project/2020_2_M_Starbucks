@@ -12,15 +12,15 @@ public class FaqDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.starbucks.sw4.my.faq.FaqDAO.";
 	
-	public List<FaqDTO> getRewardList(Pager pager) {
+	public List<FaqDTO> getRewardList(Pager pager) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getRewardList", pager);
 	}
 	
-	public List<FaqDTO> getCardList(Pager pager) {
+	public List<FaqDTO> getCardList(Pager pager) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getCardList", pager);
 	}
 	
-	public List<FaqDTO> getGiftCardList(Pager pager) {
+	public List<FaqDTO> getGiftCardList(Pager pager) throws Exception {
 		return sqlSession.selectList(NAMESPACE+"getGiftCardList", pager);
 	}
 	 
