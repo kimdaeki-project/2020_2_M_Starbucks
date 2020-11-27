@@ -423,6 +423,7 @@
 	
 		
    </script>
+
    
    <script src="${pageContext.request.contextPath}/resources/js/common/header.js?v=1"></script>
    <script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=1"></script>

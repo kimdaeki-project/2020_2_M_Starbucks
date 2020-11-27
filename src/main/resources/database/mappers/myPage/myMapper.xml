@@ -9,7 +9,7 @@
     	</insert>
     
     	<select id="getStore" parameterType="MyDTO" resultType="MyDTO">
-    		select storeName, addr from store where storeName like '%'||#{stosearch}||'%'
+    		select storeName, addr, storecode from store where storeName like '%'||#{storeName}||'%'
     	</select>
     	
     	<delete id="setMyInfoOut" parameterType="MyDTO">

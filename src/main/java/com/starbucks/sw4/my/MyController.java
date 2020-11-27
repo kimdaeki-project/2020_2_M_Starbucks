@@ -85,10 +85,11 @@ public class MyController {
 		System.out.println(myDTO.getContents());
 		System.out.println(myDTO.getVisitDate());
 		
-		MyDTO myDTO2 = (MyDTO) session.getAttribute("my");
-		myDTO.setId(myDTO2.getId());
+		MyDTO myId = (MyDTO) session.getAttribute("my");
+		myDTO.setId(myId.getId());
 		System.out.println("category2: "+myDTO.getCategory());
 		int result = myService.setVocList(myDTO);
+	
 		if(result>0) {
 			mv.addObject("msg", "문의내역이 저장되었습니다");
 			mv.addObject("path", "./myIndex");
