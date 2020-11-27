@@ -37,6 +37,7 @@
 			<mapping path="/admin/admin/adminIndex"/>
 			<mapping path="/admin/*/*"/>
 			<exclude-mapping path="/admin/admin/adminLogin"/>
+			<exclude-mapping path="/admin/store/storeList"/>
 			<beans:ref bean="adminPageInterceptor"/>
 		</interceptor>
 		
