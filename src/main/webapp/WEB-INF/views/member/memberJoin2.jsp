@@ -290,6 +290,9 @@
 		
 		function emptyCheck() {
 			emptyCheckResult = true;
+			$(".empty").each(function(){
+				console.log($(this).val());
+			});
 		}
 	</script>
 </body>

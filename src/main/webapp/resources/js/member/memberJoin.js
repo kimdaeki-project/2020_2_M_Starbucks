@@ -1,23 +1,21 @@
 $(document).ready(function() {
-
 	
 	/* Join 버튼 클릭시 */
 	var idCheck = false;
 	var pwCheck = false;
 	var emptyCheckResult = true;
 	
-	$("#join").click(function() {
-		console.log('join click');
-		//emptyCheck();
-		pwCheck();
-	});
-	
 	
 	/* Join 버튼 클릭시 end */
+	
+	
+	
 	
 	initBirth();
 	getInfoPop();
 	setEvents();
+	
+	
 	
 	/* 생년월일 select 내용 */
 	var birth = $("#birth_year[name='birth_year'").val() + "-" + $("#birth_month[name='birth_month'").val() + "-" + $("#birth_day[name='birth_day'").val();
@@ -96,6 +94,8 @@ $(document).ready(function() {
 	
 });
 
+
+
 	/* (!) 팝업 */
 	function getInfoPop() {
 		$(".info_btn_inner").css("display","none");
@@ -111,6 +111,7 @@ $(document).ready(function() {
 	/* (!) 팝업 end */
 	
 	
+
 
 	/* 빈칸 이벤트 처리 */
 	function setEvents() {
@@ -156,7 +157,3 @@ $(document).ready(function() {
 	/* 빈칸확인 end */
 	
 	
-	/* pw check */
-	function pwCheck() {
-		
-	}

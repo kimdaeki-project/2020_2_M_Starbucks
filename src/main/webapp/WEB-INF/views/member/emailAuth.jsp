@@ -88,6 +88,7 @@
 					} else {
 						$('form').submit(function(e){
 							$(this).unbind('submit').submit();
+							location.href="./memberJoin2";
 						});
 					}
 				}

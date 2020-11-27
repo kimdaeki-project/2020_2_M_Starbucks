@@ -71,9 +71,8 @@ public class MemberUserController {
 		if(result > 0) {
 			//회원별 접근 구분
 			memberDTO = memberUserService.getMemberLogin(memberDTO);
-			
 			if(memberDTO != null && memberDTO.getType() == 1) {
-				session.setAttribute("member", memberDTO);				
+				session.setAttribute("member", memberDTO);
 				
 				if(memberDTO.getNickName() != null) {
 					mv.addObject("msg", memberDTO.getNickName() + " 님 환영합니다!");
@@ -290,7 +289,7 @@ public class MemberUserController {
 				mv.addObject("path", "./emailAuth");
 				mv.setViewName("common/result");
 			}
-			session.setAttribute("auth", authDTO);
+			//session.setAttribute("auth", authDTO);
 		}
 	//	mv.setViewName("common/result");
 		return mv;
