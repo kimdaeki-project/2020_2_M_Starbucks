@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.starbucks.sw4.member.MemberDTO;
+
 @Repository
 public class MyDAO {
 	@Autowired
@@ -15,9 +17,9 @@ public class MyDAO {
 	private final String NAMESPACE = "com.starbucks.sw4.my.MyDAO.";
 	
 	//my페이지 index
-	public MyDTO getMyIndex(MyDTO myDTO) throws Exception{
+	public MyDTO getMyIndex(MemberDTO memberDTO) throws Exception{
 		//System.out.println(myDTO.getId());
-		return sqlSession.selectOne(NAMESPACE+"getMyIndex", myDTO);
+		return sqlSession.selectOne(NAMESPACE+"getMyIndex", memberDTO);
 	}
 	//로그인한 유저 정보가져오기
 	public MyDTO getOne(MyDTO myDTO) throws Exception {

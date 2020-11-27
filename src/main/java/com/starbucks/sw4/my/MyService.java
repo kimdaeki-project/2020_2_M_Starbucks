@@ -7,15 +7,17 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.starbucks.sw4.member.MemberDTO;
+
 @Service
 public class MyService {
 	@Autowired
 	private MyDAO myDAO;
 	
 	//myIndex 페이지 db 출력
-	public MyDTO getMyIndex(MyDTO myDTO) throws Exception{
+	public MyDTO getMyIndex(MemberDTO memberDTO) throws Exception{
 		//System.out.println(myDTO.getGrade());
-		return myDAO.getMyIndex(myDTO);
+		return myDAO.getMyIndex(memberDTO);
 	}
 	
 	//개인정보수정 전 db
