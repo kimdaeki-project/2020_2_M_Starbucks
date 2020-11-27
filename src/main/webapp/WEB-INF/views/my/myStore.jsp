@@ -25,6 +25,66 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
    <script src="${pageContext.request.contextPath}/resources/js/common/jquery.bxslider.min.js"></script>
+   
+   <c:import url="../admin/template/bootstrap.jsp"></c:import>
+	<c:import url="../admin/template/commonCSS.jsp"></c:import>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="/sw4/resources/admin/css/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="/sw4/resources/admin/css/memberPage.css">
+   
+   <style type="text/css">
+   #store-select-info {
+			    background-color: #F6F6F6;
+			    color: #5D5D5D;
+			    font-size: 1.2rem;
+			    padding: 0.5rem;
+			}
+			.h4, h4 {
+			    font-size: 30px;
+			}
+			.input-group-prepend, .input-group-append {
+			   display: flex;
+			}
+			#store-select-scroll {
+			    width: 100%;
+			    height: 240px;
+			    overflow: auto;
+			    padding-right: 0.2rem;
+			}
+			.popup-btn {
+			    font-size: 1.4rem;
+			    cursor: pointer;
+			    padding: 0.5rem 1.2rem;
+			    border: 1px solid red;
+			    border-radius: 3px;
+			    text-align: center;
+			}
+			.select-store{
+				font-size: 1.6rem;
+			}
+			#select-type {
+			    font-size: 1.5rem;
+			    margin-right: 2.5rem;
+			}
+			#search-store-txt {
+			    width: 82%;
+			}
+			#store-search-area{
+				border: none;
+			}
+			.input-group-prepend, .input-group-append {
+			    display: inline;
+			    /* display: flex; */
+			}
+			#select-type {
+			    margin-right: 0.5rem;
+			}
+			#sidoDropdown {
+			    width: 7rem;
+			}
+			
+		</style>	
 </head>
 <body>
 	<!-- Header -->
@@ -117,6 +177,7 @@
     									<li><a href="#" class="allset">전체선택</a></li>
     									<li><a href="#" class="delset">선택 삭제</a></li>
     								</ul>
+    								<span id="findStore">검색</span>
     							</div>
     						</fieldset>
     					
@@ -127,11 +188,148 @@
     	</section>
     </div>
    </div>
-
+   
+	<div id="store-info-area" style="display:none" role="dialog" class="modal">
+   </div>
+		
    <!-- Footer -->
    <c:import url="../common/footer.jsp"></c:import>
    <!-- Footer End -->
    
+   <c:import url="../admin/template/javascript.jsp"></c:import>
+   <script src="/sw4/resources/admin/js/jquery-ui.min.js"></script>
+   <script type="text/javascript">
+   var sidoTxt = "";
+	var storeSearchTxt = "";
+	
+/* 			var noWidth = window.screen.width;
+	var noHeight = window.screen.height; */
+	
+	var beforeChk=0;
+	var storeChk=0;
+	var countChk=0;
+
+	$("#findStore").click(function(){
+		getDialogStore(sidoTxt, storeSearchTxt);	
+	});
+	
+	// 종료: get store list function 분리 -----------------------------------
+	// function 으로 분리 -------------------------------
+	function getDialogStore(sidoTxt, storeSearchTxt){
+		
+/* 				x = noWidth/3.1; 
+		y = noHeight/5; */
+		
+		getStoreList(sidoTxt,storeSearchTxt);
+						
+		beforeChk=0;
+		storeChk=0;
+		countChk=0;
+										
+		$("#store-info-area").dialog({
+			modal:true,
+			width:'50%',
+			height:'500',
+			resizable:false,
+			open:function(){
+				/* $(this).parent().offset ({top: y,left: x } ); */
+			}
+		});
+	}
+	// 종료: function 분리 --------------------------------------------------
+	
+	function getStoreSearch(sidoTxt){
+		storeSearchTxt = $("#search-store-txt").val();
+		getSidoList(sidoTxt, storeSearchTxt);
+	}
+	
+	function getSidoList(sidoTxt, search){
+		getStoreList(sidoTxt,search);
+	}
+	
+	// function 분리하기 ---------------------------
+	function getStoreList(sidoTxt, search){
+		$.ajax({
+			url:"../admin/store/storeList",
+			type:"GET",
+			data:{
+				sidoName:sidoTxt,
+				search:search
+			},
+			success: function(data){
+				
+				$("#store-info-area").empty();
+				$("#store-info-area").append(data);
+				$("#search-store-txt").val(search);
+				
+				$(".sido").click(function(){
+					sidoTxt = $(this).attr("title");
+					getSidoList(sidoTxt,search);
+				})
+				
+				var showSido;
+				if(sidoTxt == ''){
+					showSido = '전체';
+				} else {
+					showSido = sidoTxt;
+				}
+				
+				$(".sido-type").text(showSido);
+				$(".select-store").click(function(){
+					
+					storeChk = $(this).index();
+					
+					if(countChk > 0){
+						$(".select-store:eq("+beforeChk+")").css('background-color','white');
+						$(".select-store:eq("+beforeChk+")").css('border','none');
+						beforeChk = storeChk;
+					} else {
+						beforeChk = $(this).index();
+					}
+					
+					$(this).attr("check", "Y");
+					$(this).css("background-color","#F6F6F6");
+					$(this).css("border","1px solid #006633");
+					
+					staffStoreCode = $(this).attr("title");
+					staffStoreName = $(this).attr("name");
+						
+					countChk++;
+	
+				})
+				
+				$("#store-search-btn").click(function(){
+					getStoreSearch(sidoTxt);
+					/* storeSearchTxt = $("#search-store-txt").val();
+					getSidoList(sidoTxt, search) */
+				})
+				
+				$("#search-store-txt").keydown(function(key){
+					if(key.keyCode == 13){
+						getStoreSearch(sidoTxt);
+						/* storeSearchTxt = $("#search-store-txt").val();
+						getSidoList(sidoTxt, search) */
+					}
+				});
+				
+				$(".store-choose").click(function(){
+					$("#work-store-txt").val(staffStoreName);
+					$("#work-store-txt").attr("title",staffStoreCode);
+					$("#pop-update-btn").text("수정");
+					$(".work-time").attr("readonly",false);
+					$("#pop-update-btn").attr("title","수정");
+					$("#store-info-area").dialog('close');
+				});
+				
+				$(".store-cancle").click(function(){
+					$("#store-info-area").dialog('close');
+				});
+				
+			}
+		});
+		
+	}
+   </script>
    <script src="${pageContext.request.contextPath}/resources/js/common/header.js?v=1"></script>
    <script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=1"></script>
 </body>

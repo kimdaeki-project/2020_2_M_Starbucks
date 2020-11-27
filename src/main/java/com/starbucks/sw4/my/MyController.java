@@ -28,16 +28,16 @@ public class MyController {
 		
 	}
 	
-	@GetMapping("findStore")
-	public ModelAndView getStore(MyDTO myDTO) throws Exception {
-		ModelAndView mv = new ModelAndView();
-		System.out.println(myDTO.getStosearch());
-		List<MyDTO> ar= myService.getStore(myDTO);
-		System.out.println("Conttttttt");
-		mv.addObject("list", ar);
-		mv.setViewName("my/test");
-		return mv;
-	}
+//	@GetMapping("findStore")
+//	public ModelAndView getStore(MyDTO myDTO) throws Exception {
+//		ModelAndView mv = new ModelAndView();
+//		System.out.println(myDTO.getStosearch());
+//		List<MyDTO> ar= myService.getStore(myDTO);
+//		System.out.println("Conttttttt");
+//		mv.addObject("list", ar);
+//		mv.setViewName("my/test");
+//		return mv;
+//	}
 	
 	@PostMapping("myInfoOut")
 	public ModelAndView setMyInfoOut(MyDTO myDTO,HttpSession session) throws Exception {
@@ -75,6 +75,27 @@ public class MyController {
 		
 		return mv;
 	}
+	@PostMapping("vocList")
+	public ModelAndView setVocList(MyDTO myDTO, HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println(myDTO.getCategory());
+		System.out.println(myDTO.getStoreName());
+		System.out.println(myDTO.getTitle());
+		System.out.println(myDTO.getContents());
+		myDTO = (MyDTO) session.getAttribute("my");
+		int result = myService.setVocList(myDTO);
+		if(result>0) {
+			mv.addObject("msg", "업데이트 성공");
+			mv.addObject("path", "./myIndex");
+		}else {
+			mv.addObject("msg", "업데이트 실패");
+			mv.addObject("path", "./vocList");
+		}
+		mv.setViewName("common/result");
+		
+		return mv;
+	}
+	
 	//고객의 소리
 	@GetMapping("vocList")
 	public ModelAndView setVocList(HttpSession session) throws Exception {

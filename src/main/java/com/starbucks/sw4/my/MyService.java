@@ -52,4 +52,8 @@ public class MyService {
 	public List<MyDTO> getStore(MyDTO myDTO) throws Exception{
 		return myDAO.getStore(myDTO);
 	}
+	
+	public int setVocList(MyDTO myDTO)throws Exception{
+		return myDAO.setVocList(myDTO);
+	}
 }

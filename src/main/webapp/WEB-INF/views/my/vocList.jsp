@@ -12,22 +12,30 @@
    <meta name="format-detection" content="telphone=no">   
 
    <title>고객의 소리 | Starbucks Coffee Korea</title>
+  		
+	
+	<link rel="stylesheet" type="text/css" href="/sw4/resources/admin/css/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="/sw4/resources/admin/css/memberPage.css">
 
    <link href="${pageContext.request.contextPath}/resources/images/common/favicon.ico" rel="shortcut icon" type="image/ico">
    <link href="${pageContext.request.contextPath}/resources/css/common/reset.css" rel="stylesheet" type="text/css">
-   <link href="${pageContext.request.contextPath}/resources/css/common/header.css?v=1" rel="stylesheet" type="text/css">
-   <link href="${pageContext.request.contextPath}/resources/css/common/footer.css?v=1" rel="stylesheet" type="text/css">
-   <link href="${pageContext.request.contextPath}/resources/css/main.css?v=1" rel="stylesheet" type="text/css">
+   <link href="${pageContext.request.contextPath}/resources/css/common/header.css" rel="stylesheet" type="text/css">
+   <link href="${pageContext.request.contextPath}/resources/css/common/footer.css" rel="stylesheet" type="text/css">
+   <link href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet" type="text/css">
    <link href="${pageContext.request.contextPath}/resources/css/common/jquery.bxslider.css" rel="stylesheet">
    <link href="${pageContext.request.contextPath}/resources/css/myPage/commonCSS.css" rel="stylesheet" type="text/css">
    <link href="${pageContext.request.contextPath}/resources/css/myPage/vocList.css" rel="stylesheet" type="text/css">
+   
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <script src="${pageContext.request.contextPath}/resources/js/common/jquery.bxslider.min.js"></script>
 	<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 <body>
+		<c:import url="../admin/template/bootstrap.jsp"></c:import>
+		<c:import url="../admin/template/commonCSS.jsp"></c:import>
 	 <!-- Header -->
    <c:import url="../common/header.jsp"></c:import>
    <!-- Header End -->
@@ -55,7 +63,7 @@
 	 	<c:import url="./sideNav.jsp"></c:import>
 	
 		<div class="ms_voc_wrap">
-			<form action="" id="vocVO" name="vocForm" class="voc_input_frm" method="post">
+			<form action="./vocList" id="vocVO" name="vocForm" class="voc_input_frm" method="post">
 				<input type="hidden" id="store_cd" name="store_cd" value="0">
 				
 				<fieldset>
@@ -84,59 +92,29 @@
 												<div class="sel_wrap">
 													<p class="cate_sel_wrap">
 														
-														<select name="TP_VOC_DEMAND" id="TP_VOC_DEMAND" >
+														<select name="category" id="category" >
 															<option value>문의유형</option>
-															<option value="01">문의</option>
-															<option value="02">칭찬</option>
-															<option value="03">제안</option>
-															<option value="04">불만</option>
+															<option value="문의">문의</option>
+															<option value="칭찬">칭찬</option>
+															<option value="제안">제안</option>
+															<option value="불만">불만</option>
 														</select>
 													</p>
 													
 													
-													<p  id="REL_FAQ_CNT" style="display:none;padding:7px">
-														관련 FAQ 13 건
-													</p>
+													
 												</div>
 											</td>
 										</tr>
-										<tr id="trProd" style="display:none;">
-											<th scope="row">제품/상품</th>
-											<td>
-											
-												<div class="prod_section">
-
-													<div class="prod_wrap" id="prod_wrap1">
-														<input class="voc_prod_input"  readonly type="text" id="NM_GOODS1">
-														<div class="voc_prod_btn">
-															<input class="voc_prod_input_btn" type="button" value="상품찾기" idx="1">
-															<input class="voc_prod_input_hidden"  type=hidden name="CD_GOODS" id="CD_GOODS1">
-														</div>
-														<a class="prod_add" href="javascript:void(0);" onClick="$voc.prodInsert(); return false;">더하기 </a>
-													</div> 
-												</div>
-												
-											</td>
-										</tr>
-										<tr>
-											<th scope="row">답변 알림 서비스<img alt="필수입력" src="//image.istarbucks.co.kr/common/img/common/bullet_star_red.gif"></th>
-											<td>
-												<div class="tbl_radio_wrap">
-													<input id="TP_CSTMR_RPLY1" name="TP_CSTMR_RPLY" checked="checked" type="radio" value="N">
-													<label for="TP_CSTMR_RPLY1">받지 않음</label>
-													<input id="TP_CSTMR_RPLY2" name="TP_CSTMR_RPLY" type="radio" value="Y">
-													<label for="TP_CSTMR_RPLY2">받음 (APP Push)</label>													
-												</div>
-												
-											</td>
-										</tr>
+										
+										
 										<tr id="trEmail" >
 											<th scope="row">답변 받으실 메일<img alt="필수입력" src="//image.istarbucks.co.kr/common/img/common/bullet_star_red.gif"></th>
 											<td>
 												<div class="sel_wrap">
-													<input class="mail_input" id="DS_CSTMR_EMAIL1"  name="DS_CSTMR_EMAIL1" type="text" value='${mail1}'>
+													<input class="mail_input" id="mail1"  name="mail1" type="text" value='${mail1}'>
 													<p class="mail_at">@</p>
-													<input class="mail_input" id="DS_CSTMR_EMAIL2"  name="DS_CSTMR_EMAIL2" type="text" value='${mail2}'>
+													<input class="mail_input" id="mail2"  name="mail2" type="text" value='${mail2}'>
 													<p class="mail_sel_wrap">
 														<label for="mail">직접입력</label>
 														<select id="mail"> 
@@ -181,16 +159,16 @@
 												</div>
 												<div class="sel_wrap mt10">
 													<p class="visit_txt">방문매장</p>
-													<button type="button" class="btn_find_store" data-toggle="modal" data-target="#myModal">매장찾기</button>
-													<a class="btn_find_store" href="javascript:void(0);">매장찾기</a>
-													<p class="input_store_txt"></p>
+													<button type="button" id="stosearch" class="btn_find_store" data-toggle="modal" data-target="#myModal">매장찾기</button>
+													<input type="text" id="work-store-txt" name="storeName" title="" value="" readonly="readonly">
+													<p class="input_store_txt" ></p><div id="#store-info-area"></div>
 													
 												</div>
 												<div class="sel_wrap mt10">
 													<p class="visit_txt">방문일</p>
 													<div class="pick_date_each">
-														<div class="pick_date_each_left"><input id="pickDate1" name="DT_VISIT_STR" title="원하는 날짜를 선택해 주세요." type="text" readonly="readonly" ></div>
-														<div class="pick_date_each_right"><label for="pickDate1">날짜 선택</label></div>
+														<div class="pick_date_each_left"><input id="pickDate1" name="visitDate" title="원하는 날짜를 선택해 주세요." type="date" ></div>
+														
 													</div>
 												</div>
 											</td>
@@ -199,41 +177,22 @@
 											<th scope="row">제목<img alt="필수입력" src="//image.istarbucks.co.kr/common/img/common/bullet_star_red.gif"></th>
 											<td>
 												<div class="sel_wrap">
-													<input class="voc_ttl_input1 empty" id="DS_VOC_TITLE" name="DS_VOC_TITLE" type="text" onpaste="fnPaste(); return false;" oncopy="fnCopy(); return false;"> <!--  style="width:514px"> -->
+													<input class="voc_ttl_input1 empty" id="title" name="title" type="text" > <!--  style="width:514px"> -->
+													<div id="title_check"></div>
 												</div>
 											</td>
 										</tr>
 										<tr>
 											<th scope="row">내용<img alt="필수입력" src="//image.istarbucks.co.kr/common/img/common/bullet_star_red.gif"></th>
 											<td>
-												<!-- <textarea id="DS_VOC_CN" name="DS_VOC_CN"  style="height:200px"></textarea> -->
-												<textarea class="textArea empty" id="DS_VOC_CN" name="DS_VOC_CN" onpaste="fnPaste(); return false;" oncopy="fnCopy(); return false;" 
-											        placeholder="관계 법령에 저촉되거나 사회통념 등에 어긋나는 내용(예: 개인정보 보안, 불충분한 증거/귀책 사유에 대한 개인 음해성/음란성 비방, 의도적인 업무 방해 등) 또는 광고성 게시물은 별도의 사전 통보 없이 답변이 되지 않을 수 있으며, 등록된 의견은 처리가 시작되면 수정이 불가하오니 이 점 양지하여 주시기 바랍니다."></textarea>
+												
+												<textarea class="textArea empty" id="DS_VOC_CN" name="contents" placeholder="관계 법령에 저촉되거나 사회통념 등에 어긋나는 내용(예: 개인정보 보안, 불충분한 증거/귀책 사유에 대한 개인 음해성/음란성 비방, 의도적인 업무 방해 등) 또는 광고성 게시물은 별도의 사전 통보 없이 답변이 되지 않을 수 있으며, 등록된 의견은 처리가 시작되면 수정이 불가하오니 이 점 양지하여 주시기 바랍니다."></textarea>
 												<br><span id="realByte">0 / 2500byte</span>
+												<div id="contents_check"></div>
 											</td>
 										</tr>
 										
-										<tr>
-											<th scope="row">파일첨부</th>
-											<td>
-											
-											
-												<div class="file_section">
-
-													<div class="file_wrap" id="file_wrap1">
-														<input class="voc_file_input" id="fileName1"  readonly type="text">
-														<div class="voc_file_btn">
-															<input class="voc_file_input_btn" type="button" value="찾아보기">
-															<input class="voc_file_input_hidden" onchange="document.getElementById('fileName1').value = this.value;" type="file" name="file_nm1" id="file_nm1">
-														</div>
-															<a class="file_add" href="javascript:void(0);" onClick="$voc.fileInsert(); return false;">더하기 </a>
-													</div> 
-													
-												</div>
-												
-												<div class="voc_file_guide">파일첨부는 아래의 파일만 등록이 가능하며 최대 2개(1개당 최대5MB), 총 10MB까지 등록이 가능합니다. <br> <span>(등록 가능 확장자 : jpg, jpeg, png, gif)</span></div>
-											</td>
-										</tr>
+										
 									</table>
 								</div>
 								<!-- 테이블 end -->
@@ -248,58 +207,18 @@
 						</ul>
 					</div>
 					<div class="voc_info_input_btns">
-									<ul>
-										<li class="voc_info_input_btn1"><a href="#none" onclick="$voc.goSubmit(); return false;">고객의 소리 등록 하기</a></li>
-										<!-- <li class="voc_info_input_btn2"><a href="#n" onclick="$voc.cancel(); return false;">취소</a></li> -->
-									</ul>
+									
+					<button type="submit" class="voc_info_input_btn1">등록 하기</button>
+										
+									
 								</div>
 					
 					
 				</fieldset>
-				<!--매장 찾기 팝업 -->
-				 <div class="modal fade" id="myModal" role="dialog">
-				    <div class="modal-dialog">
-				    
-				      <!-- Modal content-->
-				      <div class="modal-content">
-				        <div class="modal-header">
-				          <button type="button" class="close" data-dismiss="modal">&times;</button>
-				          <h4 class="modal-title">매장 찾기</h4>
-				        </div>
-				        <div class="modal-body">
-				        
-				          <p>Some text in the modal.</p>
-				          <dl class="store_find">
-				          	<dt class="dt1"></dt>
-				          	<dd style="display: block;">
-				          		<div class="search_wrap">
-				          			<ul>
-				          				<li>
-				          					<label>매장명</label>
-											<input id="bar2" name="stosearch" class="storeName" type="text">
-											<p ><a id="stosearch" href="#">검색</a></p>      					
-				          				</li>
-				          			</ul>
-				          		</div>
-				          		<div id="result_list">
-				          			<table>
-				          			
-				          			
-				          			</table>
-				          		
-				          		</div>
-				          	</dd>
-				          </dl>
-				        </div>
-				        <div class="modal-footer">
-				          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				        </div>
-				      </div>
-				      
-				    </div>
-				  </div>
+				
 			</form>	
 		</div>
+		
 	
 	</div>
 	<!-- 내용 end -->
@@ -307,20 +226,166 @@
    <c:import url="../common/footer.jsp"></c:import>
    <!-- Footer End -->
    
+   <div id="store-info-area" style="display:none" role="dialog" class="modal">
+   </div>
+   
+   <c:import url="../admin/template/javascript.jsp"></c:import>
+   <script src="/sw4/resources/admin/js/jquery-ui.min.js"></script>
+   
    <script type="text/javascript">
+   
+		   	var sidoTxt = "";
+			var storeSearchTxt = "";
+			
+		/* 	var noWidth = window.screen.width;
+			var noHeight = window.screen.height; */
+			
+			var beforeChk=0;
+			var storeChk=0;
+			var countChk=0;
+
+			$("#stosearch").click(function(){
+				getDialogStore(sidoTxt, storeSearchTxt);	
+			});
+			
+			// 종료: get store list function 분리 -----------------------------------
+			// function 으로 분리 -------------------------------
+			function getDialogStore(sidoTxt, storeSearchTxt){
+				
+		/* 		x = noWidth/3.1; 
+				y = noHeight/5; */
+				
+				getStoreList(sidoTxt,storeSearchTxt);
+								
+				beforeChk=0;
+				storeChk=0;
+				countChk=0;
+												
+				$("#store-info-area").dialog({
+					modal:true,
+					width:'50%',
+					height:'500',
+					resizable:false,
+					open:function(){
+						/* $(this).parent().offset ({top: y,left: x } ); */
+					}
+				});
+			}
+			// 종료: function 분리 --------------------------------------------------
+			
+			function getStoreSearch(sidoTxt){
+				storeSearchTxt = $("#search-store-txt").val();
+				getSidoList(sidoTxt, storeSearchTxt);
+			}
+			
+			function getSidoList(sidoTxt, search){
+				getStoreList(sidoTxt,search);
+			}
+			
+			// function 분리하기 ---------------------------
+			function getStoreList(sidoTxt, search){
+				$.ajax({
+					url:"../admin/store/storeList",
+					type:"GET",
+					data:{
+						sidoName:sidoTxt,
+						search:search
+					},
+					success: function(data){
+						
+						$("#store-info-area").empty();
+						$("#store-info-area").append(data);
+						$("#search-store-txt").val(search);
+						
+						$(".sido").click(function(){
+							sidoTxt = $(this).attr("title");
+							getSidoList(sidoTxt,search);
+						})
+						
+						var showSido;
+						if(sidoTxt == ''){
+							showSido = '전체';
+						} else {
+							showSido = sidoTxt;
+						}
+						
+						$(".sido-type").text(showSido);
+						$(".select-store").click(function(){
+							
+							storeChk = $(this).index();
+							
+							if(countChk > 0){
+								$(".select-store:eq("+beforeChk+")").css('background-color','white');
+								$(".select-store:eq("+beforeChk+")").css('border','none');
+								beforeChk = storeChk;
+							} else {
+								beforeChk = $(this).index();
+							}
+							
+							$(this).attr("check", "Y");
+							$(this).css("background-color","#F6F6F6");
+							$(this).css("border","1px solid #006633");
+							
+							staffStoreCode = $(this).attr("title");
+							staffStoreName = $(this).attr("name");
+								
+							countChk++;
+			
+						})
+						
+						$("#store-search-btn").click(function(){
+							getStoreSearch(sidoTxt);
+							/* storeSearchTxt = $("#search-store-txt").val();
+							getSidoList(sidoTxt, search) */
+						})
+						
+						$("#search-store-txt").keydown(function(key){
+							if(key.keyCode == 13){
+								getStoreSearch(sidoTxt);
+								/* storeSearchTxt = $("#search-store-txt").val();
+								getSidoList(sidoTxt, search) */
+							}
+						});
+						
+						$(".store-choose").click(function(){
+							$("#work-store-txt").val(staffStoreName);
+							$("#work-store-txt").attr("title",staffStoreCode);
+							$("#pop-update-btn").text("수정");
+							$(".work-time").attr("readonly",false);
+							$("#pop-update-btn").attr("title","수정");
+							$("#store-info-area").dialog('close');
+						});
+						
+						$(".store-cancle").click(function(){
+							$("#store-info-area").dialog('close');
+						});
+						
+					}
+				});
+				
+			}
+
+   
+		
+	//*****************************************************
    var emptyCheckResult = true;
-   $("#DS_VOC_TITLE").blur(function(){
+   $("#title").blur(function(){
    	emptyCheck();
    	
-   	if(emptyCheckResult){
-   		$("#phone_Check").html("사용가능 합니다");
-   		$("#phone_Check").addClass("valCheck");
-   	}else {
-   		$("#phone_Check").html("필수입력 사항 입니다");
-   		$("#phone_Check").addClass("valCheck");
+   	if(!emptyCheckResult){
+   		$("#title_check").html("필수입력 사항 입니다");
+   		$("#title_check").addClass("valCheck");
    	}
-   	
    });
+   
+   $("#contents").blur(function(){
+	   	emptyCheck();
+	   	
+	   	if(!emptyCheckResult){
+	   		$("#contents_check").html("필수입력 사항 입니다");
+	   		$("#contents_check").addClass("valCheck");
+	   	}
+	   });
    
   	 function emptyCheck() {
 		emptyCheckResult = true; // 반복문을 위한 초기화
@@ -335,21 +400,18 @@
    	//*****************************************
    	
    	//****************** modal ********************
-		$("#stosearch").click(function() {
-			var stosearch = $("#bar2").val();
-			$.ajax({
-				url:"./findStore",
-				type:"get",
-				data:{stosearch:stosearch},
-				success: function(result) {
-					alert(result);
-					$("#result_list").append(result);
-				}
-			})
-			
-			
-			
-		})
+		//$("#stosearch").click(function() {
+			//var stosearch = $("#bar2").val();
+			//$.ajax({
+			//	url:"./findStore",
+			//	type:"get",
+			//	data:{stosearch:stosearch},
+			//	success: function(result) {
+			//		alert(result);
+			//		$("#result_list").append(result);
+			//	}
+			//})
+		//})
 		
 		//*************************************************
 		

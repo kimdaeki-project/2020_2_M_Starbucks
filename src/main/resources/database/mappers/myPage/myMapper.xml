@@ -4,12 +4,16 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
     <mapper namespace="com.starbucks.sw4.my.MyDAO">
+    	<insert id="setVocList" parameterType="MyDTO">
+    		insert into customerqna values (qna_seq.nextval, #{category}, #{id}, #{storeName}, #{visitDate}, #{title}, #{contents})
+    	</insert>
+    
     	<select id="getStore" parameterType="MyDTO" resultType="MyDTO">
     		select storeName, addr from store where storeName like '%'||#{stosearch}||'%'
     	</select>
     	
     	<delete id="setMyInfoOut" parameterType="MyDTO">
-    		delete from member where id ='jy1234'
+    		delete from member where id =#{id}
     	</delete>
     
     	<select id="getMyIndex" resultType="MyDTO" parameterType="MyDTO">

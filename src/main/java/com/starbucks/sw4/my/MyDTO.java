@@ -37,7 +37,45 @@ public class MyDTO extends MemberDTO{
 	
 	private int r;
 	
+	//customerQna
+	private String category;
+	private String storecode;
+	private Date visitDate;
+	private String title;
+	private String contents;
 	
+	
+	
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public String getStorecode() {
+		return storecode;
+	}
+	public void setStorecode(String storecode) {
+		this.storecode = storecode;
+	}
+	public Date getVisitDate() {
+		return visitDate;
+	}
+	public void setVisitDate(Date visitDate) {
+		this.visitDate = visitDate;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getContents() {
+		return contents;
+	}
+	public void setContents(String contents) {
+		this.contents = contents;
+	}
 	public int getR() {
 		return r;
 	}

@@ -51,4 +51,9 @@ public class MyDAO {
 		
 		return sqlSession.selectList(NAMESPACE+"getStore", myDTO);
 	}
+	
+	//고객의소리
+	public int setVocList(MyDTO myDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"setVocList", myDTO);
+	}
 }

@@ -34,10 +34,10 @@
     position: relative;
     display: block; 
     padding: 20px 30px 20px 15px; 
-    font-size: .7rem; 
-    color: #333; 
+    font-size: 14px; 
+    color: #444; 
     text-decoration: none;
-    width: 100%;
+    width: 175px;
     font-weight: 500;
     line-height: 100%;
 } 
