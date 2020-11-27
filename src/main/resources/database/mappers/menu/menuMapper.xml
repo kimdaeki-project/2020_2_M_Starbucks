@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.starbucks.sw4.menu.menu.MenuDAO">
+
+	<select id="getMenuList" parameterType="String" resultMap="getMenuListResult">
+		select menuCode, korName, menuImage, price, limited, limitedStore, descr 
+		 from menu
+		 where menuCode like '%'||#{type}||'%'
+	</select>
+	<resultMap type="MenuDTO" id="getMenuListResult">
+		<id column="menuCode" property="menuCode"/>
+		<result column="korName" property="korName"/>
+		<result column="menuImage" property="menuImage"/>
+		<result column="price" property="price"/>
+		<result column="limited" property="limited"/>
+		<result column="limitedStore" property="limitedStore"/>
+		<result column="descr" property="descr"/>
+	</resultMap>
+	
+	
+	<select id="getOptionList" resultType="OptionDTO">
+		select *
+		 from menuOption
+	</select>
+
+
+</mapper>
