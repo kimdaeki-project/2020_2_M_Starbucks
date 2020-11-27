@@ -17,43 +17,24 @@
 	<link href="${pageContext.request.contextPath}/resources/css/common/reset.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/header.css?v=1" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/footer.css?v=1" rel="stylesheet" type="text/css">
-	<link href="${pageContext.request.contextPath}/resources/css/member/emailAuth.css?v=1" rel="stylesheet" type="text/css">
+	<link href="${pageContext.request.contextPath}/resources/css/member/emailAuth.css?v=2" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/jquery.bxslider.css" rel="stylesheet">
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/common/jquery.bxslider.min.js"></script>
-	<style type="text/css">
-		#container { width:100%; padding:30px 0; }
-		#container span { color:green; font-weight:bold; }
-		#container div { padding:10px; }
-		input[type="number"]::-webkit-outer-spin-button,
-		input[type="number"]::-webkit-inner-spin-button {
-		    -webkit-appearance: none;
-		    margin: 0;
-		}
-		#authkey_txt { padding:10px 5px; width:100px; float:left; }
-		#authKey { padding: 10px; }
-	</style>
 </head>
 <body>
-<div id="wrap">
+<div id="wrap" <%-- onkeypress="authCheck();" --%>>
 	<!-- Header -->
 	<c:import url="../common/header.jsp"></c:import>
 	<!-- //Header -->
 	
-<!-- 	<div id="container">
-		<span>입력한 이메일로 받은 인증번호를 입력하세요. (인증번호가 맞아야 다음 단계로 넘어가실 수 있습니다.)</span>
-		<form action="./emailAuth" method="post">
-			<div><p id="authkey_txt"> 인증번호 입력 : </p><input type="number" id="authKey" name="authKey" placeholder="인증번호를 입력하세요." /> </div>                                        
-			<button type="submit" name="submit">인증번호 확인</button>
-		</form>
-	</div> -->
-
+	
 	<!-- 내용 -->
 	<div id="container">
 		<div class="find_mem_wrap mem_wrap2">
 			<div class="find_mem_inner">
-				<form id="frmJoin" action="./emailAuth" method="post">
+				<form id="frmJoin authCheck" action="./emailAuth" method="post">
 					<fieldset>
 						<legend class="hid">회원가입 이메일 인증 확인 폼</legend>
 						<strong class="find_mem_ttl">이메일 인증확인</strong>
@@ -63,9 +44,10 @@
 							<p class="find_form_txt"><span>입력한 이메일로 받은 인증번호를 입력하세요. <br>(인증번호가 맞아야 다음 단계로 넘어가실 수 있습니다.)</span></p>
 							<div class="form_input_box email_chk">
 								<label for="email" class ="hid">인증번호</label>
-								<p id="authkey_txt"> 인증번호 입력 </p><input type="number" id="authKey" name="authKey" placeholder="인증번호를 입력하세요." />
+								<p id="authkey_txt"> 인증번호 입력 </p>
+								<input type="number" id="authKey" name="authKey" maxlength="6" oninput="numberMaxLength(this);" placeholder="인증번호를 입력하세요." />
+								<input type="hidden" name="authStatus" value="0" />
 							</div>
-							<!-- <input type="hidden" name="authState" id="authState" value="1" /> -->
 						</section>
 						<p class="btn_email_auth">
 							<button type="submit" class="auth_check" name="submit">이메일 인증 발송</button>
@@ -81,5 +63,45 @@
 </div>
 	<script src="${pageContext.request.contextPath}/resources/js/common/header.js?v=1"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=1"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//숫자만 입력 가능하도록
+			$("input[name=authKey]").keyup(function(e){
+				var val = $(this).val();
+				$(this).val(val.replace(/[^0-9]/gi,''));
+			});
+			$("input[name=authKey]").keydown(function(e){
+				var key = e.keyCode;
+				var val = $(this).val();
+				
+				if(key == 13) {
+					if(val == '') {
+						alert('인증번호를 입력해주세요.');
+						$('form').submit(function(e){
+							e.preventDefault();
+						});
+					} else if(val.length < 6) {
+						alert('6자리의 인증번호를 입력해주세요.');
+						$('form').submit(function(e){
+							e.preventDefault();
+						});
+					} else {
+						$('form').submit(function(e){
+							$(this).unbind('submit').submit();
+							location.href="./memberJoin2";
+						});
+					}
+				}
+			});
+		});
+		
+		//인증번호 입력제한
+		function numberMaxLength(e) {
+			if(e.value.length > e.maxLength) {
+	            e.value = e.value.slice(0, e.maxLength);
+	            alert('인증번호 6자리를 입력해주세요.');
+	        } 
+		}		
+	</script>
 </body>
 </html>

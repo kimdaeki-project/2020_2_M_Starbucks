@@ -55,8 +55,21 @@ public class MyService {
 	public List<MyDTO> getStore(MyDTO myDTO) throws Exception{
 		return myDAO.getStore(myDTO);
 	}
+	
 	//고객의 소리
 	public int setVocList(MyDTO myDTO)throws Exception{
 		return myDAO.setVocList(myDTO);
 	}
+	
+	//회원가입시 card 초기화
+	public int setMemberJoinCard(MemberDTO memberDTO) throws Exception {
+		return myDAO.setMemberJoinCard(memberDTO);
+	}
+	
+	//회원가입시 starhistory 초기화
+	public int setMemberJoinStar(MemberDTO memberDTO) throws Exception {
+		return myDAO.setMemberJoinStar(memberDTO);
+	}
+	
+	
 }
