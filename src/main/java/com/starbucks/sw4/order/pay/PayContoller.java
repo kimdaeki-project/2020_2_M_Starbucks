@@ -17,7 +17,7 @@ import com.starbucks.sw4.member.MemberDTO;
 @ResponseBody
 public class PayContoller {
 	
-	@PostMapping("payResult")
+	@PostMapping("payProcess")
 	public ModelAndView setInsertPay(PayDTO payDTO, MemberDTO memberDTO) throws ClassNotFoundException, SQLException{
 		
 		System.out.println("pay controller access");
@@ -33,11 +33,4 @@ public class PayContoller {
 		
 	}
 
-	@GetMapping("pay")
-	public ModelAndView getPay() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("order/payment/pay");
-		return mv;
-	}
-	
 }
