@@ -11,22 +11,26 @@ public class MemberUserService implements MemberService {
 
 	@Autowired
 	private MemberUserDAO memberUserDAO;
-	
-	@Override
-	public MemberDTO getMemberLogin(MemberDTO memberDTO) throws Exception {
-		return memberUserDAO.getMemberLogin(memberDTO);
-	}
-	
-	@Override
-	public long getIdCheck(MemberDTO memberDTO) throws Exception {
-		return memberUserDAO.getIdCheck(memberDTO);
-	}
-	
+
+	//join
 	@Override
 	public int setMemberJoin(MemberDTO memberDTO) throws Exception {
 		return memberUserDAO.setMemberJoin(memberDTO);
 	}
 	
+	//login
+	@Override
+	public MemberDTO getMemberLogin(MemberDTO memberDTO) throws Exception {
+		return memberUserDAO.getMemberLogin(memberDTO);
+	}
+
+	//idCheck
+	@Override
+	public long getIdCheck(MemberDTO memberDTO) throws Exception {
+		return memberUserDAO.getIdCheck(memberDTO);
+	}
+	
+	//emailCheck
 	@Override
 	public long getMemberEmailCheck(MemberDTO memberDTO) throws Exception {
 		return memberUserDAO.getMemberEmailCheck(memberDTO);

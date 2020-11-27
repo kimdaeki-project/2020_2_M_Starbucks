@@ -42,28 +42,26 @@
 					<input type="hidden" name="joinPath" id="joinPath" value="" />
 					<input type="hidden" name="grade" id="grade" value="1" />
 					<fieldset>
-						<legend class="hid">회원가입 이메일 인증 폼</legend>
-						<strong class="find_mem_ttl">이메일 인증</strong>
+						<legend class="hid">회원가입 폼</legend>
+						<strong class="find_mem_ttl">회원가입</strong>
 
-						<section class="authForm">
+						<section class="joinform authform">
 							<div class="find_mem_sally"></div>
-							<p class="find_form_txt">이메일을 입력해 주세요.</p>
+							<p class="find_form_txt">회원정보를 입력해주세요.</p>
 							<div class="form_input_box id_chk">
 								<label for="id" class="hid">아이디</label>
-								<input type="text" name="id" id="id" placeholder="아이디" maxlength="13" required="required" />
-								<p class="limit_txt id_chk_txt input_warn_text" id="id_chk_txt">영문(대소문자 구분 없음), 숫자로 4~13자리만 입력 가능합니다.</p>
+								<input type="text" name="id" id="id" class="empty_chk" placeholder="아이디" maxlength="13" />
+								<p class="limit_txt id_chk_txt" id="id_chk_txt">영문(대소문자 구분 없음), 숫자로 4~13자리만 입력 가능합니다.</p>
 							</div>
 							<div class="form_input_box pw_chk">
 								<label for="pw" class="hid">비밀번호</label> 
-								<input type="password" id="pw" name="pw" placeholder="비밀번호" maxlength="20" autocomplete="off" required="required" />
-								<p class="limit_txt user_pwd_txt input_warn_text" id="pw_txt">
-									<!-- 영문, 숫자 혼합하여 10~20자리 이내로 입력하세요. -->
-								</p>
+								<input type="password" id="pw" name="pw" placeholder="비밀번호" maxlength="20" autocomplete="off" />
+								<p class="limit_txt pwd_txt" id="pw_txt">영문, 숫자 혼합하여 10~20자리 이내로 입력하세요.</p>
 							</div>
 							<div class="form_input_box pw_chk bd_none">
 								<label for="pw_chk" class="hid">비밀번호확인</label>
-								<input type="password" id="pw_chk" name="pw_chk" placeholder="비밀번호 확인" maxlength="20" autocomplete="off" required="required"/>
-								<p class="limit_txt user_pwd_chk_txt" id="pw_chk_txt">입력하신 패스워드를 다시 한 번 입력해주세요.</p>
+								<input type="password" id="pw_chk" name="pw_chk" placeholder="비밀번호 확인" maxlength="20" autocomplete="off" />
+								<p class="limit_txt pwd_chk_txt" id="pw_chk_txt">입력하신 패스워드를 다시 한 번 입력해주세요.</p>
 							</div>
 						</section>
 						<section class="joinform">
@@ -166,7 +164,7 @@
 								<!-- 팝업 end -->
 								<div class="choice_cont_mail">
 									<label for="email" class="hid">e-mail</label>
-									<input type="email" name="email" id="email" placeholder="E-mail을 입력하세요." required="required" />
+									<input type="email" name="email" id="email" class="empty" placeholder="E-mail을 입력하세요." value="${member.email}" />
 									<p class="limit_txt mail_txt" id="mail_txt"></p>
 								</div>
 							</div>
@@ -191,7 +189,6 @@
 									<div class="info_btn_box" role="dialog"
 										aria-labelledby="info_box_nick"
 										aria-describedby="info_box_nick_desc">
-										<!-- 접근성_20171120 role, aria 추가 -->
 										<p class="btn_close">
 											<a href="javascript:void(0);" role="button">
 											<img src="${pageContext.request.contextPath}/resources/images/member/btn_close2.png" alt="닫기"></a>
@@ -244,10 +241,12 @@
 										<input type="checkbox" name="mem_choice" id="mem_choice_yes" class="mem" />
 										<label for="mem_choice_yes">동의</label>
 									</span>
-									<div class="mem_purpose_area mem_purpose_area_v2">
-										<div class="privacy_cont">
-											<p class="nickname_text" id="nickname_text"></p>
-										</div>
+									<div class="mem_agreement_area">
+										<p class="refer_text" style="margin-left:10px;">
+											※ 자세한 내용은 
+											<b><a href="https://www.starbucks.co.kr/footer/etc/privacy.do" target="_blank">개인정보처리방침</a></b> 
+											을 참조해주시기 바랍니다. ※
+										</p>
 									</div>
 								</section>
 								<label for="user_nick_nm" class="hid">닉네임</label>
@@ -260,7 +259,7 @@
 							<b> ＊ 선택항목은 입력하지 않거나 동의하지 않아도 회원 가입이 가능합니다. </b>
 						</p>
 						<p class="btn_mem_login">
-							<button type="submit" class="btn_join" id="join">가입하기</button>
+							<button type="button" class="btn_join" id="join">가입하기</button>
 						</p>
 					</fieldset>
 				</form>
@@ -280,6 +279,18 @@
 	<script src="${pageContext.request.contextPath}/resources/js/common/header.js?v=1"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=1"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/member/memberJoin.js?v=1"></script>
-	
+	<script type="text/javascript">
+		var idCheck = false;
+		var pwCheck = false;
+		var emptyCheckResult = true;
+		
+		$("#join").click(function() {
+			emptyCheck();
+		});
+		
+		function emptyCheck() {
+			emptyCheckResult = true;
+		}
+	</script>
 </body>
 </html>

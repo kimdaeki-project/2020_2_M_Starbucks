@@ -1,6 +1,5 @@
 package com.starbucks.sw4.member.memberUser;
 
-import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Random;
@@ -131,9 +130,13 @@ public class MemberUserController {
 	
 	
 	@GetMapping("memberJoin2")
-	public ModelAndView setMemberJoin2() throws Exception {
+	public ModelAndView setMemberJoin2(HttpSession session) throws Exception {
 		System.out.println("MemberUserJoin2 - Controller");
 		ModelAndView mv = new ModelAndView();
+
+		AuthDTO authDTO = (AuthDTO)session.getAttribute("auth");
+		System.out.println(authDTO.getEmail());
+		mv.addObject("auth", authDTO);
 		mv.setViewName("member/memberJoin2");
 		
 		return mv;
@@ -192,8 +195,12 @@ public class MemberUserController {
 		/* 인증번호 생성 */
 		Random r = new Random();
 		r.setSeed(System.currentTimeMillis());
-		int authKey = r.nextInt(1000000) % 1000000;
+		int authKey = r.nextInt(1000000) + 100000;
+		if(authKey>1000000){
+			authKey = authKey - 100000;
+		}
 		authDTO.setAuthKey(authKey);
+        System.out.println("************************************************* 발급 인증키 : " + authKey);
         
 		String sendTime = new SimpleDateFormat("yyyy-MM-dd hh24:mm:ss").format(Calendar.getInstance().getTime());
 		sendTime = sendTime.substring(0, 19);
@@ -226,7 +233,7 @@ public class MemberUserController {
             System.out.println(e);
         }
         /* 메일 발송 end */
-        int result = authService.setAuthEmailSend(authDTO);
+        int result = authService.setEmailAuthSend(authDTO);
         
         if(result > 0) {
         	session.setAttribute("auth", authDTO);
@@ -254,27 +261,42 @@ public class MemberUserController {
 	public ModelAndView getEamilAuthCheck(int authKey, HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		AuthDTO authDTO = new AuthDTO();
-		MemberDTO memberDTO = new MemberDTO();
+		MemberDTO memberDTO = new MemberDTO();		
 		authDTO = (AuthDTO) session.getAttribute("auth");
 		
-		if(authKey == authDTO.getAuthKey()) {
-			memberDTO.setEmail(authDTO.getEmail());
-			//session.setAttribute("member", memberDTO);
-			
-			//mv.addObject("msg", "인증이 완료되었습니다.");
-			//mv.addObject("path", "./memberJoin2");
-			
-		} else {
-			mv.addObject("msg", "인증번호가 일치하지 않습니다. 다시 확인해주세요.");
-			mv.addObject("path", "./emailAuth");
+		if(authDTO == null) {
+			mv.addObject("msg", "이메일 발송이 실패했습니다. 다시 입력해주세요.");
+			mv.addObject("path", "./emailAuthSend");
 			mv.setViewName("common/result");
 		}
-		
-		//session.setAttribute("auth", authDTO);
-		
+		else {
+			System.out.println("------ 사용자 인증키 : " + authKey);
+			System.out.println("------ DB 인증키 : " + authDTO.getAuthKey());
+						
+			if(authKey == authDTO.getAuthKey()) {
+				memberDTO.setEmail(authDTO.getEmail());
+				//session.setAttribute("member", memberDTO);
+				
+				authDTO.setAuthStatus(1);
+				authService.setEmailAuthStatus(authDTO);				
+				
+				//mv.addObject("msg", "인증이 완료되었습니다.");
+				//mv.addObject("path", "./memberJoin2");
+				mv.addObject("auth", authDTO);
+				mv.addObject("member", memberDTO);
+				mv.setViewName("member/memberJoin2");
+			} else {
+				mv.addObject("msg", "인증번호가 일치하지 않습니다. 다시 확인해주세요.");
+				mv.addObject("path", "./emailAuth");
+				mv.setViewName("common/result");
+			}
+			session.setAttribute("auth", authDTO);
+		}
+	//	mv.setViewName("common/result");
 		return mv;
 	}
 	//**************************************************
+	
 	
 	//***************** Email Check ********************
 	@PostMapping("memberEmailCheck")

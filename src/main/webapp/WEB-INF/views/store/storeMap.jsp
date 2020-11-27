@@ -67,19 +67,13 @@
 										</div>
 									</div>
 									<div class="result_num_wrap myStoreInfo">
-										<!-- 검색결과 없는 경우 -->
-										<!--strong>검색 결과</strong>(<span class="en t_006633">0</span>개)-->
-										<!-- 검색결과 있는 경우 -->
-										<strong class="quickSearchResultCtn"></strong> (검색 결과 <span
-											class="en t_006633 resultCtnNumberTab1">0</span>개)<br> <span
-											class="store_pop_info"><img alt=""
-											src="/common/img//store/icon_fav_off.png"> 클릭하여 나만의 매장을
-											등록하세요.</span>
+										<strong class="quickSearchResultCtn"></strong>
+										(검색 결과  <span class="en t_006633 resultCtnNumberTab1">0</span>개)<br> 
+										<span class="store_pop_info">
+											<img alt="" src="${pageContext.request.contextPath}/resources/images/store/icon_fav_off.png"> 클릭하여 나만의 매장을 등록하세요.
+										</span>
 									</div>
 									<div class="result_list_wrap">
-										<!-- 검색결과 없는 경우 -->
-										<!--p class="no_result">검색 결과가 없습니다.</p-->
-										<!-- 검색결과 있는 경우 -->
 										<div class="result_list scrollbar-inner quickScrollWrap">
 											<ul class="quickSearchResultBox">
 											</ul>
@@ -102,8 +96,8 @@
 									<div class="loca_step2">
 										<div class="loca_step2_ttl">STEP 2 : 구/군을 선택해 주세요.</div>
 										<div class="result_num_wrap3">
-											<a class="btn_prev" href="javascript:void(0);">앞으로</a><strong
-												class="sidoSelectName">서울</strong>
+											<a class="btn_prev" href="javascript:void(0);">앞으로</a>
+											<strong class="sidoSelectName">서울</strong>
 										</div>
 										<div class="loca_step2_cont">
 											<div class="loca_step2_frame scrollbar-inner">
@@ -114,16 +108,10 @@
 									</div>
 									<div class="loca_step3">
 										<div class="result_num_wrap">
-											<!-- 검색결과 없는 경우 -->
-											<!--strong>검색 결과</strong>(<span class="en t_006633">0</span>개)-->
-											<!-- 검색결과 있는 경우 -->
-											<strong class="gugunSelectName"></strong> (검색 결과 <span
-												class="en t_006633 sidoSetResult">0</span>개)
+											<strong class="gugunSelectName"></strong>
+											(검색 결과 <span class="en t_006633 sidoSetResult">0</span>개)
 										</div>
 										<div class="result_list_wrap">
-											<!-- 검색결과 없는 경우 -->
-											<!--p class="no_result">검색 결과가 없습니다.</p-->
-											<!-- 검색결과 있는 경우 -->
 											<div class="result_list scrollbar-inner">
 												<ul class="quickSearchResultBoxSidoGugun">
 												</ul>
@@ -183,8 +171,7 @@
 										</li>
 									</ul>
 									<div class="after_search_input1">
-										<input id="initStartTxt" type="text" class="initViewerClass"
-											readonly title="길찾기 출발지" />
+										<input id="initStartTxt" type="text" class="initViewerClass" readonly title="길찾기 출발지" />
 										<p class="initViewerClass"></p>
 									</div>
 									<div class="after_search_input2">
@@ -202,8 +189,9 @@
 												<label for="start">출발</label>
 											</dt>
 											<dd>
-												<span class="btn_my_loca"><a
-													href="javascript:void(0);" class="road_find_current">현재위치</a></span>
+												<span class="btn_my_loca">
+													<a href="javascript:void(0);" class="road_find_current">현재위치</a>
+												</span>
 												<div class="road_map_input_wrap rmiw1">
 													<input id="start" placeholder="출발지 입력" type="text">
 													<p>
@@ -257,19 +245,17 @@
 										<article class="transfer_method_cont1">
 
 											<span class="store_pop_info2 carFindRoad" style="display: none">
-											<img alt="" src="/common/img/store/icon_fav_off.png"> 클릭하여 나만의 매장을 등록하세요.</span>
+											<img alt="" src="${pageContext.request.contextPath}/resources/images/store/icon_fav_off.png"> 클릭하여 나만의 매장을 등록하세요.</span>
 											<div class="desti_top_wrap carFindRoad" style="display: none">
 												<strong class="desti_top_ttl car_find_endName">스타벅스 영풍문고점</strong>
-												<img alt="" src="/common/img/store/icon_fav_off.png" class="roadFav setStoreFavBtn" data-store="0" data-yn="N" data-name="">
+												<img alt="" src="${pageContext.request.contextPath}/resources/imagesstore/icon_fav_off.png" class="roadFav setStoreFavBtn" data-store="0" data-yn="N" data-name="">
 												<p class="desti_top_dist">
 													<span class="car_find_min"></span>&nbsp;&nbsp;
-													<strong class="car_find_lengtn"></strong>
-													km
+													<strong class="car_find_lengtn"></strong> km
 												</p>
 											</div>
 
-											<div class="desti_top_wrap carFindRoadErr"
-												style="display: none">
+											<div class="desti_top_wrap carFindRoadErr" style="display: none">
 												<p class="icon_exclam">
 													직선거리가 <strong>30km</strong> 이내인 경우에 한하여 도보 찾기 결과를 제공합니다.
 												</p>
@@ -299,14 +285,13 @@
 										</header>
 										<article class="transfer_method_cont2" style="display: none">
 											<span class="store_pop_info2 carFindRoad" style="display: none">
-												<img alt="" src="/common/img/store/icon_fav_off.png" class="roadFav">
+												<img alt="" src="${pageContext.request.contextPath}/resources/images/store/icon_fav_off.png" class="roadFav">
 												클릭하여 나만의 매장을 등록하세요.
 											</span>
 
-											<div class="desti_top_wrap 	carFindRoad"
-												style="display: none">
+											<div class="desti_top_wrap 	carFindRoad" style="display: none">
 												<strong class="desti_top_ttl car_find_endName">스타벅스
-													영풍문고점</strong> <img alt="" src="/common/img/store/icon_fav_off.png"
+													영풍문고점</strong> <img alt="" src="${pageContext.request.contextPath}/resources/images/store/icon_fav_off.png"
 													class="roadFav setStoreFavBtn" data-store="0" data-yn="N"
 													data-name="">
 												<p class="desti_top_dist trafficViewInfo">전체:00 | 버스:00
@@ -339,17 +324,14 @@
 												style="display: none"><img alt=""
 												src="/common/img/store/icon_fav_off.png"> 클릭하여 나만의 매장을 등록하세요.</span>
 											<div class="desti_top_wrap carFindRoad" style="display: none">
-												<strong class="desti_top_ttl foot_find_endName">스타벅스
-													영풍문고점</strong> <img alt="" src="/common/img/store/icon_fav_off.png"
-													class="roadFav setStoreFavBtn" data-store="0" data-yn="N"
-													data-name="">
+												<strong class="desti_top_ttl foot_find_endName">스타벅스 영풍문고점</strong> 
+												<img alt="" src="${pageContext.request.contextPath}/resources/images/store/icon_fav_off.png" class="roadFav setStoreFavBtn" data-store="0" data-yn="N" data-name="">
 												<p class="desti_top_dist">
-													<span class="foot_find_min"></span>&nbsp;&nbsp;<strong
-														class="foot_find_lengtn"></strong>km
+													<span class="foot_find_min"></span>&nbsp;&nbsp;
+													<strong class="foot_find_lengtn"></strong>km
 												</p>
 											</div>
-											<div class="desti_top_wrap carFindRoadErr"
-												style="display: none">
+											<div class="desti_top_wrap carFindRoadErr" style="display: none">
 												<p class="icon_exclam">
 													직선거리가 <strong>30km</strong> 이내인 경우에 한하여 도보 찾기 결과를 제공합니다.
 												</p>
@@ -408,7 +390,8 @@
 	$(document).ready(function() {
 		init();
 	});
-
+	
+	
 	/* 지도 영역 그리기 */
 	function init() {
 		/* 현재 위치 정보 */
@@ -445,17 +428,38 @@
 		};
 		var map = new kakao.maps.Map(container, options);	//지도생성 및 객체 리턴
 		
-		/* $.ajax
-		var storeList = "${storeList}";
-		var size = ${storeList.size()};
+		var storeList = [];
+		$.ajax({
+			url : "./storeList",
+			dataType : "json",
+			type : "get",
+			success : function(data) {
+				for(var i=0; i<data.length; i++) {
+					storeList.push(data[i]);
+				}
+				allMarker();
+			}
+		});
 		
 		var positions = [];
-		for(var i=0; i<size; i++) {
-			var storeName = "";
-			console.log(storeName);
-			if(i > 10) break;
-		} */
-		
+		function allMarker(){
+			console.log(storeList.length);
+			for(var i=0; i<storeList.length; i++) {
+				console.log(storeList[i]);
+				var storeName = storeList[i].storeName;
+				var lat = storeList[i].lat;
+				var lot = storeList[i].lot;
+				var position = [];
+				//position.push(storeName, lat, lot);
+				console.log(position[i]);
+				//positions.push(position);
+			}
+			
+			/* for(var i=0; i<positions.length; i++) {
+				console.log("lat : " + positions[i].lat);
+				console.log("lot : " + positions[i].lot);
+			} */
+		}
 		
 		var imageSrc = '/sw4/resources/images/store/pin_general.png', 
 	    	imageSize = new kakao.maps.Size(38, 60); 

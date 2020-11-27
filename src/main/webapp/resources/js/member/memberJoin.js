@@ -1,6 +1,16 @@
 $(document).ready(function() {
-	/* Join 버튼 클릭시 */
+
 	
+	/* Join 버튼 클릭시 */
+	var idCheck = false;
+	var pwCheck = false;
+	var emptyCheckResult = true;
+	
+	$("#join").click(function() {
+		console.log('join click');
+		//emptyCheck();
+		pwCheck();
+	});
 	
 	
 	/* Join 버튼 클릭시 end */
@@ -9,7 +19,7 @@ $(document).ready(function() {
 	getInfoPop();
 	setEvents();
 	
-	/* 생년월일 */
+	/* 생년월일 select 내용 */
 	var birth = $("#birth_year[name='birth_year'").val() + "-" + $("#birth_month[name='birth_month'").val() + "-" + $("#birth_day[name='birth_day'").val();
 	$("#birth").val(birth);
 	
@@ -63,7 +73,7 @@ $(document).ready(function() {
 		$("[name='birth_day']").html('<option value="">선택</option>');
 		
 		var d = new Date(_nYear, _nMonth, 1);
-			d.setDate(d.getDate() - 1);
+		d.setDate(d.getDate() - 1);
 	
 		for (var i = 1; i <= d.getDate(); i++) {
 			var nSaveVal = addZero(i, 2);
@@ -76,17 +86,17 @@ $(document).ready(function() {
 	function addZero(number, length) {
 		if (length === undefined) {
 			length = 2;
-		}
-	
+		}	
 		var str = '' + number;
 		while (str.length < length) {str = '0' + str;}
 		return str;
 	}
-	/* 생년월일 end */
+	/* 생년월일 select 내용 end */
 	
 	
-	
-	/* 닉네임 */
+});
+
+	/* (!) 팝업 */
 	function getInfoPop() {
 		$(".info_btn_inner").css("display","none");
 		$('.form_input_box .icon_mark_point').click(function(){
@@ -98,19 +108,20 @@ $(document).ready(function() {
 			$('.info_btn_inner').fadeOut();
 		});
 	}
-	/* 닉네임 end */
+	/* (!) 팝업 end */
 	
-	/* event 처리 */
+	
+
+	/* 빈칸 이벤트 처리 */
 	function setEvents() {
-		//$("a[href=#]").attr("href", "javascript:void(0);");
-	
-		if (location.href.indexOf("/find_") > -1) {
+		/*if (location.href.indexOf("/find_") > -1) {
 			$(document).on("blur, keydown", ".input_warn", function () {
 				$(this).removeClass("input_warn");
 				$("#" + $(this).data("warn_id")).text("");
 			});
-		}
-		$("input:text, input:password, input#phone, input#email").on("focus", function () {
+		}*/
+		/*$("input:text, input:password, input#phone, input#email").on("focus", function () {
+			
 			if($(this).hasClass("input_warn") === false) {
 				$(this).addClass("green");
 			}
@@ -120,8 +131,32 @@ $(document).ready(function() {
 			$(this).attr({ "aria-describedby": "", "aria-invalid": "false" });
 		}).on("blur", function () {
 			$(this).removeClass("green");
+		});*/
+				
+	}
+	/* 빈칸 이벤트 처리 */
+	
+	/* 빈칸확인 */
+	function emptyCheck() {
+		emptyCheckResult=true;
+		$(".empty_chk").each(function() {
+			var data = $(this).val();
+			console.log(data);
+			if(data == '') {
+				console.log($(this).html());
+				emptyCheckResult = false;
+				$(this).next().html("필수입력사항입니다.");
+				$(this).parent().addClass(".input_warn");
+				$("").css("display","block");
+				$(".limit_txt").addClass(".input_warn_text");
+				
+			}
 		});
 	}
-	/* event 처리 */
+	/* 빈칸확인 end */
 	
-});
+	
+	/* pw check */
+	function pwCheck() {
+		
+	}
