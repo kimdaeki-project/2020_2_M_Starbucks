@@ -108,7 +108,7 @@
 									<div class="info_btn_box" role="dialog" aria-labelledby="info_box_phone" aria-describedby="info_box_phone_desc">
 										<p class="btn_close">
 											<a href="javascript:void(0);" role="button">
-												<img src="//image.istarbucks.co.kr/common/img/util/ec/btn_close2.png" alt="닫기">
+												<img src="${pageContext.request.contextPath}/resources/images/member/btn_close2.png" alt="닫기">
 											</a>
 										</p>
 										<dl>
