@@ -1,0 +1,43 @@
+@charset "UTF-8";
+div.product_list > dl > dd {
+    margin-bottom: 40px;
+}
+div.product_list > dl > dd > ul {
+    width: 1120px;
+    position: relative;
+    left: -10px;
+    top: -10px;
+}
+div.product_list > dl > dd > ul > li {
+    width: 260px;
+    float: left;
+    margin: 10px;
+    position: relative;
+}
+nav ul, li {
+    list-style: none;
+}
+div.product_list > dl > dd > ul li dl {
+    width: 260px;
+}
+div.product_list > dl > dd > ul li dt {
+    width: 258px;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+div.product_list > dl > dd > ul li dd {
+    font-size: 14px;
+    color: #444;
+    height: 54px;
+    line-height: 54px;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.content {
+    width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 90px;
+}
