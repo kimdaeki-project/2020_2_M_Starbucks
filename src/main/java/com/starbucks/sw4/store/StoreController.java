@@ -35,7 +35,6 @@ public class StoreController {
 	@ResponseBody
 	public List<StoreDTO> getStoreList() throws Exception {
 		System.out.println("getStoreList() ---- Controller ");
-		ModelAndView mv = new ModelAndView();
 		List<StoreDTO> storeList = storeService.getStoreList();
 		
 		return storeList;

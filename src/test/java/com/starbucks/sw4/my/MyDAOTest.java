@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.starbucks.sw4.MyTestCase;
+import com.starbucks.sw4.member.MemberDTO;
 
 public class MyDAOTest extends MyTestCase {
 	@Autowired
@@ -35,4 +36,21 @@ public class MyDAOTest extends MyTestCase {
 		assertEquals(1, result);
 	}
 	
+	//@Test
+	public void setMemberJoinCardTest() throws Exception {
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setId("customer06");
+		
+		int result = myDAO.setMemberJoinCard(memberDTO);
+		assertEquals(1,result);
+	}
+	
+	@Test
+	public void setMemberJoinStarTest() throws Exception {
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setId("customer06");
+		
+		int result = myDAO.setMemberJoinStar(memberDTO);
+		assertEquals(1,result);
+	}
 }
