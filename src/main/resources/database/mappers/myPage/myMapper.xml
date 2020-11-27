@@ -13,7 +13,7 @@
     	</select>
     	
     	<delete id="setMyInfoOut" parameterType="MyDTO">
-    		delete from member where id =#{id}
+    		delete from member where id=#{id}
     	</delete>
     
     	<select id="getMyIndex" resultType="MyDTO" parameterType="MyDTO">

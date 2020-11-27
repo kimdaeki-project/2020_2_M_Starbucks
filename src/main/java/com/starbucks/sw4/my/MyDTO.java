@@ -39,8 +39,8 @@ public class MyDTO extends MemberDTO{
 	
 	//customerQna
 	private String category;
-	private String storecode;
-	private Date visitDate;
+	private int storecode;
+	private String visitDate;
 	private String title;
 	private String contents;
 	
@@ -52,16 +52,18 @@ public class MyDTO extends MemberDTO{
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public String getStorecode() {
+	
+	
+	public int getStorecode() {
 		return storecode;
 	}
-	public void setStorecode(String storecode) {
+	public void setStorecode(int storecode) {
 		this.storecode = storecode;
 	}
-	public Date getVisitDate() {
+	public String getVisitDate() {
 		return visitDate;
 	}
-	public void setVisitDate(Date visitDate) {
+	public void setVisitDate(String visitDate) {
 		this.visitDate = visitDate;
 	}
 	public String getTitle() {

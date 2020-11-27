@@ -16,12 +16,12 @@ public class MyDAO {
 	
 	//my페이지 index
 	public MyDTO getMyIndex(MyDTO myDTO) throws Exception{
-		System.out.println(myDTO.getId());
+		//System.out.println(myDTO.getId());
 		return sqlSession.selectOne(NAMESPACE+"getMyIndex", myDTO);
 	}
 	//로그인한 유저 정보가져오기
 	public MyDTO getOne(MyDTO myDTO) throws Exception {
-		System.out.println(myDTO.getEmail());
+		
 		return sqlSession.selectOne(NAMESPACE+"getOne", myDTO);
 	}
 	//개인 정보 수정

@@ -47,7 +47,7 @@
 				<div class="input_box">
 					<strong>아이디</strong>
 					<p class="nofix_name">${myInfo.id} </p>
-					<input type="hidden" name="id" id="user_id" value="id">
+					<input type="hidden" name="id" id="user_id" value="${myInfo.id}">
 				</div>
 				<div class="input_box">
 					<strong>현재 비밀번호</strong>

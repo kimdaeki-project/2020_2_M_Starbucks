@@ -77,7 +77,7 @@ public class AdminMemberController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		System.out.println(dto.getNum());
+		//System.out.println(dto.getNum());
 		dto = adminMemberService.getOne(dto);
 		
 		WorkTimeTableDTO wDTO = adminMemberService.getTimeTableOne(dto);

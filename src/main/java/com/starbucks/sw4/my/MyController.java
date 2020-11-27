@@ -43,9 +43,10 @@ public class MyController {
 	public ModelAndView setMyInfoOut(MyDTO myDTO,HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		int result = myService.setMyInfoOut(myDTO);
+		if(result>0) {
 		session.invalidate();
-		
-		mv.setViewName("redirect:./");
+		}
+		mv.setViewName("redirect:../");
 		//자동로그아웃되게 처리하고, 메인페이지로 이동시키기..
 		return mv;
 	}
@@ -82,7 +83,11 @@ public class MyController {
 		System.out.println(myDTO.getStoreName());
 		System.out.println(myDTO.getTitle());
 		System.out.println(myDTO.getContents());
-		myDTO = (MyDTO) session.getAttribute("my");
+		System.out.println(myDTO.getVisitDate());
+		
+		MyDTO myDTO2 = (MyDTO) session.getAttribute("my");
+		myDTO.setId(myDTO2.getId());
+		System.out.println("category2: "+myDTO.getCategory());
 		int result = myService.setVocList(myDTO);
 		if(result>0) {
 			mv.addObject("msg", "업데이트 성공");

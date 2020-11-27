@@ -12,17 +12,24 @@ public class MyDAOTest extends MyTestCase {
 	private MyDAO myDAO;
 	
 	@Test
-	public void getMyStoreTest() throws Exception {
+	public void setVocListTest() throws Exception {
 		MyDTO myDTO = new MyDTO();
-		
+		myDTO.setCategory("문의");
+		myDTO.setId("customer02");
+		myDTO.setStoreName("아차산");
+		myDTO.setTitle("TEST");
+		myDTO.setContents("dadfdsafd");
+		myDTO.setVisitDate("20/02/23");
+		int result = myDAO.setVocList(myDTO);
+		assertEquals(1, result);
 	}
 	
-	@Test
+//	@Test
 	public void setUpdateTest() throws Exception {
 		MyDTO myDTO = new MyDTO();
 		myDTO.setId("id1");
 		myDTO.setName("gest1");
-		myDTO.setNickName("nick sibbal");
+		myDTO.setNickName("nick");
 		myDTO.setKorName("ggg");
 		int result = myDAO.setUpdate(myDTO);
 		assertEquals(1, result);

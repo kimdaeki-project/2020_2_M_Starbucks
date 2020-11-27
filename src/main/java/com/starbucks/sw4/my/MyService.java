@@ -14,7 +14,7 @@ public class MyService {
 	
 	//myIndex 페이지 db 출력
 	public MyDTO getMyIndex(MyDTO myDTO) throws Exception{
-		System.out.println(myDTO.getGrade());
+		//System.out.println(myDTO.getGrade());
 		return myDAO.getMyIndex(myDTO);
 	}
 	
@@ -52,7 +52,7 @@ public class MyService {
 	public List<MyDTO> getStore(MyDTO myDTO) throws Exception{
 		return myDAO.getStore(myDTO);
 	}
-	
+	//고객의 소리
 	public int setVocList(MyDTO myDTO)throws Exception{
 		return myDAO.setVocList(myDTO);
 	}
