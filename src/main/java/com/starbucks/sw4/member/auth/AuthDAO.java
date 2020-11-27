@@ -11,7 +11,7 @@ public class AuthDAO {
 	private SqlSession sqlSession;	
 	private final String NAMESPACE = "com.starbucks.sw4.member.auth.AuthDAO.";
 	
-	public int setEmailAuthSend(AuthDTO authDTO) throws Exception {
+	public int setAuthEmailSend(AuthDTO authDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"setAuthEmailSend", authDTO);
 	}
 	
@@ -19,7 +19,7 @@ public class AuthDAO {
 		return sqlSession.selectOne(NAMESPACE+"setAuthEmailCheck", authDTO);
 	}
 	
-	public int setEmailAuthStatus(AuthDTO authDTO) throws Exception {
+	public long setEmailAuthStatus(AuthDTO authDTO) throws Exception {
 		return sqlSession.update(NAMESPACE+"setEmailAuthStatus", authDTO);
 	}
 }

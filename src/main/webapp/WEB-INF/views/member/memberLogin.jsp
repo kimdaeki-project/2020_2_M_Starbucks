@@ -59,9 +59,6 @@
 										<input type="checkbox" name="idRemb" id="idRemb" class="mem2" value="${cookie.idRemb.value}"/>
 										<label for="idRemb">아이디 저장</label>
 									</span>
-									<span class="btn_admin_login">
-										<a href="../admin/adminLogin">관리자 로그인</a>
-									</span>
 									<p class="btn_mem_login">
 										<button type="submit" class="btn_login">로그인</button>
 									</p>
@@ -90,7 +87,7 @@
 									</ul>
 								</div>
 							</section>
-							<!-- <section class="joinform mem_captcha" style="display: none;">
+							<section class="joinform mem_captcha" style="display: none;">
 								<div class="captcha_infoInput_text">
 									<p class="captcha_guidet">
 										비밀번호를 5회 이상 잘못 입력하면, 보안문자를 함께 입력하셔야 합니다. 
@@ -118,7 +115,7 @@
 										</div>
 									</fieldset>
 								</div>
-							</section> -->
+							</section>
 						</fieldset>
 					</form>
 				</div>
