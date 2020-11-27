@@ -41,6 +41,9 @@
      						<dl>
      							<dt><a data-toggle="modal" onclick="goModal(this);"><img src="${list.menuImage }" alt="${list.korName }"></a></dt>
 								<dd style="display: none;" class="price">${list.price}</dd>
+								<dd style="display: none;" class="limied">${list.limited}</dd>
+								<dd style="display: none;" class="limiedStore">${list.limitedStore}</dd>
+								<dd style="display: none;" class="descr">${list.descr}</dd>								
      							<dd class="korname">${list.korName }</dd>
      						</dl>
      					</li>
@@ -71,6 +74,21 @@
 					<span>가격</span> | 
 					<span id="modal_price">가격</span>
 				</div>
+				<br>
+				<div>
+					<span>한정</span> | 
+					<span id="modal_limited">한정</span>
+				</div>
+				<br>
+				<div>
+					<span>한정매장</span> | 
+					<span id="modal_limitedStore">한정매장</span>
+				</div>
+				<br>
+				<div>
+					<span>설명</span> | 
+					<span id="modal_descr">설명</span>
+				</div>												
 				</div>
 				<!-- Footer -->
 				<div class="modal-footer">
@@ -85,6 +103,9 @@
 function goModal(e){
 	console.log('clicked');
 	var price = $(e).parent().parent().children('.price').text();
+	var limited = $(e).parent().parent().children('.limited').text();
+	var limitedStore = $(e).parent().parent().children('.limitedStore').text();
+	var descr = $(e).parent().parent().children('.descr').text();	
 	var korname = $(e).parent().parent().children('.korname').text();
 	var img_src = $(e).children().attr('src');
 	var img = '<img src = "'+img_src+'"/>';
@@ -93,6 +114,9 @@ function goModal(e){
 	console.log(korname);
 	$('#pop_header').html(korname);
 	$('#modal_price').html(price);
+	$('#modal_limited')html(limited);
+	$('#modal_limitedStore')html(limitedStore);
+	$('#modal_descr')html(descr);
 	$('#modal_img').html(img);
 	$('div.modal').modal();
 }

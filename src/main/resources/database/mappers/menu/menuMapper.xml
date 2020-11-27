@@ -5,7 +5,7 @@
 <mapper namespace="com.starbucks.sw4.menu.menu.MenuDAO">
 
 	<select id="getMenuList" parameterType="String" resultMap="getMenuListResult">
-		select menuCode, korName, menuImage, price
+		select menuCode, korName, menuImage, price, limited, limitedStore, descr 
 		 from menu
 		 where menuCode like '%'||#{type}||'%'
 	</select>

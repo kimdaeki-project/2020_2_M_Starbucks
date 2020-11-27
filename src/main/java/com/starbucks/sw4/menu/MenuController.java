@@ -24,10 +24,10 @@ public class MenuController {
 
 
 		List<MenuDTO> menuList = menuService.getMenuList("D");
-		List<OptionDTO> optList = menuService.getOptionList();
+		List<OptionDTO> opList = menuService.getOptionList();
 		
 		mv.addObject("list", menuList);
-		mv.addObject("optList", optList);
+		mv.addObject("opList", opList);
 		mv.setViewName("menu/drinkList");
 		
 		System.out.println(menuList);
@@ -41,10 +41,10 @@ public class MenuController {
 		ModelAndView mv = new ModelAndView();
 
 		List<MenuDTO> menuList = menuService.getMenuList("P");
-		List<OptionDTO> optList = menuService.getOptionList();
+		List<OptionDTO> opList = menuService.getOptionList();
 
 		mv.addObject("list", menuList);
-		mv.addObject("optList", optList);
+		mv.addObject("opList", opList);
 		mv.setViewName("menu/productList");
 		
 		System.out.println(menuList);
@@ -58,10 +58,10 @@ public class MenuController {
 		ModelAndView mv = new ModelAndView();
 
 		List<MenuDTO> menuList = menuService.getMenuList("F");
-		List<OptionDTO> optList = menuService.getOptionList();
+		List<OptionDTO> opList = menuService.getOptionList();
 
 		mv.addObject("list", menuList);
-		mv.addObject("optList", optList);
+		mv.addObject("opList", opList);
 		mv.setViewName("menu/foodList");
 		
 		System.out.println(menuList);
