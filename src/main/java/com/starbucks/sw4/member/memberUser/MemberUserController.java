@@ -140,10 +140,14 @@ public class MemberUserController {
 		ModelAndView mv = new ModelAndView();
 
 		AuthDTO authDTO = (AuthDTO)session.getAttribute("auth");
-		System.out.println(authDTO.getEmail());
-		mv.addObject("auth", authDTO);
-		mv.setViewName("member/memberJoin2");
-		
+		if(authDTO == null) {
+			mv.addObject("msg", "유효시간이 경과하였습니다. 다시 인증해주세요.");
+			mv.addObject("path", "./emailAuthSend");
+			mv.setViewName("common/result");
+		} else {
+			mv.addObject("auth", authDTO);
+			mv.setViewName("member/memberJoin2");
+		}
 		return mv;
 	}
 	
@@ -168,7 +172,7 @@ public class MemberUserController {
 				mv.addObject("msg", memberDTO.getName() + " 님 환영합니다!");
 			}
 			mv.addObject("member", memberDTO);
-			mv.addObject("path", "../memberJoinResult");
+			mv.addObject("path", "./memberJoinResult");
 		} else {
 			mv.addObject("msg", "입력 정보를 다시 확인해주세요.");
 			mv.addObject("path", "./memberJoin2");

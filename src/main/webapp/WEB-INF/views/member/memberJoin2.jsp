@@ -71,8 +71,8 @@
 								<!-- <p class="nofix_name"></p>
 								<input type="hidden" id="name" name="name" value="" /> -->
 								<div class="user_gender">
-									<a class="male " href="javascript:void(0);">남</a>
-									<a class="female " href="javascript:void(0);">여</a>
+									<a class="male" href="javascript:void(0);">남</a>
+									<a class="female" href="javascript:void(0);">여</a>
 									<input type="hidden" id="gender" name="gender" value="" />
 								</div>
 							</div>
@@ -259,7 +259,7 @@
 							<b> ＊ 선택항목은 입력하지 않거나 동의하지 않아도 회원 가입이 가능합니다. </b>
 						</p>
 						<p class="btn_mem_login">
-							<button type="button" class="btn_join" id="join">가입하기</button>
+							<button type="submit" class="btn_join" id="join">가입하기</button>
 						</p>
 					</fieldset>
 				</form>
@@ -284,11 +284,23 @@
 		var pwCheck = false;
 		var emptyCheckResult = true;
 		
+		$(".user_gender a").click(function(){
+			$(this).addClass("on");
+			var gender = $(this).html();
+			console.log(gender);
+			$("#gender").val(gender);
+		});
+		
 		$("#join").click(function() {
-			var birth = $("#birth_year").val() + "-" + $("#birth_month").val() + "-" + $("#birth_day").val();
-			$("#birth").attr("value", birth);
+			//var birth = $("#birth_year").val() + "-" + $("#birth_month").val() + "-" + $("#birth_day").val();
+			//$("#birth").val(birth);
+			if($("#birth_year").val()=='' || $("#birth_month").val()=='' || $("#birth_day").val()=='') {
+				alert('생년월일을 기입해주세요.');
+			} else {
+				var birth = $("#birth_year").val() + "-" + $("#birth_month").val() + "-" + $("#birth_day").val();
+				$("#birth").val(birth);
+			}
 			
-			var gender="";
 		});
 		
 		function emptyCheck() {
