@@ -9,8 +9,11 @@ public class AuthService {
 	@Autowired
 	private AuthDAO authDAO;
 	
-	public int setAuthEmailSend(AuthDTO authDTO) throws Exception {
-		return authDAO.setAuthEmailSend(authDTO);
+	public int setEmailAuthSend(AuthDTO authDTO) throws Exception {
+		return authDAO.setEmailAuthSend(authDTO);
 	}
 
+	public int setEmailAuthStatus(AuthDTO authDTO) throws Exception {
+		return authDAO.setEmailAuthStatus(authDTO);
+	}
 }
