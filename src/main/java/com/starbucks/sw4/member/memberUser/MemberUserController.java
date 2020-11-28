@@ -1,5 +1,6 @@
 package com.starbucks.sw4.member.memberUser;
 
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Random;
@@ -20,10 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.starbucks.sw4.member.MemberDTO;
+import com.starbucks.sw4.member.MemberService;
 import com.starbucks.sw4.member.auth.AuthDTO;
 import com.starbucks.sw4.member.auth.AuthService;
 import com.starbucks.sw4.my.MyDTO;
-import com.starbucks.sw4.my.MyService;
 
 @Controller
 @RequestMapping(value="/member/**")
@@ -36,8 +37,7 @@ public class MemberUserController {
 	private JavaMailSender mailSender;
 	@Autowired
 	private AuthService authService;
-	@Autowired
-	private MyService myService;
+	
 	
 	
 	//*******************  LOGOUT  ********************** 
@@ -51,12 +51,12 @@ public class MemberUserController {
 	//************************************************** 
 	
 	
-	//*******************  LOGIN  **********************
-	private int errorCnt = 0;
+	//*******************  LOGIN  ********************** 
 	@PostMapping("memberLogin")
 	public ModelAndView getMemberLogin(MemberDTO memberDTO, String idRemb, HttpSession session, HttpServletResponse reponse) throws Exception {
-		ModelAndView mv = new ModelAndView();
+		int errorCnt = 0;
 		
+		ModelAndView mv = new ModelAndView();
 		
 		//쿠키 생성
 		//쿠키이름 idRemb, 벨류 로그인ID
@@ -74,12 +74,18 @@ public class MemberUserController {
 		if(result > 0) {
 			//회원별 접근 구분
 			memberDTO = memberUserService.getMemberLogin(memberDTO);
+			
 			if(memberDTO != null && memberDTO.getType() == 1) {
-				session.setAttribute("member", memberDTO);
 				MyDTO myDTO = new MyDTO();
+				session.setAttribute("member", memberDTO);
 				myDTO.setId(memberDTO.getId());
+				System.out.println(memberDTO.getGrade());
 				session.setAttribute("my", myDTO);
+<<<<<<< HEAD
 
+=======
+				System.out.println(myDTO.getGrade());
+>>>>>>> main
 				
 				if(memberDTO.getNickName() != null) {
 					mv.addObject("msg", memberDTO.getNickName() + " 님 환영합니다!");
@@ -90,24 +96,25 @@ public class MemberUserController {
 				errorCnt = 0;
 			} else if (memberDTO != null && memberDTO.getType() > 1) {
 				mv.addObject("msg", "접근 권한이 없는 계정입니다.");
-				mv.addObject("path", "./memberLogin");
-			} else {	//비밀번호 오류 처리
+				mv.addObject("path", "../admin/adminLogin");
+			} else {
 				errorCnt++;
 				if(errorCnt >= 5) {
 					mv.addObject("msg", "로그인 5회 이상 오류입니다. 정확한 아이디 혹은 비밀번호를 확인해주세요.");
-					//추가작업 (5회이상 오류시 보안문자입력후 로그인 가능)
 					mv.addObject("path", "./memberLogin");
 				} else {
 					mv.addObject("msg", "정확한 아이디 혹은 비밀번호를 입력해주세요.");
 					mv.addObject("path", "./memberLogin");
 				}
+				
 			}
+			
 		//미가입 회원
 		} else {
 			mv.addObject("msg", "미가입 회원입니다. 회원가입 하시고 다양한 혜택을 즐겨보세요.");
-			mv.addObject("path", "./memberLogin");
+			mv.addObject("path", "./memberLogin");			
 		}
-		System.out.println("errorCount : " + errorCnt);
+		
 		mv.setViewName("common/result");
 		
 		return mv;
@@ -136,19 +143,11 @@ public class MemberUserController {
 	
 	
 	@GetMapping("memberJoin2")
-	public ModelAndView setMemberJoin2(HttpSession session) throws Exception {
+	public ModelAndView setMemberJoin2() throws Exception {
 		System.out.println("MemberUserJoin2 - Controller");
 		ModelAndView mv = new ModelAndView();
-
-		AuthDTO authDTO = (AuthDTO)session.getAttribute("auth");
-		if(authDTO == null) {
-			mv.addObject("msg", "유효시간이 경과하였습니다. 다시 인증해주세요.");
-			mv.addObject("path", "./emailAuthSend");
-			mv.setViewName("common/result");
-		} else {
-			mv.addObject("auth", authDTO);
-			mv.setViewName("member/memberJoin2");
-		}
+		mv.setViewName("member/memberJoin2");
+		
 		return mv;
 	}
 	
@@ -156,7 +155,6 @@ public class MemberUserController {
 	public ModelAndView setMemberJoin2(MemberDTO memberDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		System.out.println("birth" + memberDTO.getBirth());
 		System.out.println("name" + memberDTO.getName());
 		System.out.println("phone" + memberDTO.getPhone());
 		System.out.println("email" + memberDTO.getEmail());
@@ -164,16 +162,12 @@ public class MemberUserController {
 		int result = memberUserService.setMemberJoin(memberDTO);
 		
 		if(result > 0) {
-			myService.setMemberJoinCard(memberDTO);
-			myService.setMemberJoinStar(memberDTO);
-			
 			if(memberDTO.getNickName() != "") {
 				mv.addObject("msg", memberDTO.getNickName() + " 님 환영합니다!");
 			} else {
-				mv.addObject("msg", memberDTO.getName() + " 님 환영합니다!");
+				mv.addObject("msg", memberDTO.getName() + "님 환영합니다!");
 			}
-			mv.addObject("member", memberDTO);
-			mv.addObject("path", "./memberJoinResult");
+			mv.addObject("path", "../");
 		} else {
 			mv.addObject("msg", "입력 정보를 다시 확인해주세요.");
 			mv.addObject("path", "./memberJoin2");
@@ -209,12 +203,8 @@ public class MemberUserController {
 		/* 인증번호 생성 */
 		Random r = new Random();
 		r.setSeed(System.currentTimeMillis());
-		int authKey = r.nextInt(1000000) + 100000;
-		if(authKey>1000000){
-			authKey = authKey - 100000;
-		}
+		int authKey = r.nextInt(1000000) % 1000000;
 		authDTO.setAuthKey(authKey);
-        System.out.println("************************************************* 발급 인증키 : " + authKey);
         
 		String sendTime = new SimpleDateFormat("yyyy-MM-dd hh24:mm:ss").format(Calendar.getInstance().getTime());
 		sendTime = sendTime.substring(0, 19);
@@ -226,9 +216,9 @@ public class MemberUserController {
         String title = "회원가입 인증 이메일 입니다."; 	// 제목
         String content =
         	System.getProperty("line.separator") +                        
-        	"안녕하세요. 회원님! 저희 홈페이지를 찾아주셔서 감사합니다." +
+        	"안녕하세요 회원님 저희 홈페이지를 찾아주셔서 감사합니다" +
         	System.getProperty("line.separator") +
-        	"인증번호는 '" + authDTO.getAuthKey() + "' 입니다. " + 
+        	"인증번호는 " + authDTO.getAuthKey() + " 입니다. " + 
         	System.getProperty("line.separator")+
         	"받으신 인증번호를 홈페이지에 입력해 주시면 다음으로 넘어갑니다.";
         
@@ -247,7 +237,7 @@ public class MemberUserController {
             System.out.println(e);
         }
         /* 메일 발송 end */
-        int result = authService.setEmailAuthSend(authDTO);
+        int result = authService.setAuthEmailSend(authDTO);
         
         if(result > 0) {
         	session.setAttribute("auth", authDTO);
@@ -275,41 +265,26 @@ public class MemberUserController {
 	public ModelAndView getEamilAuthCheck(int authKey, HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		AuthDTO authDTO = new AuthDTO();
-		MemberDTO memberDTO = new MemberDTO();		
+		MemberDTO memberDTO = new MemberDTO();
 		authDTO = (AuthDTO) session.getAttribute("auth");
 		
-		if(authDTO == null) {
-			mv.addObject("msg", "이메일 발송이 실패했습니다. 다시 입력해주세요.");
-			mv.addObject("path", "./emailAuthSend");
-			mv.setViewName("common/result");
+		if(authKey == authDTO.getAuthKey()) {
+			memberDTO.setEmail(authDTO.getEmail());
+			session.setAttribute("member", memberDTO);
+			
+			mv.addObject("msg", "인증이 완료되었습니다.");
+			mv.addObject("path", "./memberJoin2");
+			
+		} else {
+			mv.addObject("msg", "인증번호가 일치하지 않습니다. 다시 확인해주세요.");
+			mv.addObject("path", "./emailAuth");
 		}
-		else {
-			System.out.println("------ 사용자 인증키 : " + authKey);
-			System.out.println("------ DB 인증키 : " + authDTO.getAuthKey());
-						
-			if(authKey == authDTO.getAuthKey()) {
-				memberDTO.setEmail(authDTO.getEmail());
-				
-				authDTO.setAuthStatus(1);
-				authService.setEmailAuthStatus(authDTO);				
-				
-				mv.addObject("msg", "인증이 완료되었습니다.");
-				mv.addObject("path", "./memberJoin2");
-				mv.setViewName("common/result");
-				//mv.addObject("email", memberDTO);
-				//mv.setViewName("member/memberJoin2");
-			} else {
-				mv.addObject("msg", "인증번호가 일치하지 않습니다. 다시 확인해주세요.");
-				mv.addObject("path", "./emailAuth");
-				mv.setViewName("common/result");
-			}
-			session.setAttribute("auth", authDTO);
-		}
-	//	mv.setViewName("common/result");
+		
+		session.setAttribute("auth", authDTO);
+		mv.setViewName("common/result");
 		return mv;
 	}
 	//**************************************************
-	
 	
 	//***************** Email Check ********************
 	@PostMapping("memberEmailCheck")
