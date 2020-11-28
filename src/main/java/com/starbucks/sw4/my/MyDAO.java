@@ -39,8 +39,8 @@ public class MyDAO {
 		return sqlSession.update(NAMESPACE+"setNewPw", myDTO);
 	}
 	//별 히스토리
-	public MyDTO getMyStar(MyDTO myDTO) throws Exception {
-		return sqlSession.selectOne(NAMESPACE+"getMyStar", myDTO);				
+	public MyDTO getMyStar(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getMyStar", memberDTO);				
 	}
 	
 	//나만의 매장
@@ -66,7 +66,9 @@ public class MyDAO {
 
 	//오더 정보 가져오기
 	public OrderDTO getOrder(PayDTO payDTO) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"getOrder", payDTO);
+		System.out.println("getorder DAO 접속");
+		System.out.println("DAT ORDERNUM:"+payDTO.getOrderNum());
+		return sqlSession.selectOne(NAMESPACE+"getOrder",payDTO);
 	}
 
 	//회원가입시 card 초기화
@@ -93,7 +95,19 @@ public class MyDAO {
 		return sqlSession.update(NAMESPACE+"setCardNum", orderDTO);
 	}
 	
-			
+	//storeName 받아오기
+			public MyDTO getStarStore(MyDTO myDTO) throws Exception{
+				System.out.println("star DAO 진입");
+				System.out.println("dao code:"+myDTO.getStoreCode());
+				
+				return sqlSession.selectOne(NAMESPACE+"getStarStore",myDTO);
+			}
+		
+		//별 적립 
+			public int setStarCard(MyDTO myDTO) throws Exception{
+				System.out.println("star DAO 까지옴");
+				return sqlSession.update(NAMESPACE+"setStarCard", myDTO);
+			}		
 			
 			
 			

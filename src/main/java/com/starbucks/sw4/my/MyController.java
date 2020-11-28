@@ -26,6 +26,7 @@ import oracle.jdbc.proxy.annotation.Post;
 public class MyController {
 	@Autowired
 	private MyService myService;
+	
 	@Autowired
 	private StarService starService;
 	
@@ -131,7 +132,7 @@ public class MyController {
 	@GetMapping("myStarHistory")
 	public ModelAndView getMyStar(HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		MyDTO myDTO = (MyDTO) session.getAttribute("my");
+		MemberDTO myDTO = (MemberDTO) session.getAttribute("member");
 		MyDTO star = myService.getMyStar(myDTO);
 		System.out.println(star.getUseStar());
 		System.out.println(star.getCardNum());
@@ -231,62 +232,35 @@ public class MyController {
 		return mv;
 	}
 	//카드 구매 시 멤버 카드에 등록되도록 처리
-	@GetMapping("test")
+	@GetMapping("cardtest")
 	public void setMemberCard(PayDTO payDTO,HttpSession session)throws Exception {
-		MemberDTO myDTO = (MemberDTO) session.getAttribute("member");
-		System.out.println(myDTO.getId());
-		//order테이블에서 data가져오기
-		OrderDTO orderDTO = myService.getOrder(payDTO);
-		//menucode 값 받아서 c로 시작하는 지 확인
-		//String menucode = "C5747";
-		String menuCode = orderDTO.getMenuCode();
-		menuCode= menuCode.substring(0,1);
-		System.out.println(menuCode);
-		if(menuCode.equals("C")) {
-			//랜덤번호 8자리 생성
-			long cardNum = (int)(Math.random()*100000000);
-			orderDTO.setCardNum(cardNum);  //myDTO를 넘겨주기
-			System.out.println("cardNum: "+cardNum);
-			
-			orderDTO.setId(myDTO.getId());
-			int result = myService.setMemberCard(orderDTO);
-			System.out.println("result:" +result);
-		}
+		myService.setMemberCard(payDTO, session);
+//		MemberDTO myDTO = (MemberDTO) session.getAttribute("member");
+//		System.out.println(myDTO.getId());
+//		//order테이블에서 data가져오기
+//		OrderDTO orderDTO = myService.getOrder(payDTO);
+//		//menucode 값 받아서 c로 시작하는 지 확인
+//		System.out.println(orderDTO.getMenuCode());
+//		//String menucode = "C5747";
+//		String menuCode = orderDTO.getMenuCode();
+//		menuCode= menuCode.substring(0,1);
+//		System.out.println(menuCode);
+//		if(menuCode.equals("C")) {
+//			//랜덤번호 8자리 생성
+//			long cardNum = (int)(Math.random()*100000000);
+//			orderDTO.setCardNum(cardNum);  //myDTO를 넘겨주기
+//			System.out.println("cardNum: "+cardNum);
+//			
+//			orderDTO.setId(myDTO.getId());
+//			int result = myService.setMemberCard(orderDTO);
+//			System.out.println("result:" +result);
+//		}
 	}
 	
 	//음료나 food 10000원 이상 구매시 별 적립
 	@GetMapping("star")
 	public void setStarCard(PayDTO payDTO, HttpSession session) throws Exception{
-		MemberDTO myDTO = (MemberDTO) session.getAttribute("member");
-		StarDTO starDTO = new StarDTO();
-		//order테이블에서 data가져오기
-		OrderDTO orderDTO = myService.getOrder(payDTO);
-		orderDTO.setId(myDTO.getId());
-		
-		System.out.println("컨트롤러CODE:"+orderDTO.getStoreCode());
-		//금액확인
-		long price = orderDTO.getTotalPrice();
-		
-		if(10000<=price && price<20000) {
-			System.out.println("별1개적립");
-			starDTO.setUseStar(starDTO.getUseStar()+1);
-			starDTO.setTotalStar(starDTO.getTotalStar()+1);
-			starDTO.setState("적립");
-			int result = starService.setStarCard(starDTO);
-			System.out.println("result: "+result);
-		}else if(price>20000) {
-			System.out.println(("별 2개 적립"));
-			starDTO.setStoreCode(orderDTO.getStoreCode());
-			starDTO.setUseStar(starDTO.getUseStar()+2);
-			starDTO.setTotalStar(starDTO.getTotalStar()+2);
-			starDTO.setState("적립");
-			int result = starService.setStarCard(starDTO);
-			System.out.println("result: "+result);
-		}else {
-			System.out.println("별 적립 불가");
-		}
-		
-		//int result = starService.setStarCard(starDTO);
+			myService.setStarCard(payDTO, session);
 		
 	}
 	
