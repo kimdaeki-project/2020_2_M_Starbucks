@@ -10,6 +10,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Repository;
 
 import com.starbucks.sw4.member.MemberDTO;
+import com.starbucks.sw4.my.star.StarDTO;
 import com.starbucks.sw4.order.OrderDTO;
 import com.starbucks.sw4.order.pay.PayDTO;
 
@@ -87,9 +88,11 @@ public class MyDAO {
 	public int setMemberCard(OrderDTO orderDTO) throws Exception {
 		return sqlSession.update(NAMESPACE+"setMemberCard",orderDTO);
 	}
-
-			
-			
+	
+	public int setCardNum(OrderDTO orderDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"setCardNum", orderDTO);
+	}
+	
 			
 			
 			

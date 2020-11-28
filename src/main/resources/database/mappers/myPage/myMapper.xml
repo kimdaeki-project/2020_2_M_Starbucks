@@ -4,8 +4,15 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
     <mapper namespace="com.starbucks.sw4.my.MyDAO">
+    	
+    	
+    	
+    	<update id="setCardNum" parameterType="OrderDTO">
+    		update starHistory set cardNum = #{cardNum} where id=#{id}
+    	</update>
+    	
     	<update id="setMemberCard" parameterType="OrderDTO">
-    		update membercard set menuCode=#{menuCode}, cardnum=#{cardNum}, korName=#{korName}, menuimage=#{menuImage}, balance=#{totalPrice}, memberNum={memberNum} where id =#{id}
+    		update membercard set menuCode=#{menuCode}, cardnum=#{cardNum}, korName=#{korName}, menuimage=#{menuImage}, balance=#{totalPrice}, memberNum=#{memberNum} where id =#{id}
     	</update>
     	
     	<select id="getMenu" parameterType="OrderDTO" resultType="OrderDTO">
@@ -13,7 +20,7 @@
     	</select>
     	
     	<select id="getOrder" parameterType="PayDTO" resultType="OrderDTO">
-    		select * from menuorder where orderNum= 5
+    		select * from menuorder where orderNum= 2
     	</select>
     
     	<insert id="setVocList" parameterType="MyDTO">
@@ -59,7 +66,7 @@
     	</select>
     	
     	<insert id="setMemberJoinCard" parameterType="MemberDTO">
-    		insert into membercard values (card_seq.nextval, #{id}, null, null, null, null, null, null)
+    		insert into membercard values (card_seq.nextval, #{id}, null, null, null, null, null, null, #{num})
     	</insert>
     	
     	<insert id="setMemberJoinStar" parameterType="MemberDTO">

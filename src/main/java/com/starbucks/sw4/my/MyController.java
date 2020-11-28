@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.starbucks.sw4.member.MemberDTO;
+import com.starbucks.sw4.my.star.StarDTO;
+import com.starbucks.sw4.my.star.StarService;
 import com.starbucks.sw4.order.OrderDTO;
 import com.starbucks.sw4.order.pay.PayDTO;
 
@@ -24,6 +26,8 @@ import oracle.jdbc.proxy.annotation.Post;
 public class MyController {
 	@Autowired
 	private MyService myService;
+	@Autowired
+	private StarService starService;
 	
 	@GetMapping("cardTopup")
 	public void setCardTopup() {
@@ -228,7 +232,7 @@ public class MyController {
 	}
 	//카드 구매 시 멤버 카드에 등록되도록 처리
 	@GetMapping("test")
-	public void test(PayDTO payDTO,HttpSession session)throws Exception {
+	public void setMemberCard(PayDTO payDTO,HttpSession session)throws Exception {
 		MemberDTO myDTO = (MemberDTO) session.getAttribute("member");
 		System.out.println(myDTO.getId());
 		//order테이블에서 data가져오기
@@ -244,14 +248,45 @@ public class MyController {
 			orderDTO.setCardNum(cardNum);  //myDTO를 넘겨주기
 			System.out.println("cardNum: "+cardNum);
 			
-			//orderDTO.setId(myDTO.getId());
-			//int result = myService.setMemberCard(orderDTO);
-			//System.out.println("result:" +result);
+			orderDTO.setId(myDTO.getId());
+			int result = myService.setMemberCard(orderDTO);
+			System.out.println("result:" +result);
 		}
 	}
 	
 	//음료나 food 10000원 이상 구매시 별 적립
-	public void test2() throws Exception{
+	@GetMapping("star")
+	public void setStarCard(PayDTO payDTO, HttpSession session) throws Exception{
+		MemberDTO myDTO = (MemberDTO) session.getAttribute("member");
+		StarDTO starDTO = new StarDTO();
+		//order테이블에서 data가져오기
+		OrderDTO orderDTO = myService.getOrder(payDTO);
+		orderDTO.setId(myDTO.getId());
+		
+		System.out.println("컨트롤러CODE:"+orderDTO.getStoreCode());
+		//금액확인
+		long price = orderDTO.getTotalPrice();
+		
+		if(10000<=price && price<20000) {
+			System.out.println("별1개적립");
+			starDTO.setUseStar(starDTO.getUseStar()+1);
+			starDTO.setTotalStar(starDTO.getTotalStar()+1);
+			starDTO.setState("적립");
+			int result = starService.setStarCard(starDTO);
+			System.out.println("result: "+result);
+		}else if(price>20000) {
+			System.out.println(("별 2개 적립"));
+			starDTO.setStoreCode(orderDTO.getStoreCode());
+			starDTO.setUseStar(starDTO.getUseStar()+2);
+			starDTO.setTotalStar(starDTO.getTotalStar()+2);
+			starDTO.setState("적립");
+			int result = starService.setStarCard(starDTO);
+			System.out.println("result: "+result);
+		}else {
+			System.out.println("별 적립 불가");
+		}
+		
+		//int result = starService.setStarCard(starDTO);
 		
 	}
 	

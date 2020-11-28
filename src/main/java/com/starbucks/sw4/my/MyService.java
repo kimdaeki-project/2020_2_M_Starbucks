@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.starbucks.sw4.member.MemberDTO;
+import com.starbucks.sw4.my.star.StarDTO;
 import com.starbucks.sw4.order.OrderDTO;
 import com.starbucks.sw4.order.pay.PayDTO;
 
@@ -82,8 +83,13 @@ public class MyService {
 			orderDTO.setKorName(menu.getKorName());
 			orderDTO.setMenuImage(menu.getMenuImage());
 			System.out.println(orderDTO.getMemberNum());
+			//starHistory테이블에 cardNum 입력해주기
+			myDAO.setCardNum(orderDTO);
 			return myDAO.setMemberCard(orderDTO);
 		}
+		
+	
+
 
 	
 	
