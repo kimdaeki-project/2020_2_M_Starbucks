@@ -73,7 +73,7 @@
 	</div>
 	<div class="modal fade" id="layerpop">
 		<div class="modal-dialog">
-			<form action="order/order" method="post" id="order_frm">
+			<form action="../order/orderPage" method="post" id="order_frm">
 			<div class="modal-content">
 				<!-- header -->
 				<div class="modal-header">
@@ -194,6 +194,7 @@
 			$('#order_frm').submit();
 		});
 		
+
 	</script>
 
 	<script
