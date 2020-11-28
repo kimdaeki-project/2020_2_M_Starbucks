@@ -20,6 +20,7 @@ public class PayContoller {
 	@Autowired
 	private PayService payService;
 	
+	@GetMapping("payResult")
 	public ModelAndView getResult() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("order/pay/payResult");
