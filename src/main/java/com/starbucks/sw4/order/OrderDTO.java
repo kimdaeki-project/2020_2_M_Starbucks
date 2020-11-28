@@ -42,6 +42,18 @@ public class OrderDTO {
 	private String orderDate;
 	private String adminYN;
 	
+	private String totalPriceStr;
+	private String menuPriceStr;
+
+	public String getTotalPriceStr() {
+		return String.format("%,d",this.totalPrice);
+	}
+
+	public String getMenuPriceStr() {
+		return String.format("%,d",this.menuPrice);
+	}
+
+	
 	public long getOrderNum() {
 		return orderNum;
 	}

@@ -65,17 +65,17 @@
 								<table>
 									<tr>
 										<td id="buyer-column">이름</td>
-										<td class="buyer-data" id="buyer-name" title="44">임시름</td>
+										<td class="buyer-data" id="buyer-name" title="${member.num}">${member.name}</td>
 									</tr>
 									<tr>
 										<td id="buyer-column">전화번호</td>
-										<td class="buyer-data" id="buyer-tel">010-0000-0000</td>
+										<td class="buyer-data" id="buyer-tel">${member.phone}</td>
 									</tr>
 									<tr>
 										<td id="buyer-column">매장</td>
 										<td class="buyer-data" id="order-store-td">
 											<div>
-												<input type="text" id="order-store" title="storeCode"
+												<input type="text" id="order-store" title=""
 														value="" placeholder="매장을 선택해주세요." readonly="readonly">
 												<span id="find-store-btn">매장찾기</span>
 												<p id="pick-up-info-txt">
@@ -115,23 +115,41 @@
 						<div id="buyer-info-area">
 							<h2>주문 정보</h2>
 							<div class="order-list">
-								<div class="category c-margin">음료</div>
+								<div class="category c-margin">${orderType}</div>
 								<div id="order-list-area">
 									<table class="c-margin" id="order-table">
 										<tr>
-											<td class="product-name" id="drink-menu-code" title="D128401">토피넛 팝콘 트리 프라푸치노</td>
-											<td id="product-quantity"><span id="quantity" title="1">1</span>잔 / 매장픽업</td>
-											<td id="product-price"><span id="price">4000</span>원</td>
+											<td class="product-name" id="drink-menu-code" title="${orderInfo.menuCode}">
+												<span id="drink-menu-korName">${orderMenu.korName}</span>
+												<c:if test="${orderType eq '음료'}">
+													(<span>${orderInfo.hotYN}</span>)
+												</c:if>
+											</td>
+											<td id="product-quantity"><span id="quantity" title="${orderInfo.menuCount}">${orderInfo.menuCount}</span>${unit} / 매장픽업</td>
+											<td id="product-price"><span id="price">${orderInfo.menuPriceStr}</span>원</td>
 										</tr>
-										<tr>
+										<c:if test="${orderMenu.optionDTO != null}">
+											<tr>
+												<td rowspan="2">옵션</td>
+												<td id="product-quantity">${orderMenu.optionDTO.opt1} <span>${orderInfo.opt1Count}</span>개</td>
+												<td>${(orderInfo.opt1Count - 1) * 500}</td>
+											</tr>
+											<tr>
+												<td></td>
+												<td id="product-quantity">${orderMenu.optionDTO.opt2} <span>${orderInfo.opt2Count}</span>개</td>
+												<td>${(orderInfo.opt2Count - 1) * 500}</td>
+											</tr>
+										</c:if>
+										<!-- <tr>
 											<td class="product-name">토피넛 라떼</td>
 											<td id="product-quantity"><span id="quantity">2</span>잔 / 매장픽업</td>
 											<td id="product-price"><span id="price">8000</span>원</td>
-										</tr>
+										</tr> -->
 									</table>
 								</div>
 							</div>
-							<div class="order-list">
+							<!-- [memo: sky, 2020.11.29 03:58]현재 시간문제로 1주문 1상품 원칙임 ㅠㅠ  -->
+<!-- 							<div class="order-list">
 								<div class="category c-margin">음식</div>
 								<div id="order-list-area">
 									<table class="c-margin" id="order-table">
@@ -164,10 +182,10 @@
 										</tr>
 									</table>
 								</div>
-							</div>
+							</div> -->
 							<div id="total-price">
 								<div>총 금액</div>
-								<div id="total-price-area"><span id="total-price-info">50000</span>원</div>
+								<div id="total-price-area"><span id="total-price-info" title="${orderInfo.totalPrice}">${orderInfo.totalPriceStr}</span>원</div>
 							</div>
 						</div>
 					</div>
@@ -344,8 +362,8 @@
 		  var merchant_uid;
 		  var order_num = $("#order-num").attr("title");
 		  var product_code = $("#drink-menu-code").attr("title");
-		  var amount = parseInt($("#total-price-info").text());
-		  var name = $("#drink-menu-code").text();
+		  var amount = parseInt($("#total-price-info").attr("title"));
+		  var name = $("#drink-menu-korName").text();
 		  var name_code = $("#drink-menu-code").attr("title");
 		  var buyer_name = $("#buyer-name").attr("title");
 		  var buyer_tel = $("#buyer-tel").text();
@@ -356,9 +374,14 @@
 		  // 결제 버튼 클릭 ------------------------------------
 		  // https://docs.iamport.kr/tech/imp?lang=ko#param
 		  $("#order-pay-btn").click(function(){
-			// 주문번호 밀리초 기준 생성
-			merchant_uid = "OP" + d.getTime();
-			requestPay(merchant_uid,name,amount,buyer_name,buyer_tel,buyer_addr);
+			  var store_chk = $("#order-store").attr("title");
+			  if(store_chk == '' || store_chk == null){
+				  alert("픽업 매장을 선택해 주세요.");
+			  } else {
+				// 주문번호 밀리초 기준 생성
+				merchant_uid = "OP" + d.getTime();
+				requestPay(merchant_uid,name,amount,buyer_name,buyer_tel,buyer_addr);
+			  }
 		  })
 		  //-------------------------------------------------
 		  
@@ -366,7 +389,7 @@
 		  IMP.init("imp35382026"); // "imp00000000" 대신 발급받은 "가맹점 식별코드"를 사용합니다.
 		  
 		  function requestPay(merchant_uid,name,amount,buyer_name,buyer_tel,buyer_addr) {
-				alert(merchant_uid)
+
 		      // IMP.request_pay(param, callback) 호출
 			      IMP.request_pay({ // param
 			    	  
@@ -390,8 +413,6 @@
 			          if (rsp.success) {
 			        	  
 			        	  if(amount < 1000000){
-			        	  
-				        	  alert("결제 성공 로직")
 				        	  
 				              // 결제 성공 시 로직,
 						      // jQuery로 HTTP 요청
@@ -419,12 +440,10 @@
 						              name:name_code
 						          },
 						          success: function(){
-						        	  location.href = "./pay/payResult";
+						        	  location.href = "../pay/payResult";
 						          }
 						          
 						      }).done(function (data) {
-						    	  
-						    	  	alert(status);
 						    	  
 							        // 가맹점 서버 결제 API 성공시 로직
 						            switch(status) {

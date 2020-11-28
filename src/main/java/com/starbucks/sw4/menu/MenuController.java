@@ -36,7 +36,9 @@ public class MenuController {
 		
 		mv.addObject("list", menuList);
 		mv.addObject("opList", opList);
-		mv.setViewName("menu/productList");
+		//mv.setViewName("menu/productList");
+		//하늘 테스트
+		mv.setViewName("menu/tmp_productList");
 		
 		return mv;
 	}
@@ -54,7 +56,9 @@ public class MenuController {
 
 		mv.addObject("list", menuList);
 		mv.addObject("opList", opList);
-		mv.setViewName("menu/productList");
+		//mv.setViewName("menu/productList");
+		//하늘 테스트
+		mv.setViewName("menu/tmp_productList");
 		
 		//session.setAttribute("member", "a");
 		
@@ -77,7 +81,9 @@ public class MenuController {
 
 		mv.addObject("list", menuList);
 		mv.addObject("opList", opList);
-		mv.setViewName("menu/productList");
+		//mv.setViewName("menu/productList");
+		//하늘 테스트
+		mv.setViewName("menu/tmp_productList");
 		
 		System.out.println(menuList);
 

@@ -49,6 +49,7 @@ public class PayContoller {
 			System.out.println("insert fail");
 		}
 		
+		mv.setViewName("redirect:../pay/payResult");
 		return mv;
 		
 	}

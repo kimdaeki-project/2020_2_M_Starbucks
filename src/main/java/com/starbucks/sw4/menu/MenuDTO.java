@@ -31,6 +31,15 @@ public class MenuDTO {
 	private String origin;
 	private String menuImage;
 	
+	private OptionDTO optionDTO;
+	
+	public OptionDTO getOptionDTO() {
+		return optionDTO;
+	}
+	public void setOptionDTO(OptionDTO optionDTO) {
+		this.optionDTO = optionDTO;
+	}
+	
 	public String getMenuCode() {
 		return menuCode;
 	}

@@ -12,6 +12,11 @@ public class MenuService {
 	@Autowired
 	private MenuDAO menuDAO;
 	
+	public MenuDTO getOne(MenuDTO menuDTO) throws SQLException, ClassNotFoundException{
+		System.out.println(menuDTO.getMenuCode());
+		return menuDAO.getOne(menuDTO);
+	}
+	
 	public List<MenuDTO> getMenuList(String type) throws SQLException, ClassNotFoundException{
 		return menuDAO.getMenuList(type);
 	}
