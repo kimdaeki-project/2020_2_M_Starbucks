@@ -30,7 +30,7 @@ public class MemberUserDAOTest extends MyTestCase {
 	public void getIdCheckTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("customer02");
-		long result = memberUserDAO.getIdCheck(memberDTO);
+		long result = memberUserDAO.getMemberIdCheck(memberDTO);
 		
 		assertEquals(result, 1);
 	}
@@ -57,10 +57,9 @@ public class MemberUserDAOTest extends MyTestCase {
 		assertEquals(result, 1);
 	}
 	
-	@Test
+	//@Test
 	public void getMemberEmailCheck() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
-		//memberDTO.setEmail("test@naver.com");
 		memberDTO.setEmail("tbehd8967@naver.com");
 		long result = memberUserDAO.getMemberEmailCheck(memberDTO);
 		
