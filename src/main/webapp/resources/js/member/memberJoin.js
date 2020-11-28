@@ -115,12 +115,7 @@ $(document).ready(function() {
 
 	/* 빈칸 이벤트 처리 */
 	/*function setEvents() {
-		if (location.href.indexOf("/find_") > -1) {
-			$(document).on("blur, keydown", ".input_warn", function () {
-				$(this).removeClass("input_warn");
-				$("#" + $(this).data("warn_id")).text("");
-			});
-		}
+		
 		$("input:text, input:password, input#phone, input#email").on("focus", function () {
 			
 			if($(this).hasClass("input_warn") === false) {
@@ -137,8 +132,5 @@ $(document).ready(function() {
 	}*/
 	/* 빈칸 이벤트 처리 */
 	
-	/* 빈칸확인 */
-
-	/* 빈칸확인 end */
 	
 	

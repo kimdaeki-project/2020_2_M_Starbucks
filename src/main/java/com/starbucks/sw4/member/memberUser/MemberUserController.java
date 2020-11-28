@@ -16,7 +16,9 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.starbucks.sw4.member.MemberDTO;
@@ -24,6 +26,8 @@ import com.starbucks.sw4.member.auth.AuthDTO;
 import com.starbucks.sw4.member.auth.AuthService;
 import com.starbucks.sw4.my.MyDTO;
 import com.starbucks.sw4.my.MyService;
+
+import net.sf.json.JSONArray;
 
 @Controller
 @RequestMapping(value="/member/**")
@@ -40,7 +44,7 @@ public class MemberUserController {
 	private MyService myService;
 	
 	
-	//*******************  LOGOUT  ********************** 
+//**************************************  LOGOUT  *************************************
 	@GetMapping("memberLogout")
 	public ModelAndView getMemberLogout(HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -48,15 +52,14 @@ public class MemberUserController {
 		mv.setViewName("redirect:../");
 		return mv;
 	}
-	//************************************************** 
+//*************************************************************************************  
 	
 	
-	//*******************  LOGIN  **********************
+//***************************************  LOGIN  **************************************
 	private int errorCnt = 0;
 	@PostMapping("memberLogin")
 	public ModelAndView getMemberLogin(MemberDTO memberDTO, String idRemb, HttpSession session, HttpServletResponse reponse) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		
 		
 		//쿠키 생성
 		//쿠키이름 idRemb, 벨류 로그인ID
@@ -70,7 +73,8 @@ public class MemberUserController {
 		}
 		
 		//가입된 회원 구분
-		long result = memberUserService.getIdCheck(memberDTO);		
+		long result = memberUserService.getMemberIdCheck(memberDTO);		
+		
 		if(result > 0) {
 			//회원별 접근 구분
 			memberDTO = memberUserService.getMemberLogin(memberDTO);
@@ -120,10 +124,39 @@ public class MemberUserController {
 		
 		return mv;
 	}
-	//************************************************** 
 	
 	
-	//********************  JOIN  **********************
+	@PostMapping("kakaoLogin")
+	@ResponseBody
+	public boolean setKakaoLogin(@RequestBody String json, HttpSession session) throws Exception {
+		//ModelAndView mv = new ModelAndView();
+		MemberDTO memberDTO = new MemberDTO();
+		AuthDTO authDTO = new AuthDTO();
+		System.out.println(json);
+		String[] info = json.split("%2C");
+		for(String str : info) {
+			memberDTO.setId(info[0]);
+			if(info[1].contains("%40")) {
+				info[1].replace("%40", "@");
+				System.out.println(info[1]);
+				memberDTO.setEmail(info[1]);
+				authDTO.setEmail(info[1]);
+			} 
+			if(info[2].contains("female")) {
+				memberDTO.setGender("여");
+			} else {
+				memberDTO.setGender("남");
+			}
+		}
+		session.setAttribute("auth", authDTO);
+		session.setAttribute("join", memberDTO);
+		
+		return true;
+	}
+//************************************************************************************* 
+	
+	
+//***************************************  JOIN  **************************************
 	@GetMapping(value={"memberJoin1", "memberJoin"})
 	public ModelAndView setMemberJoin1() throws Exception {
 		System.out.println("MemberUSerJoin1 -- Controller");
@@ -156,15 +189,15 @@ public class MemberUserController {
 		ModelAndView mv = new ModelAndView();
 		
 		System.out.println("birth" + memberDTO.getBirth());
-		System.out.println("name" + memberDTO.getName());
-		System.out.println("phone" + memberDTO.getPhone());
+		System.out.println("name" + memberDTO.getGender());
+		System.out.println("phone" + memberDTO.getNickName());
 		System.out.println("email" + memberDTO.getEmail());
 		
-		int result = memberUserService.setMemberJoin(memberDTO);
-		
+		//int result = memberUserService.setMemberJoin(memberDTO);
+		int result =1;
 		if(result > 0) {
-			myService.setMemberJoinCard(memberDTO);
-			myService.setMemberJoinStar(memberDTO);
+			//myService.setMemberJoinCard(memberDTO);
+			//myService.setMemberJoinStar(memberDTO);
 			
 			if(memberDTO.getNickName() != "") {
 				mv.addObject("msg", memberDTO.getNickName() + " 님 환영합니다!");
@@ -188,10 +221,11 @@ public class MemberUserController {
 		mv.setViewName("member/memberJoinResult");
 		return mv;
 	}
-	//************************************************** 
+//************************************************************************************* 
 	
 	
-	//******************** Email ***********************
+//**************************************  EMAIL  **************************************
+
 	@GetMapping("emailAuthSend")
 	public ModelAndView setEmailAuthSend() throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -250,7 +284,7 @@ public class MemberUserController {
         
         if(result > 0) {
         	session.setAttribute("auth", authDTO);
-        	mv.addObject("auth", authDTO);
+        	//mv.addObject("auth", authDTO);
             mv.setViewName("member/emailAuth");
         } else {
         	mv.addObject("msg", "인증메일이 발송되지 않았습니다. 다시 확인해주시기 바랍니다.");
@@ -302,15 +336,15 @@ public class MemberUserController {
 				mv.addObject("path", "./emailAuth");
 				mv.setViewName("common/result");
 			}
-			session.setAttribute("auth", authDTO);
+			session.setAttribute("join", authDTO);
 		}
 	//	mv.setViewName("common/result");
 		return mv;
 	}
-	//**************************************************
+//************************************************************************************* 
 	
 	
-	//***************** Email Check ********************
+//***************************************  CHECK  **************************************
 	@PostMapping("memberEmailCheck")
 	public ModelAndView getMemberEmailCheck(MemberDTO memberDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -324,5 +358,18 @@ public class MemberUserController {
 		mv.setViewName("common/ajaxResult");
 		return mv;
 	}
-	//**************************************************
+	
+	@PostMapping("memberIdCheck")
+	public ModelAndView getMemberIdCheck(MemberDTO memberDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		long result = memberUserService.getMemberIdCheck(memberDTO);
+		System.out.println("IdCheck : " + result);
+		
+		mv.addObject("msg", result);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+	}
+//************************************************************************************* 
 }

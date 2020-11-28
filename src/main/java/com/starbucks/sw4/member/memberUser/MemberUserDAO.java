@@ -21,8 +21,8 @@ public class MemberUserDAO implements MemberDAO {
 	}
 	
 	@Override
-	public long getIdCheck(MemberDTO memberDTO) throws Exception {
-		return sqlSession.selectOne(NAMESPACE+"getIdCheck", memberDTO);
+	public long getMemberIdCheck(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getMemberIdCheck", memberDTO);
 	}
 	
 	@Override

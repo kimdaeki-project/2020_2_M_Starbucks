@@ -26,8 +26,8 @@ public class MemberUserService implements MemberService {
 
 	//idCheck
 	@Override
-	public long getIdCheck(MemberDTO memberDTO) throws Exception {
-		return memberUserDAO.getIdCheck(memberDTO);
+	public long getMemberIdCheck(MemberDTO memberDTO) throws Exception {
+		return memberUserDAO.getMemberIdCheck(memberDTO);
 	}
 	
 	//emailCheck
