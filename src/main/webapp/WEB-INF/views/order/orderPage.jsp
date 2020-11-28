@@ -9,6 +9,7 @@
 	<head>
 	
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Starbucks Korea :: 주문/결제</title>
 				
 		<link href="${pageContext.request.contextPath}/resources/css/common/footer.css" rel="stylesheet" type="text/css">
@@ -20,9 +21,48 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+		
 		<link rel="stylesheet" type="text/css" href="/sw4/resources/admin/css/jquery-ui.min.css">
 		<link rel="stylesheet" type="text/css" href="/sw4/resources/admin/css/memberPage.css">
 		<link rel="stylesheet" type="text/css" href="/sw4/resources/css/order/orderPage.css">
+		
+		<style type="text/css">
+			#sido-select-area {
+			    font-size: 0.9rem;
+			    padding-left: 0.5rem;
+			    border: none;
+			    cursor: pointer;
+			}
+			.btn-primary {
+			    background-image: -webkit-linear-gradient(top,#428bca 0,#2d6ca2 100%);
+			    background-image: -o-linear-gradient(top,#428bca 0,#2d6ca2 100%);
+			    background-image: -webkit-gradient(linear,left top,left bottom,from(#428bca),to(#2d6ca2));
+			    background-image: linear-gradient(#006633, #006633);
+			    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff428bca', endColorstr='#ff2d6ca2', GradientType=0);
+			    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+			    background-repeat: repeat-x;
+			    border-color: #2b669a;
+			}
+			#modal-contents-area{
+				width: 100%; 
+				font-size: 1.5rem;
+				padding: 4.3rem 0px;
+				text-align: center;
+			}
+			#move-to-no-index{
+				float: right;
+			}
+			a{
+				color: #006633;
+			}
+			a:hover{
+				text-decoration: none;
+				color: #006633;
+			}
+		</style>
 		
 	</head>
 	
@@ -33,7 +73,7 @@
 			<div id="header">
 				<div class="container" id="header-area">
 					<div class="page-info-area">
-						<h1 id="page-info">Starbucks</h1>
+						<h1 id="page-info"><a href="${pageContext.request.contextPath}/">Starbucks</a></h1>
 					</div>
 				</div>
 			</div>
@@ -56,7 +96,7 @@
 								</table>
 							</div>
 						</div>
-					<input type="hidden" id="order-num" title="1">
+					<input type="hidden" id="order-num" title="${orderInfo.orderNum}">
 					<!-- buyer info area -->
 					<div class="order-contents-area">
 						<div id="buyer-info-area">
@@ -121,23 +161,35 @@
 										<tr>
 											<td class="product-name" id="drink-menu-code" title="${orderInfo.menuCode}">
 												<span id="drink-menu-korName">${orderMenu.korName}</span>
-												<c:if test="${orderType eq '음료'}">
+												<c:if test="${orderType eq '음료' || orderType eq '푸드'}">
 													(<span>${orderInfo.hotYN}</span>)
 												</c:if>
 											</td>
 											<td id="product-quantity"><span id="quantity" title="${orderInfo.menuCount}">${orderInfo.menuCount}</span>${unit} / 매장픽업</td>
 											<td id="product-price"><span id="price">${orderInfo.menuPriceStr}</span>원</td>
 										</tr>
-										<c:if test="${orderMenu.optionDTO != null}">
+										<c:if test="${orderType eq '음료' || orderType eq '푸드'}">
 											<tr>
-												<td rowspan="2">옵션</td>
-												<td id="product-quantity">${orderMenu.optionDTO.opt1} <span>${orderInfo.opt1Count}</span>개</td>
-												<td>${(orderInfo.opt1Count - 1) * 500}</td>
+												<td rowspan="1">옵션 추가 금액</td>
+												<td id="product-quantity">
+													<c:choose>
+														<c:when test="${orderType eq '음료'}">${orderMenu.optionDTO.opt1}</c:when>
+														<c:when test="${orderType eq '푸드'}">버터</c:when>
+													</c:choose>
+													<span>${orderInfo.opt1Count - 1}</span>개
+												</td>
+												<td id="product-price"><span id="price">${orderInfo.opt1PriceStr}</span></td>
 											</tr>
 											<tr>
 												<td></td>
-												<td id="product-quantity">${orderMenu.optionDTO.opt2} <span>${orderInfo.opt2Count}</span>개</td>
-												<td>${(orderInfo.opt2Count - 1) * 500}</td>
+												<td id="product-quantity">
+													<c:choose>
+														<c:when test="${orderType eq '음료'}">${orderMenu.optionDTO.opt2}</c:when>
+														<c:when test="${orderType eq '푸드'}">소스</c:when>
+													</c:choose>
+													<span>${orderInfo.opt2Count - 1}</span>개
+												</td>
+												<td id="product-price"><span id="price">${orderInfo.opt2PriceStr}</span></td>
 											</tr>
 										</c:if>
 										<!-- <tr>
@@ -216,6 +268,20 @@
 		
 		<div id="store-info-area" style="display:none;" class="modal" role="dialog">
 				
+		</div>
+		
+		<div style="display:none;" class="modal" role="dialog" id="myModal">
+			<div class="">
+				<div>
+					<div id="modal-contents-area">
+						<div>주문을 취소하시겠습니까?</div>
+					</div>
+					<div id="modal-btn-align">
+						<button type="button" class="btn btn-default" id="move-to-index">예</button>
+						<button type="button" class="btn btn-default" id="move-to-no-index">아니오</button>
+					</div>
+		    	</div>
+			</div>
 		</div>
 		
 		<!-- 결제 API -->
@@ -371,12 +437,32 @@
 		  
 		  var d = new Date();
 		
+		  $("#move-to-index").click(function(){
+			  location.href="${pageContext.request.contextPath}/";
+		  })
+		  
+		  $("#move-to-no-index").click(function(){
+			  $("#myModal").dialog('close');
+		  })
+		  
+		  $("#order-cancle-btn").click(function(){
+ 				$("#myModal").dialog({
+					modal:true,
+					width:'30%',
+					height:'200',
+					resizable:false,
+					open:function(){
+					}
+				}); 
+		  })
+		  
 		  // 결제 버튼 클릭 ------------------------------------
 		  // https://docs.iamport.kr/tech/imp?lang=ko#param
 		  $("#order-pay-btn").click(function(){
 			  var store_chk = $("#order-store").attr("title");
 			  if(store_chk == '' || store_chk == null){
 				  alert("픽업 매장을 선택해 주세요.");
+				  getDialogStore(sidoTxt, storeSearchTxt);
 			  } else {
 				// 주문번호 밀리초 기준 생성
 				merchant_uid = "OP" + d.getTime();
@@ -428,6 +514,7 @@
 						              
 						              // 기존 작성된 것에 추가함
 						              orderNum:order_num,	// 1은 임시로 넣음
+						              storeCode:staffStoreCode,
 						              num:buyer_name,
 						              pg:"kakaopay",
 						              pay_method:rsp.pay_method,
@@ -439,8 +526,11 @@
 						              pay_status:rsp.status,
 						              name:name_code
 						          },
-						          success: function(){
-						        	  location.href = "../pay/payResult";
+						          success: function(data){
+						        	  var result = data.trim();
+									  if(result == 1){					        	  
+							        	  location.href = "../pay/payResult?orderNum="+order_num;
+									  }
 						          }
 						          
 						      }).done(function (data) {
@@ -455,6 +545,7 @@
 							              break;
 						            	case "paid":
 						            		console.log("결제를 성공하였습니다.");
+						            		location.href = "../pay/payResult?orderNum="+parseInt(order_num);
 						            		break;
 		          					}
 							        
@@ -473,6 +564,9 @@
 		    	}
 		  
 		</script>
+		
+		<script src="${pageContext.request.contextPath}/resources/js/common/header.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/myPage/faq.js"></script>
 		
 	</body>
 	

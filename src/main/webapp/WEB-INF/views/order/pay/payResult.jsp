@@ -67,8 +67,8 @@
 	   					<div id="order-summary-head">
 	   						<div id="order-result"><span id="result">주문이 완료</span>되었습니다. 감사합니다!</div>
 	   						<div id="order-result-2">
-	   							<div>주문일:<span id="order-date">2020-11-28</span></div>
-	   							<div>주문번호:<span id="order-number">OP0329432837</span></div>
+	   							<div>주문일: <span id="order-date">${orderInfo.orderDate}</span></div>
+	   							<div>주문번호:<span id="order-number">${payInfo.merchant_uid}</span></div>
 	   						</div>
 	   						<div id="order-more-btn-area">
 	   							<span id="order-more-btn">추가 주문하기 ►</span>
@@ -83,22 +83,22 @@
 	   								<table class="summary-area-table">
 	   									<tr>
 	   										<td id="column-title">이름</td>
-	   										<td>[주문자 이름]</td>
+	   										<td>${member.name}</td>
 	   									</tr>
 	   									
 	   									<tr>
 	   										<td>휴대폰</td>
-	   										<td>[주문자 번호]</td>
+	   										<td>${member.phone}</td>
 	   									</tr>
 	   									
 										<tr>
 	   										<td>픽업 매장</td>
-	   										<td>[픽업 매장명]</td>
+	   										<td>${storeInfo.storeName}</td>
 	   									</tr>
 	   									
 	   									<tr>
 	   										<td>매장 주소</td>
-	   										<td>[픽업 매장 주소]</td>
+	   										<td>${storeInfo.doro_addr}</td>
 	   									</tr>
 	   										   									
 	   								</table>
@@ -112,12 +112,12 @@
 	   								<table class="summary-area-table" id="pay-info-table">
 	   									<tr>
 	   										<td id="column-title-2">주문금액</td>
-	   										<td class="order-price">[주문 금액]</td>
+	   										<td class="order-price">${orderInfo.menuPriceStr}</td>
 	   									</tr>
 	   									
 	   									<tr>
-	   										<td>쿠폰할인</td>
-	   										<td class="order-price">0</td>
+	   										<td>주문수량</td>
+	   										<td class="order-price">${orderInfo.menuCount}</td>
 	   									</tr>
 	   									
 										<tr>
@@ -127,12 +127,12 @@
 	   									
 	   									<tr id="pay-info-table-tr">
 	   										<td>추가 옵션</td>
-	   										<td class="order-price">[옵션 추가 비용]</td>
+	   										<td class="order-price">${orderInfo.addPriceStr}</td>
 	   									</tr>
 	   									
 	   									<tr id="total">
 	   										<td id="total-column">총 결제금액</td>
-	   										<td class="order-price">[총 결제금액]</td>
+	   										<td class="order-price">${orderInfo.totalPriceStr}</td>
 	   									</tr>
 	   										   									
 	   								</table>

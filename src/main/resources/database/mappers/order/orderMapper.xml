@@ -8,6 +8,10 @@
 		select * from menuOrder where orderNum = #{orderNum}
 	</select>
 
+	<update id="setOrderStoreUpdate" parameterType="HashMap">
+		update menuOrder set storeCode=#{store.storeCode} where orderNum = #{pay.orderNum}
+	</update>
+
 	<insert id="setOrderInsert" parameterType="OrderDTO" useGeneratedKeys="true" keyColumn="id">
 		
 		<selectKey keyProperty="orderNum" resultType="Long" order="AFTER">

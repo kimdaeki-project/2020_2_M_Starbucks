@@ -57,7 +57,7 @@
 		text-align: center;
 	}
 	.opt-column{
-		width: 10rem;
+		width: 13rem;
 	}
 	.span-css{
 		width: 100%;
@@ -68,7 +68,7 @@
 		padding: 0.1rem 0.5rem;
 	}
 	#opt-contents{
-		width: 40rem;
+		width: 35rem;
 		text-align: center;
 	}
 	.hotYN{
@@ -89,7 +89,9 @@
 	#login-btn,#order{
 		float: right;
 	}
-
+	#opt1, #opt2{
+		padding: 0px 4rem 0px 3rem;
+	}
 </style>
 </head>
 <body>
@@ -162,8 +164,8 @@
 					</div>
 					<c:choose>
 						<c:when test="${type eq 'D' or type eq 'F'}">
-							<br>
-							<div>
+							<br class="op iceream">
+							<div class="op iceream">
 								<span>온도</span> | <span id="modal_hotYN"></span>
 							</div>
 							<br>
@@ -175,7 +177,7 @@
 							<input type="hidden" title="" id="modal-optIndex">
 							<c:choose>
 								<c:when test="${type eq 'F'}">
-									<div>옵션</div>
+									<div class="op">옵션</div>
 									<div id="option-area">
 										<table id="option-table">
 											<tr>
@@ -186,7 +188,7 @@
 													<button class="up-btn" title="1">▷</button>
 												</td>
 											</tr>
-											<tr>
+											<tr class="iceream">
 												<td class="opt-column"><span id="opt2" class="span-css">소스</span></td>
 												<td id="opt-contents">
 													<button class="down-btn" id="down-btn2" title="2">◁</button>
@@ -209,7 +211,7 @@
 													<button class="up-btn" title="1">▷</button>
 												</td>
 											</tr>
-											<tr>
+											<tr class="iceream">
 												<td class="opt-column"><span id="opt2-drink" class="span-css"></span></td>
 												<td id="opt-contents">
 													<button class="down-btn" id="down-btn2" title="2">◁</button>
@@ -442,9 +444,10 @@
 				$('#modal_price').html(price_html);
 				
 				var menuType = $("#menu-type").attr("title");
+				var modal_hotYN = "";
 				
 				if (menuType == 'D'){
-					var modal_hotYN = "";
+					
 					if(hotYN == 'Iced' || hotYN == 'hot'){
 						modal_hotYN =
 							'<span id="hotYNChk"><input checked="checked" type="radio" name="chk_hotYN" name="hotYN" class="hotYN" id="btn_css" value="'+hotYN+'">'+hotYN;
@@ -452,11 +455,12 @@
 					} else if(hotYN == 'HotIced'){
 						modal_hotYN =
 							'<span id="hotYNChk"><input checked="checked" type="radio" name="chk_hotYN" name="hotYN" class="hotYN" id="btn_css" value="hot">Hot</span><input id="btn_css" type="radio" name="chk_hotYN" name="hotYN" class="hotYN" value="Iced">Iced';
+						select_hotYN = 'Hot';
 					} else {
 						
 						modal_hotYN =
 							'<span id="hotYNChk"><input checked="checked" type="radio" name="chk_hotYN" name="hotYN" id="btn_css" class="hotYN" value="hot">Hot</span><input id="btn_css" type="radio" name="chk_hotYN" name="hotYN" class="hotYN" value="Iced">Iced';
-					
+						select_hotYN = 'Hot'
 						if(korname.includes('아이스') || korname.includes('프라푸치노') || korname.includes('블렌디드') || korname.includes('피지오')){
 							select_hotYN = 'Iced';
 							modal_hotYN = 
@@ -472,13 +476,20 @@
 						}
 						
 					}
-					$("#modal_hotYN").html(modal_hotYN);
+					
+				} else if (menuType == 'F'){
+					modal_hotYN =
+						'<span id="hotYNChk"><input checked="checked" type="radio" name="chk_hotYN" name="hotYN" id="btn_css" class="hotYN" value="hot">Hot</span><input id="btn_css" type="radio" name="chk_hotYN" name="hotYN" class="hotYN" value="Iced">Iced';
+					select_hotYN = 'Hot';
 				}
+				
+				$("#modal_hotYN").html(modal_hotYN);
 					
 				if (limitedStore == '' || limited == ''){
 					$('#limited').css('display','none');
 				} else {
 					$('#modal_limited').text('특정 매장에서 판매되어 온라인 주문이 불가합니다.');
+					$("#order").css('display','none');
 				}
 				
 				$('#modal_descr').html(descr);
@@ -486,6 +497,7 @@
 				$('#modal-optIndex').attr("title", optIndex);
 				
 				if (menuType == 'D'){
+					$("#option-total-area").css('display','inline');
 					if(opt1 == '' & opt2 == ''){
 						$("#option-total-area").css('display','none');
 					}
@@ -497,6 +509,20 @@
 					if(opt2 != ''){
 						$("#opt2-drink").html(opt2);				
 					}
+					
+				} else if(menuType == 'F'){
+					
+					$("#option-area").css('display','inline');
+					$(".op").css('display','inline');
+					$(".op").css('margin','1rem 0px');
+					$(".iceream").css('display','var()');
+
+					if(category == '스낵&미니디저트'){
+						$("#option-area").css('display','none');
+						$(".op").css('display','none');
+					} else if(category == '아이스크림'){
+						$(".iceream").css('display','none');
+					} 
 					
 				}
 	

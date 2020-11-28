@@ -4,6 +4,10 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.starbucks.sw4.order.pay.PayDAO">
 
+	<select id="getPayInfo" parameterType="OrderDTO" resultType="PayDTO">
+		select * from pay where orderNum = ${orderNum}
+	</select>
+
 	<insert id="setInsertPay" parameterType="PayDTO">
 		insert into pay
 		values (pay_seq.NEXTVAL,#{orderNum},#{pg},#{pay_method},#{merchant_uid},#{amount},#{currency},

@@ -44,6 +44,21 @@ public class OrderDTO {
 	
 	private String totalPriceStr;
 	private String menuPriceStr;
+	private String opt1PriceStr;
+	private String opt2PriceStr;
+	private String addPriceStr;
+	
+	public String getAddPriceStr() {
+		return String.format("%,d",this.addPrice);
+	}
+
+	public String getOpt1PriceStr() {
+		return String.format("%,d",(this.getOpt1Count() - 1) * 500);
+	}
+
+	public String getOpt2PriceStr() {
+		return String.format("%,d",(this.getOpt2Count() - 1) * 500);
+	}
 
 	public String getTotalPriceStr() {
 		return String.format("%,d",this.totalPrice);

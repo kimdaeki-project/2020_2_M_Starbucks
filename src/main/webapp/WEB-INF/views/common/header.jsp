@@ -109,7 +109,7 @@
 									<div class="gnb_sub">
 										<div class="gnb_sub_inner">
 											<ul>
-												<li class="gnb_sub_ttl"><a href="#">음료</a></li>
+												<li class="gnb_sub_ttl"><a href="${pageContext.request.contextPath}/menu/menuDrink">음료</a></li>
 												<li><a href="#">콜드 브루</a></li>
 												<li><a href="#">브루드 커피</a></li>
 												<li><a href="#">에스프레소</a></li>
@@ -121,7 +121,7 @@
 												<li><a href="#">스타벅스 주스(병음료)</a></li>
 											</ul>
 											<ul>
-												<li class="gnb_sub_ttl"><a href="#">푸드</a></li>	
+												<li class="gnb_sub_ttl"><a href="${pageContext.request.contextPath}/menu/menuFood">푸드</a></li>	
 												<li><a href="#">브레드</a></li>
 												<li><a href="#">케이크</a></li>
 												<li><a href="#">샌드위치 & 샐러드</a></li>
@@ -131,7 +131,7 @@
 												<li><a href="#">아이스크림</a></li>
 											</ul>
 											<ul>
-												<li class="gnb_sub_ttl"><a href="#">상품</a></li>
+												<li class="gnb_sub_ttl"><a href="${pageContext.request.contextPath}/menu/menuProduct">상품</a></li>
 												<li><a href="#">머그</a></li>
 												<li><a href="#">글라스</a></li>
 												<li><a href="#">플라스틱텀블러</a></li>
