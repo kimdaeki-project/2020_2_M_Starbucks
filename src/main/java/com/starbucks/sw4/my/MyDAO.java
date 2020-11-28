@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.starbucks.sw4.member.MemberDTO;
+import com.starbucks.sw4.order.OrderDTO;
+import com.starbucks.sw4.order.pay.PayDTO;
 
 @Repository
 public class MyDAO {
@@ -57,5 +59,10 @@ public class MyDAO {
 	//고객의소리
 	public int setVocList(MyDTO myDTO) throws Exception{
 		return sqlSession.insert(NAMESPACE+"setVocList", myDTO);
+	}
+	
+	//오더 정보 가져오기
+	public OrderDTO getOrder(PayDTO payDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getOrder", payDTO);
 	}
 }

@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.starbucks.sw4.member.MemberDTO;
+import com.starbucks.sw4.order.OrderDTO;
+import com.starbucks.sw4.order.pay.PayDTO;
 
 import oracle.jdbc.proxy.annotation.Post;
 
@@ -226,12 +228,19 @@ public class MyController {
 	}
 	
 	@GetMapping("test")
-	public void test()throws Exception {
-		String menucode = "C5747";
-		 menucode= menucode.substring(0,1);
-		System.out.println(menucode);
-		if(menucode.equals("C")) {
-			System.out.println((int)(Math.random()*100000000)+1);
+	public void test(PayDTO payDTO)throws Exception {
+		//order테이블에서 data가져오기
+		OrderDTO orderDTO = myService.getOrder(payDTO);
+		//menucode 값 받아서 c로 시작하는 지 확인
+		//String menucode = "C5747";
+		String menuCode = orderDTO.getMenuCode();
+		menuCode= menuCode.substring(0,1);
+		System.out.println(menuCode);
+		if(menuCode.equals("C")) {
+			//랜덤번호 8자리 생성
+			long cardNum = (int)Math.random()*100000000+1;
+			orderDTO.setCardNum(cardNum);  //myDTO를 넘겨주기
+			
 		}
 	}
 	

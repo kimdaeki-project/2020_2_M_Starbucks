@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.starbucks.sw4.member.MemberDTO;
+import com.starbucks.sw4.order.OrderDTO;
+import com.starbucks.sw4.order.pay.PayDTO;
 
 @Service
 public class MyService {
@@ -59,4 +61,11 @@ public class MyService {
 	public int setVocList(MyDTO myDTO)throws Exception{
 		return myDAO.setVocList(myDTO);
 	}
+	
+	//오더 정보 가져오기
+		public OrderDTO getOrder(PayDTO payDTO) throws Exception{
+			return myDAO.getOrder(payDTO);
+		}
+	//membercard에 update하기
+		
 }

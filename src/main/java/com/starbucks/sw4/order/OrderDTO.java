@@ -42,6 +42,15 @@ public class OrderDTO {
 	private String orderDate;
 	private String adminYN;
 	
+	private long cardNum;
+	
+	
+	public long getCardNum() {
+		return cardNum;
+	}
+	public void setCardNum(long cardNum) {
+		this.cardNum = cardNum;
+	}
 	public long getOrderNum() {
 		return orderNum;
 	}
