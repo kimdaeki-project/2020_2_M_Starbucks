@@ -8,6 +8,6 @@
 	</insert>
 	
 	<update id="setEmailAuthStatus" parameterType="AuthDTO">
-		update auth set authStatus=#{authStatus} where email=#{email} and authKey=#{authKey}
+		update auth set authStatus=#{status} where email=#{email}
 	</update>
 </mapper>
