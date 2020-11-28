@@ -7,7 +7,7 @@
 	<insert id="setInsertPay" parameterType="PayDTO">
 		insert into pay
 		values (pay_seq.NEXTVAL,#{orderNum},#{pg},#{pay_method},#{merchant_uid},#{amount},#{currency},
-				#{m_redirect_url},#{buyer_tel},#{pay_amount},#{pay_status},#{name});
+				#{m_redirect_url},#{buyer_tel},#{pay_amount},#{pay_status},#{name})
 	</insert>
 	
 </mapper>
