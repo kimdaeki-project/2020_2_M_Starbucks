@@ -136,6 +136,14 @@
 			console.log(korname);
 
 		}
+		
+		
+		$(function(){
+			$ajax({
+				type : "post",
+				url
+			});
+		});
 	</script>
 
 	<script
