@@ -42,7 +42,6 @@
 		<!-- menu -->
 		<typeAlias type="com.starbucks.sw4.menu.MenuDTO" alias="MenuDTO"/>
 		<typeAlias type="com.starbucks.sw4.menu.OptionDTO" alias="OptionDTO"/>
-		<typeAlias type="com.starbucks.sw4.menu.StoreSDTO" alias="StoreSDTO"/>
 
 	</typeAliases>
 	

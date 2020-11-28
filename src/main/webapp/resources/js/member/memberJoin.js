@@ -1,15 +1,23 @@
 $(document).ready(function() {
-	/* Join 버튼 클릭시 */
 	
+	/* Join 버튼 클릭시 */
+	var idCheck = false;
+	var pwCheck = false;
+	var emptyCheckResult = true;
 	
 	
 	/* Join 버튼 클릭시 end */
 	
+	
+	
+	
 	initBirth();
 	getInfoPop();
-	setEvents();
+	//setEvents();
 	
-	/* 생년월일 */
+	
+	
+	/* 생년월일 select 내용 */
 	var birth = $("#birth_year[name='birth_year'").val() + "-" + $("#birth_month[name='birth_month'").val() + "-" + $("#birth_day[name='birth_day'").val();
 	$("#birth").val(birth);
 	
@@ -63,7 +71,7 @@ $(document).ready(function() {
 		$("[name='birth_day']").html('<option value="">선택</option>');
 		
 		var d = new Date(_nYear, _nMonth, 1);
-			d.setDate(d.getDate() - 1);
+		d.setDate(d.getDate() - 1);
 	
 		for (var i = 1; i <= d.getDate(); i++) {
 			var nSaveVal = addZero(i, 2);
@@ -76,17 +84,19 @@ $(document).ready(function() {
 	function addZero(number, length) {
 		if (length === undefined) {
 			length = 2;
-		}
-	
+		}	
 		var str = '' + number;
 		while (str.length < length) {str = '0' + str;}
 		return str;
 	}
-	/* 생년월일 end */
+	/* 생년월일 select 내용 end */
 	
 	
-	
-	/* 닉네임 */
+});
+
+
+
+	/* (!) 팝업 */
 	function getInfoPop() {
 		$(".info_btn_inner").css("display","none");
 		$('.form_input_box .icon_mark_point').click(function(){
@@ -98,12 +108,13 @@ $(document).ready(function() {
 			$('.info_btn_inner').fadeOut();
 		});
 	}
-	/* 닉네임 end */
+	/* (!) 팝업 end */
 	
-	/* event 처리 */
-	function setEvents() {
-		//$("a[href=#]").attr("href", "javascript:void(0);");
 	
+
+
+	/* 빈칸 이벤트 처리 */
+	/*function setEvents() {
 		if (location.href.indexOf("/find_") > -1) {
 			$(document).on("blur, keydown", ".input_warn", function () {
 				$(this).removeClass("input_warn");
@@ -111,6 +122,7 @@ $(document).ready(function() {
 			});
 		}
 		$("input:text, input:password, input#phone, input#email").on("focus", function () {
+			
 			if($(this).hasClass("input_warn") === false) {
 				$(this).addClass("green");
 			}
@@ -121,7 +133,12 @@ $(document).ready(function() {
 		}).on("blur", function () {
 			$(this).removeClass("green");
 		});
-	}
-	/* event 처리 */
+				
+	}*/
+	/* 빈칸 이벤트 처리 */
 	
-});
+	/* 빈칸확인 */
+
+	/* 빈칸확인 end */
+	
+	

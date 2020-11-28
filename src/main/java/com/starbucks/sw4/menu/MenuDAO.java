@@ -21,8 +21,4 @@ public class MenuDAO {
 	public List<OptionDTO> getOptionList() throws SQLException, ClassNotFoundException{
 		return sqlSession.selectList(NAMESPACE+"getOptionList");
 	}
-	
-	public List<StoreSDTO> getStoreList(String limitedStore) throws SQLException, ClassNotFoundException{
-		return sqlSession.selectList(NAMESPACE+"getStoreList", limitedStore);
-	}
 }

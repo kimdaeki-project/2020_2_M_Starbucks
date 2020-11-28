@@ -54,27 +54,39 @@
 										for="mem_agreeMent_yes">동의</label>
 									</span>
 									<div class="mem_agreement_area">
+										<p class="title_text" style="margin-left:10px;">
+											※ 자세한 내용은 
+											<b><a href="https://www.starbucks.co.kr/footer/etc/rules.do" target="_blank">홈페이지 이용 약관</a></b> 
+											을 참조해주시기 바랍니다. ※
+										</p>
+									</div>
+									<!-- <div class="mem_agreement_area">
 										<div class="privacy_cont">
 											<p class="title_text" id="title_text"></p>
 										</div>
-									</div>
+									</div> -->
 								</section>
 
 								<section class="mem_purpose_wrap">
 									<h5>
 										개인정보 수집 및 이용동의 <span class="type_green">(필수)</span>
 									</h5>
-									<span class="agree-check"> <input type="checkbox"
-										name="mem_purpose" id="mem_purpose_yes" class="mem" /> <label
-										for="mem_purpose_yes">동의</label>
+									<span class="agree-check">
+									<input type="checkbox" name="mem_purpose" id="mem_purpose_yes" class="mem" /> 
+									<label for="mem_purpose_yes">동의</label>
 									</span>
-									<div class="mem_purpose_area mem_purpose_area_v2">
-										<!-- 개인정보의 수집 및 이용목적 내용 -->
+									<div class="mem_agreement_area">
+										<p class="title_text" style="margin-left:10px;">
+											※ 자세한 내용은 
+											<b><a href="https://www.starbucks.co.kr/footer/etc/privacy.do" target="_blank">개인정보처리방침</a></b> 
+											을 참조해주시기 바랍니다. ※
+										</p>
+									</div>
+									<!-- <div class="mem_purpose_area mem_purpose_area_v2">
 										<div class="privacy_cont">
 											<p class="privacy_text" id="privacy_text"></p>
 										</div>
-										<!-- 개인정보의 수집 및 이용목적 내용 end -->
-									</div>
+									</div> -->
 								</section>
 
 								<section class="mem_agreement_wrap mem_advertise_wrap">
@@ -114,22 +126,8 @@
 											<p class="mem_k_txt">가입한 이메일을 통해 인증합니다.</p>
 											<p class="mem_k_btn">
 												<a href="${pageContext.request.contextPath}/member/emailAuthSend" title="email">인증하기</a>
-												<%-- <a href="${pageContext.request.contextPath}/member/memberJoin2" title="email">Join</a> --%>
 											</p>
 										</li>
-										<%-- 
-										<li class="li2">
-											<figure>
-												<img src="${pageContext.request.contextPath}/resources/images/member/icon_find1_email.png" alt="아이핀 아이콘">
-											</figure>
-											<p class="mem_f_titl">이메일 <span class="en">(E-mail)</span>인증
-											</p>
-											<p class="mem_f_txt">가입한 이메일을 통해 인증합니다.</p>
-											<p class="mem_f_btn">
-												<a href="javascript:void(0)" title="아이핀 본인 인증 새창열기">인증하기</a>
-											</p>
-										</li>
-										--%>
 									</ul>
 								</section>
 								<!-- 본인인증 end -->
