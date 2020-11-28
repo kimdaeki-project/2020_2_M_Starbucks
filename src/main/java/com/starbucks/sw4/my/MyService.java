@@ -53,13 +53,11 @@ public class MyService {
 		return myDAO.setMyInfoOut(myDTO);
 	}
 	
-	//store
-	public List<MyDTO> getStore(MyDTO myDTO) throws Exception{
-		return myDAO.getStore(myDTO);
-	}
-	
 	//고객의 소리
 	public int setVocList(MyDTO myDTO)throws Exception{
+		//storecode 받아오기
+		MyDTO store = myDAO.getStore(myDTO);
+		myDTO.setStorecode(store.getStorecode());
 		return myDAO.setVocList(myDTO);
 	}
 	//회원가입시 card 초기화
@@ -76,8 +74,14 @@ public class MyService {
 		public OrderDTO getOrder(PayDTO payDTO) throws Exception{
 			return myDAO.getOrder(payDTO);
 		}
+		
 	//membercard에 update하기
 		public int setMemberCard(OrderDTO orderDTO) throws Exception {
+			//menu테이블에있는 korName, menuImage받아오기
+			OrderDTO menu =	myDAO.getMenu(orderDTO);
+			orderDTO.setKorName(menu.getKorName());
+			orderDTO.setMenuImage(menu.getMenuImage());
+			System.out.println(orderDTO.getMemberNum());
 			return myDAO.setMemberCard(orderDTO);
 		}
 

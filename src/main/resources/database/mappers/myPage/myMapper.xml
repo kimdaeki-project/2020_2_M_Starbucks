@@ -4,18 +4,24 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
     <mapper namespace="com.starbucks.sw4.my.MyDAO">
+    	<update id="setMemberCard" parameterType="OrderDTO">
+    		update membercard set menuCode=#{menuCode}, cardnum=#{cardNum}, korName=#{korName}, menuimage=#{menuImage}, balance=#{totalPrice}, memberNum={memberNum} where id =#{id}
+    	</update>
     	
-    	<select id="getOrder" parameterType="PayDTO">
-    		select * from menuorder where orderNum= #{orderNum}
+    	<select id="getMenu" parameterType="OrderDTO" resultType="OrderDTO">
+    		select menuCode, korName, menuImage from menu where menuCode = #{menuCode}
+    	</select>
+    	
+    	<select id="getOrder" parameterType="PayDTO" resultType="OrderDTO">
+    		select * from menuorder where orderNum= 5
     	</select>
     
-    
     	<insert id="setVocList" parameterType="MyDTO">
-    		insert into customerqna values (qna_seq.nextval, #{category}, #{id}, #{storeName}, #{visitDate}, #{title}, #{contents})
+    		insert into customerqna values (qna_seq.nextval, #{category}, #{id}, #{storeName}, #{visitDate}, #{title}, #{contents}, #{storecode})
     	</insert>
     
     	<select id="getStore" parameterType="MyDTO" resultType="MyDTO">
-    		select storeName, addr, storecode from store where storeName like '%'||#{storeName}||'%'
+    		select storeName, addr, storecode from store where storeName =#{storeName}
     	</select>
     	
     	<delete id="setMyInfoOut" parameterType="MyDTO">

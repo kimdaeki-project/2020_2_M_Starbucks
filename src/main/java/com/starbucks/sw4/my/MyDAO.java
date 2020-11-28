@@ -52,9 +52,9 @@ public class MyDAO {
 	}
 	
 	//매장찾기
-	public List<MyDTO> getStore(MyDTO myDTO) throws Exception {
+	public MyDTO getStore(MyDTO myDTO) throws Exception {
 		
-		return sqlSession.selectList(NAMESPACE+"getStore", myDTO);
+		return sqlSession.selectOne(NAMESPACE+"getStore", myDTO);
 	}
 	
 	//고객의소리
@@ -78,9 +78,20 @@ public class MyDAO {
 		return sqlSession.insert(NAMESPACE+"setMemberJoinStar", memberDTO);
 
 	}
+	
 	//membercard에 update하기
-			public int setMemberCard(OrderDTO orderDTO) throws Exception {
-				return sqlSession.update(NAMESPACE+"setMemberCard",orderDTO);
-			}
+	public OrderDTO getMenu(OrderDTO orderDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getMenu", orderDTO);
+	}
+	
+	public int setMemberCard(OrderDTO orderDTO) throws Exception {
+		return sqlSession.update(NAMESPACE+"setMemberCard",orderDTO);
+	}
 
+			
+			
+			
+			
+			
+			
 }

@@ -38,7 +38,7 @@
 		
 		<!-- pay -->
 		<typeAlias type="com.starbucks.sw4.order.pay.PayDTO" alias="PayDTO"/>
-
+		<typeAlias type="com.starbucks.sw4.order.OrderDTO" alias="OrderDTO"/>
 		<!-- menu -->
 		<typeAlias type="com.starbucks.sw4.menu.MenuDTO" alias="MenuDTO"/>
 		<typeAlias type="com.starbucks.sw4.menu.OptionDTO" alias="OptionDTO"/>
