@@ -42,28 +42,26 @@
 					<input type="hidden" name="joinPath" id="joinPath" value="" />
 					<input type="hidden" name="grade" id="grade" value="1" />
 					<fieldset>
-						<legend class="hid">회원가입 이메일 인증 폼</legend>
-						<strong class="find_mem_ttl">이메일 인증</strong>
+						<legend class="hid">회원가입 폼</legend>
+						<strong class="find_mem_ttl">회원가입</strong>
 
-						<section class="authForm">
+						<section class="joinform authform">
 							<div class="find_mem_sally"></div>
-							<p class="find_form_txt">이메일을 입력해 주세요.</p>
+							<p class="find_form_txt">회원정보를 입력해주세요.</p>
 							<div class="form_input_box id_chk">
 								<label for="id" class="hid">아이디</label>
-								<input type="text" name="id" id="id" placeholder="아이디" maxlength="13" required="required" />
-								<p class="limit_txt id_chk_txt input_warn_text" id="id_chk_txt">영문(대소문자 구분 없음), 숫자로 4~13자리만 입력 가능합니다.</p>
+								<input type="text" name="id" id="id" class="empty_chk" placeholder="아이디" maxlength="13" required="required"/>
+								<p class="limit_txt id_chk_txt" id="id_chk_txt">영문(대소문자 구분 없음), 숫자로 4~13자리만 입력 가능합니다.</p>
 							</div>
 							<div class="form_input_box pw_chk">
 								<label for="pw" class="hid">비밀번호</label> 
-								<input type="password" id="pw" name="pw" placeholder="비밀번호" maxlength="20" autocomplete="off" required="required" />
-								<p class="limit_txt user_pwd_txt input_warn_text" id="pw_txt">
-									<!-- 영문, 숫자 혼합하여 10~20자리 이내로 입력하세요. -->
-								</p>
+								<input type="password" id="pw" name="pw" placeholder="비밀번호" maxlength="20" autocomplete="off" required="required"/>
+								<p class="limit_txt pwd_txt" id="pw_txt">영문, 숫자 혼합하여 10~20자리 이내로 입력하세요.</p>
 							</div>
 							<div class="form_input_box pw_chk bd_none">
 								<label for="pw_chk" class="hid">비밀번호확인</label>
 								<input type="password" id="pw_chk" name="pw_chk" placeholder="비밀번호 확인" maxlength="20" autocomplete="off" required="required"/>
-								<p class="limit_txt user_pwd_chk_txt" id="pw_chk_txt">입력하신 패스워드를 다시 한 번 입력해주세요.</p>
+								<p class="limit_txt pwd_chk_txt" id="pw_chk_txt">입력하신 패스워드를 다시 한 번 입력해주세요.</p>
 							</div>
 						</section>
 						<section class="joinform">
@@ -73,8 +71,8 @@
 								<!-- <p class="nofix_name"></p>
 								<input type="hidden" id="name" name="name" value="" /> -->
 								<div class="user_gender">
-									<a class="male " href="javascript:void(0);">남</a>
-									<a class="female " href="javascript:void(0);">여</a>
+									<a class="male" href="javascript:void(0);">남</a>
+									<a class="female" href="javascript:void(0);">여</a>
 									<input type="hidden" id="gender" name="gender" value="" />
 								</div>
 							</div>
@@ -110,7 +108,7 @@
 									<div class="info_btn_box" role="dialog" aria-labelledby="info_box_phone" aria-describedby="info_box_phone_desc">
 										<p class="btn_close">
 											<a href="javascript:void(0);" role="button">
-												<img src="//image.istarbucks.co.kr/common/img/util/ec/btn_close2.png" alt="닫기">
+												<img src="${pageContext.request.contextPath}/resources/images/member/btn_close2.png" alt="닫기">
 											</a>
 										</p>
 										<dl>
@@ -126,7 +124,7 @@
 								<!-- 팝업 end -->
 								<p class="nofix_num"></p>
 								<label class="ally" for="phone">휴대폰번호<span class="type_green">(필수)</span></label>
-								<input type="text" name="phone" id="phone" placeholder="휴대폰번호를 입력하세요. (예시: 010-1234-5678)" maxlength="13" />
+								<input type="text" name="phone" id="phone" placeholder="휴대폰번호를 입력하세요. (예시: 010-1234-5678)" maxlength="13" required="required"/>
 								<p class="limit_txt phone_txt" id="phone_txt"></p>
 							</div>
 							
@@ -166,7 +164,7 @@
 								<!-- 팝업 end -->
 								<div class="choice_cont_mail">
 									<label for="email" class="hid">e-mail</label>
-									<input type="email" name="email" id="email" placeholder="E-mail을 입력하세요." required="required" />
+									<input type="email" name="email" id="email" class="empty readonly" placeholder="E-mail을 입력하세요." readonly="readonly" value="${auth.email}" />
 									<p class="limit_txt mail_txt" id="mail_txt"></p>
 								</div>
 							</div>
@@ -191,7 +189,6 @@
 									<div class="info_btn_box" role="dialog"
 										aria-labelledby="info_box_nick"
 										aria-describedby="info_box_nick_desc">
-										<!-- 접근성_20171120 role, aria 추가 -->
 										<p class="btn_close">
 											<a href="javascript:void(0);" role="button">
 											<img src="${pageContext.request.contextPath}/resources/images/member/btn_close2.png" alt="닫기"></a>
@@ -244,16 +241,18 @@
 										<input type="checkbox" name="mem_choice" id="mem_choice_yes" class="mem" />
 										<label for="mem_choice_yes">동의</label>
 									</span>
-									<div class="mem_purpose_area mem_purpose_area_v2">
-										<div class="privacy_cont">
-											<p class="nickname_text" id="nickname_text"></p>
-										</div>
+									<div class="mem_agreement_area">
+										<p class="refer_text" style="margin-left:10px;">
+											※ 자세한 내용은 
+											<b><a href="https://www.starbucks.co.kr/footer/etc/privacy.do" target="_blank">개인정보처리방침</a></b> 
+											을 참조해주시기 바랍니다. ※
+										</p>
 									</div>
 								</section>
 								<label for="user_nick_nm" class="hid">닉네임</label>
 								<%-- <input type="text" name="user_nick_nm" id="user_nick_nm" placeholder="닉네임 입력을 위해 약관에 동의해 주세요." maxlength="6" disabled="" /> --%>
 								<input type="text" id="nickName" name="nickName" placeholder="한글 6자리 이내로 입력하세요." value="" />
-								<p class="limit_txt input_warn_text user_nick_nm_txt" id="user_nick_nm_txt"></p>
+								<p class="limit_txt nickName_txt" id="nickName_txt"></p>
 							</div>
 						</section>
 						<p class="modify_txt2">
@@ -280,6 +279,36 @@
 	<script src="${pageContext.request.contextPath}/resources/js/common/header.js?v=1"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=1"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/member/memberJoin.js?v=1"></script>
-	
+	<script type="text/javascript">
+		var idCheck = false;
+		var pwCheck = false;
+		var emptyCheckResult = true;
+		
+		$(".user_gender a").click(function(){
+			$(this).addClass("on");
+			var gender = $(this).html();
+			console.log(gender);
+			$("#gender").val(gender);
+		});
+		
+		$("#join").click(function() {
+			//var birth = $("#birth_year").val() + "-" + $("#birth_month").val() + "-" + $("#birth_day").val();
+			//$("#birth").val(birth);
+			if($("#birth_year").val()=='' || $("#birth_month").val()=='' || $("#birth_day").val()=='') {
+				alert('생년월일을 기입해주세요.');
+			} else {
+				var birth = $("#birth_year").val() + "-" + $("#birth_month").val() + "-" + $("#birth_day").val();
+				$("#birth").val(birth);
+			}
+			
+		});
+		
+		function emptyCheck() {
+			emptyCheckResult = true;
+			$(".empty").each(function(){
+				console.log($(this).val());
+			});
+		}
+	</script>
 </body>
 </html>

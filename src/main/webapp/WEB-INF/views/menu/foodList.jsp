@@ -4,12 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-	<meta name="format-detection" content="telphone=no">	
-	
-	<title>Insert title here</title>
-	
+<meta charset="UTF-8">
+<title>Insert title here</title>
 	<link href="${pageContext.request.contextPath}/resources/css/common/reset.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/header.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/myPage/faqList.css" rel="stylesheet" type="text/css">
@@ -30,7 +26,7 @@
 	<!--subtitle-->
      <div class="ms_sb_tit_bg">
         <div class="ms_sub_tit_inner">
-            <h3>상품</h3>
+            <h3>푸드</h3>
         </div>
     </div>
     <!-- subtitle end -->
@@ -46,8 +42,8 @@
      							<dt><a data-toggle="modal" onclick="goModal(this);"><img src="${list.menuImage }" alt="${list.korName }"></a></dt>
 								<dd style="display: none;" class="price">${list.price}</dd>
 								<dd style="display: none;" class="limited">${list.limited}</dd>
-								<dd  class="limitedStore">${list.limitedStore}</dd>
-								<dd style="display: none;" class="descr">${list.descr}</dd>								
+								<dd style="display: none;" class="limitedStore">${list.limitedStore}</dd>
+								<dd style="display: none;" class="descr">${list.descr}</dd>
      							<dd class="korname">${list.korName }</dd>
      						</dl>
      					</li>
@@ -81,18 +77,18 @@
 				<br>
 				<div>
 					<span>한정</span> | 
-					<span id="modal_limited"></span>
+					<span id="modal_limited">한정</span>
 				</div>
 				<br>
 				<div>
 					<span>한정매장</span> | 
-					<span id="modal_limitedStore"></span>
-				</div>
+					<span id="modal_limitedStore">한정매장</span>
+				</div>								
 				<br>
 				<div>
 					<span></span> 
 					<span id="modal_descr">설명</span>
-				</div>												
+				</div>
 				</div>
 				<!-- Footer -->
 				<div class="modal-footer">
@@ -104,31 +100,25 @@
 	</div>
 
 <script type="text/javascript">
-
 function goModal(e){
 	console.log('clicked');
-
-
 	var price = $(e).parent().parent().children('.price').text();
 	var limited = $(e).parent().parent().children('.limited').text();
 	var limitedStore = $(e).parent().parent().children('.limitedStore').text();
 	var descr = $(e).parent().parent().children('.descr').text();	
 	var korname = $(e).parent().parent().children('.korname').text();
 	var img_src = $(e).children().attr('src');
-	var img = '<img src = "'+img_src+'"/>';	
-	alert(limitedStore);
-	
-	$('#pop_header').html(korname);
-	$('#modal_price').html(price);
-	$('#modal_limited').text(limited);
-	$('#modal_limitedStore').text(limitedstore);
-	$('#modal_descr').html(descr);
-	$('#modal_img').html(img);
-	$('div.modal').modal();	
+	var img = '<img src = "'+img_src+'"/>';
 	
 	console.log(price);
 	console.log(korname);
-
+	$('#pop_header').html(korname);
+	$('#modal_price').html(price);
+	$('#modal_limited').html(limited);
+	$('#modal_limitedStore').html(limitedStore);
+	$('#modal_descr').html(descr);
+	$('#modal_img').html(img);
+	$('div.modal').modal();
 }
 
 </script>

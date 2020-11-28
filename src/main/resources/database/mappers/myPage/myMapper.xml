@@ -51,4 +51,12 @@
     		select rownum R, N.* from (select * from memberStore where id= #{id})N
     		
     	</select>
+    	
+    	<insert id="setMemberJoinCard" parameterType="MemberDTO">
+    		insert into membercard values (card_seq.nextval, #{id}, null, null, null, null, null, null)
+    	</insert>
+    	
+    	<insert id="setMemberJoinStar" parameterType="MemberDTO">
+    		insert into starhistory values (star_seq.nextval, #{id}, null, 0, 0, 0, null, null, 0, sysdate, sysdate)
+    	</insert>
     </mapper>
