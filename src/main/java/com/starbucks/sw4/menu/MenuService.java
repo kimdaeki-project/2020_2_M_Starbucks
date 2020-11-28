@@ -19,9 +19,4 @@ public class MenuService {
 	public List<OptionDTO> getOptionList() throws SQLException, ClassNotFoundException{
 		return menuDAO.getOptionList();
 	}
-	
-	public List<StoreSDTO> getStoreList(String limitedStore) throws SQLException, ClassNotFoundException{
-		return menuDAO.getStoreList(limitedStore);
-	}
-	
 }
