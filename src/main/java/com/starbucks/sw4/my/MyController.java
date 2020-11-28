@@ -225,6 +225,16 @@ public class MyController {
 		return mv;
 	}
 	
+	@GetMapping("test")
+	public void test()throws Exception {
+		String menucode = "C5747";
+		 menucode= menucode.substring(0,1);
+		System.out.println(menucode);
+		if(menucode.equals("C")) {
+			System.out.println((int)(Math.random()*100000000)+1);
+		}
+	}
+	
 	
 	
 }
