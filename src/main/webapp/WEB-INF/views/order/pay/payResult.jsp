@@ -17,108 +17,23 @@
 	
 		<link href="${pageContext.request.contextPath}/resources/css/common/reset.css" rel="stylesheet" type="text/css">
 		<link href="${pageContext.request.contextPath}/resources/css/common/header.css" rel="stylesheet" type="text/css">
-		<link href="${pageContext.request.contextPath}/resources/css/myPage/faqList.css" rel="stylesheet" type="text/css">
-		<link href="${pageContext.request.contextPath}/resources/css/menu/menuList.css" rel="stylesheet" type="text/css">	
+		<link href="${pageContext.request.contextPath}/resources/css/myPage/faqList.css" rel="stylesheet" type="text/css">		
+		<link href="${pageContext.request.contextPath}/resources/css/menu/menuList.css" rel="stylesheet" type="text/css">
+		<link href="${pageContext.request.contextPath}/resources/css/common/footer.css" rel="stylesheet" type="text/css">
+		<link href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet" type="text/css">
+		<link href="${pageContext.request.contextPath}/resources/css/pay/payResult.css" rel="stylesheet" type="text/css">
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 		
 		<style type="text/css">
-			.container{
-				width: 78%;
-				border: 1px solid blue;
+			h1, .h1, h2, .h2, h3, .h3 {
+			    margin-top: 0px;
 			}
-			#pay-result-contetns-area{
-				margin-top: 2rem;
-				padding: 1rem;
-			}
-			#contents-header{
-				padding: 0px 0.5rem;
-				border-bottom: 2px solid #EAEAEA;
-				justify-content: space-between;
-			}
-			
-			#contents-header > div{
-				display: inline-block;
-			}
-			
-			#contents-header span{
-				font-size: 3rem;
-				font-weight: bold;
-			}
-			
-			#menu-table{
-				float: right;
-				margin-top: 2rem;
-				display: inline-block;
-			}
-			
-			#menu-table-tr > td{
-				font-size: 1.3rem;
-				padding: 0.2rem 0.5rem;
-			}
-			#order-success{
-				color: #006633;
-				font-weight: bold;
-			}
-			#order-summary-head{
-				padding: 14rem 0px;
-				text-align:center;
-				border: 1px solid green;
-			}
-			#order-result{
-				font-size: 3rem;
-				padding: 0.5rem 0px;
-			}
-			#order-result-2{
-				border: 1px solid black;
-			}
-			#order-result-2 > div{
-				border: 1px solid silver;
-				display: inline-block;
-				margin: 0px 4rem;
-			}
-			#result{
-				color: #420100;
-				font-weight: bold;
-			}
-			#order-more-btn-area{
-				margin-top: 4.5rem;
-			}
-			#order-more-btn{
-				background-color: #006633;
-				color: white;
-				font-size: 1.5rem;
-				padding: 1.8rem 1.8rem;
-				cursor: pointer;
-			}
-			
-			.summary-area{
-				display: inline-block;
-				border: 1px solid red;
-				width: 49%;
-			}
-			
-			#pay-info-area{
-				float: right;
-			}
-			
-			#order-summary-body{
-				margin-top: 2rem;
-			}
-			
-			.summary-area-table{
-				width: 100%;
-				background-color: silver;
-				padding: 2rem;
-			}
-			
-			.summary-area-table tr {
-				border: 1px solid red;
-			}
-			
 		</style>
 			
 	</head>
@@ -163,11 +78,11 @@
 	   					<div id="order-summary-body">
 	   					
 	   						<div class="summary-area">
-	   							<div>픽업 정보</div>
-	   							<div>
+	   							<div id="summary-title">픽업 정보</div>
+	   							<div class="table-area">
 	   								<table class="summary-area-table">
 	   									<tr>
-	   										<td>이름</td>
+	   										<td id="column-title">이름</td>
 	   										<td>[주문자 이름]</td>
 	   									</tr>
 	   									
@@ -192,31 +107,35 @@
 	   						</div>
 	   						
 	   						<div class="summary-area" id="pay-info-area">
-	   							<div>결제 정보</div>
-	   							<div>
-	   								<table class="summary-area-table">
+	   							<div id="summary-title">결제 정보</div>
+	   							<div class="table-area" id="pay-table-area">
+	   								<table class="summary-area-table" id="pay-info-table">
 	   									<tr>
-	   										<td>이름</td>
-	   										<td>[주문자 이름]</td>
+	   										<td id="column-title-2">주문금액</td>
+	   										<td class="order-price">[주문 금액]</td>
 	   									</tr>
 	   									
 	   									<tr>
-	   										<td>휴대폰</td>
-	   										<td>[주문자 번호]</td>
+	   										<td>쿠폰할인</td>
+	   										<td class="order-price">0</td>
 	   									</tr>
 	   									
 										<tr>
-	   										<td>픽업 매장</td>
-	   										<td>[픽업 매장명]</td>
+	   										<td>포인트</td>
+	   										<td class="order-price">0</td>
 	   									</tr>
 	   									
-	   									<tr>
-	   										<td>매장 주소</td>
-	   										<td>[픽업 매장 주소]</td>
+	   									<tr id="pay-info-table-tr">
+	   										<td>추가 옵션</td>
+	   										<td class="order-price">[옵션 추가 비용]</td>
+	   									</tr>
+	   									
+	   									<tr id="total">
+	   										<td id="total-column">총 결제금액</td>
+	   										<td class="order-price">[총 결제금액]</td>
 	   									</tr>
 	   										   									
 	   								</table>
-	   								
 	   							</div>
 	   						</div>
 	   					
@@ -230,13 +149,21 @@
    		
    		</main>
 		
+		<!-- Footer -->
+		<c:import url="../../common/footer.jsp"></c:import>
+		<!-- Footer End -->
+		
 		<script type="text/javascript">
 
+			$("#order-more-btn").click(function(){
+				location.href ="../menu/menuDrink";
+			})
 
 		</script>
 		
-		<script src="${pageContext.request.contextPath}/resources/js/common/header.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/js/myPage/faq.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/common/header.js?v=1"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=1"></script>
 		
 	</body>
 	
