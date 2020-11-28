@@ -17,8 +17,8 @@ public class MenuService {
 		return menuDAO.getOne(menuDTO);
 	}
 	
-	public List<MenuDTO> getMenuList(String type) throws SQLException, ClassNotFoundException{
-		return menuDAO.getMenuList(type);
+	public List<MenuDTO> getMenuList(MenuDTO menuDTO) throws SQLException, ClassNotFoundException{
+		return menuDAO.getMenuList(menuDTO);
 	}
 
 	public List<OptionDTO> getOptionList() throws SQLException, ClassNotFoundException{

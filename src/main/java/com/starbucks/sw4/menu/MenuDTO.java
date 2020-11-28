@@ -30,9 +30,16 @@ public class MenuDTO {
 	private String enjoyWith;
 	private String origin;
 	private String menuImage;
+	private String type;
 	
 	private OptionDTO optionDTO;
 	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public OptionDTO getOptionDTO() {
 		return optionDTO;
 	}
@@ -50,6 +57,9 @@ public class MenuDTO {
 		return category;
 	}
 	public void setCategory(String category) {
+		if(category.equals("") || category.isEmpty()) {
+			category="";
+		}
 		this.category = category;
 	}
 	public String getKorName() {

@@ -23,11 +23,16 @@ public class MenuController {
 	private MenuService menuService;
 
 	@GetMapping("menuDrink")
-	public ModelAndView getMenuDrinkList() throws ClassNotFoundException, SQLException {
+	public ModelAndView getMenuDrinkList(MenuDTO menuDTO) throws ClassNotFoundException, SQLException {
 		System.out.println("menu drink access");
 		ModelAndView mv = new ModelAndView();
+		
+		if(menuDTO.getCategory() == null) {
+			menuDTO.setCategory("");
+		}
+		menuDTO.setType("D");
 
-		List<MenuDTO> menuList = menuService.getMenuList("D");
+		List<MenuDTO> menuList = menuService.getMenuList(menuDTO);
 		List<OptionDTO> opList = menuService.getOptionList();
 
 		System.out.println(menuList);
@@ -44,11 +49,16 @@ public class MenuController {
 	}
 
 	@GetMapping("menuProduct")
-	public ModelAndView getMenuProductList( HttpSession session) throws ClassNotFoundException, SQLException {
+	public ModelAndView getMenuProductList(MenuDTO menuDTO) throws ClassNotFoundException, SQLException {
 		System.out.println("menu product access");
 		ModelAndView mv = new ModelAndView();
+		
+		if(menuDTO.getCategory() == null) {
+			menuDTO.setCategory("");
+		}
+		menuDTO.setType("P");
 
-		List<MenuDTO> menuList = menuService.getMenuList("P");
+		List<MenuDTO> menuList = menuService.getMenuList(menuDTO);
 		List<OptionDTO> opList = menuService.getOptionList();
 		
 		mv.addObject("menu", "상품");
@@ -59,21 +69,23 @@ public class MenuController {
 		//mv.setViewName("menu/productList");
 		//하늘 테스트
 		mv.setViewName("menu/tmp_productList");
-		
-		//session.setAttribute("member", "a");
-		
-		
+
 		System.out.println(menuList);
 
 		return mv;
 	}
 
 	@GetMapping("menuFood")
-	public ModelAndView getMenuFoodList() throws ClassNotFoundException, SQLException {
+	public ModelAndView getMenuFoodList(MenuDTO menuDTO) throws ClassNotFoundException, SQLException {
 		System.out.println("menu food access");
 		ModelAndView mv = new ModelAndView();
+		
+		if(menuDTO.getCategory() == null) {
+			menuDTO.setCategory("");
+		}
+		menuDTO.setType("F");
 
-		List<MenuDTO> menuList = menuService.getMenuList("F");
+		List<MenuDTO> menuList = menuService.getMenuList(menuDTO);
 		List<OptionDTO> opList = menuService.getOptionList();
 		
 		mv.addObject("menu", "푸드");

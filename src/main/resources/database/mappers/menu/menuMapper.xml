@@ -9,10 +9,10 @@
 		where M.menuCode=#{menuCode}
 	</select>
 
-	<select id="getMenuList" parameterType="String" resultMap="getMenuListResult">
+	<select id="getMenuList" parameterType="MenuDTO" resultMap="getMenuListResult">
 		select M.*, MO.optIndex,MO.hotYN,MO.opt1, MO.opt2
 		from menu M full join menuOption MO on(M.optIndex = MO.optIndex)
-		where M.menuCode like '%'||#{type}||'%'
+		where M.menuCode like '%'||#{type}||'%' and M.category like '%'||#{category}||'%'
 	</select>
 	<resultMap type="MenuDTO" id="getMenuListResult">
 		<id column="menuCode" property="menuCode"/>
