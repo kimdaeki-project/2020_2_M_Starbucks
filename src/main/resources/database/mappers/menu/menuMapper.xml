@@ -25,5 +25,10 @@
 		 from menuOption
 	</select>
 
+	<select id="getStoreList" parameterType="String" resultType="StoreSDTO">
+		select storeCode, storeName
+		 from store
+		 where storeCode = #{limitedStore}
+	</select>
 
 </mapper>
