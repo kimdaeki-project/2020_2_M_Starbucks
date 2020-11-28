@@ -120,7 +120,7 @@
 									<table class="c-margin" id="order-table">
 										<tr>
 											<td class="product-name" id="drink-menu-code" title="D128401">토피넛 팝콘 트리 프라푸치노</td>
-											<td id="product-quantity"><span id="quantity" title="quantity">1</span>잔 / 매장픽업</td>
+											<td id="product-quantity"><span id="quantity" title="1">1</span>잔 / 매장픽업</td>
 											<td id="product-price"><span id="price">4000</span>원</td>
 										</tr>
 										<tr>

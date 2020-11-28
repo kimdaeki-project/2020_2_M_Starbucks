@@ -28,14 +28,15 @@
 		<style type="text/css">
 			.container{
 				width: 78%;
-				background-color: yellow;
+				border: 1px solid blue;
 			}
 			#pay-result-contetns-area{
 				margin-top: 2rem;
 				padding: 1rem;
 			}
 			#contents-header{
-				border-bottom: 1px solid #EAEAEA;
+				padding: 0px 0.5rem;
+				border-bottom: 2px solid #EAEAEA;
 				justify-content: space-between;
 			}
 			
@@ -43,15 +44,66 @@
 				display: inline-block;
 			}
 			
+			#contents-header span{
+				font-size: 3rem;
+				font-weight: bold;
+			}
+			
 			#menu-table{
 				float: right;
+				margin-top: 2rem;
+				display: inline-block;
 			}
 			
 			#menu-table-tr > td{
 				font-size: 1.3rem;
 				padding: 0.2rem 0.5rem;
 			}
-
+			#order-success{
+				color: #006633;
+				font-weight: bold;
+			}
+			#order-summary-head{
+				padding: 12rem 0px;
+				text-align:center;
+				border: 1px solid green;
+			}
+			#order-result{
+				font-size: 3rem;
+				padding: 0.5rem 0px;
+			}
+			#order-result-2{
+				border: 1px solid black;
+			}
+			#order-result-2 > div{
+				border: 1px solid silver;
+				display: inline-block;
+				margin: 0px 4rem;
+			}
+			#result{
+				color: #420100;
+				font-weight: bold;
+			}
+			#order-more-btn-area{
+				margin-top: 4rem;
+			}
+			#order-more-btn{
+				background-color: #006633;
+				color: white;
+				font-size: 1.5rem;
+				padding: 1.8rem 1.8rem;
+			}
+			
+			.summary-area{
+				display: inline-block;
+				border: 1px solid red;
+				width: 49%;
+			}
+			
+			#pay-info-area{
+				float: right;
+			}
+			
 		</style>
 			
 	</head>
@@ -66,31 +118,99 @@
    			
    				<div>
  					<div id="contents-header">
-						<div>주문/결제</div>
-							<div id="menu-table">
-								<table>
-									<tr id="menu-table-tr">
-										<td id="order-and-pay">주문결제</td>
-										<td> ▷ </td>
-										<td id="order-success">주문완료</td>
-									</tr>
-								</table>
-							</div>
+ 						<div>
+							<span>주문완료</span>	
+						</div>					
+						<div id="menu-table">
+							<table>
+								<tr id="menu-table-tr">
+									<td id="order-and-pay">주문결제</td>
+									<td> ▷ </td>
+									<td id="order-success">주문완료</td>
+								</tr>
+							</table>
 						</div>
+					</div>
+					
 	   				<div id="result-contents">
-	   				
-	   					<table>
-	   						<tr>
-	   							<td>주문번호</td>
-	   							<td>[주문번호 출력되는 공간]</td>
-	   						</tr>
-	   						<tr>
-	   							<td></td>
-	   						</tr>
-	   					</table>
+	   					
+	   					<div id="order-summary-head">
+	   						<div id="order-result"><span id="result">주문이 완료</span>되었습니다. 감사합니다!</div>
+	   						<div id="order-result-2">
+	   							<div>주문일:<span id="order-date">2020-11-28</span></div>
+	   							<div>주문번호:<span id="order-number">OP0329432837</span></div>
+	   						</div>
+	   						<div id="order-more-btn-area">
+	   							<span id="order-more-btn">추가 주문하기 ►</span>
+	   						</div>
+	   					</div>
+	   					
+	   					<div id="order-summary-body">
+	   					
+	   						<div class="summary-area">
+	   							<div>픽업 정보</div>
+	   							<div>
+	   								<table>
+	   									<tr>
+	   										<td>이름</td>
+	   										<td>[주문자 이름]</td>
+	   									</tr>
+	   									
+	   									<tr>
+	   										<td>휴대폰</td>
+	   										<td>[주문자 번호]</td>
+	   									</tr>
+	   									
+										<tr>
+	   										<td>픽업 매장</td>
+	   										<td>[픽업 매장명]</td>
+	   									</tr>
+	   									
+	   									<tr>
+	   										<td>매장 주소</td>
+	   										<td>[픽업 매장 주소]</td>
+	   									</tr>
+	   										   									
+	   								</table>
+	   								
+	   							</div>
+	   						</div>
+	   						
+	   						<div class="summary-area" id="pay-info-area">
+	   							<div>결제 정보</div>
+	   							<div>
+	   								<table>
+	   									<tr>
+	   										<td>이름</td>
+	   										<td>[주문자 이름]</td>
+	   									</tr>
+	   									
+	   									<tr>
+	   										<td>휴대폰</td>
+	   										<td>[주문자 번호]</td>
+	   									</tr>
+	   									
+										<tr>
+	   										<td>픽업 매장</td>
+	   										<td>[픽업 매장명]</td>
+	   									</tr>
+	   									
+	   									<tr>
+	   										<td>매장 주소</td>
+	   										<td>[픽업 매장 주소]</td>
+	   									</tr>
+	   										   									
+	   								</table>
+	   								
+	   							</div>
+	   						</div>
+	   					
+	   					</div>
+	   					
 	   				</div>
 	   				
    				</div>
+   				
    			</div>
    		
    		</main>
