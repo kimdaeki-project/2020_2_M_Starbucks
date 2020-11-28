@@ -62,23 +62,26 @@ public class MyService {
 	public int setVocList(MyDTO myDTO)throws Exception{
 		return myDAO.setVocList(myDTO);
 	}
-	
+	//회원가입시 card 초기화
+		public int setMemberJoinCard(MemberDTO memberDTO) throws Exception {
+			return myDAO.setMemberJoinCard(memberDTO);
+		}
+		
+	//회원가입시 starhistory 초기화
+		public int setMemberJoinStar(MemberDTO memberDTO) throws Exception {
+			return myDAO.setMemberJoinStar(memberDTO);
+		}
 
 	//오더 정보 가져오기
 		public OrderDTO getOrder(PayDTO payDTO) throws Exception{
 			return myDAO.getOrder(payDTO);
 		}
 	//membercard에 update하기
+		public int setMemberCard(OrderDTO orderDTO) throws Exception {
+			return myDAO.setMemberCard(orderDTO);
+		}
 
-	//회원가입시 card 초기화
-	public int setMemberJoinCard(MemberDTO memberDTO) throws Exception {
-		return myDAO.setMemberJoinCard(memberDTO);
-	}
 	
-	//회원가입시 starhistory 초기화
-	public int setMemberJoinStar(MemberDTO memberDTO) throws Exception {
-		return myDAO.setMemberJoinStar(memberDTO);
-	}
 	
 
 }

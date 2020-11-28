@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Repository;
 
 import com.starbucks.sw4.member.MemberDTO;
@@ -77,5 +78,9 @@ public class MyDAO {
 		return sqlSession.insert(NAMESPACE+"setMemberJoinStar", memberDTO);
 
 	}
+	//membercard에 update하기
+			public int setMemberCard(OrderDTO orderDTO) throws Exception {
+				return sqlSession.update(NAMESPACE+"setMemberCard",orderDTO);
+			}
 
 }
