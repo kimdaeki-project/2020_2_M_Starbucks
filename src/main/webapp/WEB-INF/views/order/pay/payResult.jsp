@@ -64,7 +64,7 @@
 				font-weight: bold;
 			}
 			#order-summary-head{
-				padding: 12rem 0px;
+				padding: 14rem 0px;
 				text-align:center;
 				border: 1px solid green;
 			}
@@ -85,13 +85,14 @@
 				font-weight: bold;
 			}
 			#order-more-btn-area{
-				margin-top: 4rem;
+				margin-top: 4.5rem;
 			}
 			#order-more-btn{
 				background-color: #006633;
 				color: white;
 				font-size: 1.5rem;
 				padding: 1.8rem 1.8rem;
+				cursor: pointer;
 			}
 			
 			.summary-area{
@@ -102,6 +103,20 @@
 			
 			#pay-info-area{
 				float: right;
+			}
+			
+			#order-summary-body{
+				margin-top: 2rem;
+			}
+			
+			.summary-area-table{
+				width: 100%;
+				background-color: silver;
+				padding: 2rem;
+			}
+			
+			.summary-area-table tr {
+				border: 1px solid red;
 			}
 			
 		</style>
@@ -150,7 +165,7 @@
 	   						<div class="summary-area">
 	   							<div>픽업 정보</div>
 	   							<div>
-	   								<table>
+	   								<table class="summary-area-table">
 	   									<tr>
 	   										<td>이름</td>
 	   										<td>[주문자 이름]</td>
@@ -179,7 +194,7 @@
 	   						<div class="summary-area" id="pay-info-area">
 	   							<div>결제 정보</div>
 	   							<div>
-	   								<table>
+	   								<table class="summary-area-table">
 	   									<tr>
 	   										<td>이름</td>
 	   										<td>[주문자 이름]</td>
