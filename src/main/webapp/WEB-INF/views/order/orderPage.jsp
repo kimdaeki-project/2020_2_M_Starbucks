@@ -55,7 +55,7 @@
 									</tr>
 								</table>
 							</div>
-					</div>
+						</div>
 					<input type="hidden" id="order-num" title="1">
 					<!-- buyer info area -->
 					<div class="order-contents-area">
@@ -419,7 +419,7 @@
 						              name:name_code
 						          },
 						          success: function(){
-						        	  alert("success")
+						        	  location.href = "./pay/payResult";
 						          }
 						          
 						      }).done(function (data) {
@@ -435,9 +435,10 @@
 						                  console.log("결제를 성공하였습니다.");
 							              break;
 						            	case "paid":
-						            		alert("결제되었습니다.");
+						            		console.log("결제를 성공하였습니다.");
 						            		break;
 		          					}
+							        
 						      });
 			        
 			        	  } else {
