@@ -1,5 +1,6 @@
 package com.starbucks.sw4.order.pay;
 
+import java.security.PublicKey;
 import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +20,6 @@ public class PayContoller {
 	
 	@Autowired
 	private PayService payService;
-	
-	@GetMapping("payResult")
-	public ModelAndView getResult() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("order/pay/payResult");
-		return mv;
-	}
 	
 	@PostMapping("payProcess")
 	public ModelAndView setInsertPay(PayDTO payDTO, MemberDTO memberDTO) throws ClassNotFoundException, SQLException{

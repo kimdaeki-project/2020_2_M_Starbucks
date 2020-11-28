@@ -20,15 +20,15 @@
 .btn_email_auth .auth_send,
 .btn_email_auth .auth_check { background:#006633; width:100%; line-height:50px; border:none; color:#fff; font-size:20px; display:block; box-shadow:none; outline:none; }
 
+#container { width:100%; padding:30px 0; }
 .find_form_txt { padding:20px; }
 .find_form_txt span { color:green; font-weight:bold; }
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-.email_chk #authkey_txt { padding:10px 5px; width:30%; float:left; }
-.email_chk #authKey { padding: 15px; }
-
-
-
+#authkey_txt { padding:10px 5px; width:100px; float:left; }
+#authKey { padding: 10px; }
+		
+		
 @media screen and (max-width:960px) {
 	#container { padding:70px 0; }
 }

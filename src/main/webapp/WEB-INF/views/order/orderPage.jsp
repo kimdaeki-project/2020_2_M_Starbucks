@@ -55,7 +55,7 @@
 									</tr>
 								</table>
 							</div>
-						</div>
+					</div>
 					<input type="hidden" id="order-num" title="1">
 					<!-- buyer info area -->
 					<div class="order-contents-area">
@@ -96,7 +96,7 @@
 							<h2>픽업 정보</h2>
 							<div id="pick-up-info" class="order-list">
 								<span>
-									<span class="pick-up" id="pick-store">선택한</span>&nbsp;매장 음료 픽업은 <span class="pick-up">약 <span id="time">0</span>분</span> 소요 예정입니다. 
+									<span class="pick-up" id="pick-store">선택한</span>&nbsp;매장 음료 픽업은 <span class="pick-up">약 <span id="time">N</span>분</span> 소요 예정입니다. 
 								</span>
 								<hr>
 								<div>
@@ -120,7 +120,7 @@
 									<table class="c-margin" id="order-table">
 										<tr>
 											<td class="product-name" id="drink-menu-code" title="D128401">토피넛 팝콘 트리 프라푸치노</td>
-											<td id="product-quantity"><span id="quantity" title="1">1</span>잔 / 매장픽업</td>
+											<td id="product-quantity"><span id="quantity" title="quantity">1</span>잔 / 매장픽업</td>
 											<td id="product-price"><span id="price">4000</span>원</td>
 										</tr>
 										<tr>
@@ -218,6 +218,8 @@
 			var storeChk=0;
 			var countChk=0;
 			
+			var time = parseInt(Math.random() * (40 - 5) + 5);
+			
 			$("#order-store").click(function(){
 				getDialogStore(sidoTxt, storeSearchTxt);				
 			})
@@ -260,9 +262,6 @@
 			
 			// function 분리하기 ---------------------------
 			function getStoreList(sidoTxt, search){
-				
-				var time = parseInt(Math.random() * (40 - 5) + 5);
-				
 				$.ajax({
 					url:"../admin/store/storeList",
 					type:"GET",
@@ -419,7 +418,7 @@
 						              name:name_code
 						          },
 						          success: function(){
-						        	  location.href = "./pay/payResult";
+						        	  alert("success")
 						          }
 						          
 						      }).done(function (data) {
@@ -435,10 +434,9 @@
 						                  console.log("결제를 성공하였습니다.");
 							              break;
 						            	case "paid":
-						            		console.log("결제를 성공하였습니다.");
+						            		alert("결제되었습니다.");
 						            		break;
 		          					}
-							        
 						      });
 			        
 			        	  } else {

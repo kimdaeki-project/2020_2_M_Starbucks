@@ -21,9 +21,7 @@ input { vertical-align:middle !important; }
 .limit_txt { color:#444; display:none; font-size:16px; line-height:1.6; margin-top:15px; }
 .limit_txt:before { clear:both; content:""; display:block; }
 
-.checkWrap { display:lnline-block; width:50%; min-width:120px; margin-bottom:20px; }
-.btn_admin_login { display:inline-block; margin-bottom:20px; float:right; padding: 5px 20px; background: #063; }
-.btn_admin_login a { color:#fff; font-size:16px; }
+.checkWrap { display:block; margin-bottom:20px; }
 input.mem2[type=checkbox]:not(old){ position:absolute; width:26px; height:26px;  padding:0;  border:0 none;  background:#fff; cursor:pointer; }
 input.mem2[type=checkbox]:not(old) + label{ position:relative; display:inline-block; height:26px; line-height:26px;  padding-left:35px; background:#fff url("../../images/member/mem_check_off.png") 0 0 no-repeat; font-size:16px; color:#3f4141; vertical-align:top; background-size:26px; cursor:pointer; z-index:4; }
 input.mem2[type=checkbox]:checked + label , 
