@@ -58,14 +58,4 @@ public class MyDAO {
 	public int setVocList(MyDTO myDTO) throws Exception{
 		return sqlSession.insert(NAMESPACE+"setVocList", myDTO);
 	}
-	
-	//회원가입시 card 초기화
-	public int setMemberJoinCard(MemberDTO memberDTO) throws Exception {
-		return sqlSession.insert(NAMESPACE+"setMemberJoinCard", memberDTO);
-	}
-	
-	//회원가입시 starhistory 초기화
-	public int setMemberJoinStar(MemberDTO memberDTO) throws Exception {
-		return sqlSession.insert(NAMESPACE+"setMemberJoinStar", memberDTO);
-	}
 }

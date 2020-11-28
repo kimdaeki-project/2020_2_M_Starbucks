@@ -4,15 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Starbucks Coffee Korea</title>
-<link href="${pageContext.request.contextPath}/resources/images/common/favicon.ico" rel="shortcut icon" type="image/ico">
+<title>Insert title here</title>
 </head>
+
+
 <body>
 	<script type="text/javascript">
-		var result='${message}'
-		var path = '${path}'
+		var result='${message}';
+		var path = '${path}';
 		alert(result);
 		location.href = path;
 	</script>
+
 </body>
 </html>
