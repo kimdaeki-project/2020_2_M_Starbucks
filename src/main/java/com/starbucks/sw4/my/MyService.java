@@ -63,14 +63,13 @@ public class MyService {
 		return myDAO.setVocList(myDTO);
 	}
 	
-<<<<<<< HEAD
+
 	//오더 정보 가져오기
 		public OrderDTO getOrder(PayDTO payDTO) throws Exception{
 			return myDAO.getOrder(payDTO);
 		}
 	//membercard에 update하기
-		
-=======
+
 	//회원가입시 card 초기화
 	public int setMemberJoinCard(MemberDTO memberDTO) throws Exception {
 		return myDAO.setMemberJoinCard(memberDTO);
@@ -81,6 +80,5 @@ public class MyService {
 		return myDAO.setMemberJoinStar(memberDTO);
 	}
 	
-	
->>>>>>> main
+
 }

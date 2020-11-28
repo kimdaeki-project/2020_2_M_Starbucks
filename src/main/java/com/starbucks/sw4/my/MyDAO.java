@@ -61,11 +61,12 @@ public class MyDAO {
 		return sqlSession.insert(NAMESPACE+"setVocList", myDTO);
 	}
 	
-<<<<<<< HEAD
+
 	//오더 정보 가져오기
 	public OrderDTO getOrder(PayDTO payDTO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getOrder", payDTO);
-=======
+	}
+
 	//회원가입시 card 초기화
 	public int setMemberJoinCard(MemberDTO memberDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"setMemberJoinCard", memberDTO);
@@ -74,6 +75,7 @@ public class MyDAO {
 	//회원가입시 starhistory 초기화
 	public int setMemberJoinStar(MemberDTO memberDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"setMemberJoinStar", memberDTO);
->>>>>>> main
+
 	}
+
 }
