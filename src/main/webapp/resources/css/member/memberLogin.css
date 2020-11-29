@@ -22,23 +22,26 @@ input { vertical-align:middle !important; }
 .limit_txt:before { clear:both; content:""; display:block; }
 
 .checkWrap { display:lnline-block; width:50%; min-width:120px; margin-bottom:20px; }
-.btn_admin_login { display:inline-block; margin-bottom:20px; float:right; padding: 5px 20px; background: #063; }
-.btn_admin_login a { color:#fff; font-size:16px; }
+/* .btn_admin_login { display:inline-block; margin-bottom:20px; border-radius:3px; float:right; padding: 5px 20px; background: #063; }
+.btn_admin_login a { color:#fff; font-size:16px; } */
 input.mem2[type=checkbox]:not(old){ position:absolute; width:26px; height:26px;  padding:0;  border:0 none;  background:#fff; cursor:pointer; }
 input.mem2[type=checkbox]:not(old) + label{ position:relative; display:inline-block; height:26px; line-height:26px;  padding-left:35px; background:#fff url("../../images/member/mem_check_off.png") 0 0 no-repeat; font-size:16px; color:#3f4141; vertical-align:top; background-size:26px; cursor:pointer; z-index:4; }
 input.mem2[type=checkbox]:checked + label , 
 input.mem[type=checkbox]:active + label { background:#fff url("../../images/member/mem_check_on.png") no-repeat 0 0; background-size:26px; }
 
-.btn_mem_login { background:#006633; border-radius:3px; width:100%; max-width:570px; margin-top:25px; text-align:center; }
+.btn_mem_login { background:#006633; border-radius:5px; width:100%; max-width:570px; margin-top:25px; text-align:center; }
 .btn_mem_login .btn_login { width:100%; color:#fff; font-size:24px; display:block; line-height:65px; background:none; border:none; box-shadow:none; outline:0; }
 
 /* SNS 로그인 */
 .btn_mem_sns_login { width:100%; max-width:570px; margin-top:25px; line-height:45px; }
-.btn_mem_sns_login a { color:#fff; margin-left: 30%; font-size:18px; font-weight:bold; text-decoration:none; }
-.naver_login { background:url("../../images/member/login_naver.gif") #00d700 no-repeat 7px 0; background-size:30px 43px; width:31%; margin-right:3.5%; border-radius:3px; float:left; }
+.btn_mem_sns_login .btn_kakao_login { display:inline-block; float:left; width:222px; }
+.btn_mem_sns_login .btn_admin_login { display:inline-block; float:right; width:222px; border-radius:5px; background: #063; text-align:center; }
+.btn_mem_sns_login .btn_admin_login a { color:#fff; font-size:16px; font-weight:bold; text-decoration:none; }
+
+/* .naver_login { background:url("../../images/member/login_naver.gif") #00d700 no-repeat 7px 0; background-size:30px 43px; width:31%; margin-right:3.5%; border-radius:3px; float:left; }
 .fb_login { background:url("../../images/member/login_fb.gif") #3b5998 no-repeat 7px 0; background-size:30px 43px; width:31%; margin-right:3.5%; border-radius:3px; float:left; }
 .kakao_login { background:url("../../images/member/login_kakao.gif") #ffde00 no-repeat 7px 0; background-size:30px 43px; width:31%; border-radius:3px; float:right; }
-.kakao_login a { color:#371b03; }
+.kakao_login a { color:#371b03; } */
 
 .input_warn_text { color:#ed1c24; font-size:14px; line-height:1.4; margin-top:15px; }
 
