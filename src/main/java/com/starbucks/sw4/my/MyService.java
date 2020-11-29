@@ -1,5 +1,6 @@
 package com.starbucks.sw4.my;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -70,24 +71,26 @@ public class MyService {
 		public int setMemberJoinStar(MemberDTO memberDTO) throws Exception {
 			return myDAO.setMemberJoinStar(memberDTO);
 		}
-
-	//오더 정보 가져오기
-		public OrderDTO getOrder(PayDTO payDTO) throws Exception{
-			return myDAO.getOrder(payDTO);
+		
+	//회원가입시 memberStore 초기화
+		public int setMemberJoinStore(MemberDTO memberDTO) throws Exception{
+			return myDAO.setMemberJoinStore(memberDTO);
 		}
+		
 		
 	//membercard에 update하기
 		public int setMemberCard(PayDTO payDTO,HttpSession session) throws Exception {
 			System.out.println("서비스 접속");
 			MemberDTO myDTO = (MemberDTO)session.getAttribute("member");
 			System.out.println(myDTO.getId());
+			System.out.println(myDTO.getNum());
 			OrderDTO order = new OrderDTO();
-			order.setId(myDTO.getId());
+		//	order.setId(myDTO.getId());
 			//order테이블에서 data가져오기
-			payDTO.setOrderNum(17);
+			payDTO.setOrderNum(15);
 			order = myDAO.getOrder(payDTO);
-		System.out.println("받아서나오기까지는함..?");
-		System.out.println("제발!!:"+order.getMenuCode());
+			System.out.println(order.getMemberNum());
+		System.out.println("menucode:"+order.getMenuCode());
 			//menucode 값 받아서 c로 시작하는 지 확인
 			//String menucode = "C5747";
 			System.out.println("메뉴코드:"+order.getMenuCode());
@@ -95,25 +98,34 @@ public class MyService {
 			System.out.println(menuCode);
 			menuCode= menuCode.substring(0,1);
 			System.out.println(menuCode);
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			
 			if(menuCode.equals("C")) {
 				//랜덤번호 8자리 생성
 				long cardNum = (int)(Math.random()*100000000);
 				order.setCardNum(cardNum);  //orderDTO를 넘겨주기
 				System.out.println("cardNum: "+cardNum);
 				
-				
+				//CardDTO cDTO = new CardDTO(); 추후 업데이트예정!
+				//cDTO.setCardNum(cardNum);
+				//map.put("card", cDTO);
 				
 				//menu테이블에있는 korName, menuImage받아오기
 				OrderDTO menu =	myDAO.getMenu(order);
 				order.setKorName(menu.getKorName());
 				order.setMenuImage(menu.getMenuImage());
 				System.out.println(order.getMemberNum());
+				System.out.println(order.getId());
+				System.out.println("mydto get num" + myDTO.getNum());
+				
 				//starHistory테이블에 cardNum 입력해주기
-				myDAO.setCardNum(order);
+				map.put("card", order);
+				map.put("member", myDTO);
+				myDAO.setCardNum(map);
 			}
 			
 			
-			return myDAO.setMemberCard(order);
+			return myDAO.setMemberCard(map);
 		}
 	
 		//별 적립
@@ -124,37 +136,38 @@ public class MyService {
 			OrderDTO orderDTO = new OrderDTO();
 			
 			//order테이블에서 data가져오기
+			payDTO.setOrderNum(15);
 			orderDTO = myDAO.getOrder(payDTO);
-			orderDTO.setId(myDTO.getId());
+			
 			System.out.println("컨트롤러CODE:"+orderDTO.getStoreCode());
+			
 			//기존의 starhistory 테이블에서 data 가져오기
 			MyDTO starInfo = myDAO.getMyStar(myDTO);
 			
 			//storName 가져오기
 			starInfo.setStoreCode(orderDTO.getStoreCode());
 			MyDTO store = myDAO.getStarStore(starInfo);
-			
+			store.setId(myDTO.getId());
+			myDAO.setMemberStore(store);
 			//금액확인
 			long price = orderDTO.getTotalPrice();
 		
 			if(10000<=price && price<20000) {
 				System.out.println("별1개적립");
-				starInfo.setTotalPrice(price);
 				starInfo.setStoreName(store.getStoreName());
 				starInfo.setUseStar(starInfo.getUseStar()+1);
 				starInfo.setTotalStar(starInfo.getTotalStar()+1);
 				starInfo.setState("적립");
-			//	int result = myDAO.setStarCard(starInfo);
-			//	System.out.println("result: "+result);
+				starInfo.setTotalPrice(starInfo.getTotalPrice()+price);
+			
 			}else if(price>20000) {
 				System.out.println(("별 2개 적립"));
-				starInfo.setTotalPrice(price);
 				starInfo.setStoreName(store.getStoreName());
 				starInfo.setUseStar(starInfo.getUseStar()+2);
 				starInfo.setTotalStar(starInfo.getTotalStar()+2);
 				starInfo.setState("적립");
-			//	int result = myDAO.setStarCard(starInfo);
-			//	System.out.println("result: "+result);
+				starInfo.setTotalPrice(starInfo.getTotalPrice()+price);
+			
 			}else {
 				System.out.println("별 적립 불가");
 			}

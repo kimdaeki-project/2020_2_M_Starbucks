@@ -1,5 +1,6 @@
 package com.starbucks.sw4.my;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -82,33 +83,46 @@ public class MyDAO {
 
 	}
 	
+	//회원가입시 memberstore 초기화
+	public int setMemberJoinStore(MemberDTO memberDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"setMemberJoinStore", memberDTO);
+	}
+	
 	//membercard에 update하기
 	public OrderDTO getMenu(OrderDTO orderDTO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getMenu", orderDTO);
 	}
 	
-	public int setMemberCard(OrderDTO orderDTO) throws Exception {
-		return sqlSession.update(NAMESPACE+"setMemberCard",orderDTO);
+	public int setMemberCard(HashMap<String, Object> map) throws Exception {
+		
+		return sqlSession.update(NAMESPACE+"setMemberCard",map);
 	}
 	
-	public int setCardNum(OrderDTO orderDTO) throws Exception{
-		return sqlSession.update(NAMESPACE+"setCardNum", orderDTO);
+	public int setCardNum(HashMap<String, Object> map) throws Exception{
+		//System.out.println(myDTO.getNum());
+		System.out.println(map.get("card"));
+		System.out.println(map.get("member"));
+		return sqlSession.update(NAMESPACE+"setCardNum", map);
 	}
 	
 	//storeName 받아오기
-			public MyDTO getStarStore(MyDTO myDTO) throws Exception{
-				System.out.println("star DAO 진입");
-				System.out.println("dao code:"+myDTO.getStoreCode());
-				
-				return sqlSession.selectOne(NAMESPACE+"getStarStore",myDTO);
-			}
+	public MyDTO getStarStore(MyDTO myDTO) throws Exception{
+		System.out.println("star store DAO 진입");
+		System.out.println("dao code:"+myDTO.getStoreCode());
 		
-		//별 적립 
-			public int setStarCard(MyDTO myDTO) throws Exception{
-				System.out.println("star DAO 까지옴");
-				return sqlSession.update(NAMESPACE+"setStarCard", myDTO);
-			}		
-			
+		return sqlSession.selectOne(NAMESPACE+"getStarStore",myDTO);
+	}
+	
+	//별 적립 
+	public int setStarCard(MyDTO myDTO) throws Exception{
+		System.out.println("star DAO 까지옴");
+		return sqlSession.update(NAMESPACE+"setStarCard", myDTO);
+	}		
+	
+	//memberstore 업데이트
+	public int setMemberStore(MyDTO myDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"setMemberStore", myDTO);
+	}
 			
 			
 }

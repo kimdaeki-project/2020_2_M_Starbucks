@@ -13,5 +13,19 @@
     	<select id="getStore" parameterType="StarDTO" resultType="StarDTO">
     		select storeName, addr from store where storeCode =#{storeCode}
     	</select>
+    	
+    <!-- 회원가입시 각 테이블 초기화  -->
+    	<insert id="setMemberJoinCard" parameterType="MemberDTO">
+    		insert into membercard values (card_seq.nextval, #{id}, null, null, null, null, null, null, #{num})
+    	</insert>
+    	
+    	<insert id="setMemberJoinStar" parameterType="MemberDTO">
+    		insert into starhistory values (star_seq.nextval, #{id}, null, 0, 0, 0, null, null, 0, sysdate, sysdate)
+    	</insert>
+    	
+    	<insert id="setMemberJoinStore" parameterType="MemberDTO">
+    		insert into memberstore values (#{id}, null,null,null,null)
+    	</insert>
+    	
     
     </mapper>

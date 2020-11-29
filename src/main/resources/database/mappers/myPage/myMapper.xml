@@ -4,21 +4,28 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
     <mapper namespace="com.starbucks.sw4.my.MyDAO">
+    	<update id="setMemberStore" parameterType="MyDTO">
+    		update memberstore set storeCode=#{storeCode}, storeName=#{storeName}, addr=#{addr}, defaultfile=#{defaultfile} where id=#{id}
+    	</update>
     	
     	<update id="setStarCard" parameterType="MyDTO">
     		update starHistory set useStar=#{useStar}, totalStar=#{totalStar}, state=#{state}, storeName=#{storeName}, totalPrice=#{totalPrice}, saveDate=sysdate, validDate=sysdate+365 where id =#{id}
     	</update>
     	
     	<select id="getStarStore" parameterType="MyDTO" resultType="MyDTO">
-    		select storeName, addr from store where storeCode = #{storeCode}
+    		select s.storeCode, s.storeName, s.addr, f.defaultfile 
+			from store S join storefile F
+			ON S.storecode = F.storecode
+			where s.storeCode = #{storeCode}
     	</select>
     	
-    	<update id="setCardNum" parameterType="OrderDTO">
-    		update starHistory set cardNum = #{cardNum} where id=#{id}
+    	<update id="setCardNum" parameterType="HashMap">
+    		update starHistory set cardNum = #{card.cardNum}
+    		where id=(select id from member where num=#{member.num})
     	</update>
     	
-    	<update id="setMemberCard" parameterType="OrderDTO">
-    		update membercard set menuCode=#{menuCode}, cardnum=#{cardNum}, korName=#{korName}, menuimage=#{menuImage}, balance=#{totalPrice}, memberNum=#{memberNum} where id =#{id}
+    	<update id="setMemberCard" parameterType="HashMap">
+    		update membercard set menuCode=#{card.menuCode}, cardnum=#{card.cardNum}, korName=#{card.korName}, menuimage=#{card.menuImage}, balance=#{card.totalPrice}, memberNum=#{member.num} where id =#{member.id}
     	</update>
     	
     	<select id="getMenu" parameterType="OrderDTO" resultType="OrderDTO">
@@ -68,7 +75,6 @@
     	
     	<select id="getMyStore" parameterType="MyDTO" resultType="MyDTO">
     		select rownum R, N.* from (select * from memberStore where id= #{id})N
-    		
     	</select>
     	
     	<insert id="setMemberJoinCard" parameterType="MemberDTO">
@@ -77,5 +83,9 @@
     	
     	<insert id="setMemberJoinStar" parameterType="MemberDTO">
     		insert into starhistory values (star_seq.nextval, #{id}, null, 0, 0, 0, null, null, 0, sysdate, sysdate)
+    	</insert>
+    	
+    	<insert id="setMemberJoinStore" parameterType="MemberDTO">
+    		insert into memberstore values (#{id}, null,null,null,null)
     	</insert>
     </mapper>

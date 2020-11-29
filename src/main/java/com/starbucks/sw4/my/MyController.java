@@ -231,39 +231,14 @@ public class MyController {
 		
 		return mv;
 	}
-	//카드 구매 시 멤버 카드에 등록되도록 처리
+	
 	@GetMapping("cardtest")
-	public void setMemberCard(PayDTO payDTO,HttpSession session)throws Exception {
+	public void test(PayDTO payDTO, HttpSession session)throws Exception{
 		myService.setMemberCard(payDTO, session);
-//		MemberDTO myDTO = (MemberDTO) session.getAttribute("member");
-//		System.out.println(myDTO.getId());
-//		//order테이블에서 data가져오기
-//		OrderDTO orderDTO = myService.getOrder(payDTO);
-//		//menucode 값 받아서 c로 시작하는 지 확인
-//		System.out.println(orderDTO.getMenuCode());
-//		//String menucode = "C5747";
-//		String menuCode = orderDTO.getMenuCode();
-//		menuCode= menuCode.substring(0,1);
-//		System.out.println(menuCode);
-//		if(menuCode.equals("C")) {
-//			//랜덤번호 8자리 생성
-//			long cardNum = (int)(Math.random()*100000000);
-//			orderDTO.setCardNum(cardNum);  //myDTO를 넘겨주기
-//			System.out.println("cardNum: "+cardNum);
-//			
-//			orderDTO.setId(myDTO.getId());
-//			int result = myService.setMemberCard(orderDTO);
-//			System.out.println("result:" +result);
-//		}
 	}
-	
-	//음료나 food 10000원 이상 구매시 별 적립
 	@GetMapping("star")
-	public void setStarCard(PayDTO payDTO, HttpSession session) throws Exception{
-			myService.setStarCard(payDTO, session);
-		
+	public void startest(PayDTO payDTO, HttpSession session)throws Exception{
+		myService.setStarCard(payDTO, session);
 	}
-	
-	
 	
 }

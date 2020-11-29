@@ -28,13 +28,95 @@
    
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    <script src="${pageContext.request.contextPath}/resources/js/common/jquery.bxslider.min.js"></script>
-	<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 	
+	<link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+	<link href="/sw4/resources/admin/css/styles.css" rel="stylesheet" />
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+	<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 	<style type="text/css">
-		.ms_nav ul li a span i { position: absolute; top: 50%; right: 0;}
+		#msRnb { box-sizing: none !important;}
+		.btn_ask_list{top:140px;}
+		.voc_input_tbl table tr td > div.sel_wrap {position: relative;}
+		.visit_txt {position: absolute; left:0;}
+		.voc_input_tbl table div.pick_date_each {position: absolute; left:60px;}
+		#stosearch{position: absolute; left:60px;}
+		#work-store-txt {position: absolute; left:125px;}
+		#sidoDropdown{display: none;}
+		.voc_info_input_btns button {border-radius: 3px; font-size:14px; background:#e2c383;}
+		#sidoDropdown{
+			line-height: 2.12rem;
+		}
+		#store-search{
+				font-size: 0.8rem;
+				cursor: pointer;
+			}
+			.info-width{
+				width: 10rem;
+			}
+			#store-search{
+				padding: 0.2rem;
+				color: white;
+				background-color: #D5D5D5;
+				border-radius: 3px;
+			}
+			#store-search-area{
+				margin: 1rem 0px 0.5rem;
+			}
+			#store-select-area{
+				padding: 0.2rem;
+				border: 1px solid #D5D5D5;
+			}
+			#store-select-scroll{
+				width: 100%; height: 240px;
+				overflow:auto; 
+				padding-right: 0.2rem;
+			}
+			.select-store{
+				width: 100%; height: 50px;
+				margin: 0.2rem 0px;
+				border: 1px solid #F6F6F6;
+				line-height: 50px;
+				cursor: pointer;
+				padding-left: 0.5rem;
+			}
+			#store-select-info{
+				background-color:#F6F6F6;
+				color: #5D5D5D;
+				font-size: 0.83rem;
+				padding: 0.2rem;
+			}
+			#search-store-txt{
+				width:50%;
+			}
+			#store-search-btn{
+				border: 1px solid #D5D5D5;
+				background-color: #D5D5D5;
+			}
+			.store-choose{
+				margin-right: -0.3rem;
+			}
+			#store-store-name{
+				width: 70%;
+				margin-left: 0.2rem;
+			}
+			#store-store-sido-name{
+				width: 28%;
+				padding-right: 0.5rem;
+				border-right: 1px solid #D5D5D5;
+			}
+			#sido-select-area{
+				font-size: 0.9rem;
+				padding-left: 0.5rem;
+				border: 0.2px solid #D5D5D5;
+				cursor: pointer;
+			}
+			#sidoDropdown{
+				width: 5rem;
+			}
+			#select-type{
+				margin-right: 0rem;
+			}
 	</style>
 </head>
 <body>
