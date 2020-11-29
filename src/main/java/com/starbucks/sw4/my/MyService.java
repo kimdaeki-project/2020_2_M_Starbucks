@@ -60,6 +60,7 @@ public class MyService {
 		//storecode 받아오기
 		MyDTO store = myDAO.getStore(myDTO);
 		myDTO.setStoreCode(store.getStoreCode());
+		System.out.println("고객의소리 storecode:"+myDTO.getStoreCode());
 		return myDAO.setVocList(myDTO);
 	}
 	//회원가입시 card 초기화
@@ -78,8 +79,8 @@ public class MyService {
 		}
 		
 		
-	//membercard에 update하기
-		public int setMemberCard(PayDTO payDTO,HttpSession session) throws Exception {
+	//카드 구매시 membercard에 update하기
+		public void setMemberCard(PayDTO payDTO,HttpSession session) throws Exception {
 			System.out.println("서비스 접속");
 			MemberDTO myDTO = (MemberDTO)session.getAttribute("member");
 			System.out.println(myDTO.getId());
@@ -87,15 +88,14 @@ public class MyService {
 			OrderDTO order = new OrderDTO();
 		//	order.setId(myDTO.getId());
 			//order테이블에서 data가져오기
-			payDTO.setOrderNum(15);
+		//	payDTO.setOrderNum(15);
 			order = myDAO.getOrder(payDTO);
-			System.out.println(order.getMemberNum());
-		System.out.println("menucode:"+order.getMenuCode());
+		//	System.out.println(order.getMemberNum());
+			System.out.println("menucode:"+order.getMenuCode());
 			//menucode 값 받아서 c로 시작하는 지 확인
 			//String menucode = "C5747";
 			System.out.println("메뉴코드:"+order.getMenuCode());
 			String menuCode = order.getMenuCode();
-			System.out.println(menuCode);
 			menuCode= menuCode.substring(0,1);
 			System.out.println(menuCode);
 			HashMap<String, Object> map = new HashMap<String, Object>();
@@ -118,17 +118,19 @@ public class MyService {
 				System.out.println(order.getId());
 				System.out.println("mydto get num" + myDTO.getNum());
 				
-				//starHistory테이블에 cardNum 입력해주기
+				
 				map.put("card", order);
 				map.put("member", myDTO);
-				myDAO.setCardNum(map);
+				myDAO.setCardNum(map); //starHistory테이블에 cardNum 입력해주기
+				
+				myDAO.setMemberCard(map); //memberCard테이블에 메뉴코드,카드번호,이미지 등등 입력
 			}
 			
 			
-			return myDAO.setMemberCard(map);
+			
 		}
 	
-		//별 적립
+		//음료,상품 만원 이상 구매시 별 적립
 		public int setStarCard(PayDTO payDTO, HttpSession session) throws Exception{
 			System.out.println("starService 진입");
 			MemberDTO myDTO = (MemberDTO)session.getAttribute("member");
@@ -136,7 +138,7 @@ public class MyService {
 			OrderDTO orderDTO = new OrderDTO();
 			
 			//order테이블에서 data가져오기
-			payDTO.setOrderNum(15);
+		//	payDTO.setOrderNum(15);
 			orderDTO = myDAO.getOrder(payDTO);
 			
 			System.out.println("컨트롤러CODE:"+orderDTO.getStoreCode());
@@ -148,7 +150,7 @@ public class MyService {
 			starInfo.setStoreCode(orderDTO.getStoreCode());
 			MyDTO store = myDAO.getStarStore(starInfo);
 			store.setId(myDTO.getId());
-			myDAO.setMemberStore(store);
+			myDAO.setMemberStore(store);  //주문한 매장이 my매장으로 자동등록됨
 			//금액확인
 			long price = orderDTO.getTotalPrice();
 		

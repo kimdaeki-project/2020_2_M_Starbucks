@@ -63,6 +63,18 @@
 				text-decoration: none;
 				color: #006633;
 			}
+			#btn-area{
+				padding: 0px 25rem;
+			}
+			.pay-btn{
+				width: 10rem;
+			    height: 4.3rem;
+				font-size: 1.5rem;
+				margin: 0px 4rem;
+				padding: 0.2rem 1rem;
+			    border: 1px solid #006633;
+			    border-radius: 3px;
+			}
 		</style>
 		
 	</head>
