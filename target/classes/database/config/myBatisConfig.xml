@@ -14,7 +14,7 @@
 		<typeAlias type="com.starbucks.sw4.my.faq.FaqDTO" alias="FaqDTO"/>
 		<typeAlias type="com.starbucks.sw4.my.faq.Pager" alias="Pager"/>
 		<typeAlias type="com.starbucks.sw4.my.MyDTO" alias="MyDTO"/>
-		
+		<typeAlias type="com.starbucks.sw4.my.star.StarDTO" alias="StarDTO"/>
 		
 		<!-- admin page -->
 		<typeAlias type="com.starbucks.sw4.admin.tables.notice.NoticeDTO" alias="NoticeDTO"/>
@@ -38,6 +38,7 @@
 		
 		<!-- pay -->
 		<typeAlias type="com.starbucks.sw4.order.pay.PayDTO" alias="PayDTO"/>
+
 		
 		<!-- order -->
 		<typeAlias type="com.starbucks.sw4.order.OrderDTO" alias="OrderDTO"/>

@@ -83,6 +83,11 @@ public class MemberUserController {
 				MyDTO myDTO = new MyDTO();
 				myDTO.setId(memberDTO.getId());
 				session.setAttribute("my", myDTO);
+
+
+				System.out.println(myDTO.getGrade());
+
+
 				
 				if(memberDTO.getNickName() != null) {
 					mv.addObject("msg", memberDTO.getNickName() + " 님 환영합니다!");

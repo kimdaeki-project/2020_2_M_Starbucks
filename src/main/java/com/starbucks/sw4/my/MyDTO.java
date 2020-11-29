@@ -39,13 +39,21 @@ public class MyDTO extends MemberDTO{
 	
 	//customerQna
 	private String category;
-	private int storecode;
+	private long storeCode;
 	private String visitDate;
 	private String title;
 	private String contents;
 	
+	private long totalPrice;
 	
 	
+	
+	public long getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(long totalPrice) {
+		this.totalPrice = totalPrice;
+	}
 	public String getCategory() {
 		return category;
 	}
@@ -54,11 +62,11 @@ public class MyDTO extends MemberDTO{
 	}
 	
 	
-	public int getStorecode() {
-		return storecode;
+	public long getStoreCode() {
+		return storeCode;
 	}
-	public void setStorecode(int storecode) {
-		this.storecode = storecode;
+	public void setStoreCode(long storeCode) {
+		this.storeCode = storeCode;
 	}
 	public String getVisitDate() {
 		return visitDate;

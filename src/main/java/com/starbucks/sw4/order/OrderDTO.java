@@ -1,6 +1,8 @@
 package com.starbucks.sw4.order;
 
-public class OrderDTO {
+import com.starbucks.sw4.menu.MenuDTO;
+
+public class OrderDTO extends MenuDTO{
 
 	/*
 	 	    orderNum NUMBER CONSTRAINT ORDER_ON_PK PRIMARY KEY, 
@@ -42,6 +44,25 @@ public class OrderDTO {
 	private String orderDate;
 	private String adminYN;
 	
+
+	private long cardNum;
+	private String id;
+	
+	
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public long getCardNum() {
+		return cardNum;
+	}
+	public void setCardNum(long cardNum) {
+		this.cardNum = cardNum;
+	}
+
 	private String totalPriceStr;
 	private String menuPriceStr;
 	private String opt1PriceStr;
@@ -69,6 +90,7 @@ public class OrderDTO {
 	}
 
 	
+
 	public long getOrderNum() {
 		return orderNum;
 	}
