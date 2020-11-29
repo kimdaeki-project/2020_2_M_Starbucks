@@ -42,7 +42,8 @@
 		</div>
 	</div>
 	<!-- subtitle end -->
-	<input type="hidden" id="isAuth" value="<% out.print(session.getAttribute("member"));%>">
+	<input type="hidden" id="isAuth"
+		value="<%out.print(session.getAttribute("member"));%>">
 	<div class="content">
 		<div class="product_list">
 			<dl>
@@ -64,7 +65,6 @@
 							</li>
 						</c:forEach>
 					</ul>
-
 				</dd>
 			</dl>
 		</div>
@@ -72,54 +72,52 @@
 	<div class="modal fade" id="layerpop">
 		<div class="modal-dialog">
 			<form action="../order/orderPage" method="post" id="order_frm">
-			<div class="modal-content">
-				<!-- header -->
-				<div class="modal-header">
-					<!-- 닫기(x) 버튼 -->
-					<button type="button" class="close" data-dismiss="modal">×</button>
-					<!-- header title -->
-					<h4 class="modal-title" id="pop_header"></h4>
-				</div>
-				<!-- body -->
-				<div class="modal-body">
-					<input type="hidden" name="menu_code" value="" id="menu_code">
-					<br>
-					<div id="modal_img"></div>
-					<div>
-						<span>가격</span> | <span id="modal_price"></span>
+				<div class="modal-content">
+					<!-- header -->
+					<div class="modal-header">
+						<!-- 닫기(x) 버튼 -->
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<!-- header title -->
+						<h4 class="modal-title" id="pop_header"></h4>
 					</div>
-					<br>
-					<div>
-						<span>수량</span> | 
-						<span>
-							<select name="cnt">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
+					<!-- body -->
+					<div class="modal-body">
+						<input type="hidden" name="menu_code" value="" id="menu_code">
+						<br>
+						<div id="modal_img"></div>
+						<div>
+							<span>가격</span> | <span id="modal_price"></span>
+						</div>
+						<br>
+						<div>
+							<span>수량</span> | <span> <select name="cnt">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
 							</select>
-						</span>
+							</span>
+						</div>
+						<br>
+						<div>
+							<span>한정</span> | <span id="modal_limited"></span>
+						</div>
+						<br>
+						<div>
+							<span>한정매장</span> | <span id="modal_limitedStore"></span>
+						</div>
+						<br>
+						<div>
+							<span></span> <span id="modal_descr">설명</span>
+						</div>
 					</div>
-					<br>
-					<div>
-						<span>한정</span> | <span id="modal_limited"></span>
-					</div>
-					<br>
-					<div>
-						<span>한정매장</span> | <span id="modal_limitedStore"></span>
-					</div>
-					<br>
-					<div>
-						<span></span> <span id="modal_descr">설명</span>
+					<!-- Footer -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" id="order">주문하기</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 					</div>
 				</div>
-				<!-- Footer -->
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" id="order">주문하기</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-				</div>
-			</div>
 			</form>
 		</div>
 	</div>
@@ -128,11 +126,11 @@
 		function goModal(e) {
 
 			var isAuth = $('#isAuth').val();
-			
-			if(isAuth == 'null'){
+
+			if (isAuth == 'null') {
 				location.href = '/sw4/member/memberLogin';
-			} 
-			
+			}
+
 			console.log('clicked');
 
 			var productCode = $(e).parent().parent().parent().attr('title');
@@ -142,37 +140,38 @@
 			var price = $(e).parent().parent().children('.price').text();
 			var price_html = '<input type = "text" disabled value = '+price+'>';
 			var limited = $(e).parent().parent().children('.limited').text();
-			var limitedStore = $(e).parent().parent().children('.limitedStore').text();
-					
+			var limitedStore = $(e).parent().parent().children('.limitedStore')
+					.text();
+
 			var descr = $(e).parent().parent().children('.descr').text();
 			var korname = $(e).parent().parent().children('.korname').text();
 			var img_src = $(e).children().attr('src');
 			var img = '<img src = "'+img_src+'"/>';
 			console.log(limitedStore);
-			
+
 			var data = {
-					'limitedStore' : limitedStore
-					};
-			
-			 $.ajax({  
+				'limitedStore' : limitedStore
+			};
 
-			      url: '/sw4/menu/getStore',  
-			      data: data,  
-			      success : function (data) {
-				      console.log(data);
-			            if (data) {
-			                var opt = '<select name = "store_code">';
-			                for(var i = 0; i < data.length; i++){
-			                	opt += '<option value = "'+data[i].storeCode+'">'+data[i].storeName+'</option>';
-				            }
-			                opt += '</select>';
-			                $('#modal_limitedStore').html(opt);
-			            } else {
-			            }             
-			        }
-			
+			$.ajax({
 
-			});   
+				url : '/sw4/menu/getStore',
+				data : data,
+				success : function(data) {
+					console.log(data);
+					if (data) {
+						var opt = '<select name = "store_code">';
+						for (var i = 0; i < data.length; i++) {
+							opt += '<option value = "'+data[i].storeCode+'">'
+									+ data[i].storeName + '</option>';
+						}
+						opt += '</select>';
+						$('#modal_limitedStore').html(opt);
+					} else {
+					}
+				}
+
+			});
 
 			$('#pop_header').html(korname);
 			$('#modal_price').html(price_html);
@@ -187,12 +186,9 @@
 
 		}
 
-
-		$('#order').click(function(){
+		$('#order').click(function() {
 			$('#order_frm').submit();
 		});
-		
-
 	</script>
 
 	<script
