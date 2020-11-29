@@ -31,6 +31,11 @@
 <style type="text/css">
 
 	/* 하늘 추가 */
+	.container{
+		width: 80%;
+		margin-top: 5rem;
+		padding: 3rem 2rem;
+	}
 	#modal_img{
 		margin: 0px auto 4.5rem;
 		width: 50%;
@@ -92,17 +97,63 @@
 	#opt1, #opt2{
 		padding: 0px 4rem 0px 3rem;
 	}
+	#category-btn{
+		margin-top: 2rem;
+		border-radius: 5px;
+		border: 1px solid #D5D5D5;
+		padding: 2rem 2rem;
+	}
+	#category-select{
+		height: 5rem;
+	}
+	.content{
+		margin-top: 5rem;
+	}
+	#sub-title{
+		border: 1px solid blue;
+	}
+	#category-txt{
+		font-size: 1.5rem;
+		padding-left: 0.8rem;
+	}
+	#chk-area{
+		margin-right: 5rem;
+	}
+	.category-list li{
+		float: left;
+		margin-right: 3rem;
+	}
+	
+	.select-category{
+		cursor: pointer;
+	}
 </style>
 </head>
 <body>
 	<c:import url="../common/header.jsp"></c:import>
 
 	<!--subtitle-->
-	<div class="ms_sb_tit_bg">
-		<div class="ms_sub_tit_inner">
-			<h3>${menu}</h3>
+	
+	<div class="container">
+		<h2>${menu}</h2>
+		<div id="category-btn">
+			<h3>분류보기</h3>
+			<hr>
+			<div id="category-select">
+				<ul class="category-list">
+					<li class="select-category">
+						<input type="radio" class="category-chk" name="category" value=""><span id="category-txt">전체보기</span>
+					</li>
+					<c:forEach items="${categoryList}" var="category">
+						<li class="select-category">
+						<input type="radio" class="category-chk" name="category" value="${category.category}"><span id="category-txt">${category.category}</span>
+						</li>
+					</c:forEach>
+				</ul>
+			</div>
 		</div>
 	</div>
+	
 	<!-- subtitle end -->
 	<input type="hidden" id="login-member" title="${member.num}">
 	<input type="hidden" id="isAuth" value="<% out.print(session.getAttribute("member"));%>">
@@ -277,6 +328,16 @@
 	</div>
 
 	<script type="text/javascript">
+		
+		var path = window.location.pathname;
+	
+		// ajax 처리로 수정하면 될듯
+		$(".select-category").click(function(){
+			alert(path);
+			var select_category = $(this).children(".category-chk").val();
+			$(this).children(".category-chk").prop("checked","true");
+			location.href= path + "?category=" + select_category;
+		})
 
 		function orderChk(){
 			$('#myModal').modal("show");

@@ -6,11 +6,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.starbucks.sw4.menu.category.CategoryDTO;
+
 @Service
 public class MenuService {
 	
 	@Autowired
 	private MenuDAO menuDAO;
+	
+	public List<CategoryDTO> getCategoryList(MenuDTO menuDTO) throws SQLException, ClassNotFoundException{
+		return menuDAO.getCategoryList(menuDTO);
+	}
 	
 	public MenuDTO getOne(MenuDTO menuDTO) throws SQLException, ClassNotFoundException{
 		System.out.println(menuDTO.getMenuCode());

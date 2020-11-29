@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.starbucks.sw4.menu.category.CategoryDTO;
+
 @Controller
 @RequestMapping(value = "/menu/**")
 public class MenuController {
@@ -33,14 +35,14 @@ public class MenuController {
 		menuDTO.setType("D");
 
 		List<MenuDTO> menuList = menuService.getMenuList(menuDTO);
-		List<OptionDTO> opList = menuService.getOptionList();
+		List<CategoryDTO> categoryList = menuService.getCategoryList(menuDTO);
 
 		System.out.println(menuList);
 		mv.addObject("menu", "음료");
 		mv.addObject("type", "D");
 		
+		mv.addObject("categoryList", categoryList);
 		mv.addObject("list", menuList);
-		mv.addObject("opList", opList);
 		//mv.setViewName("menu/productList");
 		//하늘 테스트
 		mv.setViewName("menu/tmp_productList");
@@ -59,13 +61,13 @@ public class MenuController {
 		menuDTO.setType("P");
 
 		List<MenuDTO> menuList = menuService.getMenuList(menuDTO);
-		List<OptionDTO> opList = menuService.getOptionList();
+		List<CategoryDTO> categoryList = menuService.getCategoryList(menuDTO);
 		
 		mv.addObject("menu", "상품");
 		mv.addObject("type", "P");
 
+		mv.addObject("categoryList", categoryList);
 		mv.addObject("list", menuList);
-		mv.addObject("opList", opList);
 		//mv.setViewName("menu/productList");
 		//하늘 테스트
 		mv.setViewName("menu/tmp_productList");
@@ -86,13 +88,13 @@ public class MenuController {
 		menuDTO.setType("F");
 
 		List<MenuDTO> menuList = menuService.getMenuList(menuDTO);
-		List<OptionDTO> opList = menuService.getOptionList();
+		List<CategoryDTO> categoryList = menuService.getCategoryList(menuDTO);
 		
 		mv.addObject("menu", "푸드");
 		mv.addObject("type", "F");
 
+		mv.addObject("categoryList", categoryList);
 		mv.addObject("list", menuList);
-		mv.addObject("opList", opList);
 		//mv.setViewName("menu/productList");
 		//하늘 테스트
 		mv.setViewName("menu/tmp_productList");

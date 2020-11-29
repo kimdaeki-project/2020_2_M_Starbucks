@@ -8,6 +8,10 @@
 		select M.*, MO.hotYN, MO.opt1,MO.opt2 from menuOption MO full join menu M on(MO.optIndex = M.optIndex)
 		where M.menuCode=#{menuCode}
 	</select>
+	
+	<select id="getCategoryList" parameterType="MenuDTO" resultType="CategoryDTO">
+		select * from menuCategory where type = #{type}
+	</select>
 
 	<select id="getMenuList" parameterType="MenuDTO" resultMap="getMenuListResult">
 		select M.*, MO.optIndex,MO.hotYN,MO.opt1, MO.opt2
