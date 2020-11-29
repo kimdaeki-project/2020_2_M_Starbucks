@@ -30,7 +30,9 @@
    
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   
-   
+   <style type="text/css">
+   	.ms_cont{height: 750px;}
+   </style>
    
 </head>
 <body>
@@ -60,10 +62,11 @@
     	
     	
     	<section class="my_store_wrap">
+    	<!-- memberStore 패키지 따로만들어서 이런것도 다 db랑 연결하기
     		<p class="store">
     			<strong>${ar.id}</strong>님은 가장 최근 2020-11-22에 <strong>홍대공항철도역점</strong>에서 <strong>바닐라 더블샷 마끼아또</strong>를 마셨습니다
     		</p>
-    	
+    	 -->
     	</section>
     	<section class="my_store_info">
     		<div class="storeInfo">

@@ -81,7 +81,7 @@
 					} else {
 						result = "이메일이 발송되었습니다. 인증번호를 확인 후 입력해주세요.";
 						alert(result);
-						location.href="./emailAuth";
+						//location.href="./emailAuth";
 					}
 				});
 			}
