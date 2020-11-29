@@ -81,7 +81,7 @@ public class PayContoller {
 			if(updateResult > 0) {
 				System.out.println("update success");
 			}
-			myService.setMemberCard(payDTO, session);
+		//	myService.setMemberCard(payDTO, session);
 			myService.setStarCard(payDTO, session);
 		} else {
 			System.out.println("insert fail");
