@@ -47,8 +47,6 @@
 		<div class="product_list">
 			<dl>
 				<dd>
-					<!-- 포스트로 넘겨주는데에다가 같이 넘겨줘야함 -->
-					<%-- <input type="hidden" title="${type}" id="menuType" /> --%>
 					<ul>
 						<c:forEach items="${list}" var="list">
 							<li title="${list.menuCode}">
