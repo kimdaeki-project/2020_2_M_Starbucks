@@ -27,12 +27,14 @@
 .limit_txt { line-height:1.6; margin-top:15px; color:#444; font-size:16px; display:none; }
 .limit_txt:before { clear:both; content:""; display:block; }
 .input_warn { border:1px solid #ed1c24 !important; }
-.input_warn_text { line-height:1.4; margin-top:15px; color:#ed1c24; font-size:14px; }
+.input_warn_txt { line-height:1.4; margin-top:15px; color:#ed1c24; font-size:14px; display:block; }
+.check_pass_txt { line-height:1.4; margin-top:15px; color:#006241; font-size:14px; display:block; }
+.check_not_txt { line-height:1.4; margin-top:15px; color:#ed1c24; font-size:14px; display:block; }
 
 .bd_none { border:0 !important; }
 .type_green { color: #006241; }
 
-.nofix_name { background:#f4f4f2; width:100%; padding:15px; border:1px solid #ddd; box-sizing:border-box; border-radius:3px; font-size:14px; }
+.nofix_name { /*background:#f4f4f2;*/ width:100%; padding:15px; border:1px solid #ddd; box-sizing:border-box; border-radius:3px; font-size:14px; }
 .form_input_box.gender_chk .nofix_name.no_change { width:74.5%; }
 .form_input_box.gender_chk .nofix_name { width:49%; float:left; }
 
