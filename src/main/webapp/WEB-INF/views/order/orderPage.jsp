@@ -36,7 +36,7 @@
 			    border: none;
 			    cursor: pointer;
 			}
-			/*
+			
 			.btn-primary {
 			    background-image: -webkit-linear-gradient(top,#428bca 0,#2d6ca2 100%);
 			    background-image: -o-linear-gradient(top,#428bca 0,#2d6ca2 100%);
@@ -46,7 +46,7 @@
 			    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 			    background-repeat: repeat-x;
 			    border-color: #2b669a;
-			}*/
+			}
 			#modal-contents-area{
 				width: 100%; 
 				font-size: 1.5rem;
