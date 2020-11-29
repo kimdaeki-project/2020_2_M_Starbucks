@@ -135,6 +135,8 @@ public class AdminMemberController {
 
 		AdminMemberDTO dto = (AdminMemberDTO)session.getAttribute("login");
 		
+		//AdminStoreDTO storeDTO = new AdminStoreDTO();
+		
 		System.out.println("pager search type: " + pager.getSearchType());
 		System.out.println("pager search: " + pager.getSearch());
 		session.setAttribute("memberType", pager.getSearchType());
@@ -142,12 +144,17 @@ public class AdminMemberController {
 		pager.setSearchType((Integer)session.getAttribute("memberType"));
 		pager.setStoreCode(dto.getStoreDTO().getStoreCode());
 		
+		//storeDTO.setStoreCode(dto.getStoreDTO().getStoreCode());
+		//List<StoreDTO> storeList = adminStoreService.getList(storeDTO);
+		//System.out.println("image: " + storeDTO.getStoreFileDTO().getDefaultFile());
+		
 		System.out.println("pager get store code: "+pager.getStoreCode());
 		pager.setPerPage(5);
 		pager.setType(dto.getType());
 		
 		List<AdminMemberDTO> list = adminMemberService.getList(pager);
 
+		//mv.addObject("memberStore", storeList);
 		mv.addObject("page", pager);
 		mv.addObject("noticeList", list);
 		mv.setViewName("admin/tables/memberList");

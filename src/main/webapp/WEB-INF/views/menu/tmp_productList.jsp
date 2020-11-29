@@ -29,12 +29,13 @@
 <link rel="stylesheet"
 	href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <style type="text/css">
-
+	.sub_gnb_nav { width:100%; height:66px; position:absolute; top:34px; left:0; z-index:11; }
+	.sub_gnb_wrap_inner h1.logo { width:75px; height:75px; position:absolute; top:0px; left:0; z-index:12px; }
 	/* 하늘 추가 */
 	.container{
 		width: 80%;
-		margin-top: 5rem;
-		padding: 3rem 2rem;
+		margin-top: 1.5rem;
+		padding: 1.5rem 2rem 2rem;
 	}
 	#modal_img{
 		margin: 0px auto 4.5rem;
@@ -105,6 +106,7 @@
 	}
 	#category-select{
 		height: 5rem;
+		margin-bottom: 3rem;
 	}
 	.content{
 		margin-top: 5rem;
@@ -125,7 +127,13 @@
 	}
 	
 	.select-category{
+		width: 15rem;
+		margin: 0.5rem 0px;
 		cursor: pointer;
+	}
+	#price-txt{
+		margin-right: 0.3rem;
+		text-align: right;
 	}
 </style>
 </head>
@@ -333,7 +341,6 @@
 	
 		// ajax 처리로 수정하면 될듯
 		$(".select-category").click(function(){
-			alert(path);
 			var select_category = $(this).children(".category-chk").val();
 			$(this).children(".category-chk").prop("checked","true");
 			location.href= path + "?category=" + select_category;
@@ -445,7 +452,7 @@
 				var hotYN = $(e).parent().parent().children('.hotYN').text();
 				var category = $(e).parent().parent().children('.category').text();
 				
-				var price_html = '<input type = "text" disabled value = '+price+'>';
+				var price_html = '<input type = "text" id="price-txt" disabled value = '+price+'>';
 				var limited = $(e).parent().parent().children('.limited').text();
 				var limitedStore = $(e).parent().parent().children('.limitedStore').text();
 						
@@ -460,6 +467,16 @@
 					
 				var opt1_txt = parseInt($("#opt1-quantity").val());
 				var opt2_txt = parseInt($("#opt2-quantity").val());
+				
+				if(opt1_txt > 1 && opt2_txt){
+					$("#opt1-quantity").val(1);
+					$("#opt2-quantity").val(1);
+					$('select[name="cnt"]').val(1);
+				}
+				
+				if($('select[name="cnt"]').val() > 1){
+					$('select[name="cnt"]').val(1);
+				}
 				
 				var up_index = 0;
 				var down_index = 0;
@@ -484,14 +501,16 @@
 					
 					if (down_index == 1){
 						if(opt1_txt == 1){
-							alert("최소 수량은 1개입니다.")
+							alert("최소 수량은 1개입니다.");
+							return;
 						} else {
 							opt1_txt = opt1_txt - 1;
 							$("#opt1-quantity").val(opt1_txt);
 						}
 					} else {
 						if(opt2_txt == 1){
-							alert("최소 수량은 1개입니다.")
+							alert("최소 수량은 1개입니다.");
+							return;
 						} else {
 							opt2_txt = opt2_txt - 1;
 							$("#opt2-quantity").val(opt2_txt);
@@ -542,14 +561,26 @@
 					modal_hotYN =
 						'<span id="hotYNChk"><input checked="checked" type="radio" name="chk_hotYN" name="hotYN" id="btn_css" class="hotYN" value="hot">Hot</span><input id="btn_css" type="radio" name="chk_hotYN" name="hotYN" class="hotYN" value="Iced">Iced';
 					select_hotYN = 'Hot';
+					
+					if(category == '케이크' || category == '아이스크림' || category == '과일&요거트' || korname.includes('샐러드')){
+						select_hotYN = 'Iced';
+						modal_hotYN = 
+							'<span id="hotYNChk"><input checked="checked" type="radio" name="chk_hotYN" id="btn_css" name="hotYN" class="hotYN" value="Iced">Iced';
+					} else if(category=='따뜻한 푸드'){
+						select_hotYN = 'Hot';
+						modal_hotYN =
+							'<span id="hotYNChk"><input checked="checked" type="radio" name="chk_hotYN" id="btn_css" name="hotYN" class="hotYN" value="Hot">Hot';
+					}
+					
 				}
 				
 				$("#modal_hotYN").html(modal_hotYN);
-					
+				
 				if (limitedStore == '' || limited == ''){
 					$('#limited').css('display','none');
 				} else {
-					$('#modal_limited').text('특정 매장에서 판매되어 온라인 주문이 불가합니다.');
+					$('#modal_limited').css('display','inline-block');
+					$('#modal_limited').html('특정 매장에서 판매되어 온라인 주문이 불가합니다.');
 					$("#order").css('display','none');
 				}
 				

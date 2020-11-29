@@ -14,9 +14,10 @@
 	<select id="getList" parameterType="AdminPager" resultMap="getAdminLoginResult">
 		select *
 		from (select rownum as r, d.*
-		        from (select M.*, MA.timeTable,MA.storecode, ST.storename, ST.addr, ST.doro_addr
+		        from (select M.*, MA.timeTable,MA.storecode, ST.storename, ST.addr, ST.doro_addr, SF.defaultFile
         			  from member M join memberAdmin MA on (M.adminNum = MA.adminNum)
 		        					join store ST on (MA.storeCode = ST.storeCode)
+		        					join storeFile SF on (ST.storeCode = SF.storeCode)
 		        where
 		        	<choose>
 		        		<when test="type != 4">MA.storeCode=#{storeCode}</when>
@@ -59,6 +60,12 @@
 		<result column="storeName" property="storeName"/>
 		<result column="addr" property="addr"/>
 		<result column="doro_addr" property="doro_addr"/>
+		<association property="storeFileDTO"
+					 javaType="StoreFileDTO" resultMap="getAdminStoreFileResult"></association>
+	</resultMap>
+	
+	<resultMap type="StoreFileDTO" id="getAdminStoreFileResult">
+		<result column="defaultFile" property="defaultFile"/>
 	</resultMap>
 
 	<select id="getCount" parameterType="AdminPager" resultType="Long">

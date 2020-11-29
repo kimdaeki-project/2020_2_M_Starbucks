@@ -327,7 +327,7 @@
 					height:'500',
 					resizable:false,
 					open:function(){
-	
+						
 					}
 				});
 			}
@@ -359,6 +359,7 @@
 						$("#store-info-area").empty();
 						$("#store-info-area").append(data);
 						$("#search-store-txt").val(search);
+						$("#store-select-info").text('음료, 푸드 혹은 상품을 픽업하실 매장을 선택해주세요. 각 매장별 소요시간은 상이합니다.');
 						
 						$(".sido").click(function(){
 							sidoTxt = $(this).attr("title");
@@ -502,7 +503,6 @@
 				        	  
 				              // 결제 성공 시 로직,
 						      // jQuery로 HTTP 요청
-						      // Rest API key : 8465520606036682
 						      jQuery.ajax({
 						    	  
 						          url: "../pay/payProcess",//"https://www.myservice.com/payments/complete", // 가맹점 서버
