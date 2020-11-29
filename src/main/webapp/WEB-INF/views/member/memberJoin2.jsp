@@ -39,13 +39,14 @@
 				<form id="frmJoin" method="post">
 					<input type="hidden" name="type" id="type" value="1" />
 					<!-- <input type="hidden" name="adminNum" id="adminNum" value="" /> -->					
-					<c:if test="${kakaoCheck eq false}">
-						<input type="hidden" name="joinPath" id="joinPath" value="" />
-					</c:if>
-					<c:if test="${kakaoCheck eq true}">
+					<c:choose>
+					<c:when test="${not empty kakaoCheck}">
 						<input type="hidden" name="joinPath" id="joinPath" value="kakao" />
-					</c:if>
-					
+					</c:when>
+					<c:otherwise>
+						<input type="hidden" name="joinPath" id="joinPath" value="" />
+					</c:otherwise>
+					</c:choose>
 					<input type="hidden" name="grade" id="grade" value="1" />
 					<fieldset>
 						<legend class="hid">회원가입 폼</legend>
@@ -56,22 +57,25 @@
 							<p class="find_form_txt">회원정보를 입력해주세요.</p>
 							<div class="form_input_box id_chk">
 								<label for="id" class="hid">아이디</label>
-								<c:if test="${kakaoCheck eq false}">
-									<input type="text" name="id" id="id" class="empty" placeholder="아이디" maxlength="13" required="required"/>
-								</c:if>
-								<c:if test="${kakaoCheck eq true}">
+								
+								<c:choose>
+								<c:when test="${not empty kakaoCheck}">
 									<input type="text" name="id" id="id" class="empty" placeholder="아이디" maxlength="13" value="${kakao.id}"/>
-								</c:if>			
+								</c:when>
+								<c:otherwise>
+									<input type="text" name="id" id="id" class="empty" placeholder="아이디" maxlength="13" required="required" style="ime-mode:disabled;" />
+								</c:otherwise>
+								</c:choose>
 								<p class="limit_txt emptyResult" id="id_chk_txt"><!-- 영문(대소문자 구분 없음), 숫자로 4~13자리만 입력 가능합니다. --></p>
 							</div>
 							<div class="form_input_box pw1_chk">
 								<label for="pw" class="hid">비밀번호</label> 
-								<input type="password" id="pw" name="pw" class="empty" placeholder="비밀번호" maxlength="20" autocomplete="off" required="required"/>
+								<input type="password" id="pw" name="pw" class="empty" placeholder="비밀번호" maxlength="20" autocomplete="off" required="required" style="ime-mode:disabled;" />
 								<p class="limit_txt emptyResult" id="pw_txt"><!-- 영문, 숫자 혼합하여 10~20자리 이내로 입력하세요. --></p>
 							</div>
 							<div class="form_input_box pw2_chk bd_none">
 								<label for="pw_chk" class="hid">비밀번호확인</label>
-								<input type="password" id="pw_chk" name="pw_chk" class="empty" placeholder="비밀번호 확인" maxlength="20" autocomplete="off" required="required"/>
+								<input type="password" id="pw_chk" name="pw_chk" class="empty" placeholder="비밀번호 확인" maxlength="20" autocomplete="off" required="required" style="ime-mode:disabled;" />
 								<p class="limit_txt emptyResult" id="pw_chk_txt"><!-- 입력하신 패스워드를 다시 한 번 입력해주세요. --></p>
 							</div>
 						</section>
@@ -169,12 +173,14 @@
 								<!-- 팝업 end -->
 								<div class="choice_cont_mail">
 									<label for="email" class="hid">e-mail</label>
-									<c:if test="${kakaoCheck eq false}">
-										<input type="email" name="email" id="email" class="empty" placeholder="E-mail을 입력하세요." value="${auth.email}" />
-									</c:if>
-									<c:if test="${kakaoCheck eq true}">
+									<c:choose>
+									<c:when test="${not empty kakaoCheck}">
 										<input type="email" name="email" id="email" class="empty" placeholder="E-mail을 입력하세요." value="${kakao.email}" />
-									</c:if>
+									</c:when>
+									<c:otherwise>
+										<input type="email" name="email" id="email" class="empty" placeholder="E-mail을 입력하세요." value="${auth.email}" />
+									</c:otherwise>
+									</c:choose>
 									<p class="limit_txt emptyResult" id="mail_txt"></p>
 								</div>
 							</div>
@@ -248,8 +254,8 @@
 									class="mem_agreement_wrap choice_agreement_wrap new_agr_choice">
 									<h5>선택적 개인정보 수집동의 및 이용약관</h5>
 									<span class="agree-check">
-										<input type="checkbox" name="mem_choice" id="mem_choice_yes" class="mem" />
-										<label for="mem_choice_yes">동의</label>
+										<input type="checkbox" name="nickName_yes" id="nickName_yes" class="mem" />
+										<label for="nickName_yes">동의</label>
 									</span>
 									<div class="mem_agreement_area">
 										<p class="refer_text" style="margin-left:10px;">
@@ -261,7 +267,7 @@
 								</section>
 								<label for="user_nick_nm" class="hid">닉네임</label>
 								<%-- <input type="text" name="user_nick_nm" id="user_nick_nm" placeholder="닉네임 입력을 위해 약관에 동의해 주세요." maxlength="6" disabled="" /> --%>
-								<input type="text" id="nickName" name="nickName" placeholder="한글 6자리 이내로 입력하세요." value="" />
+								<input type="text" id="nickName" name="nickName" placeholder="한글 6자리 이내로 입력하세요." value="" style="ime-mode:active;" <%-- onkeypress="if(!(event.keyCode < 47 && event.keyCode > 58)) event.returnValue=false;"  --%>maxlength="6"/>
 								<p class="limit_txt nickName_txt" id="nickName_txt"></p>
 							</div>
 						</section>
@@ -361,7 +367,7 @@
 			}
 		});
 		/* 비밀번호 일치 확인 End */
-		
+				
 		/* 성별 */
 		$(".user_gender a").click(function() {
 			if(!$(this).hasClass("on")) {
@@ -408,11 +414,42 @@
 		/* 받아온 정보 */
 		if($("#email").val() != '') {
 			$("#email").attr("readonly","readonly");
+			$("#email").css('background','#f4f4f2');
+			$("#email").removeClass("empty");
 		}
 		if($("#id").val() != '') {
 			$("#id").attr("readonly","readonly");
+			$("#id").css('background','#f4f4f2');
+			$("#id").removeClass("empty");
 		}
 		/* 받아온 정보 end */
+		
+		/* 닉네임 */
+		//체크박스 선택해야 입력가능
+		$("#nickName").attr("readonly",true);
+		$("#nickName").css('background','#f4f4f2');
+		$("input:checkbox").click(function() {
+			if($(this).is(':checked')) {
+				$("#nickName").attr("readonly",false);
+				$("#nickName").css('background','');
+			} else {
+				$("#nickName").attr("readonly",true);
+				$("#nickName").css('background','#f4f4f2');
+			}
+		});
+		
+		//한글만 입력되게
+		// 특수문자 정규식 변수(공백 미포함) 
+		//var replaceChar = /[~!@\#$%^&*\()\-=+_'\;<>0-9\/.\`:\"\\,\[\]?|{}]/gi; 
+		// 완성형 아닌 한글 정규식 
+		//var replaceNotFullKorean = /[ㄱ-ㅎㅏ-ㅣ]/gi;
+
+		$("#nickName").keypress(function(e){
+			if(!(e.keyCode < 47 && e.keyCode > 58)) {
+				e.returnValue=false;
+			}
+		}); 
+		/* 닉네임 end */
 		
 		/* 회원가입 버튼 입력시 */
 		$("#join").click(function() {

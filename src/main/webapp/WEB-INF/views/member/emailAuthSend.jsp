@@ -49,7 +49,7 @@
 							<input type="hidden" name="authState" id="authState" value="0" />
 						</section>
 						<p class="btn_email_auth">
-							<button type="button" class="auth_send" name="">이메일 인증 발송</button>
+							<button type="submit" class="auth_send" name="submit">이메일 인증 발송</button>
 						</p>
 					</fieldset>
 				</form>
@@ -78,9 +78,8 @@
 						alert("이미 가입된 회원의 이메일입니다. 로그인 후 이용이 가능합니다.");
 						location.href="./memberLogin";
 					} else {
-						$("form").submit();
 						alert("이메일이 발송되었습니다. 인증번호를 확인 후 입력해주세요.");
-						location.href="./emailAuth";
+						//location.href="./emailAuth";
 					}
 				});
 			}
