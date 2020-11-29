@@ -377,7 +377,7 @@
 		}
 		
 		$('#order').click(function(){
-			
+			alert(select_hotYN);
 			// 하늘 추가 코드: 선택한 데이터 정보 할당받기 위함
 			var quantity = $('select[name="cnt"]').val();
 			getQuantity(quantity);
@@ -527,13 +527,13 @@
 				
 				var menuType = $("#menu-type").attr("title");
 				var modal_hotYN = "";
-				
+
 				if (menuType == 'D'){
 					
 					if(hotYN == 'Iced' || hotYN == 'hot'){
 						modal_hotYN =
 							'<span id="hotYNChk"><input checked="checked" type="radio" name="chk_hotYN" name="hotYN" class="hotYN" id="btn_css" value="'+hotYN+'">'+hotYN;
-						select_hotYN = modal_hotYN;
+						select_hotYN = hotYN;
 					} else if(hotYN == 'HotIced'){
 						modal_hotYN =
 							'<span id="hotYNChk"><input checked="checked" type="radio" name="chk_hotYN" name="hotYN" class="hotYN" id="btn_css" value="hot">Hot</span><input id="btn_css" type="radio" name="chk_hotYN" name="hotYN" class="hotYN" value="Iced">Iced';
@@ -623,7 +623,7 @@
 				$('#layerpop').modal("show");
 	
 				$(".hotYN").click(function(){
-					select_hotYN = $(this).attr("value");
+					select_hotYN = $(this).val();
 				})
 				
 				console.log(price);
