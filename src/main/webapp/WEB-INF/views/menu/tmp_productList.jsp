@@ -500,17 +500,19 @@
 					down_index = $(this).attr("title");
 					
 					if (down_index == 1){
+						alert("down index 1" + down_index)
 						if(opt1_txt == 1){
+							alert("1버ㅡㄴ")
 							alert("최소 수량은 1개입니다.");
-							return;
 						} else {
 							opt1_txt = opt1_txt - 1;
 							$("#opt1-quantity").val(opt1_txt);
 						}
 					} else {
+						alert("down index 2" + down_index)
 						if(opt2_txt == 1){
+							alert("2번")
 							alert("최소 수량은 1개입니다.");
-							return;
 						} else {
 							opt2_txt = opt2_txt - 1;
 							$("#opt2-quantity").val(opt2_txt);
