@@ -16,22 +16,35 @@ public class MemberUserDAO implements MemberDAO {
 	
 	
 	@Override
-	public MemberDTO getMemberLogin(MemberDTO memberDTO) throws Exception {
-		return sqlSession.selectOne(NAMESPACE+"getMemberLogin", memberDTO);
-	}
-	
-	@Override
-	public long getIdCheck(MemberDTO memberDTO) throws Exception {
-		return sqlSession.selectOne(NAMESPACE+"getIdCheck", memberDTO);
-	}
-	
-	@Override
 	public int setMemberJoin(MemberDTO memberDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"setMemberJoin", memberDTO);
 	}
 	
 	@Override
+	public MemberDTO getMemberLogin(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getMemberLogin", memberDTO);
+	}
+	
+	@Override
+	public MemberDTO getMemberKakaoLogin(MemberDTO memberDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getMemberKakaoLogin", memberDTO);
+	}
+	
+	@Override
+	public long getMemberIdCheck(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getMemberIdCheck", memberDTO);
+	}
+	
+	
+	
+	@Override
 	public long getMemberEmailCheck(MemberDTO memberDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"getMemberEmailCheck", memberDTO);
 	}
+	
+	@Override
+	public long getMemberPhoneCheck(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getMemberPhoneCheck", memberDTO);
+	}
+	
 }

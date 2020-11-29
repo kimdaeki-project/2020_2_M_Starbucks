@@ -17,13 +17,15 @@
 	<link href="${pageContext.request.contextPath}/resources/css/common/header.css?v=1" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/common/footer.css?v=1" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/member/memberLogin.css?v=1" rel="stylesheet" type="text/css">
-	<!-- bxSlider CSS file -->
 	<link href="${pageContext.request.contextPath}/resources/css/common/jquery.bxslider.css" rel="stylesheet">
 	
-	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<!-- bxSlider Javascript file -->
 	<script src="${pageContext.request.contextPath}/resources/js/common/jquery.bxslider.min.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script type="text/javascript">
+		Kakao.init('bb0ff91f0ad80f843c34f48e32746703');
+		Kakao.isInitialized();
+	</script>
 </head>
 <body>
 	<!-- Header -->
@@ -59,9 +61,9 @@
 										<input type="checkbox" name="idRemb" id="idRemb" class="mem2" value="${cookie.idRemb.value}"/>
 										<label for="idRemb">아이디 저장</label>
 									</span>
-									<span class="btn_admin_login">
+									<!-- <span class="btn_admin_login">
 										<a href="../admin/adminLogin">관리자 로그인</a>
-									</span>
+									</span> -->
 									<p class="btn_mem_login">
 										<button type="submit" class="btn_login">로그인</button>
 									</p>
@@ -70,7 +72,7 @@
 										* 타 사이트와 비밀번호를 동일하게 사용할 경우 도용의 위험이 있으므로, 정기적인 비밀번호 변경을 해주시길 바랍니다.<br /> 
 										* 스타벅스 커피 코리아의 공식 홈페이지는 Internet Explorer 9.0 이상, Chrome, Firefox, Safari 브라우저에 최적화 되어있습니다.
 									</p>
-									<div class="btn_mem_sns_login">
+									<!-- <div class="btn_mem_sns_login">
 										<p class="naver_login">
 											<a class="btn_login" href="javascript:void(0);" role="submit">NAVER</a>
 										</p>
@@ -80,7 +82,16 @@
 										<p class="kakao_login">
 											<a class="btn_login" href="javascript:;" onclick="snsLogin('kakao');">KAKAO</a>
 										</p>
+									</div> -->
+									<div class="btn_mem_sns_login">
+										<a id="kakao_login" class="btn_kakao_login">
+											<img src="${pageContext.request.contextPath}/resources/images/member/kakao_login.png"/>
+										</a>
+										<span class="btn_admin_login">
+											<a href="../admin/adminLogin">관리자 로그인</a>
+										</span>
 									</div>
+									
 								</div>
 								<div class="login_btn_wrap">
 									<ul>
@@ -135,6 +146,6 @@
 	<script src="${pageContext.request.contextPath}/resources/js/common/header.js?v=1"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/common/footer.js?v=1"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/member/memberLogin.js"></script>
-	
+	<script src="${pageContext.request.contextPath}/resources/js/member/kakaoLogin.js"></script>
 </body>
 </html>
