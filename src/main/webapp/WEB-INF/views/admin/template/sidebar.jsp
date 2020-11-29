@@ -21,7 +21,7 @@
                     </a>
                     <div class="collapse" id="collapseStores" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="#">Orders</a>
+                            <a class="nav-link" href="${pageContext.request.contextPath}/admin/store/order">Orders</a>
                             <a class="nav-link" href="${pageContext.request.contextPath}/admin/member/memberList">Staff List</a>
                         </nav>
                     </div>
@@ -33,7 +33,8 @@
                     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                             <a class="nav-link" href="${pageContext.request.contextPath}/admin/notice/noticeList">Notice</a>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseMyPage" aria-expanded="false" aria-controls="pagesCollapseError">
+                            <a class="nav-link" href="#">MyPage</a>
+<!--                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseMyPage" aria-expanded="false" aria-controls="pagesCollapseError">
                                 MyPage
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
@@ -41,9 +42,8 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href=#">Profile</a>
                                     <a class="nav-link" href="#">Time Table</a>
-                                    <a class="nav-link" href="#">Suggestions</a>
                                 </nav>
-                            </div>
+                            </div> -->
                         </nav>
                     </div>
                     

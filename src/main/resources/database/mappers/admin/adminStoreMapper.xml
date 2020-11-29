@@ -9,9 +9,21 @@
 		where sidoName like '%'||#{sidoName}||'%' and storeName like '%'||#{search}||'%'
 	</select>
 	
-	<select id="getAdminStore" parameterType="AdminMemberDTO" resultType="StoreDTO">
-		select * from store where storeCode = #{store.storeCode}
+	<select id="getAdminStore" parameterType="AdminMemberDTO" resultMap="getStoreInfo">
+		select S.*, SF.* from store S join StoreFile SF on(S.storeCode = SF.storeCode)
+		where S.storeCode = #{store.storeCode}
 	</select>
+	
+	<resultMap type="StoreDTO" id="getStoreInfo">
+		<id column="storeCode" property="storeCode"/>
+		<result column="storeName" property="storeName"/>
+		<association property="storeFileDTO" javaType="StoreFileDTO" resultMap="getStoreFile">
+		</association>
+	</resultMap>
+	
+	<resultMap type="StoreFileDTO" id="getStoreFile">
+		<result column="defaultFile" property="defaultFile"/>
+	</resultMap>
 	
 	<select id="getAdminStoreMemberCount" parameterType="AdminMemberDTO" resultType="Long">
 		select count(*)

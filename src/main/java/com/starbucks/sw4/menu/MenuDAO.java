@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.starbucks.sw4.menu.category.CategoryDTO;
+
 @Component
 public class MenuDAO {
 	
@@ -14,8 +16,17 @@ public class MenuDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.starbucks.sw4.menu.MenuDAO.";
 	
-	public List<MenuDTO> getMenuList(String type) throws SQLException, ClassNotFoundException{
-		return sqlSession.selectList(NAMESPACE+"getMenuList", type);
+	public List<CategoryDTO> getCategoryList(MenuDTO menuDTO) throws SQLException, ClassNotFoundException{
+		return sqlSession.selectList(NAMESPACE+"getCategoryList", menuDTO);
+	}
+	
+	public MenuDTO getOne(MenuDTO menuDTO) throws SQLException, ClassNotFoundException{
+		System.out.println(menuDTO.getMenuCode());
+		return sqlSession.selectOne(NAMESPACE+"getOne", menuDTO);
+	}
+	
+	public List<MenuDTO> getMenuList(MenuDTO menuDTO) throws SQLException, ClassNotFoundException{
+		return sqlSession.selectList(NAMESPACE+"getMenuList", menuDTO);
 	}
 
 	public List<OptionDTO> getOptionList() throws SQLException, ClassNotFoundException{
