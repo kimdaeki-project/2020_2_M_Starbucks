@@ -37,7 +37,7 @@
     	</select>
     
     	<insert id="setVocList" parameterType="MyDTO">
-    		insert into customerqna values (qna_seq.nextval, #{category}, #{id}, #{storeName}, #{visitDate}, #{title}, #{contents}, #{storecode})
+    		insert into customerqna values (qna_seq.nextval, #{category}, #{id}, #{storeName}, #{visitDate}, #{title}, #{contents}, #{storeCode})
     	</insert>
     
     	<select id="getStore" parameterType="MyDTO" resultType="MyDTO">

@@ -59,7 +59,7 @@ public class PayContoller {
 	}
 	
 	@PostMapping("payProcess")
-	public ModelAndView setInsertPay(PayDTO payDTO, MemberDTO memberDTO, StoreDTO storeDTO, HttpSession session) throws ClassNotFoundException, SQLException{
+	public ModelAndView setInsertPay(PayDTO payDTO, MemberDTO memberDTO, StoreDTO storeDTO, HttpSession session) throws Exception{
 		
 		System.out.println("pay controller access");
 		ModelAndView mv = new ModelAndView();
@@ -81,8 +81,8 @@ public class PayContoller {
 			if(updateResult > 0) {
 				System.out.println("update success");
 			}
-//			myService.setMemberCard(payDTO, session);
-//			myService.setStarCard(payDTO, session);
+			//myService.setMemberCard(payDTO, session);
+			myService.setStarCard(payDTO, session);
 		} else {
 			System.out.println("insert fail");
 		}

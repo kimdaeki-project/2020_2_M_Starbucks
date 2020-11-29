@@ -377,7 +377,6 @@
 		}
 		
 		$('#order').click(function(){
-			
 			// 하늘 추가 코드: 선택한 데이터 정보 할당받기 위함
 			var quantity = $('select[name="cnt"]').val();
 			getQuantity(quantity);
@@ -427,6 +426,11 @@
 			})
 			
 		}
+
+		function getOptTxt(opt1_txt, opt2_txt){
+			$("#opt1-quantity").val(opt1_txt);
+			$("#opt2-quantity").val(opt2_txt);
+		}
 		
 		// (종료)하늘 추가 --------------------------------------------
 		function goModal(e) {
@@ -443,7 +447,7 @@
 				var productCode = $(e).parent().parent().parent().attr('title');
 				console.log(productCode);
 				$('#menu_code').val(productCode);
-	
+
 				var price = $(e).parent().parent().children('.price').text();
 				
 				var optIndex = $(e).parent().parent().children('.optIndex').text();
@@ -464,76 +468,62 @@
 				
 				// 하늘 추가코드 ---------------------
 				getVariable(productCode, price, optIndex);
-					
-				var opt1_txt = parseInt($("#opt1-quantity").val());
-				var opt2_txt = parseInt($("#opt2-quantity").val());
 				
-				if(opt1_txt > 1 && opt2_txt){
-					$("#opt1-quantity").val(1);
-					$("#opt2-quantity").val(1);
-					$('select[name="cnt"]').val(1);
-				}
-				
-				if($('select[name="cnt"]').val() > 1){
-					$('select[name="cnt"]').val(1);
-				}
-				
-				var up_index = 0;
-				var down_index = 0;
+				var opt1_txt = 1;
+				var opt2_txt = 1;
+				getOptTxt(opt1_txt, opt2_txt);
+				$('select[name="cnt"]').val(1);
 				
 				$(".up-btn").click(function(){
-					
+					var up_index = 0;
 					up_index = $(this).attr("title");
 					
 					if (up_index == 1){
 						opt1_txt = opt1_txt + 1;
-						$("#opt1-quantity").val(opt1_txt);
 					} else {
 						opt2_txt = opt2_txt + 1;
-						$("#opt2-quantity").val(opt2_txt);
 					}
+					getOptTxt(opt1_txt, opt2_txt);
 				
 				});
 				
 				$(".down-btn").click(function(){
 					
-					down_index = $(this).attr("title");
+					var down_index = $(this).attr("title");
 					
-					if (down_index == 1){
-						alert("down index 1" + down_index)
-						if(opt1_txt == 1){
-							alert("1버ㅡㄴ")
-							alert("최소 수량은 1개입니다.");
-						} else {
-							opt1_txt = opt1_txt - 1;
-							$("#opt1-quantity").val(opt1_txt);
-						}
-					} else {
-						alert("down index 2" + down_index)
-						if(opt2_txt == 1){
-							alert("2번")
-							alert("최소 수량은 1개입니다.");
-						} else {
+					if (opt1_txt <= 1 || opt2_txt <= 1){
+						
+						if(down_index == 2 & opt2_txt != 1){
 							opt2_txt = opt2_txt - 1;
-							$("#opt2-quantity").val(opt2_txt);
+						} else if (down_index == 1 & opt1_txt != 1){
+							opt1_txt = opt1_txt - 1;
 						}
+						
+					} else {
+						
+						if(down_index == 1){
+							opt1_txt = opt1_txt - 1;
+						} else if (down_index == 2){
+							opt2_txt = opt2_txt - 1;
+						}
+						
 					}
+					getOptTxt(opt1_txt, opt2_txt);
 				
 				});
-	
-	
+				
 				$('#pop_header').html(korname);
 				$('#modal_price').html(price_html);
 				
 				var menuType = $("#menu-type").attr("title");
 				var modal_hotYN = "";
-				
+
 				if (menuType == 'D'){
 					
 					if(hotYN == 'Iced' || hotYN == 'hot'){
 						modal_hotYN =
 							'<span id="hotYNChk"><input checked="checked" type="radio" name="chk_hotYN" name="hotYN" class="hotYN" id="btn_css" value="'+hotYN+'">'+hotYN;
-						select_hotYN = modal_hotYN;
+						select_hotYN = hotYN;
 					} else if(hotYN == 'HotIced'){
 						modal_hotYN =
 							'<span id="hotYNChk"><input checked="checked" type="radio" name="chk_hotYN" name="hotYN" class="hotYN" id="btn_css" value="hot">Hot</span><input id="btn_css" type="radio" name="chk_hotYN" name="hotYN" class="hotYN" value="Iced">Iced';
@@ -623,7 +613,7 @@
 				$('#layerpop').modal("show");
 	
 				$(".hotYN").click(function(){
-					select_hotYN = $(this).attr("value");
+					select_hotYN = $(this).val();
 				})
 				
 				console.log(price);
