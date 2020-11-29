@@ -44,7 +44,7 @@ public class OrderDTO extends MenuDTO{
 	private String orderDate;
 	private String adminYN;
 	
-<<<<<<< HEAD
+
 	private long cardNum;
 	private String id;
 	
@@ -62,7 +62,7 @@ public class OrderDTO extends MenuDTO{
 	public void setCardNum(long cardNum) {
 		this.cardNum = cardNum;
 	}
-=======
+
 	private String totalPriceStr;
 	private String menuPriceStr;
 	private String opt1PriceStr;
@@ -90,7 +90,7 @@ public class OrderDTO extends MenuDTO{
 	}
 
 	
->>>>>>> main
+
 	public long getOrderNum() {
 		return orderNum;
 	}
