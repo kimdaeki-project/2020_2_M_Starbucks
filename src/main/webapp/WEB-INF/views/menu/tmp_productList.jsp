@@ -377,7 +377,6 @@
 		}
 		
 		$('#order').click(function(){
-			alert(select_hotYN);
 			// 하늘 추가 코드: 선택한 데이터 정보 할당받기 위함
 			var quantity = $('select[name="cnt"]').val();
 			getQuantity(quantity);
@@ -474,12 +473,6 @@
 				var opt2_txt = 1;
 				getOptTxt(opt1_txt, opt2_txt);
 				$('select[name="cnt"]').val(1);
-				
-				alert("opt1_txt : " + opt1_txt);
-				alert("opt2_txt : " + opt2_txt);
-				
-				alert("opt1_val : " + $("#opt1-quantity").val())
-				alert("opt2_val : " + $("#opt2-quantity").val())
 				
 				$(".up-btn").click(function(){
 					var up_index = 0;
