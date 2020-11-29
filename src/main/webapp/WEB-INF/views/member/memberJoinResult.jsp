@@ -43,10 +43,10 @@
 						<section class="joinform">
 						<div class="find_mem_sally"></div>
 							<p class="find_form_txt">회원가입이 완료되었습니다.</p>
-							<div class="form_input_box id_chk">
+							<%-- <div class="form_input_box id_chk">
 								<label for="id" class="hid">아이디</label>
-								<p></p>
-							</div>
+								<p>${joinInfo.nickName} 님 환영합니다! </p>
+							</div> --%>
 						</section>
 						<p class="modify_txt2">
 							<b> * 회원가입한 정보로 로그인이 가능합니다. 로그인 후 이용해보세요. </b>

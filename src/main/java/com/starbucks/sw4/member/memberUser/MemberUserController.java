@@ -170,7 +170,7 @@ public class MemberUserController {
 //***************************************  JOIN  **************************************
 	@GetMapping(value={"memberJoin1", "memberJoin"})
 	public ModelAndView setMemberJoin1() throws Exception {
-		System.out.println("MemberUSerJoin1 -- Controller");
+		System.out.println("Controller - 회원가입 111");
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("member/memberJoin1");
 		
@@ -180,23 +180,29 @@ public class MemberUserController {
 	
 	@GetMapping("memberJoin2")
 	public ModelAndView setMemberJoin2(HttpSession session) throws Exception {
-		System.out.println("MemberUserJoin2 - Controller");
+		System.out.println("controller - 회원가입 222");
 		ModelAndView mv = new ModelAndView();
-
+		
 		AuthDTO authDTO = (AuthDTO)session.getAttribute("auth");
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("kakao");
-		
-		boolean kakaoCheck = memberDTO.getJoinPath().equals("kakao");
-		mv.addObject("kakaoCheck", kakaoCheck);
+		System.out.println("이메일 인증 : " + authDTO);
+		System.out.println("카카오 인증 : " + memberDTO);
+		if(memberDTO != null) {
+			String kakaoCheck = memberDTO.getJoinPath();
+			System.out.println("(190) 카카오로 가입한 회원인지 확인 : " + kakaoCheck);
+			mv.addObject("kakaoCheck", kakaoCheck);
+		}
 		
 		if(authDTO == null && memberDTO.getId() == null) {
 			mv.addObject("msg", "정보가 유효하지 않습니다. 다시 인증해주세요.");
 			mv.addObject("path", "./emailAuthSend");
 			mv.setViewName("common/result");
 		} else if(authDTO == null && memberDTO != null) {
+			System.out.println("(200) 카카오 회원의 가입요청 : " + memberDTO.getEmail());
 			mv.addObject("kakao", memberDTO);
 			mv.setViewName("member/memberJoin2");
 		} else {
+			System.out.println("(204) 이메일 인증 회원의 가입요청 : " + authDTO.getEmail());
 			mv.addObject("auth", authDTO);
 			mv.setViewName("member/memberJoin2");
 		}
@@ -205,24 +211,28 @@ public class MemberUserController {
 	}
 	
 	@PostMapping("memberJoin2")
-	public ModelAndView setMemberJoin2(MemberDTO memberDTO) throws Exception {
+	public ModelAndView setMemberJoin2(MemberDTO memberDTO, HttpSession session) throws Exception {
+		System.out.println("controller - 입력한 회원정보로 가입");
 		ModelAndView mv = new ModelAndView();
 		
-		System.out.println("birth" + memberDTO.getBirth());
-		System.out.println("name" + memberDTO.getGender());
-		System.out.println("phone" + memberDTO.getNickName());
-		System.out.println("email" + memberDTO.getEmail());
+		System.out.println("(218)birth : " + memberDTO.getBirth());
+		System.out.println("name : " + memberDTO.getName());
+		System.out.println("phone : " + memberDTO.getPhone());
+		System.out.println("nickName : " + memberDTO.getNickName());
+		System.out.println("email : " + memberDTO.getEmail());
 		
 		int result = memberUserService.setMemberJoin(memberDTO);
 		
 		if(result > 0) {
 			myService.setMemberJoinCard(memberDTO);
 			myService.setMemberJoinStar(memberDTO);
-			//myService.setMemberJoinStore(memberDTO);
+			myService.setMemberJoinStore(memberDTO);
 			
 			if(memberDTO.getNickName() != "") {
+				session.setAttribute("joinInfo", memberDTO.getNickName());
 				mv.addObject("msg", memberDTO.getNickName() + " 님 환영합니다!");
 			} else {
+				session.setAttribute("joinInfo", memberDTO.getName());
 				mv.addObject("msg", memberDTO.getName() + " 님 환영합니다!");
 			}
 			mv.addObject("member", memberDTO);
@@ -258,17 +268,16 @@ public class MemberUserController {
 	@PostMapping("emailAuthSend")
 	public ModelAndView setEmailAuthSend(AuthDTO authDTO, HttpServletRequest request, HttpServletResponse response, HttpSession session)  throws Exception {
 		ModelAndView mv = new ModelAndView();
-		
-		
+		System.out.println("send ---------------- "+authDTO.getEmail());
 		/* 인증번호 생성 */
 		Random r = new Random();
 		r.setSeed(System.currentTimeMillis());
 		int authKey = r.nextInt(1000000) + 100000;
-		if(authKey>1000000){
+		if(authKey > 1000000){
 			authKey = authKey - 100000;
 		}
 		authDTO.setAuthKey(authKey);
-        System.out.println("************************************************* 발급 인증키 : " + authKey);
+        System.out.println("(271)************************************************* 발급 인증키 : " + authKey);
         
 		String sendTime = new SimpleDateFormat("yyyy-MM-dd hh24:mm:ss").format(Calendar.getInstance().getTime());
 		sendTime = sendTime.substring(0, 19);
@@ -284,7 +293,9 @@ public class MemberUserController {
         	System.getProperty("line.separator") +
         	"인증번호는 '" + authDTO.getAuthKey() + "' 입니다. " + 
         	System.getProperty("line.separator")+
-        	"받으신 인증번호를 홈페이지에 입력해 주시면 다음으로 넘어갑니다.";
+        	"받으신 인증번호를 홈페이지에 입력해 주시면 다음으로 넘어갑니다."+
+        	System.getProperty("line.separator")+
+        	"본인이 아니실 경우 이 메일은 무시해주시면 됩니다. 감사합니다.";
         
         try {
             MimeMessage message = mailSender.createMimeMessage();
@@ -320,6 +331,7 @@ public class MemberUserController {
 	/* 인증번호 확인 */
 	@GetMapping("emailAuth")
 	public ModelAndView getEamilAuthCheck() throws Exception {
+		System.out.println("controller - 이메일 인증 확인");
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("member/emailAuth");
 		return mv;
@@ -327,22 +339,27 @@ public class MemberUserController {
 		
 	@PostMapping("emailAuth")
 	public ModelAndView getEamilAuthCheck(int authKey, HttpSession session) throws Exception {
+		System.out.println("controller - 입력한 인증 번호 일치 확인");
 		ModelAndView mv = new ModelAndView();
-		AuthDTO authDTO = new AuthDTO();
-		MemberDTO memberDTO = new MemberDTO();		
-		authDTO = (AuthDTO) session.getAttribute("auth");
+		MemberDTO memberDTO = new MemberDTO();
+		System.out.println("-------------------------------");
+		System.out.println(session.getAttribute("auth"));
 		
-		if(authDTO == null) {
+		AuthDTO authDTO  = (AuthDTO) session.getAttribute("auth");
+		System.out.println("(338) "+ authDTO.getEmail());
+		System.out.println("-------------------------------");
+		
+		if(authDTO.getEmail() == null) {
 			mv.addObject("msg", "이메일이 유효하지 않습니다. 다시 인증해주세요.");
 			mv.addObject("path", "./emailAuthSend");
-		}
-		else {
+		} else {
 			System.out.println("------ 사용자 인증키 : " + authKey);
 			System.out.println("------ DB 인증키 : " + authDTO.getAuthKey());
 						
 			if(authKey == authDTO.getAuthKey()) {
 				memberDTO.setEmail(authDTO.getEmail());
 				
+				//인증이 성공하면 AuthStatus 1로 업데이트
 				authDTO.setAuthStatus(1);
 				authService.setEmailAuthStatus(authDTO);				
 				
@@ -359,13 +376,16 @@ public class MemberUserController {
 	}
 //************************************************************************************* 
 	
-	
+
+
 //***************************************  CHECK  **************************************
 	@PostMapping("memberEmailCheck")
 	public ModelAndView getMemberEmailCheck(MemberDTO memberDTO) throws Exception {
+		System.out.println("Controller - 이메일 체크");
 		ModelAndView mv = new ModelAndView();
 		
 		long result = memberUserService.getMemberEmailCheck(memberDTO);
+		System.out.println("이메일 체크 결과 : " + result);
 		if(result > 0) {
 			System.out.println("이미 가입된 회원이 가입 시도");
 		}
@@ -380,7 +400,7 @@ public class MemberUserController {
 		ModelAndView mv = new ModelAndView();
 		
 		long result = memberUserService.getMemberIdCheck(memberDTO);
-		System.out.println("IdCheck : " + result);
+		System.out.println("(390)IdCheck : " + result);
 		
 		mv.addObject("msg", result);
 		mv.setViewName("common/ajaxResult");
@@ -393,7 +413,7 @@ public class MemberUserController {
 		ModelAndView mv = new ModelAndView();
 		
 		long result = memberUserService.getMemberPhoneCheck(memberDTO);
-		System.out.println("PhoneCheck : " + result);
+		System.out.println("(403)PhoneCheck : " + result);
 		
 		mv.addObject("msg", result);
 		mv.setViewName("common/ajaxResult");
