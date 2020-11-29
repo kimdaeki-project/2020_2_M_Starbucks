@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.starbucks.sw4.member.MemberDTO;
+import com.starbucks.sw4.my.star.StarDTO;
+import com.starbucks.sw4.my.star.StarService;
+import com.starbucks.sw4.order.OrderDTO;
+import com.starbucks.sw4.order.pay.PayDTO;
 
 import oracle.jdbc.proxy.annotation.Post;
 
@@ -22,6 +26,9 @@ import oracle.jdbc.proxy.annotation.Post;
 public class MyController {
 	@Autowired
 	private MyService myService;
+	
+	@Autowired
+	private StarService starService;
 	
 	@GetMapping("cardTopup")
 	public void setCardTopup() {
@@ -85,10 +92,11 @@ public class MyController {
 		System.out.println(myDTO.getContents());
 		System.out.println(myDTO.getVisitDate());
 		
-		MyDTO myDTO2 = (MyDTO) session.getAttribute("my");
-		myDTO.setId(myDTO2.getId());
+		MyDTO myId = (MyDTO) session.getAttribute("my");
+		myDTO.setId(myId.getId());
 		System.out.println("category2: "+myDTO.getCategory());
 		int result = myService.setVocList(myDTO);
+	
 		if(result>0) {
 			mv.addObject("msg", "문의내역이 저장되었습니다");
 			mv.addObject("path", "./myIndex");
@@ -124,7 +132,7 @@ public class MyController {
 	@GetMapping("myStarHistory")
 	public ModelAndView getMyStar(HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		MyDTO myDTO = (MyDTO) session.getAttribute("my");
+		MemberDTO myDTO = (MemberDTO) session.getAttribute("member");
 		MyDTO star = myService.getMyStar(myDTO);
 		System.out.println(star.getUseStar());
 		System.out.println(star.getCardNum());
@@ -179,7 +187,7 @@ public class MyController {
 	@GetMapping("updateMyInfo")
 	public ModelAndView getOne(HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		MyDTO myDTO = (MyDTO) session.getAttribute("my");
+		MemberDTO myDTO = (MemberDTO) session.getAttribute("member");
 		MyDTO info = myService.getOne(myDTO);
 		
 		String birth = info.getBirth();
@@ -224,6 +232,13 @@ public class MyController {
 		return mv;
 	}
 	
-	
+	@GetMapping("cardtest")
+	public void test(PayDTO payDTO, HttpSession session)throws Exception{
+		myService.setMemberCard(payDTO, session);
+	}
+	@GetMapping("star")
+	public void startest(PayDTO payDTO, HttpSession session)throws Exception{
+		myService.setStarCard(payDTO, session);
+	}
 	
 }

@@ -27,7 +27,7 @@
    <script src="${pageContext.request.contextPath}/resources/js/common/jquery.bxslider.min.js"></script>
    
    
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   
    
@@ -108,7 +108,7 @@
     										<input type="checkbox" name="checkRow" id="td_checkRow" title="전체 선택" class="ez-hide"></div></td>
 									 	<td>${ar.r}</td>
 									  	<td>
-									  	 <img src="//image.istarbucks.co.kr/${ar.defaultfile}" alt=".">
+									  	 <img src="//image.istarbucks.co.kr/${ar.defaultfile}" alt="이미지가 없습니다">
 									  	</td>
 									  	<td>${ar.storeName}</td>
 									    <td>${ar.addr }</td>
@@ -153,7 +153,7 @@
    }
 
 
-   출처: https://aramk.tistory.com/21 [깨순이네]
+
    
    </script>
    

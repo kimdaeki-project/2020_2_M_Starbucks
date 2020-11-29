@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="com.starbucks.sw4.my.star.StarDAO">
+    	
+    	<update id="setStarCard" parameterType="StarDTO">
+    		update starHistory set useStar=#{useStar}, totalStar=#{totalStar}, state=#{state}, saveDate=#{orderDate}, validDate=#{sysdate+365} where id =#{id}
+    	</update>
+    	
+    	<select id="getStore" parameterType="StarDTO" resultType="StarDTO">
+    		select storeName, addr from store where storeCode =#{storeCode}
+    	</select>
+    	
+    <!-- 회원가입시 각 테이블 초기화  -->
+    	<insert id="setMemberJoinCard" parameterType="MemberDTO">
+    		insert into membercard values (card_seq.nextval, #{id}, null, null, null, null, null, null, #{num})
+    	</insert>
+    	
+    	<insert id="setMemberJoinStar" parameterType="MemberDTO">
+    		insert into starhistory values (star_seq.nextval, #{id}, null, 0, 0, 0, null, null, 0, sysdate, sysdate)
+    	</insert>
+    	
+    	<insert id="setMemberJoinStore" parameterType="MemberDTO">
+    		insert into memberstore values (#{id}, null,null,null,null)
+    	</insert>
+    	
+    
+    </mapper>

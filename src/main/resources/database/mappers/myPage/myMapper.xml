@@ -4,12 +4,44 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
     <mapper namespace="com.starbucks.sw4.my.MyDAO">
+    	<update id="setMemberStore" parameterType="MyDTO">
+    		update memberstore set storeCode=#{storeCode}, storeName=#{storeName}, addr=#{addr}, defaultfile=#{defaultfile} where id=#{id}
+    	</update>
+    	
+    	<update id="setStarCard" parameterType="MyDTO">
+    		update starHistory set useStar=#{useStar}, totalStar=#{totalStar}, state=#{state}, storeName=#{storeName}, totalPrice=#{totalPrice}, saveDate=sysdate, validDate=sysdate+365 where id =#{id}
+    	</update>
+    	
+    	<select id="getStarStore" parameterType="MyDTO" resultType="MyDTO">
+    		select s.storeCode, s.storeName, s.addr, f.defaultfile 
+			from store S join storefile F
+			ON S.storecode = F.storecode
+			where s.storeCode = #{storeCode}
+    	</select>
+    	
+    	<update id="setCardNum" parameterType="HashMap">
+    		update starHistory set cardNum = #{card.cardNum}
+    		where id=(select id from member where num=#{member.num})
+    	</update>
+    	
+    	<update id="setMemberCard" parameterType="HashMap">
+    		update membercard set menuCode=#{card.menuCode}, cardnum=#{card.cardNum}, korName=#{card.korName}, menuimage=#{card.menuImage}, balance=#{card.totalPrice}, memberNum=#{member.num} where id =#{member.id}
+    	</update>
+    	
+    	<select id="getMenu" parameterType="OrderDTO" resultType="OrderDTO">
+    		select menuCode, korName, menuImage from menu where menuCode = #{menuCode}
+    	</select>
+    	
+    	<select id="getOrder" parameterType="PayDTO" resultType="OrderDTO">
+    		select * from menuorder where orderNum= #{orderNum}
+    	</select>
+    
     	<insert id="setVocList" parameterType="MyDTO">
-    		insert into customerqna values (qna_seq.nextval, #{category}, #{id}, #{storeName}, #{visitDate}, #{title}, #{contents})
+    		insert into customerqna values (qna_seq.nextval, #{category}, #{id}, #{storeName}, #{visitDate}, #{title}, #{contents}, #{storecode})
     	</insert>
     
     	<select id="getStore" parameterType="MyDTO" resultType="MyDTO">
-    		select storeName, addr from store where storeName like '%'||#{stosearch}||'%'
+    		select storeName, addr, storecode from store where storeName =#{storeName}
     	</select>
     	
     	<delete id="setMyInfoOut" parameterType="MyDTO">
@@ -25,7 +57,7 @@
 			where M.id = #{id}
     	</select>
     	
-    	<select id="getOne" parameterType="MyDTO" resultType="MyDTO">
+    	<select id="getOne" parameterType="MemberDTO" resultType="MyDTO">
     		select * from member where id = #{id}
     	</select>
  
@@ -37,20 +69,23 @@
  			update member set pw=#{pw} where id=#{id}
 	 	</update>
     
-    	<select id="getMyStar" parameterType="MyDTO" resultType="MyDTO">
+    	<select id="getMyStar" parameterType="MemberDTO" resultType="MyDTO">
     		select * from starhistory where id = #{id}
     	</select>
     	
     	<select id="getMyStore" parameterType="MyDTO" resultType="MyDTO">
     		select rownum R, N.* from (select * from memberStore where id= #{id})N
-    		
     	</select>
     	
-		<insert id="setMemberJoinCard" parameterType="MemberDTO">
-        	insert into membercard values (card_seq.nextval, #{id}, null, null, null, null, null, null, #{num})
-		</insert>
-       
-		<insert id="setMemberJoinStar" parameterType="MemberDTO">
-			insert into starhistory values (star_seq.nextval, #{id}, null, 0, 0, 0, null, null, 0, sysdate, sysdate)
-		</insert>
+    	<insert id="setMemberJoinCard" parameterType="MemberDTO">
+    		insert into membercard values (card_seq.nextval, #{id}, null, null, null, null, null, null, #{num})
+    	</insert>
+    	
+    	<insert id="setMemberJoinStar" parameterType="MemberDTO">
+    		insert into starhistory values (star_seq.nextval, #{id}, null, 0, 0, 0, null, null, 0, sysdate, sysdate)
+    	</insert>
+    	
+    	<insert id="setMemberJoinStore" parameterType="MemberDTO">
+    		insert into memberstore values (#{id}, null,null,null,null)
+    	</insert>
     </mapper>
