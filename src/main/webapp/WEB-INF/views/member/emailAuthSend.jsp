@@ -49,7 +49,7 @@
 							<input type="hidden" name="authState" id="authState" value="0" />
 						</section>
 						<p class="btn_email_auth">
-							<button type="submit" class="auth_send" name="submit">이메일 인증 발송</button>
+							<button type="button" class="auth_send" name="">이메일 인증 발송</button>
 						</p>
 					</fieldset>
 				</form>
@@ -79,6 +79,7 @@
 						alert(result);
 						location.href="./memberLogin";
 					} else {
+						$("form").submit();
 						result = "이메일이 발송되었습니다. 인증번호를 확인 후 입력해주세요.";
 						alert(result);
 						location.href="./emailAuth";
