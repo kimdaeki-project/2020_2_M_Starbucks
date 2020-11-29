@@ -65,4 +65,13 @@ public class MemberUserDAOTest extends MyTestCase {
 		
 		assertEquals(result, 0);
 	}
+	
+	//@Test
+	public void getMemberPhoneCheck() throws Exception {
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setPhone("010-9999-0000");
+		long result = memberUserDAO.getMemberPhoneCheck(memberDTO);
+		System.out.println(result);
+		assertEquals(result, 1);
+	}
 }

@@ -7,10 +7,16 @@ public interface MemberService {
 	
 	//login
 	public MemberDTO getMemberLogin(MemberDTO memberDTO) throws Exception;
-
+	
+	//kakaoLogin
+	public MemberDTO getMemberKakaoLogin(MemberDTO memberDTO) throws Exception;
+		
 	//idCheck
 	public long getMemberIdCheck(MemberDTO memberDTO) throws Exception;
 
 	//emailCheck
 	public long getMemberEmailCheck(MemberDTO memberDTO) throws Exception;
+	
+	//phoneCheck
+	public long getMemberPhoneCheck(MemberDTO memberDTO) throws Exception;
 }

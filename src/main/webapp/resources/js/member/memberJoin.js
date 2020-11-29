@@ -1,19 +1,7 @@
 $(document).ready(function() {
 	
-	/* Join 버튼 클릭시 */
-	var idCheck = false;
-	var pwCheck = false;
-	var emptyCheckResult = true;
-	
-	
-	/* Join 버튼 클릭시 end */
-	
-	
-	
-	
 	initBirth();
 	getInfoPop();
-	//setEvents();
 	
 	
 	
@@ -109,28 +97,6 @@ $(document).ready(function() {
 		});
 	}
 	/* (!) 팝업 end */
-	
-	
-
-
-	/* 빈칸 이벤트 처리 */
-	/*function setEvents() {
-		
-		$("input:text, input:password, input#phone, input#email").on("focus", function () {
-			
-			if($(this).hasClass("input_warn") === false) {
-				$(this).addClass("green");
-			}
-		}).on("keydown", function () {
-			$(this).nextAll('.limit_txt').hide();
-			$(this).nextAll('.input_warn_text').hide();
-			$(this).attr({ "aria-describedby": "", "aria-invalid": "false" });
-		}).on("blur", function () {
-			$(this).removeClass("green");
-		});
-				
-	}*/
-	/* 빈칸 이벤트 처리 */
 	
 	
 	

@@ -395,20 +395,30 @@
 	</div>	
 	<!-- WEB GNB 영역 end -->
 	
+	<!-- ------------------------------------------------------------------------------------------------------------------------------- -->
 	<!-- MOBILE GNB 영역 -->
 	<!-- 960 gnb -->
 	<div class="tablet_gnb_wrap">
 		<h1 class="logo">
-			<a href="#">스타벅스 코리아</a>
+			<a href="${pageContext.request.contextPath}/">스타벅스 코리아</a>
 		</h1>
 		<nav class="tablet_gnb_sep">
 			<ul>
 				<li class="tablet_gnb01"></li>
+				<c:choose>
+				<c:when test="${not empty member}">
 				<li class="tablet_gnb02">
-					<a href="#"><span class="ally">마이스타벅스</span></a>
+					<a href="${pageContext.request.contextPath}/my/myIndex"><span class="ally">마이스타벅스</span></a>
 				</li>
+				</c:when>
+				<c:otherwise>
+				<li class="tablet_gnb02">
+					<a href="${pageContext.request.contextPath}/member/memberLogin"><span class="ally">마이스타벅스</span></a>
+				</li>
+				</c:otherwise>
+				</c:choose>
 				<li class="tablet_gnb03">
-					<a href="#"><span class="ally">매장찾기</span></a>
+					<a href="${pageContext.request.contextPath}/store/storeMap"><span class="ally">매장찾기</span></a>
 				</li>
 				<li class="tablet_gnb04">
 					<a href="#"><span class="ally" role="button">메뉴열기</span></a>

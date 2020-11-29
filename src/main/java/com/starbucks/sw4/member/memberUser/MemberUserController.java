@@ -128,34 +128,40 @@ public class MemberUserController {
 	
 	@PostMapping("kakaoLogin")
 	@ResponseBody
-	public boolean setKakaoLogin(@RequestBody String json, HttpSession session) throws Exception {
-		//ModelAndView mv = new ModelAndView();
-		MemberDTO memberDTO = new MemberDTO();
-		AuthDTO authDTO = new AuthDTO();
-		System.out.println(json);
-		String[] info = json.split("%2C");
-		for(String str : info) {
-			memberDTO.setId(info[0]);
-			if(info[1].contains("%40")) {
-				info[1].replace("%40", "@");
-				System.out.println(info[1]);
-				memberDTO.setEmail(info[1]);
-				authDTO.setEmail(info[1]);
-			} 
-			if(info[2].contains("female")) {
-				memberDTO.setGender("여");
-			} else {
-				memberDTO.setGender("남");
-			}
-		}
-		session.setAttribute("auth", authDTO);
-		session.setAttribute("join", memberDTO);
+	public ModelAndView setKakaoLogin(MemberDTO memberDTO, HttpSession session) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		System.out.println("Kakao ID ; " + memberDTO.getId());
+		System.out.println("kakao EMAIL ; " + memberDTO.getEmail());
 		
-		return true;
+		//가입된 회원인지 확인
+		long result = memberUserService.getMemberIdCheck(memberDTO);
+		result = memberUserService.getMemberEmailCheck(memberDTO);
+		
+		if(result > 0) {
+			memberDTO.setJoinPath("kakao");
+			memberDTO = memberUserService.getMemberKakaoLogin(memberDTO);
+			System.out.println(memberDTO);
+			if(memberDTO != null && memberDTO.getType()==1) {
+				session.setAttribute("member", memberDTO);
+				MyDTO myDTO = new MyDTO();
+				myDTO.setId(memberDTO.getId());
+				session.setAttribute("my", myDTO);
+				
+				mv.addObject("msg", 1);
+			} else {
+				mv.addObject("msg", 2);
+			}
+		} else {
+			memberDTO.setJoinPath("kakao");
+			session.setAttribute("kakao", memberDTO);
+			mv.addObject("msg", 0);
+		}
+		mv.setViewName("common/ajaxResult");
+		return mv;
 	}
 //************************************************************************************* 
-	
-	
+
+
 //***************************************  JOIN  **************************************
 	@GetMapping(value={"memberJoin1", "memberJoin"})
 	public ModelAndView setMemberJoin1() throws Exception {
@@ -173,14 +179,23 @@ public class MemberUserController {
 		ModelAndView mv = new ModelAndView();
 
 		AuthDTO authDTO = (AuthDTO)session.getAttribute("auth");
-		if(authDTO == null) {
-			mv.addObject("msg", "유효시간이 경과하였습니다. 다시 인증해주세요.");
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("kakao");
+		
+		boolean kakaoCheck = memberDTO.getJoinPath().equals("kakao");
+		mv.addObject("kakaoCheck", kakaoCheck);
+		
+		if(authDTO == null && memberDTO.getId() == null) {
+			mv.addObject("msg", "정보가 유효하지 않습니다. 다시 인증해주세요.");
 			mv.addObject("path", "./emailAuthSend");
 			mv.setViewName("common/result");
+		} else if(authDTO == null && memberDTO != null) {
+			mv.addObject("kakao", memberDTO);
+			mv.setViewName("member/memberJoin2");
 		} else {
 			mv.addObject("auth", authDTO);
 			mv.setViewName("member/memberJoin2");
 		}
+		
 		return mv;
 	}
 	
@@ -193,11 +208,12 @@ public class MemberUserController {
 		System.out.println("phone" + memberDTO.getNickName());
 		System.out.println("email" + memberDTO.getEmail());
 		
-		//int result = memberUserService.setMemberJoin(memberDTO);
-		int result =1;
+		int result = memberUserService.setMemberJoin(memberDTO);
+		
 		if(result > 0) {
-			//myService.setMemberJoinCard(memberDTO);
-			//myService.setMemberJoinStar(memberDTO);
+			myService.setMemberJoinCard(memberDTO);
+			myService.setMemberJoinStar(memberDTO);
+			//myService.setMemberJoinStore(memberDTO);
 			
 			if(memberDTO.getNickName() != "") {
 				mv.addObject("msg", memberDTO.getNickName() + " 님 환영합니다!");
@@ -284,7 +300,7 @@ public class MemberUserController {
         
         if(result > 0) {
         	session.setAttribute("auth", authDTO);
-        	//mv.addObject("auth", authDTO);
+        	mv.addObject("auth", authDTO);
             mv.setViewName("member/emailAuth");
         } else {
         	mv.addObject("msg", "인증메일이 발송되지 않았습니다. 다시 확인해주시기 바랍니다.");
@@ -296,14 +312,14 @@ public class MemberUserController {
 	}
 	
 	
+	/* 인증번호 확인 */
 	@GetMapping("emailAuth")
 	public ModelAndView getEamilAuthCheck() throws Exception {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("member/emailAuth");
 		return mv;
 	}
-	
-	/* 인증번호 확인 */
+		
 	@PostMapping("emailAuth")
 	public ModelAndView getEamilAuthCheck(int authKey, HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -312,9 +328,8 @@ public class MemberUserController {
 		authDTO = (AuthDTO) session.getAttribute("auth");
 		
 		if(authDTO == null) {
-			mv.addObject("msg", "이메일 발송이 실패했습니다. 다시 입력해주세요.");
+			mv.addObject("msg", "이메일이 유효하지 않습니다. 다시 인증해주세요.");
 			mv.addObject("path", "./emailAuthSend");
-			mv.setViewName("common/result");
 		}
 		else {
 			System.out.println("------ 사용자 인증키 : " + authKey);
@@ -328,17 +343,13 @@ public class MemberUserController {
 				
 				mv.addObject("msg", "인증이 완료되었습니다.");
 				mv.addObject("path", "./memberJoin2");
-				mv.setViewName("common/result");
-				//mv.addObject("email", memberDTO);
-				//mv.setViewName("member/memberJoin2");
 			} else {
 				mv.addObject("msg", "인증번호가 일치하지 않습니다. 다시 확인해주세요.");
 				mv.addObject("path", "./emailAuth");
-				mv.setViewName("common/result");
 			}
-			session.setAttribute("join", authDTO);
+			session.setAttribute("auth", authDTO);
 		}
-	//	mv.setViewName("common/result");
+		mv.setViewName("common/result");
 		return mv;
 	}
 //************************************************************************************* 
@@ -365,6 +376,19 @@ public class MemberUserController {
 		
 		long result = memberUserService.getMemberIdCheck(memberDTO);
 		System.out.println("IdCheck : " + result);
+		
+		mv.addObject("msg", result);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+	}
+	
+	@PostMapping("memberPhoneCheck")
+	public ModelAndView getMemberPhoneCheck(MemberDTO memberDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		
+		long result = memberUserService.getMemberPhoneCheck(memberDTO);
+		System.out.println("PhoneCheck : " + result);
 		
 		mv.addObject("msg", result);
 		mv.setViewName("common/ajaxResult");

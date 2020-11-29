@@ -23,6 +23,11 @@ public class MemberUserService implements MemberService {
 	public MemberDTO getMemberLogin(MemberDTO memberDTO) throws Exception {
 		return memberUserDAO.getMemberLogin(memberDTO);
 	}
+	
+	@Override
+	public MemberDTO getMemberKakaoLogin(MemberDTO memberDTO) throws Exception {
+		return memberUserDAO.getMemberKakaoLogin(memberDTO);
+	}
 
 	//idCheck
 	@Override
@@ -34,5 +39,11 @@ public class MemberUserService implements MemberService {
 	@Override
 	public long getMemberEmailCheck(MemberDTO memberDTO) throws Exception {
 		return memberUserDAO.getMemberEmailCheck(memberDTO);
+	}
+	
+	//phoneCheck
+	@Override
+	public long getMemberPhoneCheck(MemberDTO memberDTO) throws Exception {
+		return memberUserDAO.getMemberPhoneCheck(memberDTO);
 	}
 }
