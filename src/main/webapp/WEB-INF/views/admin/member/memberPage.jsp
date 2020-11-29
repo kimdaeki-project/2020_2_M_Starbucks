@@ -207,6 +207,16 @@
 			#select-type{
 				margin-right: 0rem;
 			}
+			
+			#store-area {
+			    height: 280px;
+			    width: 500px;
+			    overflow: hidden;
+			}
+			
+			#store-image-area {
+			    max-width: 100%;
+			}
 		</style>
 	</head>
 	
@@ -232,7 +242,11 @@
 						<div id="store-info">
 							<table class="table table-bordered" id="store-info-table">
 								<tr>
-									<td id="store-image" rowspan="4"></td>
+									<td id="store-image" rowspan="4">
+										<div id="store-area">
+											<img id="store-image-area" src="" alt="">
+										</div>
+									</td>
 									<td colspan="4" id="store-title">근무지 정보</td>
 								</tr>
 								<tr class="store-row">
@@ -621,7 +635,7 @@
 				$(".work-time").attr("readonly",readOnly)
 			}
 
-			function showList(id,timeTable, num, name, type, storeName, doro_addr, staffCount, storeCode){
+			function showList(id,timeTable, num, name, type, storeName, doro_addr, staffCount, storeCode, storeInfo){
 				
 				$("#name").text(name)
 				$("#update-btn").css("visibility","visible")
@@ -637,6 +651,12 @@
 				$("#type").text(type)
 				
 				$("#work-store").text(storeName)
+				if (storeInfo == '' || storeInfo == 'null'){
+					console.log("이미지가 없습니다.");
+					$("#store-image-area").attr("src","")
+				} else {
+					$("#store-image-area").attr("src","//image.istarbucks.co.kr/"+storeInfo)
+				}
 				
 				$("#doro-addr").text(doro_addr)
 				$("#work-store-count").text(staffCount)

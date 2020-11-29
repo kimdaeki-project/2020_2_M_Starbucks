@@ -103,44 +103,44 @@
 							
 							<!-- MENU -->
 							<li class="gnb_nav02">
-								<h2><a href="#" class="">MENU</a></h2>
+								<h2><a href="${pageContext.request.contextPath}/menu/menuDrink" class="">MENU</a></h2>
 								<div class="gnb_sub_wrap" style="display:none;">
 									<!-- MENU 서브 메뉴 -->
 									<div class="gnb_sub">
 										<div class="gnb_sub_inner">
 											<ul>
-												<li class="gnb_sub_ttl"><a href="#">음료</a></li>
-												<li><a href="#">콜드 브루</a></li>
-												<li><a href="#">브루드 커피</a></li>
-												<li><a href="#">에스프레소</a></li>
-												<li><a href="#">프라푸치노</a></li>
-												<li><a href="#">블렌디드</a></li>
-												<li><a href="#">스타벅스 피지오</a></li>
-												<li><a href="#">티(티바나)</a></li>
-												<li><a href="#">기타 제조 음료</a></li>
-												<li><a href="#">스타벅스 주스(병음료)</a></li>
+												<li class="gnb_sub_ttl"><a href="${pageContext.request.contextPath}/menu/menuDrink">음료</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuDrink?category=콜드 브루">콜드 브루</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuDrink?category=브루드 커피">브루드 커피</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuDrink?category=에스프레소">에스프레소</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuDrink?category=프라푸치노">프라푸치노</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuDrink?category=블렌디드">블렌디드</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuDrink?category=스타벅스 피지오">스타벅스 피지오</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuDrink?category=티">티(티바나)</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuDrink?category=기타 제조 음료">기타 제조 음료</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuDrink?category=스타벅스 주스(병음료)">스타벅스 주스(병음료)</a></li>
 											</ul>
 											<ul>
-												<li class="gnb_sub_ttl"><a href="#">푸드</a></li>	
-												<li><a href="#">브레드</a></li>
-												<li><a href="#">케이크</a></li>
-												<li><a href="#">샌드위치 & 샐러드</a></li>
-												<li><a href="#">따뜻한 푸드</a></li>
-												<li><a href="#">과일 & 요거트</a></li>
-												<li><a href="#">스낵 & 미니디저트</a></li>
-												<li><a href="#">아이스크림</a></li>
+												<li class="gnb_sub_ttl"><a href="${pageContext.request.contextPath}/menu/menuFood">푸드</a></li>	
+												<li><a href="${pageContext.request.contextPath}/menu/menuFood?category=브레드">브레드</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuFood?category=케이크">케이크</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuFood?category=샌드위치&샐러드">샌드위치 & 샐러드</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuFood?category=따뜻한 푸드">따뜻한 푸드</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuFood?category=과일&요거트">과일 & 요거트</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuFood?category=스낵&미니디저트">스낵 & 미니디저트</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuFood?category=아이스크림">아이스크림</a></li>
 											</ul>
 											<ul>
-												<li class="gnb_sub_ttl"><a href="#">상품</a></li>
-												<li><a href="#">머그</a></li>
-												<li><a href="#">글라스</a></li>
-												<li><a href="#">플라스틱텀블러</a></li>
-												<li><a href="#">스테인리스 텀블러</a></li>
-												<li><a href="#">보온병</a></li>
-												<li><a href="#">액세서리</a></li>
-												<li><a href="#">커피용품</a></li>
-												<li><a href="#">패키지 티(티바나)</a></li>
-												<li><a href="#">스타벅스 플래너</a></li>
+												<li class="gnb_sub_ttl"><a href="${pageContext.request.contextPath}/menu/menuProduct">상품</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuProduct?category=머그">머그</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuProduct?category=글라스">글라스</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuProduct?category=플라스틱 텀블러">플라스틱 텀블러</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuProduct?category=스테인리스 텀블러">스테인리스 텀블러</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuProduct?category=보온병">보온병</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuProduct?category=악세서리">악세서리</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuProduct?category=커피 용품">커피 용품</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuProduct?category=패키지 티">패키지 티(티바나)</a></li>
+												<li><a href="${pageContext.request.contextPath}/menu/menuProduct?category=스타벅스 플래너">스타벅스 플래너</a></li>
 											</ul>
 											<ul>
 												<li class="gnb_sub_ttl"><a href="#">커피</a></li>

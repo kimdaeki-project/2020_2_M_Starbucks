@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 0px;
+}
+.container{
+	width: 78%;
+	background-color: white;
+}
+#pay-result-contetns-area{
+	margin-top: 2rem;
+	padding: 1rem;
+}
+#contents-header{
+	padding: 0px 0.5rem;
+	border-bottom: 2px solid #006633;
+	justify-content: space-between;
+}
+
+#contents-header > div{
+	display: inline-block;
+}
+
+#contents-header span{
+	font-size: 3rem;
+	font-weight: bold;
+}
+
+#menu-table{
+	float: right;
+	margin-top: 2rem;
+	display: inline-block;
+}
+
+#menu-table-tr > td{
+	font-size: 1.3rem;
+	padding: 0.2rem 0.5rem;
+}
+#order-success{
+	color: #006633;
+	font-weight: bold;
+}
+#order-summary-head{
+	padding: 16rem 0px;
+	text-align:center;
+	border-bottom: 2px solid #F6F6F6;
+}
+#order-result{
+	font-size: 3rem;
+	padding: 0.5rem 0px;
+}
+#order-result-2 > div{
+	color: #5D5D5D;
+	display: inline-block;
+	margin: 0px 3rem;
+}
+#result{
+	color: #420100;
+	font-weight: bold;
+}
+#order-more-btn-area{
+	margin-top: 4.5rem;
+}
+#order-more-btn{
+	background-color: #006633;
+	color: white;
+	font-size: 1.5rem;
+	padding: 1.8rem 1.8rem;
+	cursor: pointer;
+}
+
+.summary-area{
+	display: inline-block;
+	width: 49%;
+}
+
+#pay-info-area{
+	float: right;
+}
+
+#order-summary-body{
+	margin-top: 2rem;
+}
+
+#summary-title{
+	font-size: 2rem;
+}
+
+.summary-area-table{
+	width: 100%;
+}
+
+.table-area{
+	padding: 2rem;
+	margin-top: 0.8rem;
+	background-color: #F6F6F6;
+}
+
+.summary-area-table td {
+	padding: 1rem 0.5rem;
+}
+
+#column-title{
+	width: 8rem;
+}
+#pay-info-table-tr{
+	border-bottom: 1px solid #D8D8D8;
+}
+#pay-info-table td{
+	padding: 0.5rem;
+}
+#total-column{
+	font-weight: bold;
+}
+#total td{
+	font-size: 1.5rem;
+	padding-top: 1.3rem;
+}
+
+#column-title-2{
+	width: 13rem;
+}
+
+.order-price{
+	text-align: right;
+}
+
+main{
+	margin-bottom: 15rem;
+}

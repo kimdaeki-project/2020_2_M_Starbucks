@@ -18,6 +18,13 @@ public class AdminStoreController {
 	
 	@Autowired
 	private AdminStoreService adminStoreService;
+	
+	@GetMapping("order")
+	public ModelAndView getOrderPage() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/order/storeOrder");
+		return mv;
+	}
 
 	@GetMapping("storeList")
 	public ModelAndView getList(AdminStoreDTO dto, StoreDTO sDTO) throws ClassNotFoundException, SQLException{

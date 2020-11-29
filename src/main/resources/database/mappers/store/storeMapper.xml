@@ -6,4 +6,8 @@
 	<select id="getStoreList" resultType="StoreDTO">
 		select * from store
 	</select>
+	<!-- 성민님께 전달드리기 -->
+	<select id="getStoreOne" resultType="StoreDTO" parameterType="StoreDTO">
+		select * from store where storeCode = #{storeCode}
+	</select>
 </mapper>

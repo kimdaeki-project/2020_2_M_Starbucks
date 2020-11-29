@@ -2,12 +2,21 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.starbucks.sw4.menu.menu.MenuDAO">
+<mapper namespace="com.starbucks.sw4.menu.MenuDAO">
 
-	<select id="getMenuList" parameterType="String" resultMap="getMenuListResult">
-		select menuCode, korName, menuImage, price, limited, limitedStore, descr 
-		 from menu
-		 where menuCode like '%'||#{type}||'%'
+	<select id="getOne" parameterType="MenuDTO" resultMap="getMenuListResult">
+		select M.*, MO.hotYN, MO.opt1,MO.opt2 from menuOption MO full join menu M on(MO.optIndex = M.optIndex)
+		where M.menuCode=#{menuCode}
+	</select>
+	
+	<select id="getCategoryList" parameterType="MenuDTO" resultType="CategoryDTO">
+		select * from menuCategory where type = #{type}
+	</select>
+
+	<select id="getMenuList" parameterType="MenuDTO" resultMap="getMenuListResult">
+		select M.*, MO.optIndex,MO.hotYN,MO.opt1, MO.opt2
+		from menu M full join menuOption MO on(M.optIndex = MO.optIndex)
+		where M.menuCode like '%'||#{type}||'%' and M.category like '%'||#{category}||'%'
 	</select>
 	<resultMap type="MenuDTO" id="getMenuListResult">
 		<id column="menuCode" property="menuCode"/>
@@ -17,8 +26,17 @@
 		<result column="limited" property="limited"/>
 		<result column="limitedStore" property="limitedStore"/>
 		<result column="descr" property="descr"/>
+		<result column="category" property="category"/>
+		<association property="optionDTO" javaType="OptionDTO" resultMap="getOptionDTO">
+		</association>
 	</resultMap>
 	
+	<resultMap type="OptionDTO" id="getOptionDTO">
+		<id column="optIndex" property="optIndex"/>
+		<result column="hotYn" property="hotYn"/>
+		<result column="opt1" property="opt1"/>
+		<result column="opt2" property="opt2"/>
+	</resultMap>
 	
 	<select id="getOptionList" resultType="OptionDTO">
 		select *

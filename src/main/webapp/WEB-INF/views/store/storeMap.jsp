@@ -248,7 +248,7 @@
 											<img alt="" src="${pageContext.request.contextPath}/resources/images/store/icon_fav_off.png"> 클릭하여 나만의 매장을 등록하세요.</span>
 											<div class="desti_top_wrap carFindRoad" style="display: none">
 												<strong class="desti_top_ttl car_find_endName">스타벅스 영풍문고점</strong>
-												<img alt="" src="${pageContext.request.contextPath}/resources/imagesstore/icon_fav_off.png" class="roadFav setStoreFavBtn" data-store="0" data-yn="N" data-name="">
+												<img alt="" src="${pageContext.request.contextPath}/resources/images/store/icon_fav_off.png" class="roadFav setStoreFavBtn" data-store="0" data-yn="N" data-name="">
 												<p class="desti_top_dist">
 													<span class="car_find_min"></span>&nbsp;&nbsp;
 													<strong class="car_find_lengtn"></strong> km
