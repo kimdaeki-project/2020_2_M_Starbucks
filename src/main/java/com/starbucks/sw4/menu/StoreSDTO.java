@@ -2,7 +2,8 @@ package com.starbucks.sw4.menu;
 
 public class StoreSDTO {
 
-	private String storeCode, storeName;
+	private String storeCode; 
+	private String storeName;
 
 	public String getStoreCode() {
 		return storeCode;

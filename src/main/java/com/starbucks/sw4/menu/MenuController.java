@@ -83,6 +83,26 @@ public class MenuController {
 
 		return mv;
 	}
+
+	@GetMapping("menuCoffee")
+	public ModelAndView getMenuCoffeeList() throws ClassNotFoundException, SQLException {
+		System.out.println("menu coffee access");
+		ModelAndView mv = new ModelAndView();
+
+		List<MenuDTO> menuList = menuService.getMenuList("B");
+		List<OptionDTO> opList = menuService.getOptionList();
+		
+		mv.addObject("menu", "커피");
+		mv.addObject("type", "B");
+
+		mv.addObject("list", menuList);
+		mv.addObject("opList", opList);
+		mv.setViewName("menu/productList");
+		
+		System.out.println(menuList);
+
+		return mv;
+	}
 	
 	@GetMapping("getStore")
 	@ResponseBody

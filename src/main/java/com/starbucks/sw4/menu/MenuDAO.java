@@ -12,7 +12,7 @@ public class MenuDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE = "com.starbucks.sw4.menu.menu.MenuDAO.";
+	private final String NAMESPACE = "com.starbucks.sw4.menu.MenuDAO.";
 	
 	public List<MenuDTO> getMenuList(String type) throws SQLException, ClassNotFoundException{
 		return sqlSession.selectList(NAMESPACE+"getMenuList", type);
