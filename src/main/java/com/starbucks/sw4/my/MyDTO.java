@@ -25,6 +25,7 @@ public class MyDTO extends MemberDTO{
 	private String state;
 	private Date saveDate;
 	private Date validDate;
+	private long addStar;
 	
 	//images
 	private String menuimage;
@@ -48,6 +49,12 @@ public class MyDTO extends MemberDTO{
 	
 	
 	
+	public long getAddStar() {
+		return addStar;
+	}
+	public void setAddStar(long addStar) {
+		this.addStar = addStar;
+	}
 	public long getTotalPrice() {
 		return totalPrice;
 	}

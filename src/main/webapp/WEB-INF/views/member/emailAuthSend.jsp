@@ -74,14 +74,17 @@
 				$.post("./memberEmailCheck", {email:email}, function(data) {
 					data = data.trim();
 					console.log(data);
-					var result = "이미 가입된 회원의 이메일입니다. 로그인 후 이용이 가능합니다.";
 					if(data > 0) {
-						alert(result);
+						alert("이미 가입된 회원의 이메일입니다. 로그인 후 이용이 가능합니다.");
 						location.href="./memberLogin";
 					} else {
+
 						result = "이메일이 발송되었습니다. 인증번호를 확인 후 입력해주세요.";
 						alert(result);
-						location.href="./emailAuth";
+
+						alert("이메일이 발송되었습니다. 인증번호를 확인 후 입력해주세요.");
+
+						//location.href="./emailAuth";
 					}
 				});
 			}
