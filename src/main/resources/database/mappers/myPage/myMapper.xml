@@ -44,9 +44,17 @@
     		select storeName, addr, storecode from store where storeName =#{storeName}
     	</select>
     	
-    	<delete id="setMyInfoOut" parameterType="MyDTO">
+    	<delete id="setMyInfoOut" parameterType="MemberDTO">
     		delete from member where id=#{id}
     	</delete>
+    	<delete id="deleteMyPay" parameterType="MemberDTO">
+    		DELETE FROM pay WHERE buyer_tel IN (#{phone})
+    	</delete>
+    	<delete id="deleteMyOrder" parameterType="MemberDTO">
+    		DELETE FROM menuorder WHERE membernum IN (#{num})
+    	</delete>
+    	
+    	
     
     	<select id="getMyIndex" resultType="MyDTO" parameterType="MemberDTO">
 			select S.useStar, S.id, M.nickName, M.grade, C.menuimage, C.balance, C.korname

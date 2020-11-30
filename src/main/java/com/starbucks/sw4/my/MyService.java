@@ -51,9 +51,15 @@ public class MyService {
 	}
 	
 	//회원 탈퇴 error
-	public int setMyInfoOut(MyDTO myDTO) throws Exception{
+	public int setMyInfoOut(MemberDTO myDTO) throws Exception{
+		//pay테이블 다 지우기 : 순서 중요!
+		myDAO.deleteMyPay(myDTO);
+		System.out.println("삭제 service pay");
+		//order테이블 다 지우기
+		myDAO.deleteMyOrder(myDTO);
+		System.out.println("삭제 service order");
 		return myDAO.setMyInfoOut(myDTO);
-	}
+	} 
 	
 	//고객의 소리
 	public int setVocList(MyDTO myDTO)throws Exception{

@@ -47,15 +47,23 @@ public class MyController {
 //	}
 	
 	@PostMapping("myInfoOut")
-	public void setMyInfoOut(MyDTO myDTO,HttpSession session) throws Exception {
+	public ModelAndView setMyInfoOut(MemberDTO myDTO,HttpSession session) throws Exception {
 		ModelAndView mv = new ModelAndView();
+		 myDTO = (MemberDTO) session.getAttribute("member");
+		System.out.println("2:"+myDTO.getPhone());
+		System.out.println("2:"+myDTO.getNum());
+		System.out.println("pw:"+myDTO.getPw());
+		
 		int result = myService.setMyInfoOut(myDTO);
 		if(result>0) {
 		session.invalidate();
 		}
 		
 		//자동로그아웃되게 처리하고, 메인페이지로 이동시키기..
-		
+		mv.addObject("msg",result);
+		mv.setViewName("common/ajaxResult");
+	
+		return mv;
 	}
 	
 	//회원 탈퇴
@@ -63,7 +71,7 @@ public class MyController {
 	public ModelAndView setMyInfoOut(HttpSession session) throws Exception {
 		//id를 jsp로 보내서 꺼내주기
 		ModelAndView mv = new ModelAndView();
-		MyDTO myDTO = (MyDTO) session.getAttribute("my");
+		MemberDTO myDTO = (MemberDTO) session.getAttribute("member");
 		MyDTO info = myService.getOne(myDTO);
 				
 		mv.addObject("myInfo", info);
