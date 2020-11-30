@@ -43,6 +43,8 @@ public class MenuController {
 		
 		mv.addObject("categoryList", categoryList);
 		mv.addObject("list", menuList);
+		//mv.setViewName("menu/productList");
+		//하늘 테스트
 		mv.setViewName("menu/tmp_productList");
 		
 		return mv;
@@ -66,6 +68,8 @@ public class MenuController {
 
 		mv.addObject("categoryList", categoryList);
 		mv.addObject("list", menuList);
+		//mv.setViewName("menu/productList");
+		//하늘 테스트
 		mv.setViewName("menu/tmp_productList");
 
 		System.out.println(menuList);
@@ -91,6 +95,8 @@ public class MenuController {
 
 		mv.addObject("categoryList", categoryList);
 		mv.addObject("list", menuList);
+		//mv.setViewName("menu/productList");
+		//하늘 테스트
 		mv.setViewName("menu/tmp_productList");
 		
 		System.out.println(menuList);
