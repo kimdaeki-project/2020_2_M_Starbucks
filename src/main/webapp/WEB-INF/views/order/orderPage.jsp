@@ -546,8 +546,6 @@
 						          }
 						          
 						      }).done(function (data) {
-						    	 alert(status)
-						    	 alert(rsp.status)
 							        // 가맹점 서버 결제 API 성공시 로직
 						            switch(status) {
 						            	case "vbankIssued":
