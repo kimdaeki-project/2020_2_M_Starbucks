@@ -50,7 +50,7 @@ public class MyService {
 		return myDAO.getMyStore(myDTO);
 	}
 	
-	//회원 탈퇴
+	//회원 탈퇴 error
 	public int setMyInfoOut(MyDTO myDTO) throws Exception{
 		return myDAO.setMyInfoOut(myDTO);
 	}
@@ -182,8 +182,5 @@ public class MyService {
 		}
 	
 
-
-	
-	
 
 }

@@ -147,7 +147,6 @@
 	 		
             <!--my 별 히스토리 페이징-->
             <div class="tbl_paging">
-                1
             </div>
             <!-- 페이징 end-->
         </div>
