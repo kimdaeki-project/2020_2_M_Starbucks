@@ -13,6 +13,19 @@ $("#search-frm").attr("action",path);
 $("#search-btn").click(function(){
 	var search = $("#search").val();
 	var curPage = 1;
+	searchEvent(search, curPage);
+
+})
+
+$("#search-btn").keyup(function(e){
+	var search = $("#search").val();
+	var curPage = 1;
+	if (e.keycode == 13){
+		searchEvent(search, curPage);
+	}
+})
+
+function searchEvent(search, curPage){
 	$.ajax({
 		url:path,
 		type:"GET",
@@ -25,4 +38,4 @@ $("#search-btn").click(function(){
 			console.log("검색 성공");
 		}
 	})
-})
+}
