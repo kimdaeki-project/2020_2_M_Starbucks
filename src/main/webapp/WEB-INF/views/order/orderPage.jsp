@@ -63,7 +63,7 @@
 				color: #006633;
 			}
 			#btn-area{
-				padding: 0px 25rem;
+				padding: 0px 22rem;
 			}
 			.pay-btn{
 				width: 10rem;

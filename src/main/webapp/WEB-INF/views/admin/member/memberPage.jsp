@@ -131,7 +131,7 @@
 			}
 			#work-store-txt{
 				font-size: 0.8rem;
-				width: 7rem;
+				width: 6rem;
 				border: none;
 			}
 			.staff-info-row{
@@ -526,7 +526,9 @@
 									var url = "./memberUpdate";
 									
 									$("#pop-update-btn").text("수정");
-									$(".work-time").attr("readonly",false)
+									$("#store-search").css("visibility","visible");
+									$("#store-search").css("width","visible");
+									$(".work-time").attr("readonly",false);
 									
 								} else if(update_btn_chk == "수정"){
 										

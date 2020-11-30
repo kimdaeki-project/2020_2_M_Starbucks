@@ -1,4 +1,4 @@
-$(document).ready(function(){
+		$(document).ready(function(){
 			//숫자만 입력 가능하도록
 			$("input[name=authKey]").keyup(function(e){
 				var val = $(this).val();
