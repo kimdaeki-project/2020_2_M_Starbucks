@@ -71,7 +71,8 @@ public class PayContoller {
 		System.out.println(payDTO.getPg());
 		System.out.println(payDTO.getPay_amount());
 		System.out.println(payDTO.getAmount());
-		System.out.println(payDTO.getPay_method());
+		System.out.println("pay method " + payDTO.getPay_method());
+		System.out.println("pay status " + payDTO.getPay_status());
 		
 		int result = payService.setInsertPay(payDTO);
 		

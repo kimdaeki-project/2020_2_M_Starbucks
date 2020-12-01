@@ -15,7 +15,6 @@ public class OrderDAO {
 	private final String NAMESPACE = "com.starbucks.sw4.order.OrderDAO.";
 	
 	public long setOrderInsert(OrderDTO orderDTO) throws ClassNotFoundException, SQLException{
-		System.out.println("access order insert DAO");
 		sqlSession.insert(NAMESPACE + "setOrderInsert", orderDTO);
 		System.out.println(orderDTO.getOrderNum());
 		long result = orderDTO.getOrderNum();
