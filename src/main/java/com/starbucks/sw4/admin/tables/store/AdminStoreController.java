@@ -27,10 +27,15 @@ public class AdminStoreController {
 	}
 
 	@GetMapping("storeList")
-	public ModelAndView getList(AdminStoreDTO dto, StoreDTO sDTO) throws ClassNotFoundException, SQLException{
+	public ModelAndView getList(AdminStoreDTO dto) throws ClassNotFoundException, SQLException{
 		
 		System.out.println("store list access");
-		System.out.println(dto.getSidoName());
+		System.out.println("sido name " + dto.getSidoName());
+		System.out.println("search " + dto.getSearch());
+		
+		if(dto.getSearch() == null) {
+			dto.setSearch("");
+		}
 		
 		ModelAndView mv = new ModelAndView();
 		List<StoreDTO> list = adminStoreService.getList(dto);

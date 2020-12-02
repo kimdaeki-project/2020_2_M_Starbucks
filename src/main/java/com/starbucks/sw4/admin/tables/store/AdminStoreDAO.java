@@ -19,7 +19,8 @@ public class AdminStoreDAO {
 	private final String NAMESPACE = "com.starbucks.sw4.admin.tables.store.AdminStoreDAO.";
 	
 	public List<StoreDTO> getList(AdminStoreDTO dto) throws SQLException, ClassNotFoundException{
-		System.out.println("admin store service access");
+		System.out.println("admin store DAO access");
+		System.out.println("admin store dao: " + dto.getSidoName() + " , " + dto.getSearch());
 		return sqlSession.selectList(NAMESPACE+"getList", dto);
 	}
 	
