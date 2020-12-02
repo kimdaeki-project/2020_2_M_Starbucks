@@ -107,9 +107,8 @@
   			 	type:"POST",
   			 	data:{id:id, pw:pw},
   			 	success:function(data){
-  			 		alert(data);
-  			 //		alert("탈퇴 완료되었습니다");
-  			 //		location.href="../";
+  			 		alert("탈퇴 완료되었습니다");
+  			 		location.href="../";
   			 		
   			 	}
   			 })

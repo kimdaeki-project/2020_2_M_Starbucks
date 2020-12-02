@@ -54,7 +54,7 @@ public class MyController {
 		System.out.println("2:"+myDTO.getNum());
 		System.out.println("pw:"+myDTO.getPw());
 		
-		int result = myService.setMyInfoOut(myDTO);
+		int result =  myService.setMyInfoOut(myDTO);
 		if(result>0) {
 		session.invalidate();
 		}
