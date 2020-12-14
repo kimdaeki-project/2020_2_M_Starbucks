@@ -49,10 +49,15 @@ public class MyDAO {
 		return sqlSession.selectList(NAMESPACE+"getMyStore",myDTO);
 	}
 	//회원 탈퇴
-	public int setMyInfoOut(MyDTO myDTO) throws Exception{
+	public int setMyInfoOut(MemberDTO myDTO) throws Exception{
 		return sqlSession.delete(NAMESPACE+"setMyInfoOut", myDTO);
 	}
-	
+	public int deleteMyPay(MemberDTO memberDTO) throws Exception{
+		return sqlSession.delete(NAMESPACE+"deleteMyPay", memberDTO);
+	}
+	public int deleteMyOrder(MemberDTO memberDTO) throws Exception{
+		return sqlSession.delete(NAMESPACE+"deleteMyOrder", memberDTO);
+	}
 	//매장찾기
 	public MyDTO getStore(MyDTO myDTO) throws Exception {
 		

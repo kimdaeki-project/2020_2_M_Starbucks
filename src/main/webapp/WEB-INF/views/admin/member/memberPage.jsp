@@ -397,11 +397,6 @@
 									
 									getStoreList(sidoTxt,storeSearchTxt);
 									
-									function storeSearchTxt(sidoTxt){
-										storeSearchTxt = $("#search-store-txt").val();
-										getSidoList(sidoTxt, storeSearchTxt);
-									}
-									
 									function getSidoList(sidoTxt, search){
 										getStoreList(sidoTxt,search)
 									}
